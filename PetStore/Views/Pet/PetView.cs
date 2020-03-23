@@ -182,5 +182,28 @@ namespace PetStore.Views.PetView
                 }
             }
         }
+
+        private void PetView_Load(object sender, EventArgs e)
+        {
+            PetModel pm = new PetModel();
+            p_idTextEdit.Text = pm.SetPetID();
+            p_statusTextEdit.SelectedItem = "Active";
+        }
+
+        private void p_idTextEdit_Click(object sender, EventArgs e)
+        {
+            PetModel pm = new PetModel();
+            p_idTextEdit.Text = pm.SetPetID();
+            p_statusTextEdit.SelectedItem = "Active";
+        }
+
+        private void p_nameTextEdit_Leave(object sender, EventArgs e)
+        {
+            if (p_nameTextEdit.Text == "")
+            {
+                XtraMessageBox.Show("Pet name can not be empty!!", "Pet Shop",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

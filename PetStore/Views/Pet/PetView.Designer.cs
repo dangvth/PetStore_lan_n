@@ -195,6 +195,7 @@
             this.p_idTextEdit.Size = new System.Drawing.Size(1084, 22);
             this.p_idTextEdit.StyleController = this.dataLayoutControl1;
             this.p_idTextEdit.TabIndex = 4;
+            this.p_idTextEdit.Click += new System.EventHandler(this.p_idTextEdit_Click);
             // 
             // petViewBindingSource
             // 
@@ -334,6 +335,7 @@
             this.p_nameTextEdit.Size = new System.Drawing.Size(1084, 22);
             this.p_nameTextEdit.StyleController = this.dataLayoutControl1;
             this.p_nameTextEdit.TabIndex = 5;
+            this.p_nameTextEdit.Leave += new System.EventHandler(this.p_nameTextEdit_Leave);
             // 
             // p_pricesTextEdit
             // 
@@ -1099,6 +1101,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PetView";
             this.Size = new System.Drawing.Size(1195, 945);
+            this.Load += new System.EventHandler(this.PetView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.p_idTextEdit.Properties)).EndInit();
