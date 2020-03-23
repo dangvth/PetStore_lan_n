@@ -1,0 +1,737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15511BB0-6243-44A5-BB79-65590847D1AE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PetStore</RootNamespace>
+    <AssemblyName>PetStore</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PetStore.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.BonusSkins.v19.1" />
+    <Reference Include="DevExpress.Charts.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v19.1" />
+    <Reference Include="DevExpress.Dialogs.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Map.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v19.1.DataModel, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v19.1.DataModel.EF6, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v19.1.ViewModel, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.1.Export, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.1" />
+    <Reference Include="DevExpress.Sparkline.v19.1.Core" />
+    <Reference Include="DevExpress.Utils.v19.1.UI, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDialogs.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.1" />
+    <Reference Include="DevExpress.Printing.v19.1.Core" />
+    <Reference Include="DevExpress.XtraGauges.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.1.Extensions, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bill.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BillDetail.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BillReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BillReport.Designer.cs">
+      <DependentUpon>BillReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comment.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentDetail.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentDetailStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommentDetailStaff.Designer.cs">
+      <DependentUpon>CommentDetailStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommentStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommentStaff.Designer.cs">
+      <DependentUpon>CommentStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CollectionViewModel.cs" />
+    <Compile Include="Common\EntitiesViewModel.cs" />
+    <Compile Include="Common\ReadOnlyCollectionViewModel.cs" />
+    <Compile Include="Common\SingleObjectViewModel.cs" />
+    <Compile Include="DetailMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailMedicine.Designer.cs">
+      <DependentUpon>DetailMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailPetFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailPetFoodForm.Designer.cs">
+      <DependentUpon>DetailPetFoodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailPetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailPetForm.Designer.cs">
+      <DependentUpon>DetailPetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMedicine.Designer.cs">
+      <DependentUpon>EditMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditPetFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPetFood.Designer.cs">
+      <DependentUpon>EditPetFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enter Quantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enter Quantity.Designer.cs">
+      <DependentUpon>Enter Quantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AccountModel.cs" />
+    <Compile Include="Model\CommentDetailModel.cs" />
+    <Compile Include="Model\CommentModel.cs" />
+    <Compile Include="Model\PetMedicineModel.cs" />
+    <Compile Include="Model\PetFoodModel.cs" />
+    <Compile Include="Model\PetModel.cs" />
+    <Compile Include="MyUtil\Encrypt.cs" />
+    <Compile Include="Object\Account.cs" />
+    <Compile Include="Object\Comment.cs" />
+    <Compile Include="Object\CommentDetail.cs" />
+    <Compile Include="Object\Food.cs" />
+    <Compile Include="Object\Medicine.cs" />
+    <Compile Include="Object\Pet.cs" />
+    <Compile Include="Object\Role.cs" />
+    <Compile Include="Object\Type.cs" />
+    <Compile Include="PetFoodStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PetFoodStaff.Designer.cs">
+      <DependentUpon>PetFoodStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RibbonForm1.Designer.cs">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectProduct.Designer.cs">
+      <DependentUpon>SelectProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sell.Designer.cs">
+      <DependentUpon>Sell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Administrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Administrator.Designer.cs">
+      <DependentUpon>Administrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gift.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Origin.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pet.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PetAccessory.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PetFood.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PetMedicine.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreEntitiesDataModel\IPetStoreEntitiesUnitOfWork.cs" />
+    <Compile Include="PetStoreEntitiesDataModel\PetStoreEntitiesUnitOfWork.cs" />
+    <Compile Include="PetStoreEntitiesDataModel\UnitOfWorkSource.cs" />
+    <Compile Include="PetStoreModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PetToy.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff.Designer.cs">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Type.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>PetStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Account\AccountCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Account\AccountViewModel.cs" />
+    <Compile Include="ViewModels\BillDetail\BillDetailCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Bill\BillCollectionViewModel.cs" />
+    <Compile Include="ViewModels\CommentDetail\CommentDetailCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Comment\CommentCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Gift\GiftCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Gift\GiftViewModel.cs" />
+    <Compile Include="ViewModels\Origin\OriginCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Origin\OriginViewModel.cs" />
+    <Compile Include="ViewModels\PetAccessory\PetAccessoryCollectionViewModel.cs" />
+    <Compile Include="ViewModels\PetAccessory\PetAccessoryViewModel.cs" />
+    <Compile Include="ViewModels\PetFood\PetFoodCollectionViewModel.cs" />
+    <Compile Include="ViewModels\PetFood\PetFoodViewModel.cs" />
+    <Compile Include="ViewModels\PetMedicine\PetMedicineCollectionViewModel.cs" />
+    <Compile Include="ViewModels\PetMedicine\PetMedicineViewModel.cs" />
+    <Compile Include="ViewModels\PetStoreEntitiesViewModel.cs" />
+    <Compile Include="ViewModels\PetToy\PetToyCollectionViewModel.cs" />
+    <Compile Include="ViewModels\PetToy\PetToyViewModel.cs" />
+    <Compile Include="ViewModels\Pet\PetCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Pet\PetViewModel.cs" />
+    <Compile Include="ViewModels\Role\RoleCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Role\RoleViewModel.cs" />
+    <Compile Include="ViewModels\Type\TypeCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Type\TypeViewModel.cs" />
+    <Compile Include="ViewModels\User\UserCollectionViewModel.cs" />
+    <Compile Include="ViewModels\User\UserViewModel.cs" />
+    <Compile Include="Views\Account\AccountCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Account\AccountCollectionView.designer.cs">
+      <DependentUpon>AccountCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\AccountView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Account\AccountView.designer.cs">
+      <DependentUpon>AccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BillDetail\BillDetailCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\BillDetail\BillDetailCollectionView.designer.cs">
+      <DependentUpon>BillDetailCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bill\BillCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Bill\BillCollectionView.designer.cs">
+      <DependentUpon>BillCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommentDetail\CommentDetailCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommentDetail\CommentDetailCollectionView.designer.cs">
+      <DependentUpon>CommentDetailCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Comment\CommentCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Comment\CommentCollectionView.designer.cs">
+      <DependentUpon>CommentCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gift\GiftCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Gift\GiftCollectionView.designer.cs">
+      <DependentUpon>GiftCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gift\GiftView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Gift\GiftView.designer.cs">
+      <DependentUpon>GiftView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Origin\OriginCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Origin\OriginCollectionView.designer.cs">
+      <DependentUpon>OriginCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Origin\OriginView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Origin\OriginView.designer.cs">
+      <DependentUpon>OriginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PetAccessory\PetAccessoryCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PetAccessory\PetAccessoryCollectionView.designer.cs">
+      <DependentUpon>PetAccessoryCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PetAccessory\PetAccessoryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PetAccessory\PetAccessoryView.designer.cs">
+      <DependentUpon>PetAccessoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PetFood\PetFoodCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PetFood\PetFoodCollectionView.designer.cs">
+      <DependentUpon>PetFoodCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PetFood\PetFoodView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PetFood\PetFoodView.designer.cs">
+      <DependentUpon>PetFoodView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PetMedicine\PetMedicineCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PetMedicine\PetMedicineCollectionView.designer.cs">
+      <DependentUpon>PetMedicineCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PetMedicine\PetMedicineView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PetMedicine\PetMedicineView.designer.cs">
+      <DependentUpon>PetMedicineView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PetStoreEntitiesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PetStoreEntitiesView.designer.cs">
+      <DependentUpon>PetStoreEntitiesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PetToy\PetToyCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PetToy\PetToyCollectionView.designer.cs">
+      <DependentUpon>PetToyCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PetToy\PetToyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PetToy\PetToyView.designer.cs">
+      <DependentUpon>PetToyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pet\PetCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Pet\PetCollectionView.designer.cs">
+      <DependentUpon>PetCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pet\PetView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Pet\PetView.designer.cs">
+      <DependentUpon>PetView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Role\RoleCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Role\RoleCollectionView.designer.cs">
+      <DependentUpon>RoleCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Role\RoleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Role\RoleView.designer.cs">
+      <DependentUpon>RoleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Type\TypeCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Type\TypeCollectionView.designer.cs">
+      <DependentUpon>TypeCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Type\TypeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Type\TypeView.designer.cs">
+      <DependentUpon>TypeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\UserCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\User\UserCollectionView.designer.cs">
+      <DependentUpon>UserCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\UserView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\User\UserView.designer.cs">
+      <DependentUpon>UserView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BillReport.resx">
+      <DependentUpon>BillReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommentDetailStaff.resx">
+      <DependentUpon>CommentDetailStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommentStaff.resx">
+      <DependentUpon>CommentStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailMedicine.resx">
+      <DependentUpon>DetailMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailPetFoodForm.resx">
+      <DependentUpon>DetailPetFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailPetForm.resx">
+      <DependentUpon>DetailPetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMedicine.resx">
+      <DependentUpon>EditMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPetFood.resx">
+      <DependentUpon>EditPetFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enter Quantity.resx">
+      <DependentUpon>Enter Quantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PetFoodStaff.resx">
+      <DependentUpon>PetFoodStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonForm1.resx">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectProduct.resx">
+      <DependentUpon>SelectProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sell.resx">
+      <DependentUpon>Sell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Administrator.resx">
+      <DependentUpon>Administrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Staff.resx">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\AccountCollectionView.resx">
+      <DependentUpon>AccountCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\AccountView.resx">
+      <DependentUpon>AccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommentDetail\CommentDetailCollectionView.resx">
+      <DependentUpon>CommentDetailCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Comment\CommentCollectionView.resx">
+      <DependentUpon>CommentCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Gift\GiftCollectionView.resx">
+      <DependentUpon>GiftCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Gift\GiftView.resx">
+      <DependentUpon>GiftView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Origin\OriginCollectionView.resx">
+      <DependentUpon>OriginCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Origin\OriginView.resx">
+      <DependentUpon>OriginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PetAccessory\PetAccessoryCollectionView.resx">
+      <DependentUpon>PetAccessoryCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PetAccessory\PetAccessoryView.resx">
+      <DependentUpon>PetAccessoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PetFood\PetFoodCollectionView.resx">
+      <DependentUpon>PetFoodCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PetFood\PetFoodView.resx">
+      <DependentUpon>PetFoodView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PetMedicine\PetMedicineCollectionView.resx">
+      <DependentUpon>PetMedicineCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PetMedicine\PetMedicineView.resx">
+      <DependentUpon>PetMedicineView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PetStoreEntitiesView.resx">
+      <DependentUpon>PetStoreEntitiesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PetToy\PetToyCollectionView.resx">
+      <DependentUpon>PetToyCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PetToy\PetToyView.resx">
+      <DependentUpon>PetToyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pet\PetCollectionView.resx">
+      <DependentUpon>PetCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pet\PetView.resx">
+      <DependentUpon>PetView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Role\RoleCollectionView.resx">
+      <DependentUpon>RoleCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Role\RoleView.resx">
+      <DependentUpon>RoleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Type\TypeCollectionView.resx">
+      <DependentUpon>TypeCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Type\TypeView.resx">
+      <DependentUpon>TypeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\UserCollectionView.resx">
+      <DependentUpon>UserCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\UserView.resx">
+      <DependentUpon>UserView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <EntityDeploy Include="PetStoreModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PetStoreModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="PetStoreDataSet.xsc">
+      <DependentUpon>PetStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet.xss">
+      <DependentUpon>PetStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet1.xsc">
+      <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet1.xss">
+      <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreModel.edmx.diagram">
+      <DependentUpon>PetStoreModel.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\PetStore.Views.CommentCollectionView.CommentCollectionView.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floppy_disk_save-512.png" />
+    <None Include="Resources\tải xuống %288%29.jpg" />
+    <None Include="Resources\tải xuống %287%29.jpg" />
+    <None Include="img\error-image.png" />
+    <Content Include="img\PET001.jpg" />
+    <Content Include="PetStoreModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PetStoreModel.Context.cs</LastGenOutput>
+      <DependentUpon>PetStoreModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="PetStoreModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PetStoreModel.edmx</DependentUpon>
+      <LastGenOutput>PetStoreModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

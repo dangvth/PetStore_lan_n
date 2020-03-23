@@ -1,0 +1,1384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PetStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ac_id" />
+          </Key>
+          <Property Name="ac_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ac_userName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ac_pwd" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="ac_status" Type="nvarchar" MaxLength="15" />
+          <Property Name="r_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="b_id" />
+          </Key>
+          <Property Name="b_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="b_purchaseDate" Type="datetime" />
+          <Property Name="b_status" Type="nvarchar" MaxLength="15" />
+          <Property Name="u_id" Type="int" />
+          <Property Name="g_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="b_address" Type="nvarchar" MaxLength="150" />
+          <Property Name="b_total" Type="int" />
+        </EntityType>
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="bd_id" />
+          </Key>
+          <Property Name="bd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="b_id" Type="int" />
+          <Property Name="p_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="pt_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="pf_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="pa_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="pm_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="u_id" Type="int" />
+          <Property Name="pt_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="pf_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="pa_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="pm_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="cmt_id" />
+          </Key>
+          <Property Name="cmt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmt_content" Type="ntext" />
+          <Property Name="cmt_published" Type="datetime" />
+          <Property Name="cmt_status" Type="nvarchar" MaxLength="15" />
+          <Property Name="p_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="u_id" Type="int" />
+        </EntityType>
+        <EntityType Name="CommentDetail">
+          <Key>
+            <PropertyRef Name="cmtd_id" />
+          </Key>
+          <Property Name="cmt_id" Type="int" />
+          <Property Name="cmtd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmtd_content" Type="ntext" />
+          <Property Name="cmtd_published" Type="datetime" />
+          <Property Name="cmtd_status" Type="nvarchar" MaxLength="15" />
+          <Property Name="u_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Gift">
+          <Key>
+            <PropertyRef Name="g_id" />
+          </Key>
+          <Property Name="g_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="g_name" Type="nvarchar" MaxLength="150" />
+          <Property Name="g_image" Type="nvarchar" MaxLength="250" />
+          <Property Name="g_status" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Origin">
+          <Key>
+            <PropertyRef Name="org_id" />
+          </Key>
+          <Property Name="org_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="org_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="org_status" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Pet">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="p_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="p_prices" Type="int" Nullable="false" />
+          <Property Name="p_salePrice" Type="int" Nullable="false" />
+          <Property Name="p_image" Type="nvarchar" MaxLength="250" />
+          <Property Name="p_description" Type="nvarchar" MaxLength="500" />
+          <Property Name="p_published" Type="datetime" />
+          <Property Name="p_status" Type="nvarchar" MaxLength="15" />
+          <Property Name="t_id" Type="int" />
+        </EntityType>
+        <EntityType Name="PetAccessories">
+          <Key>
+            <PropertyRef Name="pa_id" />
+          </Key>
+          <Property Name="pa_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pa_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="pa_prices" Type="int" Nullable="false" />
+          <Property Name="pa_salePrice" Type="int" Nullable="false" />
+          <Property Name="pa_material" Type="nvarchar" MaxLength="100" />
+          <Property Name="pa_amount" Type="int" />
+          <Property Name="pa_published" Type="datetime" />
+          <Property Name="pa_status" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="PetFood">
+          <Key>
+            <PropertyRef Name="pf_id" />
+          </Key>
+          <Property Name="pf_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pf_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="pf_image" Type="nvarchar" MaxLength="250" />
+          <Property Name="pf_prices" Type="int" />
+          <Property Name="pf_salePrice" Type="int" />
+          <Property Name="pf_amount" Type="int" />
+          <Property Name="pf_status" Type="nvarchar" MaxLength="15" />
+          <Property Name="t_id" Type="int" />
+        </EntityType>
+        <EntityType Name="PetMedicine">
+          <Key>
+            <PropertyRef Name="pm_id" />
+          </Key>
+          <Property Name="pm_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pm_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="pm_image" Type="nvarchar" MaxLength="250" />
+          <Property Name="pm_prices" Type="int" />
+          <Property Name="pm_salePrice" Type="int" />
+          <Property Name="pm_amount" Type="int" />
+          <Property Name="pm_description" Type="nvarchar" MaxLength="500" />
+          <Property Name="pm_status" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="PetToys">
+          <Key>
+            <PropertyRef Name="pt_id" />
+          </Key>
+          <Property Name="pt_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pt_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="pt_image" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="pt_prices" Type="int" />
+          <Property Name="pt_salePrice" Type="int" />
+          <Property Name="pt_amount" Type="int" />
+          <Property Name="pt_description" Type="nvarchar" MaxLength="500" />
+          <Property Name="pt_published" Type="datetime" />
+          <Property Name="pt_status" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="int" Nullable="false" />
+          <Property Name="r_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="r_status" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="t_id" />
+          </Key>
+          <Property Name="t_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="t_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="t_status" Type="nvarchar" MaxLength="15" />
+          <Property Name="org_id" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="u_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="u_gender" Type="varchar" MaxLength="15" />
+          <Property Name="u_email" Type="nvarchar" MaxLength="250" />
+          <Property Name="u_phone" Type="varchar" MaxLength="15" />
+          <Property Name="u_address" Type="nvarchar" MaxLength="200" />
+          <Property Name="u_status" Type="nvarchar" MaxLength="15" />
+          <Property Name="ac_id" Type="int" />
+        </EntityType>
+        <Association Name="FK__Account__r_id__5441852A">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="r_id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="r_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bill__g_id__5535A963">
+          <End Role="Gift" Type="Self.Gift" Multiplicity="0..1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gift">
+              <PropertyRef Name="g_id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="g_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bill__u_id__5629CD9C">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetai__pa_id__571DF1D5">
+          <End Role="PetAccessories" Type="Self.PetAccessories" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetAccessories">
+              <PropertyRef Name="pa_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="pa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetai__pf_id__5812160E">
+          <End Role="PetFood" Type="Self.PetFood" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetFood">
+              <PropertyRef Name="pf_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="pf_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetai__pm_id__59063A47">
+          <End Role="PetMedicine" Type="Self.PetMedicine" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetMedicine">
+              <PropertyRef Name="pm_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="pm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetai__pt_id__59FA5E80">
+          <End Role="PetToys" Type="Self.PetToys" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetToys">
+              <PropertyRef Name="pt_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="pt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetail__b_id__5AEE82B9">
+          <End Role="Bill" Type="Self.Bill" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="b_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="b_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetail__p_id__5BE2A6F2">
+          <End Role="Pet" Type="Self.Pet" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__pa_id__5CD6CB2B">
+          <End Role="PetAccessories" Type="Self.PetAccessories" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetAccessories">
+              <PropertyRef Name="pa_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="pa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__pf_id__5DCAEF64">
+          <End Role="PetFood" Type="Self.PetFood" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetFood">
+              <PropertyRef Name="pf_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="pf_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__pm_id__5EBF139D">
+          <End Role="PetMedicine" Type="Self.PetMedicine" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetMedicine">
+              <PropertyRef Name="pm_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="pm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__pt_id__5FB337D6">
+          <End Role="PetToys" Type="Self.PetToys" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetToys">
+              <PropertyRef Name="pt_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="pt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__u_id__60A75C0F">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__p_id__619B8048">
+          <End Role="Pet" Type="Self.Pet" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__u_id__628FA481">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CommentDe__cmt_i__6383C8BA">
+          <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+          <End Role="CommentDetail" Type="Self.CommentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="cmt_id" />
+            </Principal>
+            <Dependent Role="CommentDetail">
+              <PropertyRef Name="cmt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CommentDet__u_id__6477ECF3">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="CommentDetail" Type="Self.CommentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="CommentDetail">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pet__t_id__656C112C">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="t_id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="t_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PetFood__t_id__66603565">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <End Role="PetFood" Type="Self.PetFood" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="t_id" />
+            </Principal>
+            <Dependent Role="PetFood">
+              <PropertyRef Name="t_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Type__org_id__6754599E">
+          <End Role="Origin" Type="Self.Origin" Multiplicity="0..1" />
+          <End Role="Type" Type="Self.Type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Origin">
+              <PropertyRef Name="org_id" />
+            </Principal>
+            <Dependent Role="Type">
+              <PropertyRef Name="org_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__ac_id__68487DD7">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ac_id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="ac_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PetStoreModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillDetail" EntityType="Self.BillDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommentDetail" EntityType="Self.CommentDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gift" EntityType="Self.Gift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Origin" EntityType="Self.Origin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pet" EntityType="Self.Pet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PetAccessories" EntityType="Self.PetAccessories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PetFood" EntityType="Self.PetFood" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PetMedicine" EntityType="Self.PetMedicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PetToys" EntityType="Self.PetToys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Account__r_id__5441852A" Association="Self.FK__Account__r_id__5441852A">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__g_id__5535A963" Association="Self.FK__Bill__g_id__5535A963">
+            <End Role="Gift" EntitySet="Gift" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__u_id__5629CD9C" Association="Self.FK__Bill__u_id__5629CD9C">
+            <End Role="User" EntitySet="User" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__pa_id__571DF1D5" Association="Self.FK__BillDetai__pa_id__571DF1D5">
+            <End Role="PetAccessories" EntitySet="PetAccessories" />
+            <End Role="BillDetail" EntitySet="BillDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__pf_id__5812160E" Association="Self.FK__BillDetai__pf_id__5812160E">
+            <End Role="PetFood" EntitySet="PetFood" />
+            <End Role="BillDetail" EntitySet="BillDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__pm_id__59063A47" Association="Self.FK__BillDetai__pm_id__59063A47">
+            <End Role="PetMedicine" EntitySet="PetMedicine" />
+            <End Role="BillDetail" EntitySet="BillDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__pt_id__59FA5E80" Association="Self.FK__BillDetai__pt_id__59FA5E80">
+            <End Role="PetToys" EntitySet="PetToys" />
+            <End Role="BillDetail" EntitySet="BillDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetail__b_id__5AEE82B9" Association="Self.FK__BillDetail__b_id__5AEE82B9">
+            <End Role="Bill" EntitySet="Bill" />
+            <End Role="BillDetail" EntitySet="BillDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetail__p_id__5BE2A6F2" Association="Self.FK__BillDetail__p_id__5BE2A6F2">
+            <End Role="Pet" EntitySet="Pet" />
+            <End Role="BillDetail" EntitySet="BillDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__pa_id__5CD6CB2B" Association="Self.FK__Cart__pa_id__5CD6CB2B">
+            <End Role="PetAccessories" EntitySet="PetAccessories" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__pf_id__5DCAEF64" Association="Self.FK__Cart__pf_id__5DCAEF64">
+            <End Role="PetFood" EntitySet="PetFood" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__pm_id__5EBF139D" Association="Self.FK__Cart__pm_id__5EBF139D">
+            <End Role="PetMedicine" EntitySet="PetMedicine" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__pt_id__5FB337D6" Association="Self.FK__Cart__pt_id__5FB337D6">
+            <End Role="PetToys" EntitySet="PetToys" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__u_id__60A75C0F" Association="Self.FK__Cart__u_id__60A75C0F">
+            <End Role="User" EntitySet="User" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__p_id__619B8048" Association="Self.FK__Comment__p_id__619B8048">
+            <End Role="Pet" EntitySet="Pet" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__u_id__628FA481" Association="Self.FK__Comment__u_id__628FA481">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CommentDe__cmt_i__6383C8BA" Association="Self.FK__CommentDe__cmt_i__6383C8BA">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="CommentDetail" EntitySet="CommentDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CommentDet__u_id__6477ECF3" Association="Self.FK__CommentDet__u_id__6477ECF3">
+            <End Role="User" EntitySet="User" />
+            <End Role="CommentDetail" EntitySet="CommentDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pet__t_id__656C112C" Association="Self.FK__Pet__t_id__656C112C">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PetFood__t_id__66603565" Association="Self.FK__PetFood__t_id__66603565">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="PetFood" EntitySet="PetFood" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Type__org_id__6754599E" Association="Self.FK__Type__org_id__6754599E">
+            <End Role="Origin" EntitySet="Origin" />
+            <End Role="Type" EntitySet="Type" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__ac_id__68487DD7" Association="Self.FK__User__ac_id__68487DD7">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PetStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ac_id" />
+          </Key>
+          <Property Name="ac_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ac_userName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ac_pwd" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ac_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="r_id" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Account__r_id__571DF1D5" FromRole="Account" ToRole="Role" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__User__ac_id__5812160E" FromRole="Account" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="b_id" />
+          </Key>
+          <Property Name="b_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="b_purchaseDate" Type="DateTime" Precision="3" />
+          <Property Name="b_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="u_id" Type="Int32" />
+          <Property Name="g_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="b_address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="b_total" Type="Int32" />
+          <NavigationProperty Name="Gift" Relationship="Self.FK__Bill__g_id__5DCAEF64" FromRole="Bill" ToRole="Gift" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Bill__u_id__5CD6CB2B" FromRole="Bill" ToRole="User" />
+          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetail__b_id__5EBF139D" FromRole="Bill" ToRole="BillDetail" />
+        </EntityType>
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="bd_id" />
+          </Key>
+          <Property Name="bd_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="b_id" Type="Int32" />
+          <Property Name="p_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pt_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pf_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pa_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pm_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bill" Relationship="Self.FK__BillDetail__b_id__5EBF139D" FromRole="BillDetail" ToRole="Bill" />
+          <NavigationProperty Name="PetAccessory" Relationship="Self.FK__BillDetai__pa_id__628FA481" FromRole="BillDetail" ToRole="PetAccessories" />
+          <NavigationProperty Name="PetFood" Relationship="Self.FK__BillDetai__pf_id__619B8048" FromRole="BillDetail" ToRole="PetFood" />
+          <NavigationProperty Name="PetMedicine" Relationship="Self.FK__BillDetai__pm_id__6383C8BA" FromRole="BillDetail" ToRole="PetMedicine" />
+          <NavigationProperty Name="PetToy" Relationship="Self.FK__BillDetai__pt_id__60A75C0F" FromRole="BillDetail" ToRole="PetToys" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__BillDetail__p_id__5FB337D6" FromRole="BillDetail" ToRole="Pet" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="Int32" />
+          <Property Name="pt_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pf_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pa_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pm_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PetAccessory" Relationship="Self.FK__Cart__pa_id__6754599E" FromRole="Cart" ToRole="PetAccessories" />
+          <NavigationProperty Name="PetFood" Relationship="Self.FK__Cart__pf_id__66603565" FromRole="Cart" ToRole="PetFood" />
+          <NavigationProperty Name="PetMedicine" Relationship="Self.FK__Cart__pm_id__68487DD7" FromRole="Cart" ToRole="PetMedicine" />
+          <NavigationProperty Name="PetToy" Relationship="Self.FK__Cart__pt_id__656C112C" FromRole="Cart" ToRole="PetToys" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Cart__u_id__6477ECF3" FromRole="Cart" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="cmt_id" />
+          </Key>
+          <Property Name="cmt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmt_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cmt_published" Type="DateTime" Precision="3" />
+          <Property Name="cmt_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="p_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="u_id" Type="Int32" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__Comment__p_id__59063A47" FromRole="Comment" ToRole="Pet" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Comment__u_id__59FA5E80" FromRole="Comment" ToRole="User" />
+          <NavigationProperty Name="CommentDetails" Relationship="Self.FK__CommentDe__cmt_i__5AEE82B9" FromRole="Comment" ToRole="CommentDetail" />
+        </EntityType>
+        <EntityType Name="CommentDetail">
+          <Key>
+            <PropertyRef Name="cmtd_id" />
+          </Key>
+          <Property Name="cmt_id" Type="Int32" />
+          <Property Name="cmtd_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmtd_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cmtd_published" Type="DateTime" Precision="3" />
+          <Property Name="cmtd_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="u_id" Type="Int32" />
+          <NavigationProperty Name="Comment" Relationship="Self.FK__CommentDe__cmt_i__5AEE82B9" FromRole="CommentDetail" ToRole="Comment" />
+          <NavigationProperty Name="User" Relationship="Self.FK__CommentDet__u_id__5BE2A6F2" FromRole="CommentDetail" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Gift">
+          <Key>
+            <PropertyRef Name="g_id" />
+          </Key>
+          <Property Name="g_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="g_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="g_image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="g_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__g_id__5DCAEF64" FromRole="Gift" ToRole="Bill" />
+        </EntityType>
+        <EntityType Name="Origin">
+          <Key>
+            <PropertyRef Name="org_id" />
+          </Key>
+          <Property Name="org_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="org_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="org_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Types" Relationship="Self.FK__Type__org_id__5629CD9C" FromRole="Origin" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="Pet">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="p_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="p_prices" Type="Int32" Nullable="false" />
+          <Property Name="p_salePrice" Type="Int32" Nullable="false" />
+          <Property Name="p_image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="p_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="p_published" Type="DateTime" Precision="3" />
+          <Property Name="p_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="t_id" Type="Int32" />
+          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetail__p_id__5FB337D6" FromRole="Pet" ToRole="BillDetail" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comment__p_id__59063A47" FromRole="Pet" ToRole="Comment" />
+          <NavigationProperty Name="Type" Relationship="Self.FK__Pet__t_id__5441852A" FromRole="Pet" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="PetAccessory">
+          <Key>
+            <PropertyRef Name="pa_id" />
+          </Key>
+          <Property Name="pa_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pa_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pa_prices" Type="Int32" Nullable="false" />
+          <Property Name="pa_salePrice" Type="Int32" Nullable="false" />
+          <Property Name="pa_material" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pa_amount" Type="Int32" />
+          <Property Name="pa_published" Type="DateTime" Precision="3" />
+          <Property Name="pa_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetai__pa_id__628FA481" FromRole="PetAccessories" ToRole="BillDetail" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__pa_id__6754599E" FromRole="PetAccessories" ToRole="Cart" />
+        </EntityType>
+        <EntityType Name="PetFood">
+          <Key>
+            <PropertyRef Name="pf_id" />
+          </Key>
+          <Property Name="pf_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pf_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pf_image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pf_prices" Type="Int32" />
+          <Property Name="pf_salePrice" Type="Int32" />
+          <Property Name="pf_amount" Type="Int32" />
+          <Property Name="pf_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="t_id" Type="Int32" />
+          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetai__pf_id__619B8048" FromRole="PetFood" ToRole="BillDetail" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__pf_id__66603565" FromRole="PetFood" ToRole="Cart" />
+          <NavigationProperty Name="Type" Relationship="Self.FK__PetFood__t_id__5535A963" FromRole="PetFood" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="PetMedicine">
+          <Key>
+            <PropertyRef Name="pm_id" />
+          </Key>
+          <Property Name="pm_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pm_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pm_image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pm_prices" Type="Int32" />
+          <Property Name="pm_salePrice" Type="Int32" />
+          <Property Name="pm_amount" Type="Int32" />
+          <Property Name="pm_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="pm_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetai__pm_id__6383C8BA" FromRole="PetMedicine" ToRole="BillDetail" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__pm_id__68487DD7" FromRole="PetMedicine" ToRole="Cart" />
+        </EntityType>
+        <EntityType Name="PetToy">
+          <Key>
+            <PropertyRef Name="pt_id" />
+          </Key>
+          <Property Name="pt_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pt_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pt_image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pt_prices" Type="Int32" />
+          <Property Name="pt_salePrice" Type="Int32" />
+          <Property Name="pt_amount" Type="Int32" />
+          <Property Name="pt_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="pt_published" Type="DateTime" Precision="3" />
+          <Property Name="pt_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetai__pt_id__60A75C0F" FromRole="PetToys" ToRole="BillDetail" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__pt_id__656C112C" FromRole="PetToys" ToRole="Cart" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="Int32" Nullable="false" />
+          <Property Name="r_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="r_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__r_id__571DF1D5" FromRole="Role" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="t_id" />
+          </Key>
+          <Property Name="t_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="t_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="t_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="org_id" Type="Int32" />
+          <NavigationProperty Name="Origin" Relationship="Self.FK__Type__org_id__5629CD9C" FromRole="Type" ToRole="Origin" />
+          <NavigationProperty Name="Pets" Relationship="Self.FK__Pet__t_id__5441852A" FromRole="Type" ToRole="Pet" />
+          <NavigationProperty Name="PetFoods" Relationship="Self.FK__PetFood__t_id__5535A963" FromRole="Type" ToRole="PetFood" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="u_gender" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="u_email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="u_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="u_address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="u_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ac_id" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__User__ac_id__5812160E" FromRole="User" ToRole="Account" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__u_id__5CD6CB2B" FromRole="User" ToRole="Bill" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__u_id__6477ECF3" FromRole="User" ToRole="Cart" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comment__u_id__59FA5E80" FromRole="User" ToRole="Comment" />
+          <NavigationProperty Name="CommentDetails" Relationship="Self.FK__CommentDet__u_id__5BE2A6F2" FromRole="User" ToRole="CommentDetail" />
+        </EntityType>
+        <Association Name="FK__Account__r_id__571DF1D5">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="r_id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="r_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__ac_id__5812160E">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ac_id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="ac_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bill__g_id__5DCAEF64">
+          <End Role="Gift" Type="Self.Gift" Multiplicity="0..1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gift">
+              <PropertyRef Name="g_id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="g_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bill__u_id__5CD6CB2B">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetail__b_id__5EBF139D">
+          <End Role="Bill" Type="Self.Bill" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="b_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="b_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetai__pa_id__628FA481">
+          <End Role="PetAccessories" Type="Self.PetAccessory" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetAccessories">
+              <PropertyRef Name="pa_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="pa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetai__pf_id__619B8048">
+          <End Role="PetFood" Type="Self.PetFood" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetFood">
+              <PropertyRef Name="pf_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="pf_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetai__pm_id__6383C8BA">
+          <End Role="PetMedicine" Type="Self.PetMedicine" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetMedicine">
+              <PropertyRef Name="pm_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="pm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetai__pt_id__60A75C0F">
+          <End Role="PetToys" Type="Self.PetToy" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetToys">
+              <PropertyRef Name="pt_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="pt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillDetail__p_id__5FB337D6">
+          <End Role="Pet" Type="Self.Pet" Multiplicity="0..1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__pa_id__6754599E">
+          <End Role="PetAccessories" Type="Self.PetAccessory" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetAccessories">
+              <PropertyRef Name="pa_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="pa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__pf_id__66603565">
+          <End Role="PetFood" Type="Self.PetFood" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetFood">
+              <PropertyRef Name="pf_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="pf_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__pm_id__68487DD7">
+          <End Role="PetMedicine" Type="Self.PetMedicine" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetMedicine">
+              <PropertyRef Name="pm_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="pm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__pt_id__656C112C">
+          <End Role="PetToys" Type="Self.PetToy" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PetToys">
+              <PropertyRef Name="pt_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="pt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__u_id__6477ECF3">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__p_id__59063A47">
+          <End Role="Pet" Type="Self.Pet" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__u_id__59FA5E80">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CommentDe__cmt_i__5AEE82B9">
+          <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+          <End Role="CommentDetail" Type="Self.CommentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="cmt_id" />
+            </Principal>
+            <Dependent Role="CommentDetail">
+              <PropertyRef Name="cmt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CommentDet__u_id__5BE2A6F2">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="CommentDetail" Type="Self.CommentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="CommentDetail">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Type__org_id__5629CD9C">
+          <End Role="Origin" Type="Self.Origin" Multiplicity="0..1" />
+          <End Role="Type" Type="Self.Type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Origin">
+              <PropertyRef Name="org_id" />
+            </Principal>
+            <Dependent Role="Type">
+              <PropertyRef Name="org_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pet__t_id__5441852A">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="t_id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="t_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PetFood__t_id__5535A963">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <End Role="PetFood" Type="Self.PetFood" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="t_id" />
+            </Principal>
+            <Dependent Role="PetFood">
+              <PropertyRef Name="t_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PetStoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Bills" EntityType="Self.Bill" />
+          <EntitySet Name="BillDetails" EntityType="Self.BillDetail" />
+          <EntitySet Name="Carts" EntityType="Self.Cart" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="CommentDetails" EntityType="Self.CommentDetail" />
+          <EntitySet Name="Gifts" EntityType="Self.Gift" />
+          <EntitySet Name="Origins" EntityType="Self.Origin" />
+          <EntitySet Name="Pets" EntityType="Self.Pet" />
+          <EntitySet Name="PetAccessories" EntityType="Self.PetAccessory" />
+          <EntitySet Name="PetFoods" EntityType="Self.PetFood" />
+          <EntitySet Name="PetMedicines" EntityType="Self.PetMedicine" />
+          <EntitySet Name="PetToys" EntityType="Self.PetToy" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Types" EntityType="Self.Type" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Account__r_id__571DF1D5" Association="Self.FK__Account__r_id__571DF1D5">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__ac_id__5812160E" Association="Self.FK__User__ac_id__5812160E">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__g_id__5DCAEF64" Association="Self.FK__Bill__g_id__5DCAEF64">
+            <End Role="Gift" EntitySet="Gifts" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__u_id__5CD6CB2B" Association="Self.FK__Bill__u_id__5CD6CB2B">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetail__b_id__5EBF139D" Association="Self.FK__BillDetail__b_id__5EBF139D">
+            <End Role="Bill" EntitySet="Bills" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__pa_id__628FA481" Association="Self.FK__BillDetai__pa_id__628FA481">
+            <End Role="PetAccessories" EntitySet="PetAccessories" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__pf_id__619B8048" Association="Self.FK__BillDetai__pf_id__619B8048">
+            <End Role="PetFood" EntitySet="PetFoods" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__pm_id__6383C8BA" Association="Self.FK__BillDetai__pm_id__6383C8BA">
+            <End Role="PetMedicine" EntitySet="PetMedicines" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__pt_id__60A75C0F" Association="Self.FK__BillDetai__pt_id__60A75C0F">
+            <End Role="PetToys" EntitySet="PetToys" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetail__p_id__5FB337D6" Association="Self.FK__BillDetail__p_id__5FB337D6">
+            <End Role="Pet" EntitySet="Pets" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__pa_id__6754599E" Association="Self.FK__Cart__pa_id__6754599E">
+            <End Role="PetAccessories" EntitySet="PetAccessories" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__pf_id__66603565" Association="Self.FK__Cart__pf_id__66603565">
+            <End Role="PetFood" EntitySet="PetFoods" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__pm_id__68487DD7" Association="Self.FK__Cart__pm_id__68487DD7">
+            <End Role="PetMedicine" EntitySet="PetMedicines" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__pt_id__656C112C" Association="Self.FK__Cart__pt_id__656C112C">
+            <End Role="PetToys" EntitySet="PetToys" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__u_id__6477ECF3" Association="Self.FK__Cart__u_id__6477ECF3">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__p_id__59063A47" Association="Self.FK__Comment__p_id__59063A47">
+            <End Role="Pet" EntitySet="Pets" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__u_id__59FA5E80" Association="Self.FK__Comment__u_id__59FA5E80">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CommentDe__cmt_i__5AEE82B9" Association="Self.FK__CommentDe__cmt_i__5AEE82B9">
+            <End Role="Comment" EntitySet="Comments" />
+            <End Role="CommentDetail" EntitySet="CommentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CommentDet__u_id__5BE2A6F2" Association="Self.FK__CommentDet__u_id__5BE2A6F2">
+            <End Role="User" EntitySet="Users" />
+            <End Role="CommentDetail" EntitySet="CommentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Type__org_id__5629CD9C" Association="Self.FK__Type__org_id__5629CD9C">
+            <End Role="Origin" EntitySet="Origins" />
+            <End Role="Type" EntitySet="Types" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pet__t_id__5441852A" Association="Self.FK__Pet__t_id__5441852A">
+            <End Role="Type" EntitySet="Types" />
+            <End Role="Pet" EntitySet="Pets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PetFood__t_id__5535A963" Association="Self.FK__PetFood__t_id__5535A963">
+            <End Role="Type" EntitySet="Types" />
+            <End Role="PetFood" EntitySet="PetFoods" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PetStoreModelStoreContainer" CdmEntityContainer="PetStoreEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="PetStoreModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="ac_id" ColumnName="ac_id" />
+                <ScalarProperty Name="ac_userName" ColumnName="ac_userName" />
+                <ScalarProperty Name="ac_pwd" ColumnName="ac_pwd" />
+                <ScalarProperty Name="ac_status" ColumnName="ac_status" />
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="PetStoreModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="b_id" ColumnName="b_id" />
+                <ScalarProperty Name="b_purchaseDate" ColumnName="b_purchaseDate" />
+                <ScalarProperty Name="b_status" ColumnName="b_status" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="g_id" ColumnName="g_id" />
+                <ScalarProperty Name="b_address" ColumnName="b_address" />
+                <ScalarProperty Name="b_total" ColumnName="b_total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillDetails">
+            <EntityTypeMapping TypeName="PetStoreModel.BillDetail">
+              <MappingFragment StoreEntitySet="BillDetail">
+                <ScalarProperty Name="bd_id" ColumnName="bd_id" />
+                <ScalarProperty Name="b_id" ColumnName="b_id" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="pf_id" ColumnName="pf_id" />
+                <ScalarProperty Name="pa_id" ColumnName="pa_id" />
+                <ScalarProperty Name="pm_id" ColumnName="pm_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="PetStoreModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="pf_id" ColumnName="pf_id" />
+                <ScalarProperty Name="pa_id" ColumnName="pa_id" />
+                <ScalarProperty Name="pm_id" ColumnName="pm_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="PetStoreModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="cmt_id" ColumnName="cmt_id" />
+                <ScalarProperty Name="cmt_content" ColumnName="cmt_content" />
+                <ScalarProperty Name="cmt_published" ColumnName="cmt_published" />
+                <ScalarProperty Name="cmt_status" ColumnName="cmt_status" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommentDetails">
+            <EntityTypeMapping TypeName="PetStoreModel.CommentDetail">
+              <MappingFragment StoreEntitySet="CommentDetail">
+                <ScalarProperty Name="cmt_id" ColumnName="cmt_id" />
+                <ScalarProperty Name="cmtd_id" ColumnName="cmtd_id" />
+                <ScalarProperty Name="cmtd_content" ColumnName="cmtd_content" />
+                <ScalarProperty Name="cmtd_published" ColumnName="cmtd_published" />
+                <ScalarProperty Name="cmtd_status" ColumnName="cmtd_status" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gifts">
+            <EntityTypeMapping TypeName="PetStoreModel.Gift">
+              <MappingFragment StoreEntitySet="Gift">
+                <ScalarProperty Name="g_id" ColumnName="g_id" />
+                <ScalarProperty Name="g_name" ColumnName="g_name" />
+                <ScalarProperty Name="g_image" ColumnName="g_image" />
+                <ScalarProperty Name="g_status" ColumnName="g_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Origins">
+            <EntityTypeMapping TypeName="PetStoreModel.Origin">
+              <MappingFragment StoreEntitySet="Origin">
+                <ScalarProperty Name="org_id" ColumnName="org_id" />
+                <ScalarProperty Name="org_name" ColumnName="org_name" />
+                <ScalarProperty Name="org_status" ColumnName="org_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pets">
+            <EntityTypeMapping TypeName="PetStoreModel.Pet">
+              <MappingFragment StoreEntitySet="Pet">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="p_prices" ColumnName="p_prices" />
+                <ScalarProperty Name="p_salePrice" ColumnName="p_salePrice" />
+                <ScalarProperty Name="p_image" ColumnName="p_image" />
+                <ScalarProperty Name="p_description" ColumnName="p_description" />
+                <ScalarProperty Name="p_published" ColumnName="p_published" />
+                <ScalarProperty Name="p_status" ColumnName="p_status" />
+                <ScalarProperty Name="t_id" ColumnName="t_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PetAccessories">
+            <EntityTypeMapping TypeName="PetStoreModel.PetAccessory">
+              <MappingFragment StoreEntitySet="PetAccessories">
+                <ScalarProperty Name="pa_id" ColumnName="pa_id" />
+                <ScalarProperty Name="pa_name" ColumnName="pa_name" />
+                <ScalarProperty Name="pa_prices" ColumnName="pa_prices" />
+                <ScalarProperty Name="pa_salePrice" ColumnName="pa_salePrice" />
+                <ScalarProperty Name="pa_material" ColumnName="pa_material" />
+                <ScalarProperty Name="pa_amount" ColumnName="pa_amount" />
+                <ScalarProperty Name="pa_published" ColumnName="pa_published" />
+                <ScalarProperty Name="pa_status" ColumnName="pa_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PetFoods">
+            <EntityTypeMapping TypeName="PetStoreModel.PetFood">
+              <MappingFragment StoreEntitySet="PetFood">
+                <ScalarProperty Name="pf_id" ColumnName="pf_id" />
+                <ScalarProperty Name="pf_name" ColumnName="pf_name" />
+                <ScalarProperty Name="pf_image" ColumnName="pf_image" />
+                <ScalarProperty Name="pf_prices" ColumnName="pf_prices" />
+                <ScalarProperty Name="pf_salePrice" ColumnName="pf_salePrice" />
+                <ScalarProperty Name="pf_amount" ColumnName="pf_amount" />
+                <ScalarProperty Name="pf_status" ColumnName="pf_status" />
+                <ScalarProperty Name="t_id" ColumnName="t_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PetMedicines">
+            <EntityTypeMapping TypeName="PetStoreModel.PetMedicine">
+              <MappingFragment StoreEntitySet="PetMedicine">
+                <ScalarProperty Name="pm_id" ColumnName="pm_id" />
+                <ScalarProperty Name="pm_name" ColumnName="pm_name" />
+                <ScalarProperty Name="pm_image" ColumnName="pm_image" />
+                <ScalarProperty Name="pm_prices" ColumnName="pm_prices" />
+                <ScalarProperty Name="pm_salePrice" ColumnName="pm_salePrice" />
+                <ScalarProperty Name="pm_amount" ColumnName="pm_amount" />
+                <ScalarProperty Name="pm_description" ColumnName="pm_description" />
+                <ScalarProperty Name="pm_status" ColumnName="pm_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PetToys">
+            <EntityTypeMapping TypeName="PetStoreModel.PetToy">
+              <MappingFragment StoreEntitySet="PetToys">
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="pt_name" ColumnName="pt_name" />
+                <ScalarProperty Name="pt_image" ColumnName="pt_image" />
+                <ScalarProperty Name="pt_prices" ColumnName="pt_prices" />
+                <ScalarProperty Name="pt_salePrice" ColumnName="pt_salePrice" />
+                <ScalarProperty Name="pt_amount" ColumnName="pt_amount" />
+                <ScalarProperty Name="pt_description" ColumnName="pt_description" />
+                <ScalarProperty Name="pt_published" ColumnName="pt_published" />
+                <ScalarProperty Name="pt_status" ColumnName="pt_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="PetStoreModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+                <ScalarProperty Name="r_name" ColumnName="r_name" />
+                <ScalarProperty Name="r_status" ColumnName="r_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Types">
+            <EntityTypeMapping TypeName="PetStoreModel.Type">
+              <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="t_id" ColumnName="t_id" />
+                <ScalarProperty Name="t_name" ColumnName="t_name" />
+                <ScalarProperty Name="t_status" ColumnName="t_status" />
+                <ScalarProperty Name="org_id" ColumnName="org_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="PetStoreModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="u_name" ColumnName="u_name" />
+                <ScalarProperty Name="u_gender" ColumnName="u_gender" />
+                <ScalarProperty Name="u_email" ColumnName="u_email" />
+                <ScalarProperty Name="u_phone" ColumnName="u_phone" />
+                <ScalarProperty Name="u_address" ColumnName="u_address" />
+                <ScalarProperty Name="u_status" ColumnName="u_status" />
+                <ScalarProperty Name="ac_id" ColumnName="ac_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

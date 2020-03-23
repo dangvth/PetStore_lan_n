@@ -1,0 +1,102 @@
+﻿
+@model List<PetStoreWebClient.ModelClass.CartPetFoodItem>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listCP = (List<PetStoreWebClient.ModelClass.CartPetItem>)ViewBag.listCartP;
+    var listCPM = (List<PetStoreWebClient.ModelClass.CartPetMedicineItem>)ViewBag.listCartPM;
+    var listCPT = (List<PetStoreWebClient.ModelClass.CartPetToyItem>)ViewBag.listCartPT;
+    int totalBill = 0;
+}
+
+<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0 | listCP != null | listCPM != null | listCPT != null)
+        {
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Product ID</th>
+                        <th scope="col">Product's name</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price(vnđ)</th>
+                        <th scope="col">Total price(vnđ)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            totalBill += item.Petfood.pf_salePrice.GetValueOrDefault(0) * item.Quantity;
+                            <tr>
+                                <th scope="row">@item.Petfood.pf_id</th>
+                                <td>@item.Petfood.pf_name</td>
+                                <td><img src="~/Assets/images/@item.Petfood.pf_image" width="100" /></td>
+                                <td><input type="text" class="txtQuantity" data-id="@item.Petfood.pf_id" value="@item.Quantity" readonly/></td>
+                                <td>@item.Petfood.pf_salePrice.GetValueOrDefault(0).ToString("N0")</td>
+                                <td>@((item.Petfood.pf_salePrice.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                            </tr>
+                        }
+                    }
+                    @if (listCP != null)
+                    {
+                        foreach (var item in listCP)
+                        {
+                            totalBill += item.pet.p_salePrice * item.Quantity;
+                            <tr>
+                                <th scope="row">@item.pet.p_id</th>
+                                <td>@item.pet.p_name</td>
+                                <td><img src="~/Assets/images/@item.pet.p_image" width="100" /></td>
+                                <td><input type="text" class="txtQuantity" data-id="@item.pet.p_id" value="@item.Quantity" readonly/></td>
+                                <td>@item.pet.p_salePrice.ToString("N0")</td>
+                                <td>@((item.pet.p_salePrice * item.Quantity).ToString("N0"))</td>
+                            </tr>
+                        }
+                    }
+                    @if (listCPM != null)
+                    {
+                        foreach (var item in listCPM)
+                        {
+                            totalBill += (item.petMedicine.pm_salePrice * item.Quantity).Value;
+                            <tr>
+                                <th scope="row">@item.petMedicine.pm_id</th>
+                                <td>@item.petMedicine.pm_name</td>
+                                <td><img src="~/Assets/images/@item.petMedicine.pm_image" width="100" /></td>
+                                <td><input type="text" class="txtQuantity" data-id="@item.petMedicine.pm_id" value="@item.Quantity" readonly/></td>
+                                <td>@item.petMedicine.pm_salePrice.Value.ToString("N0")</td>
+                                <td>@((item.petMedicine.pm_salePrice * item.Quantity).Value.ToString("N0"))</td>
+                            </tr>
+                        }
+                    }
+                    @if (listCPT != null)
+                    {
+                        foreach (var item in listCPT)
+                        {
+                            totalBill += (item.petToy.pt_salePrice * item.Quantity).Value;
+                            <tr>
+                                <th scope="row">@item.petToy.pt_id</th>
+                                <td>@item.petToy.pt_name</td>
+                                <td><img src="~/Assets/images/@item.petToy.pt_image" width="100" /></td>
+                                <td><input type="text" class="txtQuantity" data-id="@item.petToy.pt_id" value="@item.Quantity" readonly/></td>
+                                <td>@item.petToy.pt_salePrice.Value.ToString("N0")</td>
+                                <td>@((item.petToy.pt_salePrice * item.Quantity).Value.ToString("N0"))</td>
+                                <td></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <span class="alert alert-danger" style="font-weight: bold">Total: @(totalBill.ToString("N0"))đ</span>
+        }
+    </div>
+    <br />
+    <div class="section group">
+        <button onclick="location.href='/cart'" class="btn btn-info">Back to cart</button>
+        <button onclick="location.href='/payment-process?totalPay=@totalBill'" class="btn btn-success">Send order</button>
+    </div> 
+</div>
+
+
