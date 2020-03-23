@@ -91,5 +91,15 @@ namespace PetStore.Views.AccountView{
                     MessageBoxIcon.Warning);
             }
         }
+
+        private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            txtAc_pwd.Text = MyUtil.Encrypt.SHA256_Encrypt("user@123");
+        }
+
+        private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            txtAc_pwd.Text = MyUtil.Encrypt.SHA256_Encrypt("user@123");
+        }
     }
 }

@@ -23,6 +23,7 @@
         /// </summary>
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PetView));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.p_idTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.petViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -112,8 +113,9 @@
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.BillDetailsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.CommentsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.opendialog = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.openDialog = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
+            this.timePublished = new System.Windows.Forms.Timer(this.components);
+            this.btnTestEdit = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p_idTextEdit.Properties)).BeginInit();
@@ -193,6 +195,7 @@
             this.p_idTextEdit.Size = new System.Drawing.Size(1084, 22);
             this.p_idTextEdit.StyleController = this.dataLayoutControl1;
             this.p_idTextEdit.TabIndex = 4;
+            this.p_idTextEdit.Click += new System.EventHandler(this.p_idTextEdit_Click);
             // 
             // petViewBindingSource
             // 
@@ -212,10 +215,11 @@
             this.bbiDelete,
             this.bbiClose,
             this.bbiSaveLayout,
-            this.bbiResetLayout});
+            this.bbiResetLayout,
+            this.btnTestEdit});
             this.mainRibbonControl.Location = new System.Drawing.Point(0, 0);
             this.mainRibbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.mainRibbonControl.MaxItemId = 10;
+            this.mainRibbonControl.MaxItemId = 11;
             this.mainRibbonControl.Name = "mainRibbonControl";
             this.mainRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.mainRibbonPage});
@@ -237,6 +241,7 @@
             this.bbiSave.Id = 2;
             this.bbiSave.ImageOptions.ImageUri.Uri = "Save";
             this.bbiSave.Name = "bbiSave";
+            this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
             // 
             // bbiSaveAndClose
             // 
@@ -244,6 +249,7 @@
             this.bbiSaveAndClose.Id = 3;
             this.bbiSaveAndClose.ImageOptions.ImageUri.Uri = "SaveAndClose";
             this.bbiSaveAndClose.Name = "bbiSaveAndClose";
+            this.bbiSaveAndClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSaveAndClose_ItemClick);
             // 
             // bbiSaveAndNew
             // 
@@ -251,6 +257,7 @@
             this.bbiSaveAndNew.Id = 4;
             this.bbiSaveAndNew.ImageOptions.ImageUri.Uri = "SaveAndNew";
             this.bbiSaveAndNew.Name = "bbiSaveAndNew";
+            this.bbiSaveAndNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSaveAndNew_ItemClick);
             // 
             // bbiReset
             // 
@@ -328,6 +335,7 @@
             this.p_nameTextEdit.Size = new System.Drawing.Size(1084, 22);
             this.p_nameTextEdit.StyleController = this.dataLayoutControl1;
             this.p_nameTextEdit.TabIndex = 5;
+            this.p_nameTextEdit.Leave += new System.EventHandler(this.p_nameTextEdit_Leave);
             // 
             // p_pricesTextEdit
             // 
@@ -385,7 +393,6 @@
             this.TypeLookUpEdit.Properties.DataSource = this.TypeBindingSource;
             this.TypeLookUpEdit.Properties.DisplayMember = "t_name";
             this.TypeLookUpEdit.Properties.PopupView = this.TypeLookUpEditView;
-            this.TypeLookUpEdit.Properties.ReadOnly = true;
             this.TypeLookUpEdit.Properties.ValueMember = "t_id";
             this.TypeLookUpEdit.Size = new System.Drawing.Size(1084, 22);
             this.TypeLookUpEdit.StyleController = this.dataLayoutControl1;
@@ -832,6 +839,7 @@
             // 
             // p_statusTextEdit
             // 
+            this.p_statusTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.petViewBindingSource, "p_status", true));
             this.p_statusTextEdit.EditValue = "Active";
             this.p_statusTextEdit.Location = new System.Drawing.Point(99, 194);
             this.p_statusTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -842,13 +850,14 @@
             this.p_statusTextEdit.Properties.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.p_statusTextEdit.Properties.ReadOnly = true;
+            this.p_statusTextEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.p_statusTextEdit.Size = new System.Drawing.Size(1084, 22);
             this.p_statusTextEdit.StyleController = this.dataLayoutControl1;
             this.p_statusTextEdit.TabIndex = 11;
             // 
             // p_imageTextEdit
             // 
+            this.p_imageTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.petViewBindingSource, "p_image", true));
             this.p_imageTextEdit.Location = new System.Drawing.Point(99, 116);
             this.p_imageTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.p_imageTextEdit.MenuManager = this.mainRibbonControl;
@@ -1070,13 +1079,17 @@
             this.CommentsPopUpMenu.Manager = this.CommentsBarManager;
             this.CommentsPopUpMenu.Name = "CommentsPopUpMenu";
             // 
-            // opendialog
+            // timePublished
             // 
-            this.opendialog.FileName = "xtraOpenFileDialog1";
+            this.timePublished.Enabled = true;
             // 
-            // timer1
+            // btnTestEdit
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.btnTestEdit.Caption = "Test Edit";
+            this.btnTestEdit.Id = 10;
+            this.btnTestEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnTestEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnTestEdit.Name = "btnTestEdit";
             // 
             // PetView
             // 
@@ -1088,6 +1101,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PetView";
             this.Size = new System.Drawing.Size(1195, 945);
+            this.Load += new System.EventHandler(this.PetView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.p_idTextEdit.Properties)).EndInit();
@@ -1229,8 +1243,9 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForp_image;
         private DevExpress.XtraLayout.LayoutControlItem ItemForp_status;
         private DevExpress.XtraEditors.ButtonEdit p_imageTextEdit;
-        private DevExpress.XtraEditors.XtraOpenFileDialog opendialog;
-        private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraEditors.XtraOpenFileDialog openDialog;
+        private System.Windows.Forms.Timer timePublished;
         private DevExpress.XtraEditors.TextEdit p_publishedDateEdit;
+        private DevExpress.XtraBars.BarButtonItem btnTestEdit;
     }
 }
