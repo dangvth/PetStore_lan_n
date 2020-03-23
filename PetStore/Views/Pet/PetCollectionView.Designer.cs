@@ -26,7 +26,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PetCollectionView));
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.petCollectionViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewPet = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,6 +48,7 @@
             this.bbiDelete = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRestore = new DevExpress.XtraBars.BarButtonItem();
             this.btnDetail = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTestEdit = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -55,10 +56,9 @@
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.btnTestEdit = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petCollectionViewBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
@@ -73,7 +73,7 @@
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl.Location = new System.Drawing.Point(0, 145);
-            this.gridControl.MainView = this.gridView;
+            this.gridControl.MainView = this.gridViewPet;
             this.gridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl.MenuManager = this.ribbonControl;
             this.gridControl.Name = "gridControl";
@@ -83,16 +83,16 @@
             this.gridControl.Size = new System.Drawing.Size(1195, 800);
             this.gridControl.TabIndex = 2;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView});
+            this.gridViewPet});
             // 
             // petCollectionViewBindingSource
             // 
             this.petCollectionViewBindingSource.DataSource = typeof(PetStore.Pet);
             // 
-            // gridView
+            // gridViewPet
             // 
-            this.gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewPet.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.gridViewPet.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
@@ -104,11 +104,12 @@
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn12});
-            this.gridView.DetailHeight = 431;
-            this.gridView.GridControl = this.gridControl;
-            this.gridView.Name = "gridView";
-            this.gridView.OptionsBehavior.Editable = false;
-            this.gridView.OptionsBehavior.ReadOnly = true;
+            this.gridViewPet.DetailHeight = 431;
+            this.gridViewPet.GridControl = this.gridControl;
+            this.gridViewPet.Name = "gridViewPet";
+            this.gridViewPet.OptionsBehavior.Editable = false;
+            this.gridViewPet.OptionsBehavior.ReadOnly = true;
+            this.gridViewPet.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewPet_RowClick);
             // 
             // gridColumn1
             // 
@@ -269,7 +270,6 @@
             this.bbiNew.Id = 16;
             this.bbiNew.ImageOptions.ImageUri.Uri = "Add";
             this.bbiNew.Name = "bbiNew";
-            this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNew_ItemClick);
             // 
             // bbiEdit
             // 
@@ -306,11 +306,20 @@
             // 
             this.btnDetail.Caption = "Detail";
             this.btnDetail.Id = 22;
-            this.btnDetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnDetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDetail.ImageOptions.Image")));
             this.btnDetail.LargeWidth = 75;
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnDetail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDetail_ItemClick);
+            // 
+            // btnTestEdit
+            // 
+            this.btnTestEdit.Caption = "Test Edit";
+            this.btnTestEdit.Id = 23;
+            this.btnTestEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTestEdit.ImageOptions.Image")));
+            this.btnTestEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTestEdit.ImageOptions.LargeImage")));
+            this.btnTestEdit.Name = "btnTestEdit";
+            this.btnTestEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTestEdit_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -379,15 +388,6 @@
             this.popupMenu.Name = "popupMenu";
             this.popupMenu.Ribbon = this.ribbonControl;
             // 
-            // btnTestEdit
-            // 
-            this.btnTestEdit.Caption = "Test Edit";
-            this.btnTestEdit.Id = 23;
-            this.btnTestEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.btnTestEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.btnTestEdit.Name = "btnTestEdit";
-            this.btnTestEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTestEdit_ItemClick);
-            // 
             // PetCollectionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -400,7 +400,7 @@
             this.Size = new System.Drawing.Size(1195, 945);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petCollectionViewBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
@@ -415,7 +415,7 @@
         #endregion
 
 		private DevExpress.XtraGrid.GridControl gridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewPet;
 		private DevExpress.Utils.MVVM.MVVMContext mvvmContext;
 		private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
 		private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;

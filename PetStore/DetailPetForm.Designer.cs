@@ -42,18 +42,15 @@
             this.rbbPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.txt_Type = new DevExpress.XtraEditors.TextEdit();
-            this.txt_pAmount = new DevExpress.XtraEditors.TextEdit();
             this.txt_pPriceSale = new DevExpress.XtraEditors.TextEdit();
             this.txt_pOriginPrice = new DevExpress.XtraEditors.TextEdit();
             this.txt_pName = new DevExpress.XtraEditors.TextEdit();
             this.txt_pID = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.PFID = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.PFName = new DevExpress.XtraLayout.LayoutControlItem();
             this.PFPrice = new DevExpress.XtraLayout.LayoutControlItem();
             this.PFPriceSale = new DevExpress.XtraLayout.LayoutControlItem();
-            this.PFAmount = new DevExpress.XtraLayout.LayoutControlItem();
             this.PFType = new DevExpress.XtraLayout.LayoutControlItem();
             this.PFStatus = new DevExpress.XtraLayout.LayoutControlItem();
             this.lblDetail = new System.Windows.Forms.Label();
@@ -64,18 +61,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_pStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Type.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_pAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pPriceSale.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pOriginPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFPriceSale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PFAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).BeginInit();
@@ -100,7 +94,6 @@
             // 
             this.lctBox.Controls.Add(this.txt_pStatus);
             this.lctBox.Controls.Add(this.txt_Type);
-            this.lctBox.Controls.Add(this.txt_pAmount);
             this.lctBox.Controls.Add(this.txt_pPriceSale);
             this.lctBox.Controls.Add(this.txt_pOriginPrice);
             this.lctBox.Controls.Add(this.txt_pName);
@@ -114,7 +107,7 @@
             // 
             // txt_pStatus
             // 
-            this.txt_pStatus.Location = new System.Drawing.Point(117, 216);
+            this.txt_pStatus.Location = new System.Drawing.Point(117, 182);
             this.txt_pStatus.MenuManager = this.ribbon;
             this.txt_pStatus.Name = "txt_pStatus";
             this.txt_pStatus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -136,7 +129,7 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(940, 176);
+            this.ribbon.Size = new System.Drawing.Size(978, 176);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnClose
@@ -167,14 +160,14 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 615);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 649);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(940, 34);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(978, 34);
             // 
             // txt_Type
             // 
-            this.txt_Type.Location = new System.Drawing.Point(117, 182);
+            this.txt_Type.Location = new System.Drawing.Point(117, 148);
             this.txt_Type.MenuManager = this.ribbon;
             this.txt_Type.Name = "txt_Type";
             this.txt_Type.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -183,18 +176,6 @@
             this.txt_Type.Size = new System.Drawing.Size(328, 30);
             this.txt_Type.StyleController = this.lctBox;
             this.txt_Type.TabIndex = 9;
-            // 
-            // txt_pAmount
-            // 
-            this.txt_pAmount.Location = new System.Drawing.Point(117, 148);
-            this.txt_pAmount.MenuManager = this.ribbon;
-            this.txt_pAmount.Name = "txt_pAmount";
-            this.txt_pAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txt_pAmount.Properties.Appearance.Options.UseFont = true;
-            this.txt_pAmount.Properties.ReadOnly = true;
-            this.txt_pAmount.Size = new System.Drawing.Size(328, 30);
-            this.txt_pAmount.StyleController = this.lctBox;
-            this.txt_pAmount.TabIndex = 8;
             // 
             // txt_pPriceSale
             // 
@@ -250,11 +231,9 @@
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.PFID,
-            this.emptySpaceItem1,
             this.PFName,
             this.PFPrice,
             this.PFPriceSale,
-            this.PFAmount,
             this.PFType,
             this.PFStatus});
             this.Root.Name = "Root";
@@ -271,14 +250,6 @@
             this.PFID.Size = new System.Drawing.Size(437, 34);
             this.PFID.Text = "ID";
             this.PFID.TextSize = new System.Drawing.Size(102, 24);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 238);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(437, 13);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // PFName
             // 
@@ -313,23 +284,12 @@
             this.PFPriceSale.Text = "Sell price";
             this.PFPriceSale.TextSize = new System.Drawing.Size(102, 24);
             // 
-            // PFAmount
-            // 
-            this.PFAmount.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.PFAmount.AppearanceItemCaption.Options.UseFont = true;
-            this.PFAmount.Control = this.txt_pAmount;
-            this.PFAmount.Location = new System.Drawing.Point(0, 136);
-            this.PFAmount.Name = "PFAmount";
-            this.PFAmount.Size = new System.Drawing.Size(437, 34);
-            this.PFAmount.Text = "Quantity";
-            this.PFAmount.TextSize = new System.Drawing.Size(102, 24);
-            // 
             // PFType
             // 
             this.PFType.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFType.AppearanceItemCaption.Options.UseFont = true;
             this.PFType.Control = this.txt_Type;
-            this.PFType.Location = new System.Drawing.Point(0, 170);
+            this.PFType.Location = new System.Drawing.Point(0, 136);
             this.PFType.Name = "PFType";
             this.PFType.Size = new System.Drawing.Size(437, 34);
             this.PFType.Text = "Type";
@@ -340,9 +300,9 @@
             this.PFStatus.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFStatus.AppearanceItemCaption.Options.UseFont = true;
             this.PFStatus.Control = this.txt_pStatus;
-            this.PFStatus.Location = new System.Drawing.Point(0, 204);
+            this.PFStatus.Location = new System.Drawing.Point(0, 170);
             this.PFStatus.Name = "PFStatus";
-            this.PFStatus.Size = new System.Drawing.Size(437, 34);
+            this.PFStatus.Size = new System.Drawing.Size(437, 81);
             this.PFStatus.Text = "Status";
             this.PFStatus.TextSize = new System.Drawing.Size(102, 24);
             // 
@@ -378,7 +338,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 649);
+            this.ClientSize = new System.Drawing.Size(978, 683);
             this.Controls.Add(this.btnChangeImage);
             this.Controls.Add(this.lctBox);
             this.Controls.Add(this.lblTitle);
@@ -394,18 +354,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_pStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Type.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_pAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pPriceSale.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pOriginPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFPriceSale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PFAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).EndInit();
@@ -425,18 +382,15 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbbPageGroup;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         public DevExpress.XtraEditors.TextEdit txt_Type;
-        public DevExpress.XtraEditors.TextEdit txt_pAmount;
         public DevExpress.XtraEditors.TextEdit txt_pPriceSale;
         public DevExpress.XtraEditors.TextEdit txt_pOriginPrice;
         public DevExpress.XtraEditors.TextEdit txt_pName;
         public DevExpress.XtraEditors.TextEdit txt_pID;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem PFID;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem PFName;
         private DevExpress.XtraLayout.LayoutControlItem PFPrice;
         private DevExpress.XtraLayout.LayoutControlItem PFPriceSale;
-        private DevExpress.XtraLayout.LayoutControlItem PFAmount;
         private DevExpress.XtraLayout.LayoutControlItem PFType;
         private DevExpress.XtraLayout.LayoutControlItem PFStatus;
         public System.Windows.Forms.Label lblDetail;

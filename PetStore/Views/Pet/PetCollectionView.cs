@@ -36,14 +36,14 @@ namespace PetStore.Views.PetCollectionView{
             // We want to show the Entities collection in grid and react on this collection external changes (Reload, server-side Filtering)
             fluentAPI.SetBinding(gridControl, gControl => gControl.DataSource, x => x.Entities);
 			// We want to show loading-indicator when data is loading asynchronously
-            fluentAPI.SetBinding(gridView, gView => gView.LoadingPanelVisible, x => x.IsLoading);
+            fluentAPI.SetBinding(gridViewPet, gView => gView.LoadingPanelVisible, x => x.IsLoading);
 						// We want to proceed the Edit command when row double-clicked
-            fluentAPI.WithEvent<RowClickEventArgs>(gridView, "RowClick").EventToCommand(
+            fluentAPI.WithEvent<RowClickEventArgs>(gridViewPet, "RowClick").EventToCommand(
                     x => x.Edit(null),
 					x => x.SelectedEntity,
                     args => (args.Clicks == 2) && (args.Button == System.Windows.Forms.MouseButtons.Left));
 						// We want to synchronize the ViewModel.SelectedEntity and the GridView.FocusedRowRandle in two-way manner
-            fluentAPI.WithEvent<GridView, FocusedRowObjectChangedEventArgs>(gridView, "FocusedRowObjectChanged")
+            fluentAPI.WithEvent<GridView, FocusedRowObjectChangedEventArgs>(gridViewPet, "FocusedRowObjectChanged")
                 .SetBinding(x => x.SelectedEntity,
                     args => args.Row as PetStore.Pet,
                     (gView, entity) => gView.FocusedRowHandle = gView.FindRow(entity));
@@ -53,22 +53,13 @@ namespace PetStore.Views.PetCollectionView{
 			fluentAPI.SetBinding(bsiRecordsCount, item => item.Caption,	x => x.Entities.Count, 
 					count => string.Format("RECORDS : {0}", count));
 			//We want to show PopupMenu when row clicked by right button
-			gridView.RowClick += (s, e) => {
+			gridViewPet.RowClick += (s, e) => {
                 if(e.Clicks == 1 && e.Button == System.Windows.Forms.MouseButtons.Right) {
                     popupMenu.ShowPopup(gridControl.PointToScreen(e.Location), s);
                 }
             };
         }
         #endregion
-
-        private void bbiNew_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //Automatically generate pet IDs based on the number of pets on the database
-            petID = pm.SetPetID();
-            //Pass Pet ID to PetViews form
-            trans("01");
-            //MessageBox.Show("Hello");
-        }
 
         private void btnTestEdit_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -158,6 +149,11 @@ namespace PetStore.Views.PetCollectionView{
                 XtraMessageBox.Show("Please select a Pet item to restore!!!", "Pet Shop", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
+        }
+
+        private void gridViewPet_RowClick(object sender, RowClickEventArgs e)
+        {
+            petID = gridViewPet.GetFocusedRowCellValue("p_id").ToString();
         }
     }
 }

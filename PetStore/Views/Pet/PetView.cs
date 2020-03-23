@@ -92,9 +92,9 @@ namespace PetStore.Views.PetView
             if (openDialog.FileName != "" && (openDialog.FileName.EndsWith(".jpg") || openDialog.FileName.EndsWith(".png")))
             {
                 p_imageTextEdit.Text = openDialog.FileName;
-                //PetModel pm = new PetModel();
-                //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
-                //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
+                PetModel pm = new PetModel();
+                if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
+                else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
             }
             else
             {
@@ -125,8 +125,8 @@ namespace PetStore.Views.PetView
             if (!string.IsNullOrEmpty(p_imageTextEdit.Text))
             {
                 PetModel pm = new PetModel();
-                if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
-                else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
+                //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
+                //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
                 String newFilePath = Path.GetFullPath(projectPath + "\\img\\" + p_imageTextEdit.Text);
@@ -148,8 +148,8 @@ namespace PetStore.Views.PetView
             if (!string.IsNullOrEmpty(p_imageTextEdit.Text))
             {
                 PetModel pm = new PetModel();
-                if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
-                else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
+                //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
+                //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
                 String newFilePath = Path.GetFullPath(projectPath + "\\img\\" + p_imageTextEdit.Text);
@@ -171,8 +171,8 @@ namespace PetStore.Views.PetView
             if (!string.IsNullOrEmpty(p_imageTextEdit.Text))
             {
                 PetModel pm = new PetModel();
-                if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
-                else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
+                //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
+                //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
                 String newFilePath = Path.GetFullPath(projectPath + "\\img\\" + p_imageTextEdit.Text);
