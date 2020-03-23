@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditPet));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.te_PSalePrice = new DevExpress.XtraEditors.TextEdit();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -58,6 +59,7 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.openDialog = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.te_PSalePrice.Properties)).BeginInit();
@@ -135,9 +137,10 @@
             this.btnSaveEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSaveEdit.ImageOptions.LargeImage")));
             this.btnSaveEdit.LargeWidth = 60;
             this.btnSaveEdit.Name = "btnSaveEdit";
-            toolTipItem1.Text = "Accept change Pet\'s food in selected";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnSaveEdit.SuperTip = superToolTip1;
+            toolTipItem7.Text = "Accept change Pet\'s food in selected";
+            superToolTip7.Items.Add(toolTipItem7);
+            this.btnSaveEdit.SuperTip = superToolTip7;
+            this.btnSaveEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSaveEdit_ItemClick);
             // 
             // btnReset
             // 
@@ -147,6 +150,7 @@
             this.btnReset.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReset.ImageOptions.LargeImage")));
             this.btnReset.LargeWidth = 75;
             this.btnReset.Name = "btnReset";
+            this.btnReset.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReset_ItemClick);
             // 
             // btnCloseEdit
             // 
@@ -156,9 +160,10 @@
             this.btnCloseEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCloseEdit.ImageOptions.LargeImage")));
             this.btnCloseEdit.LargeWidth = 60;
             this.btnCloseEdit.Name = "btnCloseEdit";
-            toolTipItem2.Text = "Close Edit Pet\'s food form";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnCloseEdit.SuperTip = superToolTip2;
+            toolTipItem8.Text = "Close Edit Pet\'s food form";
+            superToolTip8.Items.Add(toolTipItem8);
+            this.btnCloseEdit.SuperTip = superToolTip8;
+            this.btnCloseEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCloseEdit_ItemClick);
             // 
             // Tool
             // 
@@ -247,6 +252,7 @@
             this.te_PImage.Size = new System.Drawing.Size(992, 28);
             this.te_PImage.StyleController = this.layoutControl1;
             this.te_PImage.TabIndex = 6;
+            this.te_PImage.Click += new System.EventHandler(this.te_PImage_Click);
             // 
             // cbx_Type
             // 
@@ -266,6 +272,7 @@
             this.cbx_Type.Size = new System.Drawing.Size(992, 30);
             this.cbx_Type.StyleController = this.layoutControl1;
             this.cbx_Type.TabIndex = 10;
+            this.cbx_Type.EditValueChanged += new System.EventHandler(this.cbx_Type_EditValueChanged);
             // 
             // te_PDescription
             // 
@@ -383,6 +390,7 @@
             this.Controls.Add(this.ribbon);
             this.Name = "EditPet";
             this.Text = "EditPet";
+            this.Load += new System.EventHandler(this.EditPet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.te_PSalePrice.Properties)).EndInit();
@@ -435,5 +443,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraEditors.XtraOpenFileDialog openDialog;
     }
 }
