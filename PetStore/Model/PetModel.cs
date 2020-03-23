@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace PetStore.Model
 {
@@ -14,7 +17,7 @@ namespace PetStore.Model
         PetStoreEntities db = new PetStoreEntities();
         List<PetStore.Pet> pList;
         public PetModel() { }
-        
+
         /// <summary>
         /// get number of Pets on database
         /// </summary>
@@ -23,7 +26,36 @@ namespace PetStore.Model
         {
             //get number of pet on database
             var numOfPet = from p in db.Pets select p;
-            return numOfPet.Count(); 
+            return numOfPet.Count();
+        }
+
+        /// <summary>
+        /// Get Pets by ID
+        /// </summary>
+        /// <param name="pId"></param>
+        /// <returns></returns>
+        public Pet getPet(String pId)
+        {
+            var db = new PetStoreEntities();
+            var Pet = db.Pets.Find(pId);
+            return Pet;
+        }
+
+        public void UpdatePet(string ID, string Name, int OPrice, int SPrice, string image,
+            string description, string status, int tID)
+        {
+            using (var db = new PetStoreEntities())
+            {
+                var Pet = db.Pets.Find(ID);
+                Pet.p_name = Name;
+                Pet.p_prices = OPrice;
+                Pet.p_image = image;
+                Pet.p_salePrice = SPrice;
+                Pet.t_id = tID;
+                Pet.p_status = status;
+                Pet.p_description = description;
+                db.SaveChanges();
+            }
         }
 
         /// <summary>
@@ -56,11 +88,46 @@ namespace PetStore.Model
         {
             int numOfPet = getNumberOfPet();
             string id = "";
-            if (numOfPet < 10)
+            if (numOfPet < 9)
             {
-                id = "PET000" + numOfPet + 1;
+                id = "PET000" + (numOfPet + 1);
+            }
+            else if (numOfPet < 99)
+            {
+                id = "PET00" + (numOfPet + 1);
+            }
+            else if (numOfPet < 999)
+            {
+                id = "PET0" + (numOfPet + 1);
+            }
+            else
+            {
+                id = "PET" + (numOfPet + 1);
             }
             return id;
+        }
+        public Bitmap ResizeImage(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+            return destImage;
         }
     }
 }

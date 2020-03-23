@@ -216,6 +216,7 @@
     <Compile Include="Model\PetMedicineModel.cs" />
     <Compile Include="Model\PetFoodModel.cs" />
     <Compile Include="Model\PetModel.cs" />
+    <Compile Include="Model\TypeModel.cs" />
     <Compile Include="MyUtil\Encrypt.cs" />
     <Compile Include="Object\Account.cs" />
     <Compile Include="Object\Comment.cs" />
