@@ -23,6 +23,7 @@
         /// </summary>
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PetView));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.p_idTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.petViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -114,6 +115,7 @@
             this.CommentsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.opendialog = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnTestEdit = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p_idTextEdit.Properties)).BeginInit();
@@ -212,10 +214,11 @@
             this.bbiDelete,
             this.bbiClose,
             this.bbiSaveLayout,
-            this.bbiResetLayout});
+            this.bbiResetLayout,
+            this.btnTestEdit});
             this.mainRibbonControl.Location = new System.Drawing.Point(0, 0);
             this.mainRibbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.mainRibbonControl.MaxItemId = 10;
+            this.mainRibbonControl.MaxItemId = 11;
             this.mainRibbonControl.Name = "mainRibbonControl";
             this.mainRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.mainRibbonPage});
@@ -305,6 +308,7 @@
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiReset);
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiDelete);
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiClose);
+            this.mainRibbonPageGroup.ItemLinks.Add(this.btnTestEdit);
             this.mainRibbonPageGroup.Name = "mainRibbonPageGroup";
             this.mainRibbonPageGroup.ShowCaptionButton = false;
             this.mainRibbonPageGroup.Text = "Pet Tasks";
@@ -385,7 +389,6 @@
             this.TypeLookUpEdit.Properties.DataSource = this.TypeBindingSource;
             this.TypeLookUpEdit.Properties.DisplayMember = "t_name";
             this.TypeLookUpEdit.Properties.PopupView = this.TypeLookUpEditView;
-            this.TypeLookUpEdit.Properties.ReadOnly = true;
             this.TypeLookUpEdit.Properties.ValueMember = "t_id";
             this.TypeLookUpEdit.Size = new System.Drawing.Size(1084, 22);
             this.TypeLookUpEdit.StyleController = this.dataLayoutControl1;
@@ -832,6 +835,7 @@
             // 
             // p_statusTextEdit
             // 
+            this.p_statusTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.petViewBindingSource, "p_status", true));
             this.p_statusTextEdit.EditValue = "Active";
             this.p_statusTextEdit.Location = new System.Drawing.Point(99, 194);
             this.p_statusTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -842,13 +846,14 @@
             this.p_statusTextEdit.Properties.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.p_statusTextEdit.Properties.ReadOnly = true;
+            this.p_statusTextEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.p_statusTextEdit.Size = new System.Drawing.Size(1084, 22);
             this.p_statusTextEdit.StyleController = this.dataLayoutControl1;
             this.p_statusTextEdit.TabIndex = 11;
             // 
             // p_imageTextEdit
             // 
+            this.p_imageTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.petViewBindingSource, "p_image", true));
             this.p_imageTextEdit.Location = new System.Drawing.Point(99, 116);
             this.p_imageTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.p_imageTextEdit.MenuManager = this.mainRibbonControl;
@@ -1078,6 +1083,14 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnTestEdit
+            // 
+            this.btnTestEdit.Caption = "Test Edit";
+            this.btnTestEdit.Id = 10;
+            this.btnTestEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnTestEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnTestEdit.Name = "btnTestEdit";
+            // 
             // PetView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1232,5 +1245,6 @@
         private DevExpress.XtraEditors.XtraOpenFileDialog opendialog;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.TextEdit p_publishedDateEdit;
+        private DevExpress.XtraBars.BarButtonItem btnTestEdit;
     }
 }
