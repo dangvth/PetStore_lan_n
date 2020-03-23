@@ -57,6 +57,8 @@ namespace PetStore.Views.AccountCollectionView{
         private void btnBan_DeleteAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
             am.Ban_DeleteAccount(RowID);
+            XtraMessageBox.Show("Banned", "Pet Shop", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
         private void gridViewAccount_RowClick(object sender, RowClickEventArgs e)
@@ -68,11 +70,15 @@ namespace PetStore.Views.AccountCollectionView{
         private void bbiRestore_ItemClick(object sender, ItemClickEventArgs e)
         {
             am.RestoreAccount(RowID);
+            XtraMessageBox.Show("Restored", "Pet Shop", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
         private void btnResetPwd_ItemClick(object sender, ItemClickEventArgs e)
         {
             am.ResetPassword(RowID);
+            XtraMessageBox.Show("Reset Password Done!", "Pet Shop", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
     }
 }
