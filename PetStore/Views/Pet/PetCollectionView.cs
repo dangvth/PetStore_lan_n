@@ -7,6 +7,9 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors;
 using DevExpress.Utils.MVVM.Services;
 using DevExpress.XtraBars;
+using PetStore.Model;
+using System.Drawing;
+using System.IO;
 
 namespace PetStore.Views.PetCollectionView{
     public partial class PetCollectionView : XtraUserControl {
@@ -65,6 +68,96 @@ namespace PetStore.Views.PetCollectionView{
             //Pass Pet ID to PetViews form
             trans("01");
             //MessageBox.Show("Hello");
+        }
+
+        private void btnTestEdit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (petID != "")
+            {
+                //EditPetFood epf = new EditPetFood();
+                EditPet edp = new EditPet();
+                var db = new PetStoreEntities();
+                var p = db.Pets.Find(petID);
+                edp.te_PID.Text = p.p_id;
+                edp.te_PName.Text = p.p_name;
+                //edp.te_FoodImage.Text = pf.pf_image;
+                edp.te_POriginPrice.Text = p.p_prices + "";
+                edp.te_PSalePrice.Text = p.p_salePrice + "";
+                edp.te_PStatus.SelectedItem = p.p_status;
+                edp.te_PDescription.Text = p.p_description;
+                edp.ShowDialog();
+            }
+            else
+            {
+                XtraMessageBox.Show("Please choose a food item to restore !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnDetail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (petID != "")
+            {
+                DetailPetForm dtPet = new DetailPetForm();
+                PetModel pm = new PetModel();
+
+                Pet p = pm.getPet(petID);
+
+                dtPet.txt_pID.Text = p.p_id;
+                dtPet.txt_pName.Text = p.p_name;
+                dtPet.txt_pOriginPrice.Text = p.p_prices.ToString();
+                dtPet.txt_pPriceSale.Text = p.p_salePrice.ToString();
+                dtPet.txt_Type.Text = "";
+
+                if (p.p_status == "Active") { dtPet.txt_pStatus.ForeColor = Color.Green; }
+                else { dtPet.txt_pStatus.ForeColor = Color.Red; }
+
+                dtPet.txt_pStatus.Text = p.p_status;
+                dtPet.txt_pOriginPrice.Enabled = true;
+                dtPet.lblTitle.Text = p.p_name;
+
+                String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
+                String pathImage = projectPath + "\\img\\" + p.p_image;
+                Image img = Image.FromFile(pathImage);
+                dtPet.ptbImage.Image = pm.ResizeImage(img, 440, 440);
+
+                dtPet.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please choose a food to view detail !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (petID != null)
+            {
+                PetModel pm = new PetModel();
+                pm.InactivePet(petID);
+                XtraMessageBox.Show("Delete successful!!!", "Pet Shop", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show("Please select a Pet item to delete!!!", "Pet Shop", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bbiRestore_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (petID != null)
+            {
+                PetModel pm = new PetModel();
+                pm.RestorePet(petID);
+                XtraMessageBox.Show("Restore successful!!!", "Pet Shop", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show("Please select a Pet item to restore!!!", "Pet Shop", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
     }
 }

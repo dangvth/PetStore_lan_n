@@ -113,7 +113,7 @@
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.BillDetailsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.CommentsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.opendialog = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
+            this.openDialog = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnTestEdit = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
@@ -240,6 +240,7 @@
             this.bbiSave.Id = 2;
             this.bbiSave.ImageOptions.ImageUri.Uri = "Save";
             this.bbiSave.Name = "bbiSave";
+            this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
             // 
             // bbiSaveAndClose
             // 
@@ -247,6 +248,7 @@
             this.bbiSaveAndClose.Id = 3;
             this.bbiSaveAndClose.ImageOptions.ImageUri.Uri = "SaveAndClose";
             this.bbiSaveAndClose.Name = "bbiSaveAndClose";
+            this.bbiSaveAndClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSaveAndClose_ItemClick);
             // 
             // bbiSaveAndNew
             // 
@@ -254,6 +256,7 @@
             this.bbiSaveAndNew.Id = 4;
             this.bbiSaveAndNew.ImageOptions.ImageUri.Uri = "SaveAndNew";
             this.bbiSaveAndNew.Name = "bbiSaveAndNew";
+            this.bbiSaveAndNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSaveAndNew_ItemClick);
             // 
             // bbiReset
             // 
@@ -308,7 +311,6 @@
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiReset);
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiDelete);
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiClose);
-            this.mainRibbonPageGroup.ItemLinks.Add(this.btnTestEdit);
             this.mainRibbonPageGroup.Name = "mainRibbonPageGroup";
             this.mainRibbonPageGroup.ShowCaptionButton = false;
             this.mainRibbonPageGroup.Text = "Pet Tasks";
@@ -1075,10 +1077,6 @@
             this.CommentsPopUpMenu.Manager = this.CommentsBarManager;
             this.CommentsPopUpMenu.Name = "CommentsPopUpMenu";
             // 
-            // opendialog
-            // 
-            this.opendialog.FileName = "xtraOpenFileDialog1";
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -1242,7 +1240,7 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForp_image;
         private DevExpress.XtraLayout.LayoutControlItem ItemForp_status;
         private DevExpress.XtraEditors.ButtonEdit p_imageTextEdit;
-        private DevExpress.XtraEditors.XtraOpenFileDialog opendialog;
+        private DevExpress.XtraEditors.XtraOpenFileDialog openDialog;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.TextEdit p_publishedDateEdit;
         private DevExpress.XtraBars.BarButtonItem btnTestEdit;
