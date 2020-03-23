@@ -148,6 +148,7 @@
             toolTipItem2.Text = "Close view Pet\'s food detail";
             superToolTip2.Items.Add(toolTipItem2);
             this.btnClose.SuperTip = superToolTip2;
+            this.btnClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnClose_ItemClick);
             // 
             // ribbonPage1
             // 

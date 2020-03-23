@@ -16,5 +16,10 @@ namespace PetStore
         {
             InitializeComponent();
         }
+
+        private void btnClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
