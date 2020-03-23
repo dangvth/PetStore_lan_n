@@ -114,7 +114,7 @@
             this.BillDetailsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.CommentsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.openDialog = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timePublished = new System.Windows.Forms.Timer(this.components);
             this.btnTestEdit = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
@@ -1079,9 +1079,9 @@
             this.CommentsPopUpMenu.Manager = this.CommentsBarManager;
             this.CommentsPopUpMenu.Name = "CommentsPopUpMenu";
             // 
-            // timer1
+            // timePublished
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timePublished.Enabled = true;
             // 
             // btnTestEdit
             // 
@@ -1244,7 +1244,7 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForp_status;
         private DevExpress.XtraEditors.ButtonEdit p_imageTextEdit;
         private DevExpress.XtraEditors.XtraOpenFileDialog openDialog;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timePublished;
         private DevExpress.XtraEditors.TextEdit p_publishedDateEdit;
         private DevExpress.XtraBars.BarButtonItem btnTestEdit;
     }

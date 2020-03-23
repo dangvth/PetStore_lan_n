@@ -28,8 +28,6 @@ namespace PetStore.Views.PetView
             PetCollectionView.PetCollectionView pcv = new PetCollectionView.PetCollectionView();
             //get data has been pass from PetCollectionViews
             pcv.trans = new PetCollectionView.PetCollectionView.delPassData(getID);
-            //Run Timer
-            timer1.Start();
         }
         void InitBindings()
         {
@@ -139,6 +137,8 @@ namespace PetStore.Views.PetView
                     File.Copy(oldPath, newFilePath);
                 }
             }
+            //Set time publish
+            p_publishedDateEdit.Text = DateTime.Now.ToString();        
         }
 
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -160,6 +160,8 @@ namespace PetStore.Views.PetView
                     File.Copy(oldPath, newFilePath);
                 }
             }
+            //Set time publish
+            p_publishedDateEdit.Text = DateTime.Now.ToString();
         }
 
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -181,6 +183,8 @@ namespace PetStore.Views.PetView
                     File.Copy(oldPath, newFilePath);
                 }
             }
+            //Set time publish
+            p_publishedDateEdit.Text = DateTime.Now.ToString();
         }
 
         private void PetView_Load(object sender, EventArgs e)
