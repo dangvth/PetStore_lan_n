@@ -124,7 +124,10 @@ namespace PetStoreWebClient.Controllers
                 var JsonItem = Jsoncart.SingleOrDefault(x => x.Petfood.pf_id == item.productID);
                 if (JsonItem != null)
                 {
-                    item.Quantity = JsonItem.Quantity;
+                    if (JsonItem.Quantity > 0)
+                    {
+                        item.Quantity = JsonItem.Quantity;
+                    } 
                 }
             }
             return Json(new {

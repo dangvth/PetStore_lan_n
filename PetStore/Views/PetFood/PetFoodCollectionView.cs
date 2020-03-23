@@ -126,7 +126,7 @@ namespace PetStore.Views.PetFoodCollectionView{
                 vdf.te_pfStatus.Text = f.pf_status;
                 vdf.te_pfPrice.Enabled = true;
                 vdf.te_pfPrice.Text = f.pf_prices.ToString();
-                vdf.lblTitle.Text = "Pet's Food detail for '" + f.pf_name + "'";
+                vdf.lblTitle.Text = f.pf_name;
 
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
                 String pathImage = projectPath + "\\img\\" + f.pf_image;

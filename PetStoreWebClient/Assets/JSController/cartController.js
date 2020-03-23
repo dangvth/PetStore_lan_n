@@ -33,20 +33,6 @@
                 }
             })
         });
-        //$('.btn-delete').off('click').on('click', function (e) {
-        //    e.prevenDefault();
-        //    $.ajax({
-        //        url: '/cart/Delete',
-        //        data: { id: $(this).data('id') },
-        //        dataType: 'json',
-        //        type: 'POST',
-        //        success: function (res) {
-        //            if (res.status == true) {
-        //                window.location.href = "/cart";
-        //            }
-        //        }
-        //    });
-        //});
     }
 }
 cart.init();
