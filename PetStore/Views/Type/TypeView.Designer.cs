@@ -341,7 +341,6 @@
             this.OriginLookUpEdit.Properties.DataSource = this.OriginBindingSource;
             this.OriginLookUpEdit.Properties.DisplayMember = "org_name";
             this.OriginLookUpEdit.Properties.PopupView = this.OriginLookUpEditView;
-            this.OriginLookUpEdit.Properties.ReadOnly = true;
             this.OriginLookUpEdit.Properties.ValueMember = "org_id";
             this.OriginLookUpEdit.Size = new System.Drawing.Size(1132, 22);
             this.OriginLookUpEdit.StyleController = this.dataLayoutControl1;
@@ -876,7 +875,6 @@
             this.t_statusTextEdit.Properties.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.t_statusTextEdit.Properties.ReadOnly = true;
             this.t_statusTextEdit.Size = new System.Drawing.Size(1132, 22);
             this.t_statusTextEdit.StyleController = this.dataLayoutControl1;
             this.t_statusTextEdit.TabIndex = 6;
