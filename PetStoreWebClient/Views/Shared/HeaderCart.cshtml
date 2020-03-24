@@ -1,5 +1,6 @@
-﻿@{ 
+﻿@{
     var list = (List<PetStoreWebClient.ModelClass.CartItem>)ViewBag.ListItem;
+    
     int sumItem = 0;
     if (list != null)
     {
@@ -8,11 +9,6 @@
 }
 <div class="cart">
     <p>
-        Welcome to our Online Wild Pet Store! <span>Cart:</span><div id="dd" class="wrapper-dropdown-2">
-            @sumItem item(s) - $0.00
-            <ul class="dropdown">
-                <li>you have no items in your Shopping cart</li>
-            </ul>
-        </div>
+        Welcome to our Online Wild Pet Store! <a href="/cart"><i class="fa fa-shopping-cart" style="font-size: 28px; color: red;" aria-hidden="true"></i></a>: @sumItem item(s)
     </p>
 </div>

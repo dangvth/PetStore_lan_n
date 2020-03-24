@@ -40,7 +40,7 @@ namespace PetStoreWebClient.Controllers
                         listCartPetFood.Add(cpfi);
                     }
                     //product is pet
-                    else if (item.productID.StartsWith("PET"))
+                    if (item.productID.StartsWith("PET"))
                     {
                         Pet p = pfm.getPetByID(item.productID);
                         CartPetItem cpi = new CartPetItem();
@@ -49,7 +49,7 @@ namespace PetStoreWebClient.Controllers
                         listCartPet.Add(cpi);
                     }
                     //product os pet's medicine
-                    else if (item.productID.StartsWith("PMD"))
+                    if (item.productID.StartsWith("PMD"))
                     {
                         PetMedicine pm = pfm.getPetMedicineByID(item.productID);
                         CartPetMedicineItem cpmi = new CartPetMedicineItem();
@@ -58,7 +58,7 @@ namespace PetStoreWebClient.Controllers
                         listCartPetMedicine.Add(cpmi);
                     }
                     //Product is Pet's toys
-                    else
+                    if (item.productID.StartsWith("PTS"))
                     {
                         PetToys pt = pfm.getPetToyByID(item.productID);
                         CartPetToyItem cpti = new CartPetToyItem();
