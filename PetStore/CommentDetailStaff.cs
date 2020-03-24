@@ -45,15 +45,6 @@ namespace PetStore
             }
         }
 
-        private void gvCommentDetail_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            int idx = gvCommentDetail.FocusedRowHandle;
-            if (gvCommentDetail.GetRowCellValue(idx, gvCommentDetail.Columns[0]) != null)
-            {
-                cmtdIDSelected = gvCommentDetail.GetRowCellValue(idx, gvCommentDetail.Columns[0]).ToString();
-            }
-        }
-
         private void btnRestore_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (cmtdIDSelected != "")
@@ -77,6 +68,15 @@ namespace PetStore
         private void btnClose_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void gvCommentDetail_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            int idx = gvCommentDetail.FocusedRowHandle;
+            if (gvCommentDetail.GetRowCellValue(idx, gvCommentDetail.Columns[0]) != null)
+            {
+                cmtdIDSelected = gvCommentDetail.GetRowCellValue(idx, gvCommentDetail.Columns[0]).ToString();
+            }
         }
     }
 }

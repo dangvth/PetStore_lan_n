@@ -22,15 +22,6 @@ namespace PetStore
             InitializeComponent();
         }
 
-        private void gvComment_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            int idx = gvComment.FocusedRowHandle;
-            if (gvComment.GetRowCellValue(idx, gvComment.Columns[0]) != null)
-            {
-                IDSelected = gvComment.GetRowCellValue(idx, gvComment.Columns[0]).ToString();
-            }
-        }
-
         private void btnViewCmtd_ItemClick(object sender, ItemClickEventArgs e)
         {
             CommentDetailStaff cds = new CommentDetailStaff();
@@ -77,6 +68,15 @@ namespace PetStore
             CommentModel cm = new CommentModel();
             bindingSourceComment.DataSource = cm.GetAllDataToArrayList();
             gcComment.DataSource = bindingSourceComment;
+        }
+
+        private void gvComment_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            int idx = gvComment.FocusedRowHandle;
+            if (gvComment.GetRowCellValue(idx, gvComment.Columns[0]) != null)
+            {
+                IDSelected = gvComment.GetRowCellValue(idx, gvComment.Columns[0]).ToString();
+            }
         }
     }
 }

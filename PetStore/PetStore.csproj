@@ -734,7 +734,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PetStoreWebClient\PetStoreWebClient.csproj">
+      <Project>{8db6bca3-af53-4894-a7ea-48b860c080c0}</Project>
+      <Name>PetStoreWebClient</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

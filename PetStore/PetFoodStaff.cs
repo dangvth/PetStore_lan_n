@@ -60,8 +60,6 @@ namespace PetStore
             {
                 MessageBox.Show("Please choose a food to view detail !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
-            
         }
 
         private void gvFood_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)

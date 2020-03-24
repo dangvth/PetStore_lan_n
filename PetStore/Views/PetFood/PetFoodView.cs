@@ -70,13 +70,12 @@ namespace PetStore.Views.PetFoodView
         private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String oldPath = openDialog.FileName;
-            String oldFilePath = @"../../img/" + pf_imageTextEdit.Text;
-            FileInfo f = new FileInfo(oldFilePath);
-            if (f.Exists)
-            {
-                File.Delete(oldFilePath);
-            }
+            //get solution path
+            String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            //copy file to image folder
+            File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
             File.Copy(oldPath, @"../../img/" + pf_imageTextEdit.Text);
+
             MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
@@ -84,26 +83,24 @@ namespace PetStore.Views.PetFoodView
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String oldPath = openDialog.FileName;
-            String oldFilePath = @"../../img/" + pf_imageTextEdit.Text;
-            FileInfo f = new FileInfo(oldFilePath);
-            if (f.Exists)
-            {
-                File.Delete(oldFilePath);
-            }
+            //get solution path
+            String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            //copy file to image folder
+            File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
             File.Copy(oldPath, @"../../img/" + pf_imageTextEdit.Text);
+
             MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String oldPath = openDialog.FileName;
-            String oldFilePath = @"../../img/" + pf_imageTextEdit.Text;
-            FileInfo f = new FileInfo(oldFilePath);
-            if (f.Exists)
-            {
-                File.Delete(oldFilePath);
-            }
+            //get solution path
+            String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            //copy file to image folder
+            File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
             File.Copy(oldPath, @"../../img/" + pf_imageTextEdit.Text);
+
             MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

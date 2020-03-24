@@ -42,7 +42,6 @@
             this.bbiSaveAndClose = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSaveAndNew = new DevExpress.XtraBars.BarButtonItem();
             this.bbiReset = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiDelete = new DevExpress.XtraBars.BarButtonItem();
             this.bbiClose = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSaveLayout = new DevExpress.XtraBars.BarButtonItem();
             this.bbiResetLayout = new DevExpress.XtraBars.BarButtonItem();
@@ -190,7 +189,6 @@
             this.bbiSaveAndClose,
             this.bbiSaveAndNew,
             this.bbiReset,
-            this.bbiDelete,
             this.bbiClose,
             this.bbiSaveLayout,
             this.bbiResetLayout});
@@ -255,13 +253,6 @@
             superToolTip4.Items.Add(toolTipItem4);
             this.bbiReset.SuperTip = superToolTip4;
             // 
-            // bbiDelete
-            // 
-            this.bbiDelete.Caption = "Delete";
-            this.bbiDelete.Id = 6;
-            this.bbiDelete.ImageOptions.ImageUri.Uri = "Delete";
-            this.bbiDelete.Name = "bbiDelete";
-            // 
             // bbiClose
             // 
             this.bbiClose.Caption = "Close";
@@ -302,7 +293,6 @@
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiSaveAndClose);
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiSaveAndNew);
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiReset);
-            this.mainRibbonPageGroup.ItemLinks.Add(this.bbiDelete);
             this.mainRibbonPageGroup.ItemLinks.Add(this.bbiClose);
             this.mainRibbonPageGroup.Name = "mainRibbonPageGroup";
             this.mainRibbonPageGroup.ShowCaptionButton = false;
@@ -839,7 +829,6 @@
             DevExpress.Utils.MVVM.BindingExpression.CreateCommandBinding(typeof(PetStore.ViewModels.PetFoodViewModel), "SaveAndClose", this.bbiSaveAndClose),
             DevExpress.Utils.MVVM.BindingExpression.CreateCommandBinding(typeof(PetStore.ViewModels.PetFoodViewModel), "SaveAndNew", this.bbiSaveAndNew),
             DevExpress.Utils.MVVM.BindingExpression.CreateCommandBinding(typeof(PetStore.ViewModels.PetFoodViewModel), "Reset", this.bbiReset),
-            DevExpress.Utils.MVVM.BindingExpression.CreateCommandBinding(typeof(PetStore.ViewModels.PetFoodViewModel), "Delete", this.bbiDelete),
             DevExpress.Utils.MVVM.BindingExpression.CreateCommandBinding(typeof(PetStore.ViewModels.PetFoodViewModel), "Close", this.bbiClose),
             DevExpress.Utils.MVVM.BindingExpression.CreateCommandBinding(typeof(PetStore.ViewModels.PetFoodViewModel), "SaveLayout", this.bbiSaveLayout),
             DevExpress.Utils.MVVM.BindingExpression.CreateCommandBinding(typeof(PetStore.ViewModels.PetFoodViewModel), "ResetLayout", this.bbiResetLayout)});
@@ -934,7 +923,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiSaveAndClose;
         private DevExpress.XtraBars.BarButtonItem bbiSaveAndNew;
         private DevExpress.XtraBars.BarButtonItem bbiReset;
-        private DevExpress.XtraBars.BarButtonItem bbiDelete;
         private DevExpress.XtraBars.BarButtonItem bbiClose;
         private DevExpress.XtraBars.BarButtonItem bbiSaveLayout;
         private DevExpress.XtraBars.BarButtonItem bbiResetLayout;

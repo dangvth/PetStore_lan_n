@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommentDetailStaff));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnRemove = new DevExpress.XtraBars.BarButtonItem();
             this.btnRestore = new DevExpress.XtraBars.BarButtonItem();
@@ -45,23 +45,16 @@
             this.btnClose = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gcCmtDetail = new DevExpress.XtraGrid.GridControl();
-            this.gvCommentDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.commentDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colcmtd_published = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcmtd_status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UserID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcCmtDetail = new DevExpress.XtraGrid.GridControl();
+            this.gvCommentDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commentDetailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCmtDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCommentDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commentDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -89,9 +82,9 @@
             this.btnRemove.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRemove.ImageOptions.LargeImage")));
             this.btnRemove.LargeWidth = 60;
             this.btnRemove.Name = "btnRemove";
-            toolTipItem1.Text = "Remove comment reply of user";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnRemove.SuperTip = superToolTip1;
+            toolTipItem9.Text = "Remove comment reply of user";
+            superToolTip9.Items.Add(toolTipItem9);
+            this.btnRemove.SuperTip = superToolTip9;
             this.btnRemove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRemove_ItemClick);
             // 
             // btnRestore
@@ -102,9 +95,9 @@
             this.btnRestore.LargeWidth = 60;
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipItem2.Text = "Restore comment reply of user";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnRestore.SuperTip = superToolTip2;
+            toolTipItem10.Text = "Restore comment reply of user";
+            superToolTip10.Items.Add(toolTipItem10);
+            this.btnRestore.SuperTip = superToolTip10;
             this.btnRestore.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRestore_ItemClick);
             // 
             // btnRefresh
@@ -115,9 +108,9 @@
             this.btnRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.LargeImage")));
             this.btnRefresh.LargeWidth = 60;
             this.btnRefresh.Name = "btnRefresh";
-            toolTipItem3.Text = "Refresh comment reply";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnRefresh.SuperTip = superToolTip3;
+            toolTipItem11.Text = "Refresh comment reply";
+            superToolTip11.Items.Add(toolTipItem11);
+            this.btnRefresh.SuperTip = superToolTip11;
             this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
             // btnClose
@@ -128,9 +121,9 @@
             this.btnClose.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.LargeImage")));
             this.btnClose.LargeWidth = 60;
             this.btnClose.Name = "btnClose";
-            toolTipItem4.Text = "Close comment reply management";
-            superToolTip4.Items.Add(toolTipItem4);
-            this.btnClose.SuperTip = superToolTip4;
+            toolTipItem12.Text = "Close comment reply management";
+            superToolTip12.Items.Add(toolTipItem12);
+            this.btnClose.SuperTip = superToolTip12;
             this.btnClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnClose_ItemClick);
             // 
             // ribbonPage1
@@ -148,54 +141,6 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnClose);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Comment detail management";
-            // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.gcCmtDetail);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 178);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1144, 527);
-            this.layoutControl1.TabIndex = 4;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // gcCmtDetail
-            // 
-            this.gcCmtDetail.Location = new System.Drawing.Point(12, 12);
-            this.gcCmtDetail.MainView = this.gvCommentDetail;
-            this.gcCmtDetail.MenuManager = this.ribbon;
-            this.gcCmtDetail.Name = "gcCmtDetail";
-            this.gcCmtDetail.Size = new System.Drawing.Size(1120, 503);
-            this.gcCmtDetail.TabIndex = 4;
-            this.gcCmtDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvCommentDetail});
-            // 
-            // gvCommentDetail
-            // 
-            this.gvCommentDetail.GridControl = this.gcCmtDetail;
-            this.gvCommentDetail.Name = "gvCommentDetail";
-            this.gvCommentDetail.OptionsBehavior.Editable = false;
-            this.gvCommentDetail.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvCommentDetail_RowClick);
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1144, 527);
-            this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gcCmtDetail;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1124, 507);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // colcmtd_published
             // 
@@ -227,12 +172,31 @@
             this.UserID.VisibleIndex = 1;
             this.UserID.Width = 94;
             // 
+            // gcCmtDetail
+            // 
+            this.gcCmtDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcCmtDetail.Location = new System.Drawing.Point(0, 178);
+            this.gcCmtDetail.MainView = this.gvCommentDetail;
+            this.gcCmtDetail.MenuManager = this.ribbon;
+            this.gcCmtDetail.Name = "gcCmtDetail";
+            this.gcCmtDetail.Size = new System.Drawing.Size(1144, 528);
+            this.gcCmtDetail.TabIndex = 6;
+            this.gcCmtDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvCommentDetail});
+            // 
+            // gvCommentDetail
+            // 
+            this.gvCommentDetail.GridControl = this.gcCmtDetail;
+            this.gvCommentDetail.Name = "gvCommentDetail";
+            this.gvCommentDetail.OptionsBehavior.Editable = false;
+            this.gvCommentDetail.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvCommentDetail_RowClick);
+            // 
             // CommentDetailStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1144, 706);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.gcCmtDetail);
             this.Controls.Add(this.ribbon);
             this.Name = "CommentDetailStaff";
             this.Ribbon = this.ribbon;
@@ -240,13 +204,9 @@
             this.Text = "CommentDetailStaff";
             this.Load += new System.EventHandler(this.CommentDetailStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.commentDetailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCmtDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCommentDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commentDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,15 +220,12 @@
         private DevExpress.XtraBars.BarButtonItem btnRemove;
         private DevExpress.XtraBars.BarButtonItem btnRestore;
         private DevExpress.XtraBars.BarButtonItem btnRefresh;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
         private System.Windows.Forms.BindingSource commentDetailBindingSource;
-        private DevExpress.XtraGrid.GridControl gcCmtDetail;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvCommentDetail;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraGrid.Columns.GridColumn colcmtd_published;
         private DevExpress.XtraGrid.Columns.GridColumn colcmtd_status;
         private DevExpress.XtraGrid.Columns.GridColumn UserID;
         private DevExpress.XtraBars.BarButtonItem btnClose;
+        private DevExpress.XtraGrid.GridControl gcCmtDetail;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvCommentDetail;
     }
 }

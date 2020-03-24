@@ -46,20 +46,13 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.bindingSourceComment = new System.Windows.Forms.BindingSource(this.components);
             this.gcComment = new DevExpress.XtraGrid.GridControl();
             this.gvComment = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSourceComment = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcComment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvComment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComment)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -153,24 +146,14 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Comment Detail";
             // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.gcComment);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 178);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1084, 578);
-            this.layoutControl1.TabIndex = 2;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
             // gcComment
             // 
-            this.gcComment.Location = new System.Drawing.Point(12, 12);
+            this.gcComment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcComment.Location = new System.Drawing.Point(0, 178);
             this.gcComment.MainView = this.gvComment;
             this.gcComment.MenuManager = this.ribbon;
             this.gcComment.Name = "gcComment";
-            this.gcComment.Size = new System.Drawing.Size(1060, 554);
+            this.gcComment.Size = new System.Drawing.Size(1084, 577);
             this.gcComment.TabIndex = 4;
             this.gcComment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvComment});
@@ -182,44 +165,21 @@
             this.gvComment.OptionsBehavior.Editable = false;
             this.gvComment.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvComment_RowClick);
             // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1084, 578);
-            this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gcComment;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1064, 558);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // CommentStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 755);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.gcComment);
             this.Controls.Add(this.ribbon);
             this.Name = "CommentStaff";
             this.Ribbon = this.ribbon;
             this.Text = "CommentStaff";
             this.Load += new System.EventHandler(this.CommentStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcComment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvComment)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,11 +195,8 @@
         private DevExpress.XtraBars.BarButtonItem btnRefreshCmt;
         private DevExpress.XtraBars.BarButtonItem btnViewCmtd;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private System.Windows.Forms.BindingSource bindingSourceComment;
         private DevExpress.XtraGrid.GridControl gcComment;
         private DevExpress.XtraGrid.Views.Grid.GridView gvComment;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private System.Windows.Forms.BindingSource bindingSourceComment;
     }
 }
