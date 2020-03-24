@@ -118,7 +118,6 @@
             this.gvPet.GridControl = this.gcPet;
             this.gvPet.Name = "gvPet";
             this.gvPet.OptionsBehavior.Editable = false;
-            this.gvPet.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gvPet.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvPet_RowClick);
             // 
             // PetStaff

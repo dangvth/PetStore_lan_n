@@ -18,11 +18,12 @@ namespace PetStore.Views.PetStoreEntitiesView{
         #region Initialize Admin View
         public PetStoreEntitiesView() {
 			InitializeComponent();
-            Sender = new sendData(getUserName);
+            
 			if(!mvvmContext.IsDesignMode)
                 InitializeNavigation();
             ribbonControl.Merge += ribbonControl_Merge;
             ribbonControl.UnMerge += ribbonControl_UnMerge;
+            Sender = new sendData(getUserName);
         }
 
         private void ribbonControl_UnMerge(object sender, DevExpress.XtraBars.Ribbon.RibbonMergeEventArgs e) {
@@ -83,8 +84,10 @@ namespace PetStore.Views.PetStoreEntitiesView{
 
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
+            frmAdmin fad = new frmAdmin();
             Login lg = new Login();
             lg.Show();
+            fad.Close();
             this.Dispose();
         }
 

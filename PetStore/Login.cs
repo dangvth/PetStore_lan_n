@@ -35,10 +35,8 @@ namespace PetStore
                     frmAdmin ad = new frmAdmin();
                     PetStore.Views.PetStoreEntitiesView.PetStoreEntitiesView psv = new Views.PetStoreEntitiesView.PetStoreEntitiesView();
                     psv.Sender(txtUsername.Text);
-                    this.Hide();
-
                     ad.Show();
-
+                    this.Hide();
                 }
                 else if (am.checkRole(userName) == 2)
                 {

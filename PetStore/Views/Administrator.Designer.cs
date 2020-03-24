@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
             this.petStoreEntitiesView1 = new PetStore.Views.PetStoreEntitiesView.PetStoreEntitiesView();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // petStoreEntitiesView1
@@ -42,11 +43,21 @@
             this.petStoreEntitiesView1.Size = new System.Drawing.Size(1118, 668);
             this.petStoreEntitiesView1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(437, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 87);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1118, 668);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.petStoreEntitiesView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -62,6 +73,7 @@
 
         private Views.PetStoreEntitiesView.PetStoreEntitiesView mainView;
         private Views.PetStoreEntitiesView.PetStoreEntitiesView petStoreEntitiesView1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
