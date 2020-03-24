@@ -94,7 +94,7 @@
             this.rbpProduct,
             this.rbpComment,
             this.rbAccount});
-            this.ribbon.Size = new System.Drawing.Size(1125, 141);
+            this.ribbon.Size = new System.Drawing.Size(1125, 176);
             // 
             // barButtonItem1
             // 
@@ -128,6 +128,7 @@
             this.btnPet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPet.ImageOptions.Image")));
             this.btnPet.Name = "btnPet";
             this.btnPet.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnPet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPet_ItemClick);
             // 
             // btnPFood
             // 
@@ -300,7 +301,7 @@
             // Staff
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 756);
             this.Controls.Add(this.ribbon);

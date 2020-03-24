@@ -56,5 +56,14 @@ namespace PetStore
             sp.Dock = DockStyle.Fill;
             sp.Show();
         }
+
+        private void btnPet_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            resetFormChildren();
+            PetFoodStaff pfs = new PetFoodStaff();
+            pfs.MdiParent = this;
+            pfs.Dock = DockStyle.Fill;
+            pfs.Show();
+        }
     }
 }
