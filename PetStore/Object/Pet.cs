@@ -11,13 +11,14 @@ namespace PetStore.Object
         //declare Object variables
         private string p_id;            //Initialize pet id
         private string p_name;          //Initialize pet name
-        private int p_price;              //Initialize pet origin price
-        private int p_salePrice;          //Initialize pet sell price
+        private int p_price;            //Initialize pet origin price
+        private int p_salePrice;        //Initialize pet sell price
         private string p_image;         //Initialize pet image
         private string p_description;   //Initialize pet description
         private string p_published;     //Initialize pet published date
         private string p_status;        //Initialize pet status: 0 - active, 1 - inactive
-        private int t_id;               //Initialize type id
+        private string t_id;            //Initialize type id
+        private string t_name;          //Initialize type name
 
         /// <summary>
         /// Initialize Pet Object
@@ -31,25 +32,22 @@ namespace PetStore.Object
         /// <param name="p_published"></param>
         /// <param name="p_status"></param>
         /// <param name="t_id"></param>
-        public Pet(string p_id, string p_name, int p_price, int p_salePrice, string p_image, string p_description, string p_published,
-            string p_status, int t_id)
+        public Pet(string p_id, string p_name, int p_salePrice, string p_description, 
+            string p_status, string t_name)
         {
-            this.P_ID = p_id;
-            this.P_NAME = p_name;
-            this.P_PRICE = p_price;
-            this.P_SALEPRICE = p_salePrice;
-            this.P_IMAGE = p_image;
-            this.P_DESCRIPTION = p_description;
-            this.P_PUBLISHED = p_published;
-            this.P_STATUS = p_status;
-            this.T_ID = t_id;
+            this.ID = p_id;
+            this.Name = p_name;
+            this.Price = p_salePrice;
+            this.Description = p_description;
+            this.Status = p_status;
+            this.Type = t_name;
         }
 
         #region Pet Object Properties
         /// <summary>
         /// Properties Pet ID
         /// </summary>
-        public string P_ID
+        public string ID
         {
             get { return p_id; }
 
@@ -59,7 +57,7 @@ namespace PetStore.Object
         /// <summary>
         /// Properties Pet Name
         /// </summary>
-        public string P_NAME
+        public string Name
         {
             get
             {
@@ -75,23 +73,12 @@ namespace PetStore.Object
         /// <summary>
         /// Properties Pet Origin Price
         /// </summary>
-        public int P_PRICE
-        {
-            get
-            {
-                return p_price;
-            }
-
-            set
-            {
-                p_price = value;
-            }
-        }
+        
 
         /// <summary>
         /// Properties Pet Sell Price
         /// </summary>
-        public int P_SALEPRICE
+        public int Price
         {
             get
             {
@@ -107,23 +94,12 @@ namespace PetStore.Object
         /// <summary>
         /// Properties Pet Image
         /// </summary>
-        public string P_IMAGE
-        {
-            get
-            {
-                return p_image;
-            }
-
-            set
-            {
-                p_image = value;
-            }
-        }
+        
 
         /// <summary>
         /// Properties Pet Description
         /// </summary>
-        public string P_DESCRIPTION
+        public string Description
         {
             get
             {
@@ -139,23 +115,12 @@ namespace PetStore.Object
         /// <summary>
         /// Properties Pet Published Date
         /// </summary>
-        public string P_PUBLISHED
-        {
-            get
-            {
-                return p_published;
-            }
-
-            set
-            {
-                p_published = value;
-            }
-        }
+        
 
         /// <summary>
         /// Properties Pet Status
         /// </summary>
-        public string P_STATUS
+        public string Status
         {
             get
             {
@@ -171,16 +136,20 @@ namespace PetStore.Object
         /// <summary>
         /// Properties Type ID
         /// </summary>
-        public int T_ID
+        
+        /// <summary>
+        /// Properties Type name
+        /// </summary>
+        public string Type
         {
             get
             {
-                return t_id;
+                return t_name;
             }
 
             set
             {
-                t_id = value;
+                t_name = value;
             }
         }
         #endregion
