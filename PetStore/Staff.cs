@@ -60,10 +60,10 @@ namespace PetStore
         private void btnPet_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             resetFormChildren();
-            PetFoodStaff pfs = new PetFoodStaff();
-            pfs.MdiParent = this;
-            pfs.Dock = DockStyle.Fill;
-            pfs.Show();
+            PetStaff ps = new PetStaff();
+            ps.MdiParent = this;
+            ps.Dock = DockStyle.Fill;
+            ps.Show();
         }
     }
 }

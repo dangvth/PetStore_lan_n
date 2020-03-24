@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PetStaff));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gcFood = new DevExpress.XtraGrid.GridControl();
+            this.gcPet = new DevExpress.XtraGrid.GridControl();
             this.gvPet = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnRefreshFood = new DevExpress.XtraBars.BarButtonItem();
@@ -40,23 +41,20 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.p_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.p_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.p_salePrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.p_description = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.p_status = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bsPet = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcFood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPet)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.gcFood);
+            this.layoutControl1.Controls.Add(this.gcPet);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl1.Location = new System.Drawing.Point(0, 176);
             this.layoutControl1.Name = "layoutControl1";
@@ -65,26 +63,20 @@
             this.layoutControl1.TabIndex = 5;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // gcFood
+            // gcPet
             // 
-            this.gcFood.Location = new System.Drawing.Point(12, 12);
-            this.gcFood.MainView = this.gvPet;
-            this.gcFood.MenuManager = this.ribbon;
-            this.gcFood.Name = "gcFood";
-            this.gcFood.Size = new System.Drawing.Size(1147, 461);
-            this.gcFood.TabIndex = 4;
-            this.gcFood.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gcPet.Location = new System.Drawing.Point(12, 12);
+            this.gcPet.MainView = this.gvPet;
+            this.gcPet.MenuManager = this.ribbon;
+            this.gcPet.Name = "gcPet";
+            this.gcPet.Size = new System.Drawing.Size(1147, 461);
+            this.gcPet.TabIndex = 4;
+            this.gcPet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPet});
             // 
             // gvPet
             // 
-            this.gvPet.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.p_id,
-            this.p_name,
-            this.p_salePrice,
-            this.p_description,
-            this.p_status});
-            this.gvPet.GridControl = this.gcFood;
+            this.gvPet.GridControl = this.gcPet;
             this.gvPet.Name = "gvPet";
             this.gvPet.OptionsBehavior.Editable = false;
             // 
@@ -112,6 +104,7 @@
             this.btnRefreshFood.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRefreshFood.ImageOptions.LargeImage")));
             this.btnRefreshFood.LargeWidth = 70;
             this.btnRefreshFood.Name = "btnRefreshFood";
+            this.btnRefreshFood.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefreshFood_ItemClick);
             // 
             // btnViewDetail
             // 
@@ -154,57 +147,12 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.gcFood;
+            this.layoutControlItem1.Control = this.gcPet;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(1151, 465);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // p_id
-            // 
-            this.p_id.Caption = "ID";
-            this.p_id.MinWidth = 25;
-            this.p_id.Name = "p_id";
-            this.p_id.Visible = true;
-            this.p_id.VisibleIndex = 0;
-            this.p_id.Width = 94;
-            // 
-            // p_name
-            // 
-            this.p_name.Caption = "Name";
-            this.p_name.MinWidth = 25;
-            this.p_name.Name = "p_name";
-            this.p_name.Visible = true;
-            this.p_name.VisibleIndex = 1;
-            this.p_name.Width = 94;
-            // 
-            // p_salePrice
-            // 
-            this.p_salePrice.Caption = "Prices";
-            this.p_salePrice.MinWidth = 25;
-            this.p_salePrice.Name = "p_salePrice";
-            this.p_salePrice.Visible = true;
-            this.p_salePrice.VisibleIndex = 2;
-            this.p_salePrice.Width = 94;
-            // 
-            // p_description
-            // 
-            this.p_description.Caption = "Description";
-            this.p_description.MinWidth = 25;
-            this.p_description.Name = "p_description";
-            this.p_description.Visible = true;
-            this.p_description.VisibleIndex = 3;
-            this.p_description.Width = 94;
-            // 
-            // p_status
-            // 
-            this.p_status.Caption = "Status";
-            this.p_status.MinWidth = 25;
-            this.p_status.Name = "p_status";
-            this.p_status.Visible = true;
-            this.p_status.VisibleIndex = 4;
-            this.p_status.Width = 94;
             // 
             // PetStaff
             // 
@@ -217,13 +165,15 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PetStaff";
             this.Text = "Pet";
+            this.Load += new System.EventHandler(this.PetStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcFood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,13 +182,8 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraGrid.GridControl gcFood;
+        private DevExpress.XtraGrid.GridControl gcPet;
         private DevExpress.XtraGrid.Views.Grid.GridView gvPet;
-        private DevExpress.XtraGrid.Columns.GridColumn p_id;
-        private DevExpress.XtraGrid.Columns.GridColumn p_name;
-        private DevExpress.XtraGrid.Columns.GridColumn p_salePrice;
-        private DevExpress.XtraGrid.Columns.GridColumn p_description;
-        private DevExpress.XtraGrid.Columns.GridColumn p_status;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.BarButtonItem btnRefreshFood;
         private DevExpress.XtraBars.BarButtonItem btnViewDetail;
@@ -247,5 +192,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private System.Windows.Forms.BindingSource bsPet;
     }
 }
