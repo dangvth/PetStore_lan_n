@@ -14,6 +14,17 @@ namespace PetStore
 {
     public partial class Staff : DevExpress.XtraEditors.XtraForm
     {
+        //declare variables
+        int acId = -1;
+        string username = "";
+        //Initialize a delegate to get username 
+        public delegate void sendDataStaff(string data);
+        public sendDataStaff SenderStaff;
+
+        public void getUserName(string user)
+        {
+            username = user;
+        }
         public Staff()
         {
             InitializeComponent();
@@ -64,6 +75,11 @@ namespace PetStore
             ps.MdiParent = this;
             ps.Dock = DockStyle.Fill;
             ps.Show();
+        }
+
+        private void btnResetPassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

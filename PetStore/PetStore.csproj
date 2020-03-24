@@ -152,6 +152,12 @@
     <Compile Include="Cart.cs">
       <DependentUpon>PetStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comment.cs">
       <DependentUpon>PetStoreModel.tt</DependentUpon>
     </Compile>
@@ -531,6 +537,9 @@
     </Compile>
     <EmbeddedResource Include="BillReport.resx">
       <DependentUpon>BillReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CommentDetailStaff.resx">
       <DependentUpon>CommentDetailStaff.cs</DependentUpon>

@@ -162,10 +162,10 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblLogin;
-        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblPwd;
         private System.Windows.Forms.Panel pnlLock;
+        public System.Windows.Forms.TextBox txtUsername;
     }
 }

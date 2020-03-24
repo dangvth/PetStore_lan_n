@@ -200,6 +200,7 @@
             this.btnResetPassword.LargeWidth = 100;
             this.btnResetPassword.Name = "btnResetPassword";
             this.btnResetPassword.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnResetPassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnResetPassword_ItemClick);
             // 
             // btnRestoreCmt
             // 

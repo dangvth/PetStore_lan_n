@@ -47,6 +47,7 @@
             this.barButtonItemTypeCollectionView = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemUserCollectionView = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChangePwd = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -68,7 +69,6 @@
             this.navigationBarItemTypeCollectionView = new DevExpress.XtraBars.Navigation.NavigationBarItem();
             this.navigationBarItemUserCollectionView = new DevExpress.XtraBars.Navigation.NavigationBarItem();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.btnChangePwd = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.noDocumentsView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
@@ -253,6 +253,16 @@
             this.btnLogout.LargeWidth = 55;
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
+            // 
+            // btnChangePwd
+            // 
+            this.btnChangePwd.Caption = "Change password";
+            this.btnChangePwd.Id = 32;
+            this.btnChangePwd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePwd.ImageOptions.Image")));
+            this.btnChangePwd.Name = "btnChangePwd";
+            this.btnChangePwd.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnChangePwd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePwd_ItemClick);
             // 
             // ribbonPage
             // 
@@ -398,14 +408,6 @@
             this.navigationFrame.Size = new System.Drawing.Size(1195, 714);
             this.navigationFrame.TabIndex = 0;
             this.navigationFrame.Text = "navigationFrame";
-            // 
-            // btnChangePwd
-            // 
-            this.btnChangePwd.Caption = "Change password";
-            this.btnChangePwd.Id = 32;
-            this.btnChangePwd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePwd.ImageOptions.Image")));
-            this.btnChangePwd.Name = "btnChangePwd";
-            this.btnChangePwd.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // PetStoreEntitiesView
             // 
