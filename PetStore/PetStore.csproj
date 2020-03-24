@@ -152,6 +152,12 @@
     <Compile Include="Cart.cs">
       <DependentUpon>PetStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comment.cs">
       <DependentUpon>PetStoreModel.tt</DependentUpon>
     </Compile>
@@ -237,6 +243,12 @@
     </Compile>
     <Compile Include="PetFoodStaff.Designer.cs">
       <DependentUpon>PetFoodStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PetStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PetStaff.Designer.cs">
+      <DependentUpon>PetStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="PetStoreDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -526,6 +538,9 @@
     <EmbeddedResource Include="BillReport.resx">
       <DependentUpon>BillReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommentDetailStaff.resx">
       <DependentUpon>CommentDetailStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -555,6 +570,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PetFoodStaff.resx">
       <DependentUpon>PetFoodStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PetStaff.resx">
+      <DependentUpon>PetStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RibbonForm1.resx">
       <DependentUpon>RibbonForm1.cs</DependentUpon>

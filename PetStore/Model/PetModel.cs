@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace PetStore.Model
     {
         //declare PET variables
         PetStoreEntities db = new PetStoreEntities();
-        List<PetStore.Pet> pList;
+        ArrayList pList;
         public PetModel() { }
 
         /// <summary>
@@ -27,6 +28,32 @@ namespace PetStore.Model
             //get number of pet on database
             var numOfPet = from p in db.Pets select p;
             return numOfPet.Count();
+        }
+
+        public ArrayList getAllPet()
+        {
+            pList = new ArrayList();
+            using (PetStoreEntities db = new PetStoreEntities())
+            {
+                var query = (from p in db.Pets
+                             join t in db.Types on p.t_id equals t.t_id
+                             select new
+                             {
+                                 p.p_id,
+                                 p.p_name,
+                                 p.p_salePrice,
+                                 p.p_description,
+                                 p.p_status,
+                                 t.t_name
+                             });
+                foreach (var item in query)
+                {
+                    pList.Add(new Object.Pet(item.p_id, item.p_name,
+                        Convert.ToInt32(item.p_salePrice), item.p_description, item.p_status,
+                        item.t_name));
+                }
+            }
+            return pList;
         }
 
         /// <summary>

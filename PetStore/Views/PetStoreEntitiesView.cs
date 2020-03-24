@@ -8,12 +8,22 @@ using DevExpress.Utils.MVVM;
 
 namespace PetStore.Views.PetStoreEntitiesView{
     public partial class PetStoreEntitiesView : XtraUserControl {
+        //declare variables
+        int acId = -1;
+        string username = "";
+        //Initialize a delegate to get username 
+        public delegate void sendData(string data);
+        public sendData Sender;
+
+        #region Initialize Admin View
         public PetStoreEntitiesView() {
 			InitializeComponent();
+            
 			if(!mvvmContext.IsDesignMode)
                 InitializeNavigation();
             ribbonControl.Merge += ribbonControl_Merge;
             ribbonControl.UnMerge += ribbonControl_UnMerge;
+            Sender = new sendData(getUserName);
         }
 
         private void ribbonControl_UnMerge(object sender, DevExpress.XtraBars.Ribbon.RibbonMergeEventArgs e) {
@@ -69,6 +79,26 @@ namespace PetStore.Views.PetStoreEntitiesView{
 						            // We want show the default module when our UserControl is loaded
             fluentAPI.WithEvent<EventArgs>(this, "Load")
                 .EventToCommand(x => x.OnLoaded(null), x => x.DefaultModule);
+        }
+        #endregion
+
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmAdmin fad = new frmAdmin();
+            Login lg = new Login();
+            lg.Show();
+            fad.Close();
+            this.Dispose();
+        }
+
+        private void btnChangePwd_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            XtraMessageBox.Show(username);
+        }
+
+        public void getUserName(string user)
+        {
+            username = user;
         }
     }
 }

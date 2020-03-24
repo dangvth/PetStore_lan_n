@@ -33,15 +33,15 @@ namespace PetStore
                 if (am.checkRole(userName) == 1)
                 {
                     frmAdmin ad = new frmAdmin();
-                    this.Hide();
+                    PetStore.Views.PetStoreEntitiesView.PetStoreEntitiesView psv = new Views.PetStoreEntitiesView.PetStoreEntitiesView();
+                    psv.Sender(txtUsername.Text);
                     ad.Show();
-
+                    this.Hide();
                 }
                 else if (am.checkRole(userName) == 2)
                 {
                     Staff s = new Staff();
-                    //delPassData trans = new delPassData(s.getUserName);
-                    //trans(this.txtUsername);
+                    s.SenderStaff(txtUsername.Text);
                     s.Show();
                     this.Hide();
                 }

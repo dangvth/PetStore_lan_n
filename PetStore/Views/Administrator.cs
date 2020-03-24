@@ -11,6 +11,13 @@ namespace PetStore
 {
     public partial class frmAdmin : DevExpress.XtraEditors.XtraForm
     {
+        //declare variables
+        int acId = -1;
+        string username = "";
+        //Initialize a delegate to get username 
+        public delegate void sendDataAD(string data);
+        public sendDataAD SenderAD;
+
         public frmAdmin()
         {
             InitializeComponent();
