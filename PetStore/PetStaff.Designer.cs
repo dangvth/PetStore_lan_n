@@ -30,55 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PetStaff));
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gcPet = new DevExpress.XtraGrid.GridControl();
-            this.gvPet = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnRefreshFood = new DevExpress.XtraBars.BarButtonItem();
             this.btnViewDetail = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bsPet = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            this.gcPet = new DevExpress.XtraGrid.GridControl();
+            this.gvPet = new DevExpress.XtraGrid.Views.Grid.GridView();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.gcPet);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 176);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1171, 485);
-            this.layoutControl1.TabIndex = 5;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // gcPet
-            // 
-            this.gcPet.Location = new System.Drawing.Point(12, 12);
-            this.gcPet.MainView = this.gvPet;
-            this.gcPet.MenuManager = this.ribbon;
-            this.gcPet.Name = "gcPet";
-            this.gcPet.Size = new System.Drawing.Size(1147, 461);
-            this.gcPet.TabIndex = 4;
-            this.gcPet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvPet});
-            // 
-            // gvPet
-            // 
-            this.gvPet.GridControl = this.gcPet;
-            this.gvPet.Name = "gvPet";
-            this.gvPet.OptionsBehavior.Editable = false;
             // 
             // ribbon
             // 
@@ -93,7 +58,7 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(1171, 176);
+            this.ribbon.Size = new System.Drawing.Size(1052, 176);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnRefreshFood
@@ -113,6 +78,7 @@
             this.btnViewDetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewDetail.ImageOptions.Image")));
             this.btnViewDetail.Name = "btnViewDetail";
             this.btnViewDetail.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnViewDetail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViewDetail_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -130,68 +96,61 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 662);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 491);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1171, 34);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1052, 34);
             // 
-            // Root
+            // gcPet
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1171, 485);
-            this.Root.TextVisible = false;
+            this.gcPet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcPet.Location = new System.Drawing.Point(0, 176);
+            this.gcPet.MainView = this.gvPet;
+            this.gcPet.MenuManager = this.ribbon;
+            this.gcPet.Name = "gcPet";
+            this.gcPet.Size = new System.Drawing.Size(1052, 315);
+            this.gcPet.TabIndex = 8;
+            this.gcPet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvPet});
             // 
-            // layoutControlItem1
+            // gvPet
             // 
-            this.layoutControlItem1.Control = this.gcPet;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1151, 465);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.gvPet.GridControl = this.gcPet;
+            this.gvPet.Name = "gvPet";
+            this.gvPet.OptionsBehavior.Editable = false;
+            this.gvPet.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gvPet.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvPet_RowClick);
             // 
             // PetStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 696);
-            this.Controls.Add(this.layoutControl1);
+            this.ClientSize = new System.Drawing.Size(1052, 525);
+            this.Controls.Add(this.gcPet);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PetStaff";
             this.Text = "Pet";
             this.Load += new System.EventHandler(this.PetStaff_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraGrid.GridControl gcPet;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvPet;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.BarButtonItem btnRefreshFood;
         private DevExpress.XtraBars.BarButtonItem btnViewDetail;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private System.Windows.Forms.BindingSource bsPet;
+        private DevExpress.XtraGrid.GridControl gcPet;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvPet;
     }
 }
