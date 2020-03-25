@@ -12,10 +12,11 @@ namespace PetStore
 {
     public partial class Login : Form
     {
-        private Model.AccountModel am = new Model.AccountModel();
+        private Model.AccountModel am;
         public Login()
         {
             InitializeComponent();
+            am = new Model.AccountModel();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -29,7 +30,8 @@ namespace PetStore
             int role = am.checkRole(userName);
             if (am.isCorrectAccount(userName, pwd))
             {
-                //check role if role = 1 then load form Administrator, role = 2 then load form Staff
+                //check role if role = 1 then load form Administrator, 
+                //role = 2 then load form Staff
                 if (am.checkRole(userName) == 1)
                 {
                     frmAdmin ad = new frmAdmin();
@@ -42,6 +44,7 @@ namespace PetStore
                 {
                     Staff s = new Staff();
                     s.SenderStaff(txtUsername.Text);
+                    s.SenderStaff(Encry)
                     s.Show();
                     this.Hide();
                 }

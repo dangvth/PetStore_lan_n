@@ -17,6 +17,7 @@ namespace PetStore
         //declare variables
         int acId = -1;
         string username = "";
+        string password = "";
         //Initialize a delegate to get username 
         public delegate void sendDataStaff(string data);
         public sendDataStaff SenderStaff;
@@ -25,11 +26,18 @@ namespace PetStore
         {
             username = user;
         }
+
+        public void getPassword(string pwd)
+        {
+            password = pwd;
+        }
+
         public Staff()
         {
             
             InitializeComponent();
             SenderStaff = new sendDataStaff(getUserName);
+            SenderStaff = new sendDataStaff(getPassword);
         }
 
         /// <summary>
