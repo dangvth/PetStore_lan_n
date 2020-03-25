@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PetStore;
+using PetStore.MyUtil;
 
 namespace PetStore.Model
 {
@@ -55,6 +56,17 @@ namespace PetStore.Model
             }
             //if not match, return false
             return false;
+        }
+
+        /// <summary>
+        /// Get Account ID by username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public int getIDByUsername(string username)
+        {
+            Account ac = db.Accounts.Where(a => a.ac_userName == username).SingleOrDefault();
+            return ac.ac_id;
         }
 
         /// <summary>
@@ -121,10 +133,21 @@ namespace PetStore.Model
             return false;
         }
 
-        //public bool isOldPassword(string oldPassword)
-        //{
-        //    Account ac = 
-        //}
+        /// <summary>
+        /// Check old Password user input is correct or not
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="oldPassword"></param>
+        /// <returns></returns>
+        public bool isOldPassword(int id, string oldPassword)
+        {
+            Account ac = db.Accounts.Where(x => x.ac_id == id).SingleOrDefault();
+            if (ac.ac_pwd.Equals(Encryptor.SHA256_Encrypt(oldPassword)))
+            {
+                return true;
+            }
+            return false;
+        }
 
         /// <summary>
         /// check role of account

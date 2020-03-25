@@ -20,8 +20,13 @@ namespace PetStore
         string password = "";
         //Initialize a delegate to get username 
         public delegate void sendDataStaff(string data);
-        public sendDataStaff SenderStaff;
+        public sendDataStaff SenderStaffUser;
+        public sendDataStaff SenderStaffPwd;
 
+        /// <summary>
+        /// Get username by user pass from Login form
+        /// </summary>
+        /// <param name="user"></param>
         public void getUserName(string user)
         {
             username = user;
@@ -36,8 +41,8 @@ namespace PetStore
         {
             
             InitializeComponent();
-            SenderStaff = new sendDataStaff(getUserName);
-            SenderStaff = new sendDataStaff(getPassword);
+            SenderStaffUser = new sendDataStaff(getUserName);
+            SenderStaffPwd = new sendDataStaff(getPassword);
         }
 
         /// <summary>
@@ -89,7 +94,10 @@ namespace PetStore
 
         private void btnResetPassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show(username);
+            //MessageBox.Show(username + "\n" + password);
+            ChangePassword cpw = new ChangePassword();
+            cpw.SenderUser(username);
+            cpw.Show();
         }
     }
 }

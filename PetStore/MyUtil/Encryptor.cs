@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace PetStore.MyUtil
 {
-    static class Encryptor
+    class Encryptor
     {
         /// <summary>
         /// Encrypt string user input by SHA256 encrypt

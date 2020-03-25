@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PetStore.MyUtil;
 
 namespace PetStore
 {
@@ -43,8 +44,8 @@ namespace PetStore
                 else if (am.checkRole(userName) == 2)
                 {
                     Staff s = new Staff();
-                    s.SenderStaff(txtUsername.Text);
-                    s.SenderStaff(Encry)
+                    s.SenderStaffUser(txtUsername.Text);
+                    s.SenderStaffPwd(Encryptor.SHA256_Encrypt(txtPwd.Text));
                     s.Show();
                     this.Hide();
                 }
