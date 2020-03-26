@@ -18,7 +18,6 @@ namespace PetStoreWebClient.Commom
         public void InsertUser(string name, string gender, string email, string phone,
             string address, int ac_id)
         {
-            int userId = -1;
             var user = new User();
             user.u_name = name;
             user.u_gender = gender;

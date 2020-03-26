@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PetStoreWebClient.EF;
 
 namespace PetStoreWebClient.Controllers
 {
@@ -13,10 +14,10 @@ namespace PetStoreWebClient.Controllers
         {
             return View();
         }
-    }
 
-    public void CreateAccount()
-    {
+        //public ActionResult Create()
+        //{
 
-    }
+        //}
+    } 
 }
