@@ -17,6 +17,10 @@ namespace PetStore.Model
         //declare PET variables
         PetStoreEntities db = new PetStoreEntities();
         ArrayList pList;
+
+        /// <summary>
+        /// Init class
+        /// </summary>
         public PetModel() { }
 
         /// <summary>
@@ -30,11 +34,16 @@ namespace PetStore.Model
             return numOfPet.Count();
         }
 
+        /// <summary>
+        /// Get Pet and type add to list
+        /// </summary>
+        /// <returns></returns>
         public ArrayList getAllPet()
         {
             pList = new ArrayList();
             using (PetStoreEntities db = new PetStoreEntities())
             {
+                //join 2 table Pets and Type on database and retrieve specific fields 
                 var query = (from p in db.Pets
                              join t in db.Types on p.t_id equals t.t_id
                              select new
@@ -46,6 +55,8 @@ namespace PetStore.Model
                                  p.p_status,
                                  t.t_name
                              });
+
+                //Add each result on query to list
                 foreach (var item in query)
                 {
                     pList.Add(new Object.Pet(item.p_id, item.p_name,
@@ -68,6 +79,17 @@ namespace PetStore.Model
             return Pet;
         }
 
+        /// <summary>
+        /// Update Pet
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="Name"></param>
+        /// <param name="OPrice"></param>
+        /// <param name="SPrice"></param>
+        /// <param name="image"></param>
+        /// <param name="description"></param>
+        /// <param name="status"></param>
+        /// <param name="tID"></param>
         public void UpdatePet(string ID, string Name, int OPrice, int SPrice, string image,
             string description, string status, int tID)
         {
@@ -113,37 +135,54 @@ namespace PetStore.Model
         /// <param name="txtPetID"></param>
         public string SetPetID()
         {
+            //get number of Pets on database
             int numOfPet = getNumberOfPet();
             string id = "";
+
+            //ID = PET000x
             if (numOfPet < 9)
             {
                 id = "PET000" + (numOfPet + 1);
             }
-            else if (numOfPet < 99)
+            else if (numOfPet < 99)     //ID = PET00xx
             {
                 id = "PET00" + (numOfPet + 1);
             }
-            else if (numOfPet < 999)
+            else if (numOfPet < 999)    //ID = PET0xxx
             {
                 id = "PET0" + (numOfPet + 1);
             }
-            else
+            else    //ID = PETxxxx
             {
                 id = "PET" + (numOfPet + 1);
             }
             return id;
         }
+
+        /// <summary>
+        /// Resize image based on specific width and height  
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
         public Bitmap ResizeImage(Image image, int width, int height)
         {
+            //Initializes a new frame Rectangle with specified location and size
             var destRect = new Rectangle(0, 0, width, height);
+            //Initializes a new instance image with specificed size
             var destImage = new Bitmap(width, height);
 
+            //set the resolution for new image
             destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
 
-            using (var graphics = Graphics.FromImage(destImage))
+            using (var graphics = Graphics.FromImage(destImage))    //Create new Image is destImage
             {
+                //When a color is rendered, it overwrites the background color.
                 graphics.CompositingMode = CompositingMode.SourceCopy;
+                //Set image is high quality but low speed compositing
                 graphics.CompositingQuality = CompositingQuality.HighQuality;
+
                 graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 graphics.SmoothingMode = SmoothingMode.HighQuality;
                 graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
