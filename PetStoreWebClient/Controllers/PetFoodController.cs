@@ -34,12 +34,15 @@ namespace PetStoreWebClient.Controllers
             return View(allPetfood);
         }
 
-        public ActionResult Detail(String pfID)
+        public ActionResult Detail(String pfID, int page = 1, int pageSize = 2)
         {
+            var petFood = new PetFoodModel();
+            
 
-            var petfoodDetail = new PetFoodModel().getPetFoodByID(pfID);
-            ViewBag.relatedPetFood = new PetFoodModel().getPetFoodRelated(petfoodDetail.pf_id);
-            return View(petfoodDetail);
+            var petfoodDetail = petFood.getPetFoodByID(pfID);
+            ViewBag.relatedPetFood = petFood.getPetFoodRelated(petfoodDetail.pf_id);
+            ViewBag.petfoodDetail = petfoodDetail;
+            return View();
         }
     }
 }

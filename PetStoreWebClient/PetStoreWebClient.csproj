@@ -200,6 +200,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PetController.cs" />
     <Compile Include="Controllers\PetFoodController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="EF\Account.cs" />
@@ -229,7 +230,10 @@
     <Compile Include="ModelClass\CartPetItem.cs" />
     <Compile Include="ModelClass\CartPetMedicineItem.cs" />
     <Compile Include="ModelClass\CartPetToyItem.cs" />
+    <Compile Include="ModelClass\CommentDetailModel.cs" />
+    <Compile Include="ModelClass\CommentModel.cs" />
     <Compile Include="ModelClass\PetFoodModel.cs" />
+    <Compile Include="ModelClass\PetModel.cs" />
     <Compile Include="ModelClass\ProductViewHome.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -289,6 +293,7 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Pet\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

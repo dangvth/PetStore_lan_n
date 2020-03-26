@@ -73,8 +73,9 @@
     <div class="section group">
         @foreach (var item in viewPetList)
         {
+            var url = "/detail/pet/" + item.p_id;
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="#"><img class="guest-image" src="~/Assets/images/@item.p_image" alt="" /></a>
+                <a href="@url"><img class="guest-image" src="~/Assets/images/@item.p_image" alt="" /></a>
                 <h2>@item.p_name</h2>
                 <div class="price-details">
                     <div class="price-number">

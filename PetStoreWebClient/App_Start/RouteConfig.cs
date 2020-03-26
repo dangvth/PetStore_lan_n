@@ -26,6 +26,12 @@ namespace PetStoreWebClient
             );
 
             routes.MapRoute(
+                name: "Pet's Detail",
+                url: "detail/pet/{pID}",
+                defaults: new { controller = "Pet", action = "Detail", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Add Cart",
                 url: "add-to-cart",
                 defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional }

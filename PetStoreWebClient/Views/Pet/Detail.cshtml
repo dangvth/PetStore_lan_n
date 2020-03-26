@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var relatedPetfood = (List<PetStoreWebClient.EF.PetFood>)ViewBag.relatedPetFood;
-    var petfoodDetail = (PetStoreWebClient.EF.PetFood)ViewBag.petfoodDetail;
+    var relatedPet = (List<PetStoreWebClient.EF.Pet>)ViewBag.relatedPet;
+    var petDetail = (PetStoreWebClient.EF.Pet)ViewBag.petDetail;
 }
 
 <div class="content">
@@ -15,16 +15,16 @@
                         <div id="products_example">
                             <div id="products">
                                 <div class="slides_container">
-                                    <a href="#" target="_blank"><img src="~/Assets/images/@petfoodDetail.pf_image" alt=" " /></a>
+                                    <a href="#" target="_blank"><img src="~/Assets/images/@petDetail.p_image" alt=" " /></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="desc span_3_of_2">
-                    <h2>@petfoodDetail.pf_name</h2>
+                    <h2>@petDetail.p_name</h2>
                     <div class="price">
-                        <p>Price: <span>@petfoodDetail.pf_salePrice.Value.ToString("N0")đ</span></p>
+                        <p>Price: <span>@petDetail.p_salePrice.ToString("N0")đ</span></p>
                     </div>
                     <div class="share-desc">
                         <div class="share">
@@ -34,7 +34,7 @@
                                 <li><a href="#"><img src="~/Assets/images/twitter.png" alt="" /></a></li>
                             </ul>
                         </div>
-                        <button class="button" onclick="location.href='/add-to-cart?productID=@petfoodDetail.pf_id&Quantity=1'">Add to Cart</button>
+                        <button class="button" onclick="location.href='/add-to-cart?productID=@petDetail.p_id&Quantity=1'">Add to Cart</button>
                         <div class="clear"></div>
                     </div>
                 </div>
@@ -45,19 +45,19 @@
                     <h3>Related Products</h3>
                 </div>
                 <div class="see">
-                    <p><a href="#">See all Products</a></p>
+                    <p><a href="/pet">See all Products</a></p>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="section group">
-                @foreach (var item in relatedPetfood)
+                @foreach (var item in relatedPet)
                 {
-                    var url = "/detail/petfood/" + item.pf_id;
+                    var url = "/detail/pet/" + item.p_id;
                     <div class="grid_1_of_4 images_1_of_4">
-                        <a href="@url"><img src="~/Assets/images/@item.pf_image" alt=""></a>
+                        <a href="@url"><img class="image-relatePet" src="~/Assets/images/@item.p_image" alt=""></a>
                         <div class="price" style="border:none">
                             <div class="add-cart" style="float:none">
-                                <h4><a href="/add-to-cart?productID=@item.pf_id&Quantity=1l">Add to Cart</a></h4>
+                                <h4><a href="/add-to-cart?productID=@item.p_id&Quantity=1">Add to Cart</a></h4>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -110,4 +110,42 @@
             </div>
         </div>
     </div>
+    @*<br />
+        <div class="section group">
+            <div class="cont-desc span_1_of_2">
+                <div class="section group">
+                    <h3 style="font-weight: bold;">Comment</h3>
+                    <hr />
+                    <form action="/">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" cols="20" name="txtComment" placeholder="Please leave a comment..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="float: right; width: 90px;">Send</button>
+                    </form>
+                </div>
+                <hr />
+                <div class="section group">
+                    @foreach (var item in Model)
+                    {
+                        <p>ABC @item.cmt_published.Value</p>
+                        <p id="cmtContext">@item.cmt_content</p>
+                        <a href="#" style="text-decoration: none; font-size: 15px">Reply</a>
+                        foreach (var cmtd in listCommentDetail)
+                        {
+                            if (item.cmt_id == cmtd.cmt_id)
+                            {
+                                <div class="w-90 p-3" style="background-color: #eee; margin-left: 30px;">
+                                    <p>ABC @cmtd.cmtd_published</p>
+                                    <p id="cmtContext">@cmtd.cmtd_content</p>
+                                    <a href="#" style="text-decoration: none; font-size: 15px">Reply</a>
+                                    <hr />
+                                </div>
+                            }
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>*@
 </div>
+

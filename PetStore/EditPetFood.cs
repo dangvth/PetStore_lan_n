@@ -46,19 +46,19 @@ namespace PetStore
                     }
 
                     //get solution path
-                    //String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-                    //String oldWebFilePath = solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + oldImageName;
+                    String solutionPath = Directory.GetParent(projectPath).FullName;;
+                    String oldWebFilePath = solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + oldImageName;
                     //delete old image file if exist
-                    //FileInfo f2 = new FileInfo(oldWebFilePath);
-                    //if (f2.Exists)
-                    //{
-                    //    File.Delete(oldWebFilePath);
-                    //}
+                    FileInfo f2 = new FileInfo(oldWebFilePath);
+                    if (f2.Exists)
+                    {
+                        File.Delete(oldWebFilePath);
+                    }
 
                     //Get new image file path and copy it to image folder
                     String newFilepath = Path.GetFullPath(projectPath + "\\img\\" + image);
-                    //String newFileWebpath = Path.GetFullPath(solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + image);
-                    //File.Copy(te_FoodImage.Text, newFileWebpath);
+                    String newFileWebpath = Path.GetFullPath(solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + image);
+                    File.Copy(te_FoodImage.Text, newFileWebpath);
                     File.Copy(te_FoodImage.Text, newFilepath);
                 }
                 else
