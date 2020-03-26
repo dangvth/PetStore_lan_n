@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PetStore;
+using PetStore.MyUtil;
 
 namespace PetStore.Model
 {
@@ -46,7 +47,7 @@ namespace PetStore.Model
                 if (a.ac_userName.Equals(username))
                 {
                     //encrypt and check match with password on database
-                    if (a.ac_pwd.Equals(MyUtil.Encrypt.SHA256_Encrypt(pwd)))
+                    if (a.ac_pwd.Equals(MyUtil.Encryptor.SHA256_Encrypt(pwd)))
                     {
                         //return true if match
                         return true;
@@ -58,6 +59,17 @@ namespace PetStore.Model
         }
 
         /// <summary>
+        /// Get Account ID by username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public int getIDByUsername(string username)
+        {
+            Account ac = db.Accounts.Where(a => a.ac_userName == username).SingleOrDefault();
+            return ac.ac_id;
+        }
+
+        /// <summary>
         /// Change Password of account
         /// </summary>
         /// <param name="userName"></param>
@@ -65,7 +77,7 @@ namespace PetStore.Model
         public void ChangePassword(string userName, string newPWD)
         {
             Account ac = db.Accounts.Where(p => p.ac_userName == userName).SingleOrDefault();
-            ac.ac_pwd = MyUtil.Encrypt.SHA256_Encrypt(newPWD);
+            ac.ac_pwd = MyUtil.Encryptor.SHA256_Encrypt(newPWD);
             db.SaveChanges();
         }
 
@@ -77,7 +89,7 @@ namespace PetStore.Model
         public void ResetPassword(int id)
         {
             Account ac = db.Accounts.Where(p => p.ac_id == id).SingleOrDefault();
-            ac.ac_pwd = MyUtil.Encrypt.SHA256_Encrypt("user@123");
+            ac.ac_pwd = MyUtil.Encryptor.SHA256_Encrypt("user@123");
             db.SaveChanges();
         }
 
@@ -117,6 +129,22 @@ namespace PetStore.Model
                 {
                     return true;
                 }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Check old Password user input is correct or not
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="oldPassword"></param>
+        /// <returns></returns>
+        public bool isOldPassword(int id, string oldPassword)
+        {
+            Account ac = db.Accounts.Where(x => x.ac_id == id).SingleOrDefault();
+            if (ac.ac_pwd.Equals(Encryptor.SHA256_Encrypt(oldPassword)))
+            {
+                return true;
             }
             return false;
         }

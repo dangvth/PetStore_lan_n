@@ -80,7 +80,7 @@ namespace PetStore.Views.AccountView{
 
         private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            txtAc_pwd.Text = MyUtil.Encrypt.SHA256_Encrypt("user@123");
+            txtAc_pwd.Text = MyUtil.Encryptor.SHA256_Encrypt("user@123");
         }
 
         private void txtAc_userName_Leave(object sender, EventArgs e)
@@ -94,12 +94,12 @@ namespace PetStore.Views.AccountView{
 
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            txtAc_pwd.Text = MyUtil.Encrypt.SHA256_Encrypt("user@123");
+            txtAc_pwd.Text = MyUtil.Encryptor.SHA256_Encrypt("user@123");
         }
 
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            txtAc_pwd.Text = MyUtil.Encrypt.SHA256_Encrypt("user@123");
+            txtAc_pwd.Text = MyUtil.Encryptor.SHA256_Encrypt("user@123");
         }
     }
 }

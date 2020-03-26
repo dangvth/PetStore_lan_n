@@ -253,7 +253,6 @@
             this.btnLogout.LargeWidth = 55;
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // btnChangePwd
             // 
@@ -262,7 +261,6 @@
             this.btnChangePwd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePwd.ImageOptions.Image")));
             this.btnChangePwd.Name = "btnChangePwd";
             this.btnChangePwd.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnChangePwd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePwd_ItemClick);
             // 
             // ribbonPage
             // 
@@ -275,8 +273,6 @@
             // ribbonPageGroupNavigation
             // 
             this.ribbonPageGroupNavigation.ItemLinks.Add(this.barSubItemNavigation);
-            this.ribbonPageGroupNavigation.ItemLinks.Add(this.btnLogout);
-            this.ribbonPageGroupNavigation.ItemLinks.Add(this.btnChangePwd);
             this.ribbonPageGroupNavigation.Name = "ribbonPageGroupNavigation";
             this.ribbonPageGroupNavigation.Text = "Module";
             // 
