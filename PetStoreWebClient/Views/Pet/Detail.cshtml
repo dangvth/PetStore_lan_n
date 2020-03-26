@@ -1,11 +1,14 @@
 ﻿
+@model List<PetStoreWebClient.EF.Comment>
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var relatedPet = (List<PetStoreWebClient.EF.Pet>)ViewBag.relatedPet;
     var petDetail = (PetStoreWebClient.EF.Pet)ViewBag.petDetail;
-}
 
+    var listCommentDetail = (List<PetStoreWebClient.EF.CommentDetail>)ViewBag.listAllCommentDetail;
+}
+<link href="~/Assets/css-comment/comment.css" rel="stylesheet" />
 <div class="content">
     <div class="section group">
         <div class="cont-desc span_1_of_2">
@@ -110,42 +113,118 @@
             </div>
         </div>
     </div>
-    @*<br />
-        <div class="section group">
-            <div class="cont-desc span_1_of_2">
-                <div class="section group">
-                    <h3 style="font-weight: bold;">Comment</h3>
-                    <hr />
-                    <form action="/">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="4" cols="20" name="txtComment" placeholder="Please leave a comment..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="float: right; width: 90px;">Send</button>
-                    </form>
-                </div>
+    <br />
+    <div class="section group">
+        <div class="cont-desc span_1_of_2">
+            <div class="section group">
+                <h3 style="font-weight: bold;">Comment</h3>
                 <hr />
-                <div class="section group">
-                    @foreach (var item in Model)
-                    {
-                        <p>ABC @item.cmt_published.Value</p>
-                        <p id="cmtContext">@item.cmt_content</p>
-                        <a href="#" style="text-decoration: none; font-size: 15px">Reply</a>
-                        foreach (var cmtd in listCommentDetail)
+                <form action="/add-comment?pID=@petDetail.p_id">
+                    <div class="form-group">
+                        <textarea class="form-control" rows="4" cols="20" name="txtComment" placeholder="Please leave a comment..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="float: right; width: 90px;">Send</button>
+                </form>
+            </div>
+            <hr />
+            <div class="section group">
+                <!-- Contenedor Principal -->
+                <div class="comments-container">
+                    <ul id="comments-list" class="comments-list">
+                        @foreach (var item in Model)
                         {
-                            if (item.cmt_id == cmtd.cmt_id)
-                            {
-                                <div class="w-90 p-3" style="background-color: #eee; margin-left: 30px;">
-                                    <p>ABC @cmtd.cmtd_published</p>
-                                    <p id="cmtContext">@cmtd.cmtd_content</p>
-                                    <a href="#" style="text-decoration: none; font-size: 15px">Reply</a>
-                                    <hr />
+                            <li>
+                                <div class="comment-main-level">
+                                    <!-- Avatar -->
+                                    <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+                                    <!-- Contenedor del Comentario -->
+                                    <div class="comment-box">
+                                        <div class="comment-head">
+                                            <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
+                                            <span>@item.cmt_published</span>
+                                            <i class="fa fa-reply" id="add-comment-detail"></i>
+                                        </div>
+                                        <div class="comment-content">
+                                            @item.cmt_content
+                                        </div>
+                                    </div>
                                 </div>
-                            }
+                                <!-- Respuestas de los comentarios -->
+                                <ul class="comments-list reply-list">
+                                    @foreach (var cmtd in listCommentDetail)
+                                    {
+                                        if (item.cmt_id == cmtd.cmt_id)
+                                        {
+                                            <li>
+                                                <!-- Avatar -->
+                                                <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg" alt=""></div>
+                                                <!-- Contenedor del Comentario -->
+                                                <div class="comment-box">
+                                                    <div class="comment-head">
+                                                        <h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
+                                                        <span>@cmtd.cmtd_published</span>
+                                                        <i class="fa fa-reply"></i>
+                                                    </div>
+                                                    <div class="comment-content">
+                                                        @cmtd.cmtd_content
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                    <form action="/" id="replyForm">
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="4" cols="20" name="txtComment" placeholder="Please leave a reply..."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary" style="float: right; width: 90px;">Reply</button>
+                                    </form>
+                                </ul>
+                            </li>
                         }
-                    }
-
+                    </ul>
                 </div>
             </div>
-        </div>*@
-</div>
+        </div>
+        <div class="clear"></div>
+        <!--Phân trang-->
+        @if (ViewBag.totalPage > 1)
+        {
+            var pageDisplay = (int)ViewBag.maxPage;
+            int totalPage = (int)ViewBag.totalPage;
+            int currentPage = (int)ViewBag.Page;
 
+            //Create numberic link
+            var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+            var endPageINdex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+            var url = "/detail/pet/" + petDetail.p_id;
+            <ul class="pagination pagination-sm" style="float: left; margin-left: 30px">
+                @if (currentPage > ViewBag.first)
+                {
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.first" title="First page"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.prev" title="Previous page"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                }
+                @for (int i = startPageIndex; i <= endPageINdex; i++)
+                {
+                    if (i == currentPage)
+                    {
+                        <li class="page-item active"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
+                    }
+                }
+                @if (currentPage < totalPage)
+                {
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.next" title="Next page"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.last" title="Last page"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                }
+            </ul>
+        }
+        else
+        {
+            <span class="alert alert-info">No Comment here.</span>
+        }
+    </div>
+</div>

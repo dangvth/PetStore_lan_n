@@ -21,11 +21,11 @@ namespace PetStoreWebClient.ModelClass
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        //public List<Comment> getAllCommentByPetFoodID(ref int totalRecord, int pageIndex = 1, int pageSize = 2, string pfID)
-        //{
-        //    totalRecord = db.Comment.Where(x => x.cmt_status == "Active" && x.p_id == pfID).Count();
-        //    var model = db.Comment.Where(x => x.cmt_status == "Active" && x.p_id == pfID).OrderByDescending(x => x.cmt_published).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
-        //    return model;
-        //}
+        public List<Comment> getAllCommentByPetFoodID(ref int totalRecord, string pID, int pageIndex = 1, int pageSize = 2)
+        {
+            totalRecord = db.Comment.Where(x => x.cmt_status == "Active" && x.p_id == pID).Count();
+            var model = db.Comment.Where(x => x.cmt_status == "Active" && x.p_id == pID).OrderByDescending(x => x.cmt_published).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+            return model;
+        }
     }
 }
