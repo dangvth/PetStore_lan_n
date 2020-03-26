@@ -18,7 +18,6 @@ namespace PetStore
         Model.AccountModel am;
 
         //declare variables
-        int acId = -1;
         string username = "";
 
         //Initialize a delegate to get username 
@@ -69,12 +68,12 @@ namespace PetStore
             //Get ID by username that user has been inputted
             id = am.getIDByUsername(username);
 
-            //check Old Password of account
+            //check old Password of account
             //if true, continue processing
             //if not, send error message
             if (am.isOldPassword(id, txtOldPassword.Text))
             {
-                //new password and re-new password 
+                //new password and re-new password
                 if (isSamePassword())
                 {
                     //Change pasword
@@ -83,7 +82,8 @@ namespace PetStore
                     MessageBox.Show("Change password successfully!!!",
                     "Pet Shop", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            } else  //send error message for user
+            }
+            else  //send error message for user
             {
                 MessageBox.Show("The Old Password is not correct!!!\n" + "Please enter again!!!",
                     "Pet Shop", MessageBoxButtons.OK, MessageBoxIcon.Warning);

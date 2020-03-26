@@ -32,9 +32,9 @@
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.lblChangePwd = new System.Windows.Forms.Label();
             this.pnlChangePwd = new System.Windows.Forms.Panel();
-            this.petStoreEntitiesView1 = new PetStore.Views.PetStoreEntitiesView.PetStoreEntitiesView();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.lblLogout = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.petStoreEntitiesView1 = new PetStore.Views.PetStoreEntitiesView.PetStoreEntitiesView();
             this.pnlChangePwd.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@
             this.btnChangePassword.TabIndex = 1;
             this.btnChangePassword.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // lblChangePwd
             // 
@@ -66,20 +67,19 @@
             this.pnlChangePwd.Controls.Add(this.btnLogout);
             this.pnlChangePwd.Controls.Add(this.btnChangePassword);
             this.pnlChangePwd.Controls.Add(this.lblChangePwd);
-            this.pnlChangePwd.Location = new System.Drawing.Point(440, 33);
+            this.pnlChangePwd.Location = new System.Drawing.Point(293, 32);
             this.pnlChangePwd.Name = "pnlChangePwd";
             this.pnlChangePwd.Size = new System.Drawing.Size(280, 104);
             this.pnlChangePwd.TabIndex = 3;
             // 
-            // petStoreEntitiesView1
+            // lblLogout
             // 
-            this.petStoreEntitiesView1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.petStoreEntitiesView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.petStoreEntitiesView1.Location = new System.Drawing.Point(0, 0);
-            this.petStoreEntitiesView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.petStoreEntitiesView1.Name = "petStoreEntitiesView1";
-            this.petStoreEntitiesView1.Size = new System.Drawing.Size(1118, 668);
-            this.petStoreEntitiesView1.TabIndex = 0;
+            this.lblLogout.AutoSize = true;
+            this.lblLogout.Location = new System.Drawing.Point(179, 75);
+            this.lblLogout.Name = "lblLogout";
+            this.lblLogout.Size = new System.Drawing.Size(52, 17);
+            this.lblLogout.TabIndex = 4;
+            this.lblLogout.Text = "Logout";
             // 
             // btnLogout
             // 
@@ -90,15 +90,17 @@
             this.btnLogout.Size = new System.Drawing.Size(77, 59);
             this.btnLogout.TabIndex = 3;
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // lblLogout
+            // petStoreEntitiesView1
             // 
-            this.lblLogout.AutoSize = true;
-            this.lblLogout.Location = new System.Drawing.Point(179, 75);
-            this.lblLogout.Name = "lblLogout";
-            this.lblLogout.Size = new System.Drawing.Size(52, 17);
-            this.lblLogout.TabIndex = 4;
-            this.lblLogout.Text = "Logout";
+            this.petStoreEntitiesView1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.petStoreEntitiesView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.petStoreEntitiesView1.Location = new System.Drawing.Point(0, 0);
+            this.petStoreEntitiesView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.petStoreEntitiesView1.Name = "petStoreEntitiesView1";
+            this.petStoreEntitiesView1.Size = new System.Drawing.Size(1118, 668);
+            this.petStoreEntitiesView1.TabIndex = 0;
             // 
             // frmAdmin
             // 

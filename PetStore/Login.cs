@@ -36,8 +36,9 @@ namespace PetStore
                 if (am.checkRole(userName) == 1)
                 {
                     frmAdmin ad = new frmAdmin();
-                    PetStore.Views.PetStoreEntitiesView.PetStoreEntitiesView psv = new Views.PetStoreEntitiesView.PetStoreEntitiesView();
-                    psv.Sender(txtUsername.Text);
+                    //PetStore.Views.PetStoreEntitiesView.PetStoreEntitiesView psv = new Views.PetStoreEntitiesView.PetStoreEntitiesView();
+                    //psv.Sender(txtUsername.Text);
+                    ad.SenderAD(txtUsername.Text);
                     ad.Show();
                     this.Hide();
                 }
@@ -45,7 +46,6 @@ namespace PetStore
                 {
                     Staff s = new Staff();
                     s.SenderStaffUser(txtUsername.Text);
-                    s.SenderStaffPwd(Encryptor.SHA256_Encrypt(txtPwd.Text));
                     s.Show();
                     this.Hide();
                 }
@@ -55,6 +55,11 @@ namespace PetStore
                 MessageBox.Show("Username or Password is not correct!", "Login",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

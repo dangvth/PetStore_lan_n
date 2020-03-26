@@ -15,13 +15,10 @@ namespace PetStore
     public partial class Staff : DevExpress.XtraEditors.XtraForm
     {
         //declare variables
-        int acId = -1;
         string username = "";
-        string password = "";
         //Initialize a delegate to get username 
         public delegate void sendDataStaff(string data);
         public sendDataStaff SenderStaffUser;
-        public sendDataStaff SenderStaffPwd;
 
         /// <summary>
         /// Get username by user pass from Login form
@@ -32,17 +29,11 @@ namespace PetStore
             username = user;
         }
 
-        public void getPassword(string pwd)
-        {
-            password = pwd;
-        }
-
         public Staff()
         {
             
             InitializeComponent();
             SenderStaffUser = new sendDataStaff(getUserName);
-            SenderStaffPwd = new sendDataStaff(getPassword);
         }
 
         /// <summary>
@@ -98,6 +89,13 @@ namespace PetStore
             ChangePassword cpw = new ChangePassword();
             cpw.SenderUser(username);
             cpw.Show();
+        }
+
+        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Login lg = new Login();
+            lg.Show();
+            this.Close();
         }
     }
 }
