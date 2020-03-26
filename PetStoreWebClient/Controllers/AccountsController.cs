@@ -14,4 +14,9 @@ namespace PetStoreWebClient.Controllers
             return View();
         }
     }
+
+    public void CreateAccount()
+    {
+
+    }
 }

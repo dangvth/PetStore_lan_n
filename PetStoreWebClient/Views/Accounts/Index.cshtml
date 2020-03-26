@@ -75,9 +75,11 @@ Author: Thaonmce130353
 
                     <!-- Radio Gender -->
                     <div class="form-left-gender">
-                        <input type="radio" id="male" name="gender" value="0">
+                        @Html.RadioButton("gender", "Male")
+                        @*<input type="radio" id="male" name="gender" value="0">*@
                         <label for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value="1">
+                        @Html.RadioButton("gender", "Female")
+                        @*<input type="radio" id="female" name="gender" value="1">*@
                         <label for="female">Female</label><br>
                         <div class="clear"></div>
                     </div>
