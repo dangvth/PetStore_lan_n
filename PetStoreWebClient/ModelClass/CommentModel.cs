@@ -27,5 +27,25 @@ namespace PetStoreWebClient.ModelClass
             var model = db.Comment.Where(x => x.cmt_status == "Active" && x.p_id == pID).OrderByDescending(x => x.cmt_published).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
             return model;
         }
+
+        /// <summary>
+        /// add comment to db
+        /// </summary>
+        /// <param name="cm"></param>
+        /// <returns></returns>
+        public bool InsertComment(Comment cm)
+        {
+            try
+            {
+                db.Comment.Add(cm);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+        }
     }
 }
