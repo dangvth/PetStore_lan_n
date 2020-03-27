@@ -34,9 +34,14 @@ namespace PetStoreWebClient.Commom
             }
         }
 
-        public int getUserIDByAccountID(int acID)
+        /// <summary>
+        /// Get User by Account ID
+        /// </summary>
+        /// <param name="acID"></param>
+        /// <returns></returns>
+        public User getUserByAccountID(int acID)
         {
-            return db.User.SingleOrDefault(u => u.ac_id == acID).u_id;
+            return db.User.SingleOrDefault(u => u.ac_id == acID);
         }
     }
 }
