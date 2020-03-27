@@ -45,6 +45,7 @@ Author: Thaonmce130353
                         <h4 style="color: black; font-weight: bold; ">Sign Up</h4>
                     </div>
 
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                     <!-- Input Fullname -->
                     <div class="form-left-to-w3l">
                         @Html.TextBox("fullName", "", new { @placeholder = "Full name", @required = true, @autofocus = true })
@@ -120,7 +121,6 @@ Author: Thaonmce130353
             </div>
         </div>
         <!-- End of Sign Up -->
-
         <!-- Start of Login -->
         <div class="swm-right-w3ls">
             <!-- Form Login-->
@@ -134,6 +134,7 @@ Author: Thaonmce130353
                         <h4 style="color: black; font-weight: bold; ">Login</h4>
                     </div>
 
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                     <!-- Input Username -->
                     <div class="form-left-to-w3l">
                         @Html.TextBoxFor(model => model.ac_userName, new { @placeholder = "User name", @required = true })

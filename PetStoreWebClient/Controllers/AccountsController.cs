@@ -75,37 +75,36 @@ namespace PetStoreWebClient.Controllers
             string password = account.ac_pwd.ToString();
 
             //Check all fields has been fill
-            if (fullname.Equals("") || addr.Equals("") || email.Equals("") || phone.Equals("")
-                || username.Equals("") || password.Equals(""))
+            if (!(fullname.Equals("") || addr.Equals("") || email.Equals("") || phone.Equals("")
+                || username.Equals("") || password.Equals("")))
             {
-                ModelState.AddModelError("", "Any fields can not be blank!!!!");
-                return View("Index");
-            }
-            else
-            {
-                //Assgin data into variables in Account
-                //var ac = new Account();
-                //ac.ac_userName = username;
-                //ac.ac_pwd = Encryptor.SHA256_Encrypt(account.ac_pwd).ToString();
-                //ac.ac_status = "Active";
-                //ac.r_id = 3;
-
                 //Insert Account and return account ID
                 AccountManagement am = new AccountManagement();
                 var pwdEncrypt = Encryptor.SHA256_Encrypt(account.ac_pwd);
                 account.ac_pwd = pwdEncrypt;
                 account.ac_status = "Active";
-                account.r_id = 3;
+                account.r_id = 3;                
                 int acID = am.InsertAccount(account);
+                //If insert Account successful then insert User
                 if (acID > 0)
                 {
+                    //Insert User
                     UserManagement um = new UserManagement();
                     um.InsertUser(fullname, gender, email, phone, addr, acID);
+                    //Create session 
                     Session["username"] = account.ac_userName;
                     //Session["userID"] = user;
+                    //Redirect to Action Index on HomeController
+                    return RedirectToAction("Index", "Home");
                 }
-                return View("Index", "Home");
             }
+            else    //If has field is blank 
+            {
+                //send error message
+                ModelState.AddModelError("", "Any fields can not be blank!!!!");
+                return View("Index");
+            }
+            return View("Index");
         }
     }
 }
