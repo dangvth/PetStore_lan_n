@@ -37,7 +37,10 @@ namespace PetStoreWebClient.Controllers
 
                     ////Create session "USER_SESSION" contain username and account ID of account
                     //Session.Add(CommonConstant.USER_SESSION, userSession);
+                    UserManagement um = new UserManagement();
+                    int userID = um.getUserIDByAccountID(account.ac_id);
                     Session["username"] = account.ac_userName;
+                    Session["userID"] = userID;
 
                     //Redirect to action "Index" on "AccountsControllers"
                     return RedirectToAction("Index", "Home");
