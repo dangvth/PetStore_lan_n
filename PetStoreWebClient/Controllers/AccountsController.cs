@@ -22,7 +22,7 @@ namespace PetStoreWebClient.Controllers
             {
                 AccountManagement am = new AccountManagement();
                 //Check user enter username & password is correct or not
-                int result = am.Login(model.ac_userName, model.ac_pwd);
+                int result = am.Login(model.ac_userName, Encryptor.SHA256_Encrypt(model.ac_pwd));
 
                 //If is correct => get account and create session for that account
                 if (result == 1)
@@ -40,7 +40,7 @@ namespace PetStoreWebClient.Controllers
                     Session["username"] = account.ac_userName;
 
                     //Redirect to action "Index" on "AccountsControllers"
-                    return RedirectToAction("Index", "Accounts");
+                    return RedirectToAction("Index", "Home");
                 }
                 else if (result == -1)  //Account is not exist
                 {
@@ -55,7 +55,7 @@ namespace PetStoreWebClient.Controllers
                     ModelState.AddModelError("", "The username has been banned!!!");
                 }
             }
-            return View("Index", "Home");
+            return View("Index");
         }
 
         //public ActionResult Create()
