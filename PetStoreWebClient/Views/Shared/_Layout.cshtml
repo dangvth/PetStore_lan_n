@@ -8,6 +8,7 @@
     <link href="~/Assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="~/Assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="~/Assets/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Assets/css-comment/comment.css" rel="stylesheet" />
     <!--Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!--Js-->
@@ -35,19 +36,12 @@
                 <div class="call">
                     <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
                 </div>
-                <div class="account_desc">
-                    <ul>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Checkout</a></li>
-                        <li><a href="#">My Account</a></li>
-                    </ul>
-                </div>
+                @{Html.RenderAction("HeaderPage", "Home");}
                 <div class="clear"></div>
             </div>
             <div class="header_top">
                 <div class="logo">
-                    <a href="/"><img src="/Assets/images/logo.png" alt="" /></a>
+                    <a href="/"><img src="/Assets/images/logo-petshop.png" alt="" /></a>
                 </div>
                 @{Html.RenderAction("HeaderCart", "Home");}
                 <script type="text/javascript">

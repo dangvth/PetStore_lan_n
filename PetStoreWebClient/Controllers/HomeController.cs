@@ -11,6 +11,7 @@ namespace PetStoreWebClient.Controllers
     public class HomeController : Controller
     {
         private const String cartSession = "cartSession";
+        private const String userLogin = "userLogin";
         // GET: Home
         public ActionResult Index()
         {
@@ -33,6 +34,13 @@ namespace PetStoreWebClient.Controllers
                 ViewBag.ListItem = list;
             }
             return PartialView();
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult HeaderPage()
+        {
+            var sessLogin = Session[userLogin];
+            return PartialView(sessLogin);
         }
     }
 }

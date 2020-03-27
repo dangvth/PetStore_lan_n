@@ -22,7 +22,7 @@ namespace PetStoreWebClient.Controllers
             {
                 AccountManagement am = new AccountManagement();
                 //Check user enter username & password is correct or not
-                int result = am.Login(model.ac_userName, Encryptor.SHA256_Encrypt(model.ac_pwd));
+                int result = am.Login(model.ac_userName, Encryptor.SHA256_Encrypt(model.ac_pwd).ToUpper());
 
                 //If is correct => get account and create session for that account
                 if (result == 1)
@@ -36,7 +36,7 @@ namespace PetStoreWebClient.Controllers
                     var user = um.getUserByAccountID(account.ac_id);
                     //Create Session to store username and ID of user
                     Session["username"] = account.ac_userName;
-                    Session["userID"] = user;
+                    Session["userLogin"] = user;
 
                     //Redirect to action "Index" on "AccountsControllers"
                     return RedirectToAction("Index", "Home");
@@ -106,6 +106,12 @@ namespace PetStoreWebClient.Controllers
                 }
                 return View("Index", "Home");
             }
+        }
+
+        public ActionResult LogoutProcess()
+        {
+            Session["userLogin"] = null;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

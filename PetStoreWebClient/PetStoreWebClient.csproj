@@ -235,6 +235,7 @@
     <Compile Include="ModelClass\CartPetToyItem.cs" />
     <Compile Include="ModelClass\CommentDetailModel.cs" />
     <Compile Include="ModelClass\CommentModel.cs" />
+    <Compile Include="ModelClass\CommentViewUser.cs" />
     <Compile Include="ModelClass\PetFoodModel.cs" />
     <Compile Include="ModelClass\PetModel.cs" />
     <Compile Include="ModelClass\ProductViewHome.cs" />
@@ -298,6 +299,7 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Pet\Detail.cshtml" />
+    <Content Include="Views\Home\HeaderPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

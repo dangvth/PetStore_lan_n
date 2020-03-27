@@ -6,9 +6,9 @@
     var relatedPet = (List<PetStoreWebClient.EF.Pet>)ViewBag.relatedPet;
     var petDetail = (PetStoreWebClient.EF.Pet)ViewBag.petDetail;
     var listCommentDetail = (List<PetStoreWebClient.EF.CommentDetail>)ViewBag.listAllCommentDetail;
+    var listAllUser = (List<PetStoreWebClient.ModelClass.CommentViewUser>)ViewBag.listUser;
     var page = (int)ViewBag.Page;
 }
-<link href="~/Assets/css-comment/comment.css" rel="stylesheet" />
 <div class="content">
     <div class="section group">
         <div class="cont-desc span_1_of_2">
@@ -142,7 +142,25 @@
                                     <!-- Contenedor del Comentario -->
                                     <div class="comment-box">
                                         <div class="comment-head">
-                                            <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
+                                            @foreach (var user in listAllUser)
+                                            {
+                                                if (item.u_id == user.u_id)
+                                                {
+                                                    if (user.r_name == "Employee")
+                                                    {
+                                                        <h6 class="comment-name by-employee">@user.u_name</h6>
+                                                    }
+                                                    else if(user.r_name == "Administrator")
+                                                    {
+                                                        <h6 class="comment-name by-admin">@user.u_name</h6>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h6 class="comment-name">@user.u_name</h6>
+                                                    }
+
+                                                }
+                                            }
                                             <span>@item.cmt_published</span>
                                             <i class="fa fa-reply" id="add-comment-detail"></i>
                                         </div>
@@ -163,7 +181,24 @@
                                                 <!-- Contenedor del Comentario -->
                                                 <div class="comment-box">
                                                     <div class="comment-head">
-                                                        <h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
+                                                        @foreach (var user in listAllUser)
+                                                        {
+                                                            if (cmtd.u_id == user.u_id)
+                                                            {
+                                                                if (user.r_name == "Employee")
+                                                                {
+                                                                    <h6 class="comment-name by-employee">@user.u_name</h6>
+                                                                }
+                                                                else if (user.r_name == "Administrator")
+                                                                {
+                                                                    <h6 class="comment-name by-admin">@user.u_name</h6>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <h6 class="comment-name">@user.u_name</h6>
+                                                                }
+                                                            }
+                                                        }
                                                         <span>@cmtd.cmtd_published</span>
                                                         <i class="fa fa-reply"></i>
                                                     </div>
