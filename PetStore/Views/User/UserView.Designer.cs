@@ -275,6 +275,7 @@
             this.bbiSave.Id = 2;
             this.bbiSave.ImageOptions.ImageUri.Uri = "Save";
             this.bbiSave.Name = "bbiSave";
+            this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
             // 
             // bbiSaveAndClose
             // 
@@ -989,6 +990,7 @@
             this.u_statusTextEdit.Properties.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
+            this.u_statusTextEdit.Properties.ReadOnly = true;
             this.u_statusTextEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.u_statusTextEdit.Size = new System.Drawing.Size(927, 20);
             this.u_statusTextEdit.StyleController = this.dataLayoutControl1;
@@ -1217,6 +1219,7 @@
             this.Controls.Add(this.mainRibbonControl);
             this.Name = "UserView";
             this.Size = new System.Drawing.Size(1024, 768);
+            this.Load += new System.EventHandler(this.UserView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.u_idTextEdit.Properties)).EndInit();
@@ -1310,7 +1313,6 @@
 		private DevExpress.XtraEditors.XtraUserControl CommentDetailsXtraUserControl;
 		private DevExpress.XtraBars.PopupMenu CommentDetailsPopUpMenu;
 				private DevExpress.XtraBars.BarButtonItem bbiCommentDetailsRefresh;
-								private DevExpress.XtraEditors.GridLookUpEdit AccountLookUpEdit;
 		private System.Windows.Forms.BindingSource AccountBindingSource;
         private DevExpress.XtraEditors.TextEdit u_idTextEdit;
         private DevExpress.XtraBars.BarButtonItem bbiSave;
@@ -1389,5 +1391,6 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForac_id;
         private DevExpress.XtraEditors.ComboBoxEdit u_genderTextEdit;
         private DevExpress.XtraEditors.ComboBoxEdit u_statusTextEdit;
+        private DevExpress.XtraEditors.GridLookUpEdit AccountLookUpEdit;
     }
 }

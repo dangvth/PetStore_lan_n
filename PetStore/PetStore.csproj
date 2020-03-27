@@ -180,6 +180,12 @@
     <Compile Include="Common\EntitiesViewModel.cs" />
     <Compile Include="Common\ReadOnlyCollectionViewModel.cs" />
     <Compile Include="Common\SingleObjectViewModel.cs" />
+    <Compile Include="DetailGift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailGift.Designer.cs">
+      <DependentUpon>DetailGift.cs</DependentUpon>
+    </Compile>
     <Compile Include="DetailMedicine.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,12 @@
     </Compile>
     <Compile Include="DetailPetForm.Designer.cs">
       <DependentUpon>DetailPetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditGift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditGift.Designer.cs">
+      <DependentUpon>EditGift.cs</DependentUpon>
     </Compile>
     <Compile Include="EditMedicine.cs">
       <SubType>Form</SubType>
@@ -216,6 +228,12 @@
     <Compile Include="EditPetFood.Designer.cs">
       <DependentUpon>EditPetFood.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enter Quantity.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,10 +243,12 @@
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\CommentDetailModel.cs" />
     <Compile Include="Model\CommentModel.cs" />
+    <Compile Include="Model\GiftModel.cs" />
     <Compile Include="Model\PetMedicineModel.cs" />
     <Compile Include="Model\PetFoodModel.cs" />
     <Compile Include="Model\PetModel.cs" />
     <Compile Include="Model\TypeModel.cs" />
+    <Compile Include="Model\UserModel.cs" />
     <Compile Include="MyUtil\Encryptor.cs" />
     <Compile Include="Object\Account.cs" />
     <Compile Include="Object\Comment.cs" />
@@ -547,6 +567,9 @@
     <EmbeddedResource Include="CommentStaff.resx">
       <DependentUpon>CommentStaff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DetailGift.resx">
+      <DependentUpon>DetailGift.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DetailMedicine.resx">
       <DependentUpon>DetailMedicine.cs</DependentUpon>
     </EmbeddedResource>
@@ -556,6 +579,9 @@
     <EmbeddedResource Include="DetailPetForm.resx">
       <DependentUpon>DetailPetForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditGift.resx">
+      <DependentUpon>EditGift.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditMedicine.resx">
       <DependentUpon>EditMedicine.cs</DependentUpon>
     </EmbeddedResource>
@@ -564,6 +590,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditPetFood.resx">
       <DependentUpon>EditPetFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Enter Quantity.resx">
       <DependentUpon>Enter Quantity.cs</DependentUpon>

@@ -6,9 +6,11 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors;
 using DevExpress.Utils.MVVM.Services;
 using DevExpress.XtraBars;
+using System.Windows.Forms;
 
 namespace PetStore.Views.UserCollectionView{
     public partial class UserCollectionView : XtraUserControl {
+        private String uIDSelected = "";
         public UserCollectionView() {
             InitializeComponent();
 			if(!mvvmContext.IsDesignMode)
@@ -48,6 +50,7 @@ namespace PetStore.Views.UserCollectionView{
         private void gridView_RowClick(object sender, RowClickEventArgs e)
         {
             int index = gridView.FocusedRowHandle;
+            uIDSelected = gridView.GetRowCellValue(index, "u_id").ToString();
             string status = gridView.GetRowCellValue(index, "u_status").ToString();
             if (status.Equals("Active"))
             {
@@ -90,6 +93,34 @@ namespace PetStore.Views.UserCollectionView{
 
         private void bbiRefresh_ItemClick(object sender, ItemClickEventArgs e)
         {
+        }
+
+        private void bbiNew_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (uIDSelected != "")
+            {
+                EditUser eu = new EditUser();
+                var db = new PetStoreEntities();
+                var u = db.Users.Find(int.Parse(uIDSelected));
+                eu.txt_uID.Text = u.u_id.ToString();
+                eu.txt_uName.Text = u.u_name;
+                eu.txt_uGender.Text = u.u_gender;
+                eu.txt_uMail.Text = u.u_email;
+                eu.txt_uPhone.Text = u.u_phone;
+                eu.txt_uAddress.Text = u.u_address;
+                eu.txt_uStatus.Text = u.u_status;
+                //epf.te_FoodImage.Text = pf.pf_image;
+                eu.ShowDialog();
+            }
+            else
+            {
+                XtraMessageBox.Show("Please choose an user item to edit !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
