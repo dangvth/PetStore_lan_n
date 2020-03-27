@@ -57,11 +57,11 @@ namespace PetStoreWebClient.Controllers
             return View("Index");
         }
 
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View("Index");
-        }
+        //[HttpGet]
+        //public ActionResult Create()
+        //{
+        //    return View("Index");
+        //}
 
         public ActionResult Create(Account account, FormCollection Fields)
         {

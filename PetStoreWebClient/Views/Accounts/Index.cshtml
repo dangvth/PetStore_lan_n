@@ -47,35 +47,35 @@ Author: Thaonmce130353
 
                     <!-- Input Fullname -->
                     <div class="form-left-to-w3l">
-                        @Html.TextBox("fullName", new { @placeholder = "Full name", @required = true, @autofocus = true })
+                        @Html.TextBox("fullName", "", new { @placeholder = "Full name", @required = true, @autofocus = true })
                         @*<input type="text" name="fullname" placeholder="Full name" required="">*@
                         <div class="clear"></div>
                     </div>
 
                     <!-- Input Address -->
                     <div class="form-left-to-w3l">
-                        @Html.TextBox("address", new { @placeholder = "Address", @required = true })
+                        @Html.TextBox("address", "", new { @placeholder = "Address", @required = true })
                         @*<input type="text" name="address" placeholder="Address" required="">*@
                         <div class="clear"></div>
                     </div>
 
                     <!-- Input Email -->
-                    <div class="form-left-w3l">
-                        @Html.TextBox("email", new { @placeholder = "Email", @required = true })
+                    <div class="form-left-to-w3l">
+                        @Html.TextBox("email", "", new { @placeholder = "Email", @required = true })
                         @*<input type="email" name="email" placeholder="Email" required="">*@
                         <div class="clear"></div>
                     </div>
 
                     <!-- Input Phone -->
-                    <div class="form-left-w3l">
-                        @Html.TextBox("phone", new { @placeholder = "Phone", @required = true })
+                    <div class="form-left-to-w3l">
+                        @Html.TextBox("phone", "", new { @placeholder = "Phone", @required = true })
                         @*<input type="tel" name="phone" placeholder="Phone number" required="">*@
                         <div class="clear"></div>
                     </div>
 
                     <!-- Radio Gender -->
                     <div class="form-left-gender">
-                        @Html.RadioButton("gender", "Male")
+                        @Html.RadioButton("gender", "Male", true)
                         @*<input type="radio" id="male" name="gender" value="0">*@
                         <label for="male">Male</label>
                         @Html.RadioButton("gender", "Female")
