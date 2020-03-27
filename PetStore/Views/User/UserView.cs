@@ -11,8 +11,8 @@ namespace PetStore.Views.UserView{
     public partial class UserView : XtraUserControl {
         public UserView() {
             InitializeComponent();
-			if(!mvvmContext.IsDesignMode)
-				InitBindings();
+            if (!mvvmContext.IsDesignMode)
+                InitBindings();    
 		}
 		void InitBindings() {
 		    var fluentAPI = mvvmContext.OfType<PetStore.ViewModels.UserViewModel>();
@@ -72,8 +72,24 @@ namespace PetStore.Views.UserView{
 																	#endregion
 									// Binding for Account LookUp editor
 			fluentAPI.SetBinding(AccountLookUpEdit.Properties, p => p.DataSource, x => x.LookUpAccounts.Entities);
-			 
-			bbiCustomize.ItemClick += (s, e) => { dataLayoutControl1.ShowCustomizationForm(); };
-       }
+
+            bbiCustomize.ItemClick += (s, e) => { dataLayoutControl1.ShowCustomizationForm(); };
+            
+        }
+        private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //using (var db = new PetStoreEntities())
+            //{
+            //    int index = AccountLookUpEditView.FocusedRowHandle;
+            //    var ac = db.Accounts.Find(int.Parse(AccountLookUpEditView.GetDataRow(index)[0].ToString()));
+            //    ac.ac_status = "Selected";
+            //    db.SaveChanges();
+            //}
+        }
+
+        private void UserView_Load(object sender, EventArgs e)
+        {
+            u_statusTextEdit.Text = "Active";
+        }
     }
 }

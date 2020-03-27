@@ -6,9 +6,14 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors;
 using DevExpress.Utils.MVVM.Services;
 using DevExpress.XtraBars;
+using PetStore.Model;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace PetStore.Views.GiftCollectionView{
     public partial class GiftCollectionView : XtraUserControl {
+        private String gIDSelected = "";
         public GiftCollectionView() {
             InitializeComponent();
 			if(!mvvmContext.IsDesignMode)
@@ -43,6 +48,98 @@ namespace PetStore.Views.GiftCollectionView{
                     popupMenu.ShowPopup(gridControl.PointToScreen(e.Location), s);
                 }
             };
+        }
+
+        private void bbiDetail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (gIDSelected != "")
+            {
+                DetailGift dg = new DetailGift();
+                GiftModel gm = new GiftModel();
+
+                Gift g = gm.getGift(gIDSelected);
+
+                dg.txt_pID.Text = g.g_id;
+                dg.txt_gName.Text = g.g_name;
+                dg.txt_gStatus.Text = g.g_status;
+
+                if (g.g_status == "Active")
+                {
+                    dg.txt_gStatus.ForeColor = Color.Green;
+                    dg.txt_gStatus.Text = g.g_status;
+                }
+                else
+                {
+                    dg.txt_gStatus.ForeColor = Color.Red;
+                    dg.txt_gStatus.Text = g.g_status;
+                }
+
+                dg.lblTitle.Text = g.g_name;
+
+                String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
+                String pathImage = projectPath + "\\img\\" + g.g_image;
+                Image img = Image.FromFile(pathImage);
+                dg.ptbImage.Image = gm.ResizeImage(img, 440, 440);
+
+                dg.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please choose a gift to view detail !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void gridView_RowClick(object sender, RowClickEventArgs e)
+        {
+            int idx = gridView.FocusedRowHandle;
+            gIDSelected = gridView.GetRowCellValue(idx, "g_id").ToString();
+        }
+
+        private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (gIDSelected != "")
+            {
+                EditGift eg = new EditGift();
+                var db = new PetStoreEntities();
+                var g = db.Gifts.Find(gIDSelected);
+                eg.txt_gID.Text = g.g_id;
+                eg.txt_gName.Text = g.g_name;
+                eg.txt_gStatus.Text = g.g_status;
+                //epf.te_FoodImage.Text = pf.pf_image;
+                eg.ShowDialog();
+            }
+            else
+            {
+                XtraMessageBox.Show("Please choose a gift item to restore !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (gIDSelected != "")
+            {
+                GiftModel gm = new GiftModel();
+                gm.DeleteGift(gIDSelected);
+                XtraMessageBox.Show("Delete successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show("Please choose a gift item to delete !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bbiRestore_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (gIDSelected != "")
+            {
+                GiftModel gm = new GiftModel();
+                gm.RestoreGift(gIDSelected);
+                XtraMessageBox.Show("Restore successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show("Please choose a gift item to restore !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
