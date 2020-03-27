@@ -6,6 +6,9 @@ using DevExpress.Utils.MVVM;
 using DevExpress.Utils.MVVM.Services;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Base;
+using PetStore.Model;
+using System.Windows.Forms;
+using System.IO;
 
 namespace PetStore.Views.GiftView{
     public partial class GiftView : XtraUserControl {
@@ -39,5 +42,90 @@ namespace PetStore.Views.GiftView{
 						 
 			bbiCustomize.ItemClick += (s, e) => { dataLayoutControl1.ShowCustomizationForm(); };
        }
+
+        private void g_imageTextEdit_Click(object sender, EventArgs e)
+        {
+            openDialog.Filter = "Image files (*.jpg)|*.jpg|Image files (*.png)|*.png|All files (*.*)|*.*";
+            openDialog.ShowDialog();
+            if (openDialog.FileName != "" && (openDialog.FileName.EndsWith(".jpg") || openDialog.FileName.EndsWith(".png")))
+            {
+                GiftModel gm = new GiftModel();
+                if (openDialog.FileName.EndsWith(".jpg")) { g_imageTextEdit.Text = gm.getNextID() + ".jpg"; }
+                else { g_imageTextEdit.Text = gm.getNextID() + ".png"; }
+            }
+            else
+            {
+                XtraMessageBox.Show("Please choose a image with (*.jpg)/(*.png) file !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            String oldPath = openDialog.FileName;
+            //get solution path
+            String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            //copy file to image folder
+            if (oldPath.Equals("openFileDialog1"))
+            {
+                MessageBox.Show("Please choose a image with (*.jpg)/(*.png) file !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + g_imageTextEdit.Text);
+                File.Copy(oldPath, @"../../img/" + g_imageTextEdit.Text);
+                MessageBox.Show("Save gift Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+            
+        }
+
+        private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            String oldPath = openDialog.FileName;
+            //get solution path
+            String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            //copy file to image folder
+            if (oldPath.Equals("openFileDialog1"))
+            {
+                MessageBox.Show("Please choose a image with (*.jpg)/(*.png) file !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + g_imageTextEdit.Text);
+                File.Copy(oldPath, @"../../img/" + g_imageTextEdit.Text);
+                MessageBox.Show("Save gift Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            String oldPath = openDialog.FileName;
+            //get solution path
+            String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            //copy file to image folder
+            if (oldPath.Equals("openFileDialog1"))
+            {
+                MessageBox.Show("Please choose a image with (*.jpg)/(*.png) file !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + g_imageTextEdit.Text);
+                File.Copy(oldPath, @"../../img/" + g_imageTextEdit.Text);
+                MessageBox.Show("Save gift Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void GiftView_Load(object sender, EventArgs e)
+        {
+            GiftModel gm = new GiftModel();
+            g_idTextEdit.Text = gm.getNextID();
+            g_statusTextEdit.SelectedItem = "Active";
+        }
+
+        private void g_idTextEdit_Click(object sender, EventArgs e)
+        {
+            GiftModel gm = new GiftModel();
+            g_idTextEdit.Text = gm.getNextID();
+        }
     }
 }

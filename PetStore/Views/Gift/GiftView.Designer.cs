@@ -61,7 +61,8 @@
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.g_imageTextEdit = new DevExpress.XtraEditors.ImageEdit();
+            this.g_statusTextEdit = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.g_imageTextEdit = new DevExpress.XtraEditors.ButtonEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForg_id = new DevExpress.XtraLayout.LayoutControlItem();
@@ -73,7 +74,7 @@
             this.ItemForBills = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.BillsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.g_statusTextEdit = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.openDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.g_idTextEdit.Properties)).BeginInit();
@@ -85,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BillsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillsBarManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g_statusTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g_imageTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -97,7 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForBills)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillsPopUpMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g_statusTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -106,8 +107,8 @@
             this.dataLayoutControl1.Controls.Add(this.g_idTextEdit);
             this.dataLayoutControl1.Controls.Add(this.g_nameTextEdit);
             this.dataLayoutControl1.Controls.Add(this.BillsXtraUserControl);
-            this.dataLayoutControl1.Controls.Add(this.g_imageTextEdit);
             this.dataLayoutControl1.Controls.Add(this.g_statusTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.g_imageTextEdit);
             this.dataLayoutControl1.DataSource = this.giftViewBindingSource;
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 116);
@@ -126,6 +127,7 @@
             this.g_idTextEdit.Size = new System.Drawing.Size(966, 20);
             this.g_idTextEdit.StyleController = this.dataLayoutControl1;
             this.g_idTextEdit.TabIndex = 4;
+            this.g_idTextEdit.Click += new System.EventHandler(this.g_idTextEdit_Click);
             // 
             // giftViewBindingSource
             // 
@@ -169,6 +171,7 @@
             this.bbiSave.Id = 2;
             this.bbiSave.ImageOptions.ImageUri.Uri = "Save";
             this.bbiSave.Name = "bbiSave";
+            this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
             // 
             // bbiSaveAndClose
             // 
@@ -176,6 +179,7 @@
             this.bbiSaveAndClose.Id = 3;
             this.bbiSaveAndClose.ImageOptions.ImageUri.Uri = "SaveAndClose";
             this.bbiSaveAndClose.Name = "bbiSaveAndClose";
+            this.bbiSaveAndClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSaveAndClose_ItemClick);
             // 
             // bbiSaveAndNew
             // 
@@ -183,6 +187,7 @@
             this.bbiSaveAndNew.Id = 4;
             this.bbiSaveAndNew.ImageOptions.ImageUri.Uri = "SaveAndNew";
             this.bbiSaveAndNew.Name = "bbiSaveAndNew";
+            this.bbiSaveAndNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSaveAndNew_ItemClick);
             // 
             // bbiReset
             // 
@@ -439,6 +444,23 @@
             this.barDockControlRight.Manager = this.BillsBarManager;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 462);
             // 
+            // g_statusTextEdit
+            // 
+            this.g_statusTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giftViewBindingSource, "g_status", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.g_statusTextEdit.EditValue = "Active";
+            this.g_statusTextEdit.Location = new System.Drawing.Point(46, 84);
+            this.g_statusTextEdit.MenuManager = this.mainRibbonControl;
+            this.g_statusTextEdit.Name = "g_statusTextEdit";
+            this.g_statusTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.g_statusTextEdit.Properties.Items.AddRange(new object[] {
+            "Active",
+            "Inactive"});
+            this.g_statusTextEdit.Properties.ReadOnly = true;
+            this.g_statusTextEdit.Size = new System.Drawing.Size(966, 20);
+            this.g_statusTextEdit.StyleController = this.dataLayoutControl1;
+            this.g_statusTextEdit.TabIndex = 7;
+            // 
             // g_imageTextEdit
             // 
             this.g_imageTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giftViewBindingSource, "g_image", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -446,10 +468,13 @@
             this.g_imageTextEdit.MenuManager = this.mainRibbonControl;
             this.g_imageTextEdit.Name = "g_imageTextEdit";
             this.g_imageTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.g_imageTextEdit.Properties.ReadOnly = true;
+            this.g_imageTextEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.g_imageTextEdit.Size = new System.Drawing.Size(966, 20);
             this.g_imageTextEdit.StyleController = this.dataLayoutControl1;
             this.g_imageTextEdit.TabIndex = 6;
+            this.g_imageTextEdit.Click += new System.EventHandler(this.g_imageTextEdit_Click);
             // 
             // layoutControlGroup1
             // 
@@ -564,21 +589,9 @@
             this.BillsPopUpMenu.Manager = this.BillsBarManager;
             this.BillsPopUpMenu.Name = "BillsPopUpMenu";
             // 
-            // g_statusTextEdit
+            // openDialog
             // 
-            this.g_statusTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giftViewBindingSource, "g_status", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.g_statusTextEdit.EditValue = "Active";
-            this.g_statusTextEdit.Location = new System.Drawing.Point(46, 84);
-            this.g_statusTextEdit.MenuManager = this.mainRibbonControl;
-            this.g_statusTextEdit.Name = "g_statusTextEdit";
-            this.g_statusTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.g_statusTextEdit.Properties.Items.AddRange(new object[] {
-            "Active",
-            "Inactive"});
-            this.g_statusTextEdit.Size = new System.Drawing.Size(966, 20);
-            this.g_statusTextEdit.StyleController = this.dataLayoutControl1;
-            this.g_statusTextEdit.TabIndex = 7;
+            this.openDialog.FileName = "openFileDialog1";
             // 
             // GiftView
             // 
@@ -589,6 +602,8 @@
             this.Controls.Add(this.mainRibbonControl);
             this.Name = "GiftView";
             this.Size = new System.Drawing.Size(1024, 768);
+            this.Load += new System.EventHandler(this.GiftView_Load);
+            this.Click += new System.EventHandler(this.g_imageTextEdit_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.g_idTextEdit.Properties)).EndInit();
@@ -601,6 +616,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BillsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillsBarManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g_statusTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.g_imageTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -613,7 +629,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForBills)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillsPopUpMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g_statusTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -662,7 +677,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraEditors.ImageEdit g_imageTextEdit;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem ItemForg_id;
         private DevExpress.XtraLayout.LayoutControlItem ItemForg_name;
@@ -672,5 +686,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
         private DevExpress.XtraLayout.LayoutControlItem ItemForBills;
         private DevExpress.XtraEditors.ComboBoxEdit g_statusTextEdit;
+        private DevExpress.XtraEditors.ButtonEdit g_imageTextEdit;
+        private System.Windows.Forms.OpenFileDialog openDialog;
     }
 }
