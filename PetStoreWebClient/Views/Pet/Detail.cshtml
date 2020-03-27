@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var relatedPet = (List<PetStoreWebClient.EF.Pet>)ViewBag.relatedPet;
     var petDetail = (PetStoreWebClient.EF.Pet)ViewBag.petDetail;
-
     var listCommentDetail = (List<PetStoreWebClient.EF.CommentDetail>)ViewBag.listAllCommentDetail;
+    var page = (int)ViewBag.Page;
 }
 <link href="~/Assets/css-comment/comment.css" rel="stylesheet" />
 <div class="content">
@@ -119,12 +119,14 @@
             <div class="section group">
                 <h3 style="font-weight: bold;">Comment</h3>
                 <hr />
-                <form action="/add-comment?pID=@petDetail.p_id">
+                @using (Html.BeginForm("Comment", "Pet", FormMethod.Post))
+                {
                     <div class="form-group">
+                        <input type="text" name="pID" value="@petDetail.p_id" hidden="" />
                         <textarea class="form-control" rows="4" cols="20" name="txtComment" placeholder="Please leave a comment..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="float: right; width: 90px;">Send</button>
-                </form>
+                }
             </div>
             <hr />
             <div class="section group">
@@ -172,18 +174,26 @@
                                             </li>
                                         }
                                     }
-                                    <form action="/" id="replyForm">
+                                    @using (Html.BeginForm("CommentDetail", "Pet", FormMethod.Post))
+                                    {
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="4" cols="20" name="txtComment" placeholder="Please leave a reply..."></textarea>
+                                            <input type="text" name="cmtID" value="@item.cmt_id" hidden="" />
+                                            <input type="text" name="page" value="@page" hidden="" />
+                                            <input type="text" name="pID" value="@petDetail.p_id" hidden="" />
+                                            <textarea class="form-control" rows="4" cols="20" name="txtCommentDetail" placeholder="Please leave a comment..."></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-primary" style="float: right; width: 90px;">Reply</button>
-                                    </form>
+                                        <button type="submit" class="btn btn-info" style="float: right; font-size: 15px">Reply</button>
+                                    }
                                 </ul>
                             </li>
                         }
                     </ul>
                 </div>
             </div>
+            @if (ViewBag.totalPage < 1)
+            {
+                <span class="alert alert-info">Do not have any comment</span>
+            }
         </div>
         <div class="clear"></div>
         <!--Phân trang-->
@@ -221,10 +231,6 @@
                     <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.last" title="Last page"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
                 }
             </ul>
-        }
-        else
-        {
-            <span class="alert alert-info">No Comment here.</span>
         }
     </div>
 </div>

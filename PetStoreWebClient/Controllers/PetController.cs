@@ -1,4 +1,5 @@
-﻿using PetStoreWebClient.ModelClass;
+﻿using PetStoreWebClient.EF;
+using PetStoreWebClient.ModelClass;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,32 @@ namespace PetStoreWebClient.Controllers
 
             ViewBag.listAllCommentDetail = cmtd.getAllCommentDetail();
             return View(allCmtOfPet);
+        }
+
+        [HttpPost]
+        public ActionResult Comment(string pID, string txtComment)
+        {
+            Comment cm = new Comment();
+            cm.cmt_published = DateTime.Now;
+            cm.p_id = pID;
+            cm.cmt_content = txtComment;
+            cm.cmt_status = "Active";
+            cm.u_id = 1;
+            var cmt = new CommentModel().InsertComment(cm);
+            return Redirect("/detail/pet/" + pID);
+        }
+
+        [HttpPost]
+        public ActionResult CommentDetail(int cmtID, int page, string txtCommentDetail, string pID)
+        {
+            CommentDetail cmd = new CommentDetail();
+            cmd.cmtd_published = DateTime.Now;
+            cmd.cmtd_status = "Active";
+            cmd.cmt_id = cmtID;
+            cmd.cmtd_content = txtCommentDetail;
+            cmd.u_id = 1;
+            var commentDetail = new CommentDetailModel().InsertCommentDetail(cmd);
+            return Redirect("/detail/pet/" + pID + "?page=" + page);
         }
     }
 }

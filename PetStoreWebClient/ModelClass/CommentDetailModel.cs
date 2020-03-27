@@ -32,5 +32,25 @@ namespace PetStoreWebClient.ModelClass
         {
             return db.CommentDetail.Where(x => x.cmtd_status == "Active" && x.cmt_id == cmtID).ToList();
         }
+
+        /// <summary>
+        /// insert comment detail to db
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <returns></returns>
+        public bool InsertCommentDetail(CommentDetail cmd)
+        {
+            try
+            {
+                db.CommentDetail.Add(cmd);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+        }
     }
 }
