@@ -248,6 +248,10 @@
   <ItemGroup>
     <Content Include="Assets\css-comment\comment.css" />
     <Content Include="Assets\JSController\cartController.js" />
+    <Content Include="Assets\JSController\pfSearchController.js" />
+    <Content Include="Assets\Search\css\jquery-ui.css" />
+    <Content Include="Assets\Search\js\jquery-1.12.4.js" />
+    <Content Include="Assets\Search\js\jquery-ui.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -300,7 +304,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Pet\Detail.cshtml" />
     <Content Include="Views\Home\HeaderPage.cshtml" />
-    <Content Include="Views\Pet\Index.cshtml" />
+    <Content Include="Views\PetFood\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
