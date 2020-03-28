@@ -1,4 +1,5 @@
-﻿using PetStoreWebClient.EF;
+﻿using PetStoreWebClient.Commom;
+using PetStoreWebClient.EF;
 using PetStoreWebClient.ModelClass;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,9 @@ namespace PetStoreWebClient.Controllers
             var pet = new PetModel();
 
             var petDetail = pet.getPetByID(pID);
+            var listAllUser = new UserManagement().getAllViewUser();
             ViewBag.relatedPet = pet.getPetRelated(petDetail.p_id);
+            ViewBag.listUser = listAllUser;
             ViewBag.petDetail = petDetail;
 
             int totalRecord = 0;
@@ -75,27 +78,45 @@ namespace PetStoreWebClient.Controllers
         [HttpPost]
         public ActionResult Comment(string pID, string txtComment)
         {
-            Comment cm = new Comment();
-            cm.cmt_published = DateTime.Now;
-            cm.p_id = pID;
-            cm.cmt_content = txtComment;
-            cm.cmt_status = "Active";
-            cm.u_id = 1;
-            var cmt = new CommentModel().InsertComment(cm);
-            return Redirect("/detail/pet/" + pID);
+            var loginSession = Session["userLogin"];
+            if (loginSession != null)
+            {
+                var user = (PetStoreWebClient.EF.User)loginSession;
+                Comment cm = new Comment();
+                cm.cmt_published = DateTime.Now;
+                cm.p_id = pID;
+                cm.cmt_content = txtComment;
+                cm.cmt_status = "Active";
+                cm.u_id = user.u_id;
+                var cmt = new CommentModel().InsertComment(cm);
+                return Redirect("/detail/pet/" + pID);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Accounts");
+            }
         }
 
         [HttpPost]
         public ActionResult CommentDetail(int cmtID, int page, string txtCommentDetail, string pID)
         {
-            CommentDetail cmd = new CommentDetail();
-            cmd.cmtd_published = DateTime.Now;
-            cmd.cmtd_status = "Active";
-            cmd.cmt_id = cmtID;
-            cmd.cmtd_content = txtCommentDetail;
-            cmd.u_id = 1;
-            var commentDetail = new CommentDetailModel().InsertCommentDetail(cmd);
-            return Redirect("/detail/pet/" + pID + "?page=" + page);
+            var loginSession = Session["userLogin"];
+            if (loginSession != null)
+            {
+                var user = (PetStoreWebClient.EF.User)loginSession;
+                CommentDetail cmd = new CommentDetail();
+                cmd.cmtd_published = DateTime.Now;
+                cmd.cmtd_status = "Active";
+                cmd.cmt_id = cmtID;
+                cmd.cmtd_content = txtCommentDetail;
+                cmd.u_id = user.u_id;
+                var commentDetail = new CommentDetailModel().InsertCommentDetail(cmd);
+                return Redirect("/detail/pet/" + pID + "?page=" + page);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Accounts");
+            }
         }
     }
 }

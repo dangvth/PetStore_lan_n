@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using PetStoreWebClient.EF;
+using PetStoreWebClient.ModelClass;
 
 namespace PetStoreWebClient.Commom
 {
@@ -42,6 +43,35 @@ namespace PetStoreWebClient.Commom
         public User getUserByAccountID(int acID)
         {
             return db.User.SingleOrDefault(u => u.ac_id == acID);
+        }
+
+        /// <summary>
+        /// get all user
+        /// </summary>
+        /// <returns></returns>
+        public List<User> getAllUser()
+        {
+            return db.User.Where(x => x.u_status == "Active").ToList();
+        }
+
+        /// <summary>
+        /// get view comment
+        /// </summary>
+        /// <returns></returns>
+        public List<CommentViewUser> getAllViewUser()
+        {
+            var model = from u in db.User
+                        join a in db.Account
+                        on u.ac_id equals a.ac_id
+                        join r in db.Role 
+                        on a.r_id equals r.r_id
+                        select new CommentViewUser()
+                        {
+                            u_id = u.u_id,
+                            u_name = u.u_name,
+                            r_name = r.r_name
+                        };
+            return model.ToList();
         }
     }
 }

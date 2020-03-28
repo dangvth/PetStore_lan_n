@@ -245,48 +245,60 @@ namespace PetStoreWebClient.Controllers
 
         public ActionResult PaymentProcess(int totalPay)
         {
-            Bill b = new Bill();
-            b.b_purchaseDate = DateTime.Now;
-            b.b_status = "Processing";
-            b.b_total = totalPay;
+            var loginSession = Session["userLogin"];
+            if (loginSession != null)
+            {
+                var user = (User)loginSession;
+                Bill b = new Bill();
+                b.b_address = user.u_address;
+                b.b_purchaseDate = DateTime.Now;
+                b.b_status = "Processing";
+                b.b_total = totalPay;
+                b.u_id = user.u_id;
 
-            try
-            {
-                var billID = new BillModel().InsertBill(b);
-                var cart = (List<CartItem>)Session[cartSession];
-                foreach (var item in cart)
+                try
                 {
-                    var billDetail = new BillDetail();
-                    billDetail.b_id = billID;
-                    var bdm = new BillDetailModel();
-                    if (item.productID.StartsWith("PFD"))
+                    var billID = new BillModel().InsertBill(b);
+                    var cart = (List<CartItem>)Session[cartSession];
+                    foreach (var item in cart)
                     {
-                        billDetail.pf_id = item.productID;
-                        bdm.InsertBillDetail(billDetail);
+                        var billDetail = new BillDetail();
+                        billDetail.b_id = billID;
+                        var bdm = new BillDetailModel();
+                        if (item.productID.StartsWith("PFD"))
+                        {
+                            billDetail.pf_id = item.productID;
+                            bdm.InsertBillDetail(billDetail);
+                        }
+                        if (item.productID.StartsWith("PET"))
+                        {
+                            billDetail.p_id = item.productID;
+                            bdm.InsertBillDetail(billDetail);
+                        }
+                        if (item.productID.StartsWith("PMD"))
+                        {
+                            billDetail.pm_id = item.productID;
+                            bdm.InsertBillDetail(billDetail);
+                        }
+                        if (item.productID.StartsWith("PTS"))
+                        {
+                            billDetail.pt_id = item.productID;
+                            bdm.InsertBillDetail(billDetail);
+                        }
                     }
-                    if (item.productID.StartsWith("PET"))
-                    {
-                        billDetail.p_id = item.productID;
-                        bdm.InsertBillDetail(billDetail);
-                    }
-                    if (item.productID.StartsWith("PMD"))
-                    {
-                        billDetail.pm_id = item.productID;
-                        bdm.InsertBillDetail(billDetail);
-                    }
-                    if (item.productID.StartsWith("PTS"))
-                    {
-                        billDetail.pt_id = item.productID;
-                        bdm.InsertBillDetail(billDetail);
-                    }
+                    Session[cartSession] = null;
                 }
-                Session[cartSession] = null;
+                catch
+                {
+                    return Redirect("/failure");
+                }
+                return Redirect("/complete");
             }
-            catch
+            else
             {
-                return Redirect("/failure");
+                return RedirectToAction("Index", "Accounts");
             }
-            return Redirect("/complete");
+            
         }
 
         public ActionResult Success()

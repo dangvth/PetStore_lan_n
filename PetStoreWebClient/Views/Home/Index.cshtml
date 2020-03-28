@@ -7,13 +7,7 @@
     var viewPetToyList = (List<PetStoreWebClient.EF.PetToys>)ViewBag.viewPetToy;
     var viewPetSaleOffList = (List<PetStoreWebClient.EF.Pet>)ViewBag.viewPetSaleOff;
 }
-@section search{
-    <div class="search_box">
-        <form>
-            <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
-        </form>
-    </div>
-}
+
 @section slide{
     <div class="header_slide">
         <div class="header_bottom_left">
@@ -22,7 +16,6 @@
                     <h3>Products</h3>
                     <li>@Html.ActionLink("Pet", "Index", "Home")</li>
                     <li><a href="/petfood/list">Pet's foods</a></li>
-                    <li><a href="#">Pet's accessories</a></li>
                     <li><a href="#">Pet's Toys</a></li>
                     <li><a href="#">Pet's Medicine</a></li>
                 </ul>
