@@ -11,9 +11,34 @@ namespace PetStoreWebClient.Controllers
     public class PetController : Controller
     {
         // GET: Pet
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 4)
         {
-            return View();
+            var productView = new ProductViewHome();
+            //initialize 
+            int totalRecord = 0;
+            //Save Pet to pass data to another view
+            ViewBag.viewPetSaleOff = productView.getViewPetSaleOff();
+            //Get all pet
+            var allPet = new PetModel().getAllPet(ref totalRecord, page, pageSize);
+
+            //Save total page and page to pass data to another view
+            ViewBag.Total = totalRecord;
+            ViewBag.Page = page;
+
+            //Paging
+            int maxPage = 5;//maximum page link display on website
+            int totalPage = 0;
+            //Paging Algorithm
+            totalPage = (int)Math.Ceiling((double)totalRecord / pageSize);
+
+            //Save data page to pass data to another view
+            ViewBag.totalPage = totalPage;
+            ViewBag.maxPage = maxPage;
+            ViewBag.first = 1;
+            ViewBag.last = totalPage;
+            ViewBag.next = page + 1;
+            ViewBag.prev = page - 1;
+            return View(allPet);
         }
 
         public ActionResult Detail(String pID, int page = 1, int pageSize = 2)
