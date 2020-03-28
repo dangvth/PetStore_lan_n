@@ -68,11 +68,28 @@ namespace PetStoreWebClient.ModelClass
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<PetFood> getAllPetFood(ref int totalRecord, int pageIndex = 1, int pageSize = 2)
+        public List<PetFood> getAllPetFood(ref int totalRecord, int pageIndex = 1, int pageSize = 4)
         {
             totalRecord = db.PetFood.Where(x => x.pf_status == "Active").Count();
             var model = db.PetFood.Where(x => x.pf_status == "Active").OrderBy(x => x.pf_id).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
             return model;
+        }
+
+        public List<PetFood> Search(string keyword, ref int totalRecord, int pageIndex = 1, int pageSize = 2)
+        {
+            totalRecord = db.PetFood.Where(x => x.pf_status == "Active" && x.pf_name.Contains(keyword)).Count();
+            var model = db.PetFood.Where(x => x.pf_status == "Active" && x.pf_name.Contains(keyword)).OrderBy(x => x.pf_id).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+            return model;
+        }
+
+        /// <summary>
+        /// list name of pet food like keyword
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public List<string> ListName(string keyword)
+        {
+            return db.PetFood.Where(x => x.pf_name.Contains(keyword)).Select(x => x.pf_name).ToList();
         }
     }
 }
