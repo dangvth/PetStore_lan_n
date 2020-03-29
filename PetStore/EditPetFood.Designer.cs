@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditPetFood));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnSaveEdit = new DevExpress.XtraBars.BarButtonItem();
             this.btnReset = new DevExpress.XtraBars.BarButtonItem();
@@ -109,9 +109,9 @@
             this.btnSaveEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSaveEdit.ImageOptions.LargeImage")));
             this.btnSaveEdit.LargeWidth = 60;
             this.btnSaveEdit.Name = "btnSaveEdit";
-            toolTipItem1.Text = "Accept change Pet\'s food in selected";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnSaveEdit.SuperTip = superToolTip1;
+            toolTipItem3.Text = "Accept change Pet\'s food in selected";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnSaveEdit.SuperTip = superToolTip3;
             this.btnSaveEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSaveEdit_ItemClick);
             // 
             // btnReset
@@ -132,9 +132,9 @@
             this.btnCloseEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCloseEdit.ImageOptions.LargeImage")));
             this.btnCloseEdit.LargeWidth = 60;
             this.btnCloseEdit.Name = "btnCloseEdit";
-            toolTipItem2.Text = "Close Edit Pet\'s food form";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnCloseEdit.SuperTip = superToolTip2;
+            toolTipItem4.Text = "Close Edit Pet\'s food form";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.btnCloseEdit.SuperTip = superToolTip4;
             this.btnCloseEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCloseEdit_ItemClick);
             // 
             // Tool
@@ -180,7 +180,7 @@
             // 
             // te_Type
             // 
-            this.te_Type.EditValue = "Pet\'s Food";
+            this.te_Type.EditValue = "";
             this.te_Type.Location = new System.Drawing.Point(79, 214);
             this.te_Type.MenuManager = this.ribbon;
             this.te_Type.Name = "te_Type";
@@ -431,7 +431,6 @@
         private DevExpress.XtraBars.BarButtonItem btnReset;
         private DevExpress.XtraBars.BarButtonItem btnCloseEdit;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.TextEdit te_Type;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
@@ -450,5 +449,6 @@
         public DevExpress.XtraEditors.ComboBoxEdit te_FoodStatus;
         public DevExpress.XtraEditors.ButtonEdit te_FoodImage;
         private DevExpress.XtraEditors.XtraOpenFileDialog openDialog;
+        public DevExpress.XtraEditors.TextEdit te_Type;
     }
 }

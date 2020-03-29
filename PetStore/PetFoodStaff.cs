@@ -24,6 +24,7 @@ namespace PetStore
 
         private void PetFoodStaff_Load(object sender, EventArgs e)
         {
+            //load data to grid view
             PetFoodModel pfm = new PetFoodModel();
             bindingSourceFood.DataSource = pfm.GetAllPetFoodToArrayList();
             gcFood.DataSource = bindingSourceFood;
@@ -41,6 +42,7 @@ namespace PetStore
                 DetailPetFoodForm vdf = new DetailPetFoodForm();
                 PetFoodModel pfm = new PetFoodModel();
                 PetFood f = pfm.getPetFood(IDSelected);
+                //set data to detail form
                 vdf.te_pfID.Text = f.pf_id;
                 vdf.te_pfName.Text = f.pf_name;
                 vdf.te_pfPriceSale.Text = f.pf_salePrice.ToString();
@@ -51,9 +53,11 @@ namespace PetStore
                 vdf.te_pfStatus.Text = f.pf_status;
                 vdf.te_pfPrice.Enabled = false;
                 vdf.lblTitle.Text = f.pf_name;
+                //get image
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
                 String pathImage = projectPath + "\\img\\" + f.pf_image;
                 Image img = Image.FromFile(pathImage);
+                //set image to picture box
                 vdf.ptbImage.Image = pfm.ResizeImage(img, 440, 440);
                 vdf.ShowDialog();
             } else
@@ -64,9 +68,11 @@ namespace PetStore
 
         private void gvFood_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
+            //get index in selected of grid view
             int idx = gvFood.FocusedRowHandle;
             if (gvFood.GetRowCellValue(idx, gvFood.Columns[0]) != null)
             {
+                //get id item
                 IDSelected = gvFood.GetRowCellValue(idx, gvFood.Columns[0]).ToString();
             }
         }

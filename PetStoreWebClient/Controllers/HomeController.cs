@@ -16,19 +16,22 @@ namespace PetStoreWebClient.Controllers
         public ActionResult Index()
         {
             var productView = new ProductViewHome();
+            //get list view to ViewBag
             ViewBag.viewPet = productView.getViewPet(4);
             ViewBag.viewPetFood = productView.getViewPetFood(4);
             ViewBag.viewPetToy = productView.getViewPetToys(4);
             ViewBag.viewPetSaleOff = productView.getViewPetSaleOff();
+
             return View();
         }
 
         [ChildActionOnly]
         public PartialViewResult HeaderCart()
         {
+            //get cart
             var cart = Session[cartSession];
             var list = new List<CartItem>();
-            if (cart != null)
+            if (cart != null) // check cart is not null
             {
                 list = (List<CartItem>)cart;
                 ViewBag.ListItem = list;
@@ -39,6 +42,7 @@ namespace PetStoreWebClient.Controllers
         [ChildActionOnly]
         public PartialViewResult HeaderPage()
         {
+            //get login
             var sessLogin = Session[userLogin];
             return PartialView(sessLogin);
         }

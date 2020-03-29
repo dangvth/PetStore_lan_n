@@ -16,6 +16,7 @@ namespace PetStoreWebClient.Controllers
         // GET: Cart
         public ActionResult Index()
         {
+            //get cart
             var cart = Session[cartSession];
             var list = new List<CartItem>();
 
@@ -37,6 +38,7 @@ namespace PetStoreWebClient.Controllers
                         CartPetFoodItem cpfi = new CartPetFoodItem();
                         cpfi.Petfood = pf;
                         cpfi.Quantity = item.Quantity;
+
                         listCartPetFood.Add(cpfi);
                     }
                     //product is pet
@@ -46,6 +48,7 @@ namespace PetStoreWebClient.Controllers
                         CartPetItem cpi = new CartPetItem();
                         cpi.pet = p;
                         cpi.Quantity = item.Quantity;
+
                         listCartPet.Add(cpi);
                     }
                     //product os pet's medicine
@@ -55,6 +58,7 @@ namespace PetStoreWebClient.Controllers
                         CartPetMedicineItem cpmi = new CartPetMedicineItem();
                         cpmi.petMedicine = pm;
                         cpmi.Quantity = item.Quantity;
+
                         listCartPetMedicine.Add(cpmi);
                     }
                     //Product is Pet's toys
@@ -64,9 +68,11 @@ namespace PetStoreWebClient.Controllers
                         CartPetToyItem cpti = new CartPetToyItem();
                         cpti.petToy = pt;
                         cpti.Quantity = item.Quantity;
+
                         listCartPetToy.Add(cpti);
                     }
                 }
+
                 ViewBag.listCartP = listCartPet;
                 ViewBag.listCartPT = listCartPetToy;
                 ViewBag.listCartPM = listCartPetMedicine;
@@ -74,6 +80,10 @@ namespace PetStoreWebClient.Controllers
             return View(listCartPetFood);
         }
 
+        /// <summary>
+        /// empty cart
+        /// </summary>
+        /// <returns></returns>
         public JsonResult DeleteAll()
         {
             Session[cartSession] = null;
@@ -100,12 +110,15 @@ namespace PetStoreWebClient.Controllers
         /// <returns></returns>
         public ActionResult DeleteItem(String id)
         {
+            //get cart
             var sessionCart = (List<CartItem>)Session[cartSession];
+            //remove item
             sessionCart.RemoveAll(x => x.productID == id);
             if (sessionCart.Count <= 0)
             {
                 sessionCart = null;
             }
+            //Reset Session cart
             Session[cartSession] = sessionCart;
             return RedirectToAction("Index");
         }
@@ -117,15 +130,19 @@ namespace PetStoreWebClient.Controllers
         /// <returns></returns>
         public JsonResult Update(String cartModel)
         {
+            //get cart Json with new quantity value
             var Jsoncart = new JavaScriptSerializer().Deserialize<List<CartPetFoodItem>>(cartModel);
+            //get cart
             var sessionCart = (List<CartItem>)Session[cartSession];
             foreach (var item in sessionCart)
             {
+                //get item in Json cart
                 var JsonItem = Jsoncart.SingleOrDefault(x => x.Petfood.pf_id == item.productID);
                 if (JsonItem != null)
                 {
                     if (JsonItem.Quantity > 0)
                     {
+                        //update new quantity to cart
                         item.Quantity = JsonItem.Quantity;
                     } 
                 }
@@ -143,16 +160,19 @@ namespace PetStoreWebClient.Controllers
         /// <returns></returns>
         public ActionResult AddItem(String productID, int Quantity)
         {
+            //get cart
             var cart = Session[cartSession];
             if (cart != null)
             {
                 var list = (List<CartItem>)cart;
+                //check item added have in cart or not
                 if (list.Exists(x => x.productID == productID))
                 {
                     foreach (var item in list)
                     {
                         if (item.productID == productID)
                         {
+                            //set new qantity
                             item.Quantity += Quantity;
                         }
                     }
@@ -183,11 +203,15 @@ namespace PetStoreWebClient.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// payment page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Payment()
         {
             var cart = Session[cartSession];
             var list = new List<CartItem>();
-
+            //constructor model classes
             var listCartPetFood = new List<CartPetFoodItem>();
             var listCartPet = new List<CartPetItem>();
             var listCartPetToy = new List<CartPetToyItem>();
@@ -206,6 +230,7 @@ namespace PetStoreWebClient.Controllers
                         CartPetFoodItem cpfi = new CartPetFoodItem();
                         cpfi.Petfood = pf;
                         cpfi.Quantity = item.Quantity;
+
                         listCartPetFood.Add(cpfi);
                     }
                     //product is pet
@@ -215,6 +240,7 @@ namespace PetStoreWebClient.Controllers
                         CartPetItem cpi = new CartPetItem();
                         cpi.pet = p;
                         cpi.Quantity = item.Quantity;
+
                         listCartPet.Add(cpi);
                     }
                     //product os pet's medicine
@@ -224,6 +250,7 @@ namespace PetStoreWebClient.Controllers
                         CartPetMedicineItem cpmi = new CartPetMedicineItem();
                         cpmi.petMedicine = pm;
                         cpmi.Quantity = item.Quantity;
+
                         listCartPetMedicine.Add(cpmi);
                     }
                     //Product is Pet's toys
@@ -233,9 +260,11 @@ namespace PetStoreWebClient.Controllers
                         CartPetToyItem cpti = new CartPetToyItem();
                         cpti.petToy = pt;
                         cpti.Quantity = item.Quantity;
+
                         listCartPetToy.Add(cpti);
                     }
                 }
+                //get lists to ViewBag
                 ViewBag.listCartP = listCartPet;
                 ViewBag.listCartPT = listCartPetToy;
                 ViewBag.listCartPM = listCartPetMedicine;
@@ -243,12 +272,18 @@ namespace PetStoreWebClient.Controllers
             return View(listCartPetFood);
         }
 
+        /// <summary>
+        /// add bill to database
+        /// </summary>
+        /// <param name="totalPay"></param>
+        /// <returns></returns>
         public ActionResult PaymentProcess(int totalPay)
         {
             var loginSession = Session["userLogin"];
-            if (loginSession != null)
+            if (loginSession != null) // login already
             {
                 var user = (User)loginSession;
+                //creat new bill object and set data
                 Bill b = new Bill();
                 b.b_address = user.u_address;
                 b.b_purchaseDate = DateTime.Now;
@@ -258,32 +293,71 @@ namespace PetStoreWebClient.Controllers
 
                 try
                 {
+                    //insert bill to db
                     var billID = new BillModel().InsertBill(b);
                     var cart = (List<CartItem>)Session[cartSession];
                     foreach (var item in cart)
                     {
+                        //insert bill detail
                         var billDetail = new BillDetail();
                         billDetail.b_id = billID;
                         var bdm = new BillDetailModel();
-                        if (item.productID.StartsWith("PFD"))
+                        //quantity = 1
+                        if (item.Quantity == 1)
                         {
-                            billDetail.pf_id = item.productID;
-                            bdm.InsertBillDetail(billDetail);
-                        }
-                        if (item.productID.StartsWith("PET"))
+                            // product is Pet food
+                            if (item.productID.StartsWith("PFD"))
+                            {
+                                billDetail.pf_id = item.productID;
+                                bdm.InsertBillDetail(billDetail);
+                            }
+                            // product is Pet
+                            if (item.productID.StartsWith("PET"))
+                            {
+                                billDetail.p_id = item.productID;
+                                bdm.InsertBillDetail(billDetail);
+                            }
+                            // product is Pet medicine
+                            if (item.productID.StartsWith("PMD"))
+                            {
+                                billDetail.pm_id = item.productID;
+                                bdm.InsertBillDetail(billDetail);
+                            }
+                            // product is Pet food
+                            if (item.productID.StartsWith("PTS"))
+                            {
+                                billDetail.pt_id = item.productID;
+                                bdm.InsertBillDetail(billDetail);
+                            }
+                        } else //quantity > 1,it will add quantity time that product
                         {
-                            billDetail.p_id = item.productID;
-                            bdm.InsertBillDetail(billDetail);
-                        }
-                        if (item.productID.StartsWith("PMD"))
-                        {
-                            billDetail.pm_id = item.productID;
-                            bdm.InsertBillDetail(billDetail);
-                        }
-                        if (item.productID.StartsWith("PTS"))
-                        {
-                            billDetail.pt_id = item.productID;
-                            bdm.InsertBillDetail(billDetail);
+                            for (int i = 0; i < item.Quantity; i++)
+                            {
+                                // product is Pet food
+                                if (item.productID.StartsWith("PFD"))
+                                {
+                                    billDetail.pf_id = item.productID;
+                                    bdm.InsertBillDetail(billDetail);
+                                }
+                                // product is Pet
+                                if (item.productID.StartsWith("PET"))
+                                {
+                                    billDetail.p_id = item.productID;
+                                    bdm.InsertBillDetail(billDetail);
+                                }
+                                // product is Pet medicine
+                                if (item.productID.StartsWith("PMD"))
+                                {
+                                    billDetail.pm_id = item.productID;
+                                    bdm.InsertBillDetail(billDetail);
+                                }
+                                // product is Pet toys
+                                if (item.productID.StartsWith("PTS"))
+                                {
+                                    billDetail.pt_id = item.productID;
+                                    bdm.InsertBillDetail(billDetail);
+                                }
+                            }
                         }
                     }
                     Session[cartSession] = null;
@@ -294,18 +368,26 @@ namespace PetStoreWebClient.Controllers
                 }
                 return Redirect("/complete");
             }
-            else
+            else //move to login page if there is not yet login.
             {
                 return RedirectToAction("Index", "Accounts");
             }
             
         }
 
+        /// <summary>
+        /// page buy product successful
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Success()
         {
             return View();
         }
 
+        /// <summary>
+        /// page buy failure
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Failure()
         {
             return View();

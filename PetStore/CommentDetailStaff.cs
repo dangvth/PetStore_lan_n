@@ -24,6 +24,7 @@ namespace PetStore
 
         private void CommentDetailStaff_Load(object sender, EventArgs e)
         {
+            //load data to grid view
             CommentDetailModel cmtdm = new CommentDetailModel();
             ArrayList cmtdList = cmtdm.GetAllDataToArrayList();
             commentDetailBindingSource.DataSource = cmtdList;
@@ -34,6 +35,7 @@ namespace PetStore
         {
             if (cmtdIDSelected != "")
             {
+                //remove item (set status Inactive)
                 CommentDetailModel cmtd = new CommentDetailModel();
                 cmtd.DeleteCommentDetail(Convert.ToInt32(cmtdIDSelected));
                 XtraMessageBox.Show("Reomve successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -49,6 +51,7 @@ namespace PetStore
         {
             if (cmtdIDSelected != "")
             {
+                //restore item (set status Active)
                 CommentDetailModel cmtd = new CommentDetailModel();
                 cmtd.RestoreCommentDetail(Convert.ToInt32(cmtdIDSelected));
                 XtraMessageBox.Show("Restore successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,9 +75,11 @@ namespace PetStore
 
         private void gvCommentDetail_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
+            //get index of item select on grid view
             int idx = gvCommentDetail.FocusedRowHandle;
             if (gvCommentDetail.GetRowCellValue(idx, gvCommentDetail.Columns[0]) != null)
             {
+                //get id of item
                 cmtdIDSelected = gvCommentDetail.GetRowCellValue(idx, gvCommentDetail.Columns[0]).ToString();
             }
         }

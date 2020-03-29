@@ -86,6 +86,12 @@ namespace PetStoreWebClient
             );
 
             routes.MapRoute(
+                name: "Login page",
+                url: "login",
+                defaults: new { controller = "Accounts", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Logout process",
                 url: "logout-process",
                 defaults: new { controller = "Accounts", action = "LogoutProcess", id = UrlParameter.Optional }
