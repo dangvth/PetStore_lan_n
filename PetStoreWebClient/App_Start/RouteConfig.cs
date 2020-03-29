@@ -19,7 +19,6 @@ namespace PetStoreWebClient
                 defaults: new { controller = "Pet", action = "Index", id = UrlParameter.Optional }
             );
 
-
             routes.MapRoute(
                 name: "Pet's food list",
                 url: "petfood/list",
