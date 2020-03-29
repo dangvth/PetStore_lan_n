@@ -1,0 +1,91 @@
+﻿@model List<PetStoreWebClient.EF.Pet>
+
+@{
+    ViewBag.Title = "Search Pet result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section search{
+    <div class="search_box">
+        <form action="/Pet/Search" method="get">
+            <input type="text" name="keywordPet" id="txtKeywordPet" placeholder="Search..."><input type="submit" value="">
+        </form>
+    </div>
+}
+
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>Search result for: @ViewBag.keyword</h3>
+        </div>
+        <div class="see">
+            <p><a href="/pet/list">See all Products</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                var url = "/detail/pet/" + item.p_id;
+                <div class="grid_1_of_4 images_1_of_4">
+                    <a href="@url"><img src="~/Assets/images/@item.p_image" alt="" /></a>
+                    <h2>@item.p_name</h2>
+                    <div class="price-details">
+                        <div class="price-number">
+                            <p><span class="rupees">@item.p_salePrice.ToString("N0")đ</span></p>
+                        </div>
+                        <div class="add-cart">
+                            <h4><a href="/add-to-cart?productID=@item.p_id&Quantity=1">Add to Cart</a></h4>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+            <div class="clear"></div>
+        <!--Phân trang-->
+            if (ViewBag.totalPage > 1)
+            {
+                var pageDisplay = (int)ViewBag.maxPage;
+                int totalPage = (int)ViewBag.totalPage;
+                int currentPage = (int)ViewBag.Page;
+
+                //Create numberic link
+                var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                var endPageINdex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+                var url = "/Pet/search?keyword=" + ViewBag.keyword;
+                <ul class="pagination" style="float: right">
+                    @if (currentPage > ViewBag.first)
+                    {
+                        <li class="page-item"><a class="page-link" href="@url&page=@ViewBag.first" title="First page"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="@url&page=@ViewBag.prev" title="Previous page"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                    }
+                    @for (int i = startPageIndex; i <= endPageINdex; i++)
+                    {
+                        if (i == currentPage)
+                        {
+                            <li class="page-item active"><a class="page-link" href="@url&page=@i" title="Page @i">@i</a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item"><a class="page-link" href="@url&page=@i" title="Page @i">@i</a></li>
+                        }
+                    }
+                    @if (currentPage < totalPage)
+                    {
+                        <li class="page-item"><a class="page-link" href="@url&page=@ViewBag.next" title="Next page"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="@url&page=@ViewBag.last" title="Last page"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                    }
+                </ul>
+            }
+        }
+        else
+        {
+            <br />
+            <span class="alert alert-danger">Don't have any item</span>
+        }
+
+    </div>
+</div>
