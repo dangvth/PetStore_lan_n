@@ -47,7 +47,7 @@ namespace PetStoreWebClient.Commom
             }
             else
             {
-                if (result.ac_status == "Banned")
+                if (result.ac_status == "Banned/ Deleted")
                 {
                     return 0;
                 }
