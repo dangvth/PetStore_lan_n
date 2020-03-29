@@ -20,7 +20,7 @@ namespace PetStore.Model
         }
 
         /// <summary>
-        /// 
+        /// set status item to Inactive
         /// </summary>
         /// <param name="pf_id"></param>
         public void DeletePetFood(String pf_id)
@@ -33,6 +33,10 @@ namespace PetStore.Model
             }
         }
 
+        /// <summary>
+        /// set status item to Active
+        /// </summary>
+        /// <param name="pf_id"></param>
         public void RestorePetFood(String pf_id)
         {
             using (var db = new PetStoreEntities())
@@ -100,7 +104,7 @@ namespace PetStore.Model
             return Petfood;
         }
         /// <summary>
-        /// 
+        /// get next id of item
         /// </summary>
         /// <returns></returns>
         public String getNextID()
@@ -135,6 +139,7 @@ namespace PetStore.Model
             pfList = new ArrayList();
             using (var db = new PetStoreEntities())
             {
+                //command LINQ
                 var selectStr = (from f in db.PetFoods
                                  join t in db.Types on f.t_id equals t.t_id
                                  select new
@@ -146,9 +151,10 @@ namespace PetStore.Model
                                      t.t_name,
                                      f.pf_status
                                  });
-
+                //set data to ArrayList
                 foreach (var data in selectStr)
                 {
+                    //if number of item <= 0 Status will set equal 'Inactive'
                     if (data.pf_amount > 0)
                     {
                         pfList.Add(new Object.Food(data.pf_id, data.pf_name, Convert.ToInt32(data.pf_salePrice),
@@ -164,6 +170,13 @@ namespace PetStore.Model
             return pfList;
         }
 
+        /// <summary>
+        /// Resize Image
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
         public Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);

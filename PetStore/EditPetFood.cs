@@ -31,6 +31,7 @@ namespace PetStore
                 String oldImageName = pfm.getPetFood(te_FoodID.Text).pf_image;
                 if (te_FoodImage.Text != "")
                 {
+                    //set text box image = ID + ".jpg" or ".png"
                     if (openDialog.FileName.EndsWith(".jpg")) { image = te_FoodID.Text + ".jpg"; }
                     else { image = te_FoodID.Text + ".png"; }
 
@@ -63,10 +64,13 @@ namespace PetStore
                 }
                 else
                 {
+                    //get old image if dont change image
                     image = oldImageName;
                 }
+                //update pet food on database
                 pfm.UpdateFood(te_FoodID.Text, te_FoodName.Text, Convert.ToInt32(te_FoodPrice.Text),
                          Convert.ToInt32(te_FoodSalePrice.Text), Convert.ToInt32(te_FoodAmount.Text), 2, te_FoodStatus.Text, image);
+                //message success
                 XtraMessageBox.Show("Edit successful !!!", "Congratulation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             } else
@@ -77,10 +81,13 @@ namespace PetStore
 
         private void te_FoodImage_Click(object sender, EventArgs e)
         {
+            //set filter file choose - just show file image
             openDialog.Filter = "Image files (*.jpg)|*.jpg|Image files (*.png)|*.png|All files (*.*)|*.*";
             openDialog.ShowDialog();
+            //check have choose file or not and file choose is a image file or not
             if (openDialog.FileName != "" && (openDialog.FileName.EndsWith(".jpg") || openDialog.FileName.EndsWith(".png")))
             {
+                //set path file choose to text box
                 te_FoodImage.Text = openDialog.FileName;
             }
             else
@@ -93,6 +100,7 @@ namespace PetStore
         {
             var db = new PetStoreEntities();
             var pf = db.PetFoods.Find(te_FoodID.Text);
+            //Reset old data to form
             te_FoodName.Text = pf.pf_name;
             te_FoodImage.Text = "";
             te_FoodPrice.Text = pf.pf_prices + "";

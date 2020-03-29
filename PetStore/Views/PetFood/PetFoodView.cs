@@ -53,11 +53,14 @@ namespace PetStore.Views.PetFoodView
 
         private void pf_imageTextEdit_Click(object sender, EventArgs e)
         {
+            //set type file choose 
             openDialog.Filter = "Image files (*.jpg)|*.jpg|Image files (*.png)|*.png|All files (*.*)|*.*";
             openDialog.ShowDialog();
+            //check have choose file or not and file choose must be a image file
             if (openDialog.FileName != "" && (openDialog.FileName.EndsWith(".jpg") || openDialog.FileName.EndsWith(".png")))
             {
                 PetFoodModel pfm = new PetFoodModel();
+                //set text box Image with ID + ".jpg" or ".png" for save to database
                 if (openDialog.FileName.EndsWith(".jpg")) { pf_imageTextEdit.Text = pfm.getNextID() + ".jpg"; }
                 else { pf_imageTextEdit.Text = pfm.getNextID() + ".png"; }
             }
@@ -75,7 +78,7 @@ namespace PetStore.Views.PetFoodView
             //copy file to image folder
             File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
             File.Copy(oldPath, @"../../img/" + pf_imageTextEdit.Text);
-
+            //message success
             MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
@@ -88,7 +91,7 @@ namespace PetStore.Views.PetFoodView
             //copy file to image folder
             File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
             File.Copy(oldPath, @"../../img/" + pf_imageTextEdit.Text);
-
+            //message success
             MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -100,19 +103,22 @@ namespace PetStore.Views.PetFoodView
             //copy file to image folder
             File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
             File.Copy(oldPath, @"../../img/" + pf_imageTextEdit.Text);
-
+            //message success
             MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void PetFoodView_Load(object sender, EventArgs e)
         {
+            //set next id to Text box ID
             PetFoodModel pfm = new PetFoodModel();
             pf_idTextEdit.Text = pfm.getNextID();
+            //auto set status new item is Active
             pf_statusTextEdit.SelectedItem = "Active";
         }
 
         private void pf_idTextEdit_Click(object sender, EventArgs e)
         {
+            //get next id
             PetFoodModel pfm = new PetFoodModel();
             pf_idTextEdit.Text = pfm.getNextID();
         }

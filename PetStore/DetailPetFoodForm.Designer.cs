@@ -138,11 +138,12 @@
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(471, 234);
+            this.lblTitle.Location = new System.Drawing.Point(471, 211);
+            this.lblTitle.MaximumSize = new System.Drawing.Size(440, 70);
+            this.lblTitle.MinimumSize = new System.Drawing.Size(440, 70);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(88, 30);
+            this.lblTitle.Size = new System.Drawing.Size(440, 70);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Detail";
             // 
@@ -155,16 +156,16 @@
             this.lctBox.Controls.Add(this.te_pfPrice);
             this.lctBox.Controls.Add(this.te_pfName);
             this.lctBox.Controls.Add(this.te_pfID);
-            this.lctBox.Location = new System.Drawing.Point(466, 283);
+            this.lctBox.Location = new System.Drawing.Point(466, 278);
             this.lctBox.Name = "lctBox";
             this.lctBox.Root = this.Root;
-            this.lctBox.Size = new System.Drawing.Size(457, 271);
+            this.lctBox.Size = new System.Drawing.Size(457, 276);
             this.lctBox.TabIndex = 4;
             this.lctBox.Text = "layoutControl1";
             // 
             // te_pfStatus
             // 
-            this.te_pfStatus.Location = new System.Drawing.Point(117, 180);
+            this.te_pfStatus.Location = new System.Drawing.Point(117, 216);
             this.te_pfStatus.MenuManager = this.ribbon;
             this.te_pfStatus.Name = "te_pfStatus";
             this.te_pfStatus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -176,7 +177,7 @@
             // 
             // te_Type
             // 
-            this.te_Type.Location = new System.Drawing.Point(117, 152);
+            this.te_Type.Location = new System.Drawing.Point(117, 182);
             this.te_Type.MenuManager = this.ribbon;
             this.te_Type.Name = "te_Type";
             this.te_Type.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -188,7 +189,7 @@
             // 
             // te_pfAmount
             // 
-            this.te_pfAmount.Location = new System.Drawing.Point(117, 124);
+            this.te_pfAmount.Location = new System.Drawing.Point(117, 148);
             this.te_pfAmount.MenuManager = this.ribbon;
             this.te_pfAmount.Name = "te_pfAmount";
             this.te_pfAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -200,7 +201,7 @@
             // 
             // te_pfPriceSale
             // 
-            this.te_pfPriceSale.Location = new System.Drawing.Point(117, 96);
+            this.te_pfPriceSale.Location = new System.Drawing.Point(117, 114);
             this.te_pfPriceSale.MenuManager = this.ribbon;
             this.te_pfPriceSale.Name = "te_pfPriceSale";
             this.te_pfPriceSale.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -212,7 +213,7 @@
             // 
             // te_pfPrice
             // 
-            this.te_pfPrice.Location = new System.Drawing.Point(117, 68);
+            this.te_pfPrice.Location = new System.Drawing.Point(117, 80);
             this.te_pfPrice.MenuManager = this.ribbon;
             this.te_pfPrice.Name = "te_pfPrice";
             this.te_pfPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -224,8 +225,10 @@
             // 
             // te_pfName
             // 
-            this.te_pfName.Location = new System.Drawing.Point(117, 40);
+            this.te_pfName.Location = new System.Drawing.Point(117, 46);
+            this.te_pfName.MaximumSize = new System.Drawing.Size(328, 60);
             this.te_pfName.MenuManager = this.ribbon;
+            this.te_pfName.MinimumSize = new System.Drawing.Size(328, 30);
             this.te_pfName.Name = "te_pfName";
             this.te_pfName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.te_pfName.Properties.Appearance.Options.UseFont = true;
@@ -260,7 +263,7 @@
             this.PFType,
             this.PFStatus});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(457, 271);
+            this.Root.Size = new System.Drawing.Size(457, 276);
             this.Root.TextVisible = false;
             // 
             // PFID
@@ -270,15 +273,15 @@
             this.PFID.Control = this.te_pfID;
             this.PFID.Location = new System.Drawing.Point(0, 0);
             this.PFID.Name = "PFID";
-            this.PFID.Size = new System.Drawing.Size(437, 28);
+            this.PFID.Size = new System.Drawing.Size(437, 34);
             this.PFID.TextSize = new System.Drawing.Size(102, 24);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 202);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 238);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(437, 49);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(437, 18);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // PFName
@@ -286,9 +289,9 @@
             this.PFName.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFName.AppearanceItemCaption.Options.UseFont = true;
             this.PFName.Control = this.te_pfName;
-            this.PFName.Location = new System.Drawing.Point(0, 28);
+            this.PFName.Location = new System.Drawing.Point(0, 34);
             this.PFName.Name = "PFName";
-            this.PFName.Size = new System.Drawing.Size(437, 28);
+            this.PFName.Size = new System.Drawing.Size(437, 34);
             this.PFName.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFPrice
@@ -296,9 +299,9 @@
             this.PFPrice.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFPrice.AppearanceItemCaption.Options.UseFont = true;
             this.PFPrice.Control = this.te_pfPrice;
-            this.PFPrice.Location = new System.Drawing.Point(0, 56);
+            this.PFPrice.Location = new System.Drawing.Point(0, 68);
             this.PFPrice.Name = "PFPrice";
-            this.PFPrice.Size = new System.Drawing.Size(437, 28);
+            this.PFPrice.Size = new System.Drawing.Size(437, 34);
             this.PFPrice.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFPriceSale
@@ -306,9 +309,9 @@
             this.PFPriceSale.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFPriceSale.AppearanceItemCaption.Options.UseFont = true;
             this.PFPriceSale.Control = this.te_pfPriceSale;
-            this.PFPriceSale.Location = new System.Drawing.Point(0, 84);
+            this.PFPriceSale.Location = new System.Drawing.Point(0, 102);
             this.PFPriceSale.Name = "PFPriceSale";
-            this.PFPriceSale.Size = new System.Drawing.Size(437, 28);
+            this.PFPriceSale.Size = new System.Drawing.Size(437, 34);
             this.PFPriceSale.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFAmount
@@ -316,9 +319,9 @@
             this.PFAmount.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFAmount.AppearanceItemCaption.Options.UseFont = true;
             this.PFAmount.Control = this.te_pfAmount;
-            this.PFAmount.Location = new System.Drawing.Point(0, 112);
+            this.PFAmount.Location = new System.Drawing.Point(0, 136);
             this.PFAmount.Name = "PFAmount";
-            this.PFAmount.Size = new System.Drawing.Size(437, 28);
+            this.PFAmount.Size = new System.Drawing.Size(437, 34);
             this.PFAmount.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFType
@@ -326,9 +329,9 @@
             this.PFType.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFType.AppearanceItemCaption.Options.UseFont = true;
             this.PFType.Control = this.te_Type;
-            this.PFType.Location = new System.Drawing.Point(0, 140);
+            this.PFType.Location = new System.Drawing.Point(0, 170);
             this.PFType.Name = "PFType";
-            this.PFType.Size = new System.Drawing.Size(437, 28);
+            this.PFType.Size = new System.Drawing.Size(437, 34);
             this.PFType.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFStatus
@@ -336,9 +339,9 @@
             this.PFStatus.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFStatus.AppearanceItemCaption.Options.UseFont = true;
             this.PFStatus.Control = this.te_pfStatus;
-            this.PFStatus.Location = new System.Drawing.Point(0, 168);
+            this.PFStatus.Location = new System.Drawing.Point(0, 204);
             this.PFStatus.Name = "PFStatus";
-            this.PFStatus.Size = new System.Drawing.Size(437, 28);
+            this.PFStatus.Size = new System.Drawing.Size(437, 34);
             this.PFStatus.TextSize = new System.Drawing.Size(102, 24);
             // 
             // btnChangeImage

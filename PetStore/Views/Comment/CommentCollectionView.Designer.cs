@@ -92,6 +92,7 @@
             this.gridView.Name = "gridView";
             this.gridView.OptionsBehavior.Editable = false;
             this.gridView.OptionsBehavior.ReadOnly = true;
+            this.gridView.OptionsFind.AlwaysVisible = true;
             // 
             // gridColumn1
             // 

@@ -14,6 +14,12 @@ namespace PetStoreWebClient
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Pet list",
+                url: "pet/list",
+                defaults: new { controller = "Pet", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Pet's food list",
                 url: "petfood/list",
                 defaults: new { controller = "PetFood", action = "Index", id = UrlParameter.Optional }
@@ -77,6 +83,12 @@ namespace PetStoreWebClient
                 name: "Payment success",
                 url: "complete",
                 defaults: new { controller = "Cart", action = "Success", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Login page",
+                url: "login",
+                defaults: new { controller = "Accounts", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
