@@ -22,7 +22,7 @@ namespace PetStoreWebClient.Controllers
             {
                 AccountManagement am = new AccountManagement();
                 //Check user enter username & password is correct or not
-                int result = am.Login(model.ac_userName, Encryptor.SHA256_Encrypt(model.ac_pwd).ToUpper());
+                int result = am.Login(model.ac_userName, Encryptor.SHA256_Encrypt(model.ac_pwd));
 
                 //If is correct => get account and create session for that account
                 if (result == 1)

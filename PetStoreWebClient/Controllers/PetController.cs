@@ -42,7 +42,7 @@ namespace PetStoreWebClient.Controllers
             return View(allPet);
         }
 
-        public ActionResult Search(string keyword, int page = 1, int pageSize = 4)
+        public ActionResult Search(string keywordPet, int page = 1, int pageSize = 2)
         {
             var productView = new ProductViewHome();
             //initialize 
@@ -50,11 +50,11 @@ namespace PetStoreWebClient.Controllers
             //Save Pet to pass data to another view
             ViewBag.viewPetSaleOff = productView.getViewPetSaleOff();
             //Get all pet
-            var allPet = new PetModel().Search(keyword, ref totalRecord, page, pageSize);
+            var allPet = new PetModel().Search(keywordPet, ref totalRecord, page, pageSize);
 
             //Save total page, keyword and page to pass data to another view
             ViewBag.Total = totalRecord;
-            ViewBag.keyword = keyword;
+            ViewBag.keyword = keywordPet;
             ViewBag.Page = page;
 
             //Paging
@@ -160,7 +160,7 @@ namespace PetStoreWebClient.Controllers
             if (p != "") //check have enter input search 
             {
                 //get list name
-                var data = new PetFoodModel().ListName(p);
+                var data = new PetModel().ListName(p);
                 return Json(new
                 {
                     data = data,

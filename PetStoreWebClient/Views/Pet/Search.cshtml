@@ -7,7 +7,7 @@
 
 @section search{
     <div class="search_box">
-        <form action="/Pet/Search" method="get">
+        <form action="/Pet/search" method="get">
             <input type="text" name="keywordPet" id="txtKeywordPet" placeholder="Search..."><input type="submit" value="">
         </form>
     </div>
@@ -55,7 +55,7 @@
                 var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
                 var endPageINdex = Math.Min(totalPage, currentPage + pageDisplay / 2);
 
-                var url = "/Pet/search?keyword=" + ViewBag.keyword;
+                var url = "/Pet/Search?keyword=" + ViewBag.keyword;
                 <ul class="pagination" style="float: right">
                     @if (currentPage > ViewBag.first)
                     {
