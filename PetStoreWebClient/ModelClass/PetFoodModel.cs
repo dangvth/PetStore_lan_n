@@ -75,6 +75,14 @@ namespace PetStoreWebClient.ModelClass
             return model;
         }
 
+        /// <summary>
+        /// get Pet food element show on website with paging and keyword search
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <param name="totalRecord"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public List<PetFood> Search(string keyword, ref int totalRecord, int pageIndex = 1, int pageSize = 2)
         {
             totalRecord = db.PetFood.Where(x => x.pf_status == "Active" && x.pf_name.Contains(keyword)).Count();

@@ -32,7 +32,7 @@
                             int disPrice = item.p_prices - item.p_salePrice;
                             <div id="slide-1" class="slide">
                                 <div class="slider-img">
-                                    <a href="@url"><img class="slide-image-pet" src="~/Assets/images/@item.p_image" alt="learn more" /></a>
+                                    <a href="@url"><img class="slide-image-pet" src="/Assets/images/@item.p_image" alt="learn more" /></a>
                                 </div>
                                 <div class="slider-text">
                                     <h1>@item.p_name<br><span>SALE</span></h1>
@@ -68,7 +68,7 @@
         {
             var url = "/detail/pet/" + item.p_id;
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="@url"><img class="guest-image" src="~/Assets/images/@item.p_image" alt="" /></a>
+                <a href="@url"><img class="guest-image" src="/Assets/images/@item.p_image" alt="" /></a>
                 <h2>@item.p_name</h2>
                 <div class="price-details">
                     <div class="price-number">
@@ -96,7 +96,7 @@
         {
             var url = "/detail/petfood/" + item.pf_id;
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="@url"><img class="guest-image" src="~/Assets/images/@item.pf_image" alt="" /></a>
+                <a href="@url"><img class="guest-image" src="/Assets/images/@item.pf_image" alt="" /></a>
                 <h2>@item.pf_name</h2>
                 <div class="price-details">
                     <div class="price-number">
@@ -124,7 +124,7 @@
         @foreach (var item in viewPetToyList)
         {
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="#"><img class="guest-image" src="~/Assets/images/@item.pt_image" alt="" /></a>
+                <a href="#"><img class="guest-image" src="/Assets/images/@item.pt_image" alt="" /></a>
                 <h2>@item.pt_name</h2>
                 <div class="price-details">
                     <div class="price-number">
@@ -152,7 +152,7 @@
         @foreach (var item in viewPetToyList)
         {
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="#"><img class="guest-image" src="~/Assets/images/@item.pt_image" alt="" /></a>
+                <a href="#"><img class="guest-image" src="/Assets/images/@item.pt_image" alt="" /></a>
                 <h2>@item.pt_name</h2>
                 <div class="price-details">
                     <div class="price-number">

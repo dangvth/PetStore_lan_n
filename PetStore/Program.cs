@@ -20,8 +20,8 @@ namespace PetStore
             Application.SetCompatibleTextRenderingDefault(false);
 
             BonusSkins.Register();
-            //Application.Run(new frmAdmin());
-            Application.Run(new Login());
+            Application.Run(new frmAdmin());
+            //Application.Run(new Login());
         }
     }
 }

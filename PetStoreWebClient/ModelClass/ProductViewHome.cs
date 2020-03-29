@@ -55,7 +55,7 @@ namespace PetStoreWebClient.ModelClass
         public List<Pet> getViewPetSaleOff()
         {
             return db.Pet.Where(x => x.p_status == "Active" && x.p_prices > x.p_salePrice).
-                OrderByDescending(x => (x.p_prices - x.p_salePrice)).ToList();
+                OrderByDescending(x => (x.p_prices - x.p_salePrice)).Take(3).ToList();
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace PetStoreWebClient.ModelClass
         public List<PetFood> getViewPetFoodSaleOff()
         {
             return db.PetFood.Where(x => x.pf_status == "Active" && x.pf_prices > x.pf_salePrice).
-                OrderByDescending(x => (x.pf_prices - x.pf_salePrice)).ToList();
+                OrderByDescending(x => (x.pf_prices - x.pf_salePrice)).Take(3).ToList();
         }
     }
 }

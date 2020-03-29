@@ -24,6 +24,7 @@ namespace PetStore
 
         private void btnViewCmtd_ItemClick(object sender, ItemClickEventArgs e)
         {
+            //show comment detail form
             CommentDetailStaff cds = new CommentDetailStaff();
             cds.ShowDialog();
         }
@@ -33,6 +34,7 @@ namespace PetStore
             if (IDSelected != "")
             {
                 CommentModel cm = new CommentModel();
+                //delete comment selected (set status to Inactive)
                 cm.DeleteComment(Convert.ToInt32(IDSelected));
                 XtraMessageBox.Show("Delete successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CommentStaff_Load(sender, e);
@@ -48,6 +50,7 @@ namespace PetStore
             if (IDSelected != "")
             {
                 CommentModel cm = new CommentModel();
+                //Restore comment selected (set status to Active)
                 cm.RestoreComment(Convert.ToInt32(IDSelected));
                 XtraMessageBox.Show("Restore successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CommentStaff_Load(sender, e);
@@ -65,6 +68,7 @@ namespace PetStore
 
         private void CommentStaff_Load(object sender, EventArgs e)
         {
+            //load data to grid view
             CommentModel cm = new CommentModel();
             bindingSourceComment.DataSource = cm.GetAllDataToArrayList();
             gcComment.DataSource = bindingSourceComment;
@@ -72,9 +76,11 @@ namespace PetStore
 
         private void gvComment_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
+            //get index of comment on grid view
             int idx = gvComment.FocusedRowHandle;
             if (gvComment.GetRowCellValue(idx, gvComment.Columns[0]) != null)
             {
+                //get id of comment
                 IDSelected = gvComment.GetRowCellValue(idx, gvComment.Columns[0]).ToString();
             }
         }

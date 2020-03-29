@@ -55,6 +55,7 @@ namespace PetStore.Views.PetFoodCollectionView{
             if (pfIDSelected != "")
             {
                 PetFoodModel pfm = new PetFoodModel();
+                //set status item selected to Inactive
                 pfm.DeletePetFood(pfIDSelected);
                 XtraMessageBox.Show("Delete successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
@@ -65,8 +66,13 @@ namespace PetStore.Views.PetFoodCollectionView{
 
         private void gridView_RowClick(object sender, RowClickEventArgs e)
         {
+            //get index of item in selected
             int idx = gridView.FocusedRowHandle;
-            pfIDSelected = gridView.GetRowCellValue(idx, "pf_id").ToString();
+            if (gridView.GetRowCellValue(idx, "pf_id") != null)
+            {
+                //get id of item selected
+                pfIDSelected = gridView.GetRowCellValue(idx, "pf_id").ToString();
+            }
         }
 
         private void bbiRestore_ItemClick(object sender, ItemClickEventArgs e)
@@ -74,6 +80,7 @@ namespace PetStore.Views.PetFoodCollectionView{
             if (pfIDSelected != "")
             {
                 PetFoodModel pfm = new PetFoodModel();
+                //set status item selected to Active
                 pfm.RestorePetFood(pfIDSelected);
                 XtraMessageBox.Show("Restore successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -90,18 +97,21 @@ namespace PetStore.Views.PetFoodCollectionView{
                 EditPetFood epf = new EditPetFood();
                 var db = new PetStoreEntities();
                 var pf = db.PetFoods.Find(pfIDSelected);
+                var type = db.Types.Find(pf.t_id);
+                //set data of item edit to Edit form
                 epf.te_FoodID.Text = pf.pf_id;
                 epf.te_FoodName.Text = pf.pf_name;
-                //epf.te_FoodImage.Text = pf.pf_image;
                 epf.te_FoodPrice.Text = pf.pf_prices + "";
                 epf.te_FoodSalePrice.Text = pf.pf_salePrice + "";
                 epf.te_FoodStatus.SelectedItem = pf.pf_status;
                 epf.te_FoodAmount.Text = pf.pf_amount + "";
+                epf.te_Type.Text = type.t_name;
+                //show Edit form
                 epf.ShowDialog();
             }
             else
             {
-                XtraMessageBox.Show("Please choose a food item to restore !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Please choose a food item to edit !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -109,30 +119,33 @@ namespace PetStore.Views.PetFoodCollectionView{
         {
             if (pfIDSelected != "")
             {
+                //declare
                 DetailPetFoodForm vdf = new DetailPetFoodForm();
                 PetFoodModel pfm = new PetFoodModel();
-
-                PetFood f = pfm.getPetFood(pfIDSelected);
-
+                var db = new PetStoreEntities();
+                PetFood f = db.PetFoods.Find(pfIDSelected);
+                var type = db.Types.Find(f.t_id);
+                //set data to Detail pet food form
                 vdf.te_pfID.Text = f.pf_id;
                 vdf.te_pfName.Text = f.pf_name;
                 vdf.te_pfPriceSale.Text = f.pf_salePrice.ToString();
                 vdf.te_pfAmount.Text = f.pf_amount.ToString();
-                vdf.te_Type.Text = "Pet's Food";
-
+                vdf.te_Type.Text = type.t_name;
+                //change text color with status
                 if (f.pf_status == "Active") { vdf.te_pfStatus.ForeColor = Color.Green; }
                 else { vdf.te_pfStatus.ForeColor = Color.Red; }
-
+                //set data to detail form
                 vdf.te_pfStatus.Text = f.pf_status;
                 vdf.te_pfPrice.Enabled = true;
                 vdf.te_pfPrice.Text = f.pf_prices.ToString();
                 vdf.lblTitle.Text = f.pf_name;
-
+                //get image of item
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
                 String pathImage = projectPath + "\\img\\" + f.pf_image;
                 Image img = Image.FromFile(pathImage);
+                //Resize image 440x440 and set to picture box
                 vdf.ptbImage.Image = pfm.ResizeImage(img, 440, 440);
-
+                //show detail form
                 vdf.ShowDialog();
             }
             else
