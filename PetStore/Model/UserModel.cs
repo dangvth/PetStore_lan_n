@@ -25,5 +25,14 @@ namespace PetStore.Model
                 db.SaveChanges();
             }
         }
+        public string getUName(int? uID)
+        {
+            using (var db = new PetStoreEntities())
+            {
+                var User = db.Users.Find(uID);
+                return User.u_name;
+            }
+            return null;
+        }
     }
 }

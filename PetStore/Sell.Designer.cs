@@ -151,7 +151,7 @@
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.08844F));
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.tblLayout.Controls.Add(this.lblTotalPrice, 0, 0);
             this.tblLayout.Controls.Add(this.lblGuest, 1, 0);
             this.tblLayout.Controls.Add(this.lblGift, 1, 1);
@@ -184,7 +184,7 @@
             // 
             this.lblGuest.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblGuest.AutoSize = true;
-            this.lblGuest.Location = new System.Drawing.Point(246, 12);
+            this.lblGuest.Location = new System.Drawing.Point(245, 12);
             this.lblGuest.Name = "lblGuest";
             this.lblGuest.Size = new System.Drawing.Size(49, 19);
             this.lblGuest.TabIndex = 1;
@@ -194,7 +194,7 @@
             // 
             this.lblGift.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblGift.AutoSize = true;
-            this.lblGift.Location = new System.Drawing.Point(261, 57);
+            this.lblGift.Location = new System.Drawing.Point(260, 57);
             this.lblGift.Name = "lblGift";
             this.lblGift.Size = new System.Drawing.Size(34, 19);
             this.lblGift.TabIndex = 2;
@@ -204,7 +204,7 @@
             // 
             this.lblAddress.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(544, 12);
+            this.lblAddress.Location = new System.Drawing.Point(543, 12);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(66, 19);
             this.lblAddress.TabIndex = 3;
@@ -213,7 +213,7 @@
             // txtGuest
             // 
             this.txtGuest.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtGuest.Location = new System.Drawing.Point(301, 9);
+            this.txtGuest.Location = new System.Drawing.Point(300, 9);
             this.txtGuest.MenuManager = this.rbbSale;
             this.txtGuest.Name = "txtGuest";
             this.txtGuest.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,7 +227,7 @@
             // txtAddress
             // 
             this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtAddress.Location = new System.Drawing.Point(616, 9);
+            this.txtAddress.Location = new System.Drawing.Point(615, 9);
             this.txtAddress.MenuManager = this.rbbSale;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -244,7 +244,7 @@
             this.cbbGift.DisplayMember = "g_name";
             this.cbbGift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbGift.FormattingEnabled = true;
-            this.cbbGift.Location = new System.Drawing.Point(301, 53);
+            this.cbbGift.Location = new System.Drawing.Point(300, 56);
             this.cbbGift.Name = "cbbGift";
             this.cbbGift.Size = new System.Drawing.Size(234, 27);
             this.cbbGift.TabIndex = 6;

@@ -217,6 +217,7 @@ namespace PetStore
                         id = b.b_id;
                         break;
                     }
+                    int index = 0;
                     foreach (var bd in list)
                     {
                         var billDetail = new BillDetail();
@@ -241,8 +242,13 @@ namespace PetStore
                         {
                             billDetail.pm_id = bd;
                         }
-                        db.BillDetails.Add(billDetail);
-                        db.SaveChanges();
+                        int qty = int.Parse(dataGridView1.Rows[index].Cells["Quantity"].Value.ToString());
+                        for (int i = 0; i < qty; i++)
+                        {
+                            db.BillDetails.Add(billDetail);
+                            db.SaveChanges();
+                        }
+                        index++;
                     }
                 }
                 report.Parameters["pID"].Value = id;
