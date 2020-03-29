@@ -15,6 +15,11 @@ namespace PetStoreWebClient.Commom
             db = new PetStoreOnlineDbContext();
         }
 
+        /// <summary>
+        /// Insert Account
+        /// </summary>
+        /// <param name="ac"></param>
+        /// <returns></returns>
         public int InsertAccount(Account ac)
         {
             db.Account.Add(ac);
