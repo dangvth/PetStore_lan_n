@@ -131,43 +131,44 @@ namespace PetStoreWebClient.Controllers
             string oldPassword = Fields["oldPassword"];
             string newPassword = Fields["newPassword"];
             string re_newPassword = Fields["re_newPassword"];
-            string user = Session["username"].ToString();
+            //string user = Session["username"].ToString();
 
-            AccountManagement am = new AccountManagement(); 
+            AccountManagement am = new AccountManagement();
 
-            //check conditions to change password
-            if (oldPassword.Equals("") || newPassword.Equals("") || re_newPassword.Equals(""))
-            {
-                //send error message
-                ModelState.AddModelError("", "Any fields can not be blank!!!!");
-                return View();
-            }
-            else if (!am.isOldPassword(user, oldPassword))
-            {
-                //send error message
-                ModelState.AddModelError("", "The old password is not correct!!!!");
-                return View();
-            }
-            else if (!ValidationFormat.isPasswordFormat(newPassword))
-            {
-                //send error message
-                ModelState.AddModelError("", "Password must be between 4 to 20 characters!!!!");
-                return View();
-            }
-            else
-            {
-                if (!newPassword.Equals(re_newPassword))
-                {
-                    //send error message
-                    ModelState.AddModelError("", "Confirm password is not same with new password!!!!");
-                    return View();
-                } else
-                {
-                    //change password
-                    am.ChangePassword(user, newPassword);
-                    return RedirectToAction("Index", "Home");
-                }
-            }
+            ////check conditions to change password
+            //if (oldPassword.Equals("") || newPassword.Equals("") || re_newPassword.Equals(""))
+            //{
+            //    //send error message
+            //    ModelState.AddModelError("", "Any fields can not be blank!!!!");
+            //    return View();
+            //}
+            //else if (!am.isOldPassword(user, oldPassword))
+            //{
+            //    //send error message
+            //    ModelState.AddModelError("", "The old password is not correct!!!!");
+            //    return View();
+            //}
+            //else if (!ValidationFormat.isPasswordFormat(newPassword))
+            //{
+            //    //send error message
+            //    ModelState.AddModelError("", "Password must be between 4 to 20 characters!!!!");
+            //    return View();
+            //}
+            //else
+            //{
+            //    if (!newPassword.Equals(re_newPassword))
+            //    {
+            //        //send error message
+            //        ModelState.AddModelError("", "Confirm password is not same with new password!!!!");
+            //        return View();
+            //    } else
+            //    {
+            //        //change password
+            //        am.ChangePassword(user, newPassword);
+            //        return RedirectToAction("Index", "Home");
+            //    }
+            //}
+            return View();
         }
 
         public ActionResult LogoutProcess()
