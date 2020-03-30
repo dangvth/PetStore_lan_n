@@ -42,6 +42,37 @@ namespace PetStoreWebClient.Controllers
             return View(allPet);
         }
 
+        public ActionResult Search(string keywordPet, int page = 1, int pageSize = 2)
+        {
+            var productView = new ProductViewHome();
+            //initialize 
+            int totalRecord = 0;
+            //Save Pet to pass data to another view
+            ViewBag.viewPetSaleOff = productView.getViewPetSaleOff();
+            //Get all pet
+            var allPet = new PetModel().Search(keywordPet, ref totalRecord, page, pageSize);
+
+            //Save total page, keyword and page to pass data to another view
+            ViewBag.Total = totalRecord;
+            ViewBag.keyword = keywordPet;
+            ViewBag.Page = page;
+
+            //Paging
+            int maxPage = 5;//maximum page link display on website
+            int totalPage = 0;
+            //Paging Algorithm
+            totalPage = (int)Math.Ceiling((double)totalRecord / pageSize);
+
+            //Save data page to pass data to another view
+            ViewBag.totalPage = totalPage;
+            ViewBag.maxPage = maxPage;
+            ViewBag.first = 1;
+            ViewBag.last = totalPage;
+            ViewBag.next = page + 1;
+            ViewBag.prev = page - 1;
+            return View(allPet);
+        }
+
         public ActionResult Detail(String pID, int page = 1, int pageSize = 2)
         {
             var cmt = new CommentModel();
@@ -117,6 +148,34 @@ namespace PetStoreWebClient.Controllers
             {
                 return RedirectToAction("Index", "Accounts");
             }
+        }
+
+        /// <summary>
+        /// Get list name of pet contains keyword search
+        /// </summary>
+        /// <param name="term"></param>
+        /// <returns></returns>
+        public JsonResult ListName(string p)
+        {
+            if (p != "") //check have enter input search 
+            {
+                //get list name
+                var data = new PetModel().ListName(p);
+                return Json(new
+                {
+                    data = data,
+                    status = true
+                }, JsonRequestBehavior.AllowGet);
+            }
+            else //input search is empty
+            {
+                return Json(new
+                {
+                    data = "",
+                    status = true
+                }, JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }

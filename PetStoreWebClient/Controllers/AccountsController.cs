@@ -22,7 +22,7 @@ namespace PetStoreWebClient.Controllers
             {
                 AccountManagement am = new AccountManagement();
                 //Check user enter username & password is correct or not
-                int result = am.Login(model.ac_userName, Encryptor.SHA256_Encrypt(model.ac_pwd).ToUpper());
+                int result = am.Login(model.ac_userName, Encryptor.SHA256_Encrypt(model.ac_pwd));
 
                 //If is correct => get account and create session for that account
                 if (result == 1)
@@ -74,16 +74,34 @@ namespace PetStoreWebClient.Controllers
             string username = account.ac_userName.ToString();
             string password = account.ac_pwd.ToString();
 
-            //Check all fields has been fill
-            if (!(fullname.Equals("") || addr.Equals("") || email.Equals("") || phone.Equals("")
-                || username.Equals("") || password.Equals("")))
+            //Check validation format
+            if (!ValidationFormat.isEmailFormat(email)) //Check email format 
+            {
+                //send error message
+                ModelState.AddModelError("", "Email is not correct format!!!!");
+                return View("Index");
+            }
+            else if (!ValidationFormat.isPhoneFormat(phone)) //Check phone format
+            {
+                //send error message
+                ModelState.AddModelError("", "Phone number must be 10 digits!!!!");
+                return View("Index");
+            }
+            else if (!ValidationFormat.isPasswordFormat(password)) //Check password format
+            {
+                //send error message
+                ModelState.AddModelError("", "Password must be between 4 to 20 characters!!!!");
+                return View("Index");
+            }
+            else if (!(fullname.Equals("") || addr.Equals("") || email.Equals("") || phone.Equals("")
+                || username.Equals("") || password.Equals(""))) //Check all fields has been fill
             {
                 //Insert Account and return account ID
                 AccountManagement am = new AccountManagement();
                 var pwdEncrypt = Encryptor.SHA256_Encrypt(account.ac_pwd);
                 account.ac_pwd = pwdEncrypt;
                 account.ac_status = "Active";
-                account.r_id = 3;                
+                account.r_id = 3;
                 int acID = am.InsertAccount(account);
                 //If insert Account successful then insert User
                 if (acID > 0)
@@ -105,6 +123,51 @@ namespace PetStoreWebClient.Controllers
                 return View("Index");
             }
             return View("Index");
+        }
+
+        public ActionResult ChangePassword(FormCollection Fields)
+        {
+            //declare Form values
+            string oldPassword = Fields["oldPassword"];
+            string newPassword = Fields["newPassword"];
+            string re_newPassword = Fields["re_newPassword"];
+            string user = Session["username"].ToString();
+
+            AccountManagement am = new AccountManagement(); 
+
+            //check conditions to change password
+            if (oldPassword.Equals("") || newPassword.Equals("") || re_newPassword.Equals(""))
+            {
+                //send error message
+                ModelState.AddModelError("", "Any fields can not be blank!!!!");
+                return View();
+            }
+            else if (!am.isOldPassword(user, oldPassword))
+            {
+                //send error message
+                ModelState.AddModelError("", "The old password is not correct!!!!");
+                return View();
+            }
+            else if (!ValidationFormat.isPasswordFormat(newPassword))
+            {
+                //send error message
+                ModelState.AddModelError("", "Password must be between 4 to 20 characters!!!!");
+                return View();
+            }
+            else
+            {
+                if (!newPassword.Equals(re_newPassword))
+                {
+                    //send error message
+                    ModelState.AddModelError("", "Confirm password is not same with new password!!!!");
+                    return View();
+                } else
+                {
+                    //change password
+                    am.ChangePassword(user, newPassword);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
         }
 
         public ActionResult LogoutProcess()

@@ -200,6 +200,7 @@
     <Compile Include="Commom\AccountManagement.cs" />
     <Compile Include="Commom\Encryptor.cs" />
     <Compile Include="Commom\UserManagement.cs" />
+    <Compile Include="Commom\ValidationFormat.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -333,6 +334,7 @@
     <Content Include="Assets\images\value-rating.png" />
     <Content Include="Assets\images\wishlist.png" />
     <Content Include="Assets\JSController\cartController.js" />
+    <Content Include="Assets\JSController\PetSearch.js" />
     <Content Include="Assets\JSController\pfSearchController.js" />
     <Content Include="Assets\js\bootstrap.min.js" />
     <Content Include="Assets\js\easing.js" />
@@ -496,6 +498,7 @@
     <Content Include="Views\Home\HeaderPage.cshtml" />
     <Content Include="Views\PetFood\Search.cshtml" />
     <Content Include="Views\Pet\Index.cshtml" />
+    <Content Include="Views\Pet\Search.cshtml" />
     <Content Include="Views\Home\MyAccount.cshtml" />
     <Content Include="Views\Home\Manual.cshtml" />
   </ItemGroup>
