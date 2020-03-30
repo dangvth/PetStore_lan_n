@@ -46,5 +46,15 @@ namespace PetStoreWebClient.Controllers
             var sessLogin = Session[userLogin];
             return PartialView(sessLogin);
         }
+
+        public ActionResult MyAccount()
+        {
+            return View();
+        }
+
+        public ActionResult Manual()
+        {
+            return View();
+        }
     }
 }

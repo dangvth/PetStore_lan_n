@@ -24,7 +24,7 @@ namespace PetStoreWebClient
                 url: "petfood/list",
                 defaults: new { controller = "PetFood", action = "Index", id = UrlParameter.Optional }
             );
-
+            
             routes.MapRoute(
                 name: "Petfood Search",
                 url: "Petfood/search",
@@ -89,6 +89,18 @@ namespace PetStoreWebClient
                 name: "Login page",
                 url: "login",
                 defaults: new { controller = "Accounts", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "My Account",
+                url: "my-account",
+                defaults: new { controller = "Home", action = "MyAccount", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Home",
+                url: "home",
+                defaults: new { controller = "Home", action = "Indext", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

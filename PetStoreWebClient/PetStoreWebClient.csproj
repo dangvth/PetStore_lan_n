@@ -492,11 +492,12 @@
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Pet\Detail.cshtml" />
     <Content Include="Views\Home\HeaderPage.cshtml" />
     <Content Include="Views\PetFood\Search.cshtml" />
     <Content Include="Views\Pet\Index.cshtml" />
+    <Content Include="Views\Home\MyAccount.cshtml" />
+    <Content Include="Views\Home\Manual.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
