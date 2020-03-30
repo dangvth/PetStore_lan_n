@@ -74,16 +74,34 @@ namespace PetStoreWebClient.Controllers
             string username = account.ac_userName.ToString();
             string password = account.ac_pwd.ToString();
 
-            //Check all fields has been fill
-            if (!(fullname.Equals("") || addr.Equals("") || email.Equals("") || phone.Equals("")
-                || username.Equals("") || password.Equals("")))
+            //Check validation format
+            if (!ValidationFormat.isEmailFormat(email)) //Check email format 
+            {
+                //send error message
+                ModelState.AddModelError("", "Email is not correct format!!!!");
+                return View("Index");
+            }
+            else if (!ValidationFormat.isPhoneFormat(phone)) //Check phone format
+            {
+                //send error message
+                ModelState.AddModelError("", "Phone number must be 10 digits!!!!");
+                return View("Index");
+            }
+            else if (!ValidationFormat.isPasswordFormat(password)) //Check password format
+            {
+                //send error message
+                ModelState.AddModelError("", "Password must be between 4 to 20 characters!!!!");
+                return View("Index");
+            }
+            else if (!(fullname.Equals("") || addr.Equals("") || email.Equals("") || phone.Equals("")
+                || username.Equals("") || password.Equals(""))) //Check all fields has been fill
             {
                 //Insert Account and return account ID
                 AccountManagement am = new AccountManagement();
                 var pwdEncrypt = Encryptor.SHA256_Encrypt(account.ac_pwd);
                 account.ac_pwd = pwdEncrypt;
                 account.ac_status = "Active";
-                account.r_id = 3;                
+                account.r_id = 3;
                 int acID = am.InsertAccount(account);
                 //If insert Account successful then insert User
                 if (acID > 0)
