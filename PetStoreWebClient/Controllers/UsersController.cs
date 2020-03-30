@@ -14,13 +14,6 @@ namespace PetStoreWebClient.Controllers
     {
         private PetStoreOnlineDbContext db = new PetStoreOnlineDbContext();
 
-        // GET: Users
-        public ActionResult Index()
-        {
-            var user = db.User.Include(u => u.Account);
-            return View(user.ToList());
-        }
-
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
