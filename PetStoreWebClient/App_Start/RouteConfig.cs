@@ -106,7 +106,19 @@ namespace PetStoreWebClient
             routes.MapRoute(
                 name: "Home",
                 url: "home",
-                defaults: new { controller = "Home", action = "Indext", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Manual",
+                url: "manual",
+                defaults: new { controller = "Home", action = "Manual", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Buy Product Manual",
+                url: "buy-product-manual",
+                defaults: new { controller = "Home", action = "BuyProductManual", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
