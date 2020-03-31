@@ -23,10 +23,10 @@ namespace PetStore.Views.OriginCollectionView{
 			// We want to show loading-indicator when data is loading asynchronously
             fluentAPI.SetBinding(gridView, gView => gView.LoadingPanelVisible, x => x.IsLoading);
 						// We want to proceed the Edit command when row double-clicked
-     //       fluentAPI.WithEvent<RowClickEventArgs>(gridView, "RowClick").EventToCommand(
-     //               x => x.Edit(null),
-					//x => x.SelectedEntity,
-     //               args => (args.Clicks == 2) && (args.Button == System.Windows.Forms.MouseButtons.Left));
+            fluentAPI.WithEvent<RowClickEventArgs>(gridView, "RowClick").EventToCommand(
+                    x => x.Edit(null),
+					x => x.SelectedEntity,
+                    args => (args.Clicks == 2) && (args.Button == System.Windows.Forms.MouseButtons.Left));
 						// We want to synchronize the ViewModel.SelectedEntity and the GridView.FocusedRowRandle in two-way manner
             fluentAPI.WithEvent<GridView, FocusedRowObjectChangedEventArgs>(gridView, "FocusedRowObjectChanged")
                 .SetBinding(x => x.SelectedEntity,
