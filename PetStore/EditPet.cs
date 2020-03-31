@@ -46,29 +46,48 @@ namespace PetStore
                 {
                     if (openDialog.FileName.EndsWith(".jpg")) { image = te_PID.Text + ".jpg"; }
                     else { image = te_PID.Text + ".png"; }
+
+                    //get solution Apps path
                     String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
-                    String oldFilePath = projectPath + "\\img\\" + oldImageName;
-                    FileInfo f = new FileInfo(oldFilePath);
-                    if (f.Exists)
+                    String oldAppFilePath = projectPath + "\\img\\" + oldImageName;
+                    //delete old image file if exist
+                    FileInfo fiApps = new FileInfo(oldAppFilePath);
+                    if (fiApps.Exists)
                     {
-                        File.Delete(oldFilePath);
+                        File.Delete(oldAppFilePath);
                     }
-                    String newFilepath = Path.GetFullPath(projectPath + "\\img\\" + image);
-                    File.Copy(te_PImage.Text, newFilepath);
+
+                    //get solution path
+                    String solutionPath = Directory.GetParent(projectPath).FullName; ;
+                    String oldWebFilePath = solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + oldImageName;
+                    //delete old image file if exist
+                    FileInfo fiWeb = new FileInfo(oldWebFilePath);
+                    if (fiWeb.Exists)
+                    {
+                        File.Delete(oldWebFilePath);
+                    }
+
+                    //get image folder on Apps and Web
+                    String newFileAppPath = Path.GetFullPath(projectPath + "\\img\\" + image);
+                    String newFileWebPath = Path.GetFullPath(solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + image);
+                    //Copy image to 2 image folder
+                    File.Copy(te_PImage.Text, newFileAppPath);
+                    File.Copy(te_PImage.Text, newFileWebPath);
                 }
                 else
                 {
-                    image = oldImageName;
+                    image = oldImageName; //if no new image is seleted then don't change image file
                 }
+
+                //Update Pet on database
                 pm.UpdatePet(te_PID.Text, te_PName.Text, Convert.ToInt32(te_POriginPrice.Text),
                          Convert.ToInt32(te_PSalePrice.Text), image, te_PDescription.Text,
                          te_PStatus.Text, pStatus);
-                //pfm.UpdateFood(te_PID.Text, te_PName.Text, Convert.ToInt32(te_POriginPrice.Text),
-                //         Convert.ToInt32(te_FoodSalePrice.Text), 2, te_FoodStatus.Text, image);
+                //Notify to user
                 XtraMessageBox.Show("Edit successful !!!", "Congratulation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
-            else
+            else    //send error message
             {
                 XtraMessageBox.Show("Please fill in full information !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

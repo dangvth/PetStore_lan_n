@@ -127,18 +127,26 @@ namespace PetStore.Views.PetView
                 PetModel pm = new PetModel();
                 //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
                 //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
+                //Get solution App path
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
+                //get image path
                 String newFilePath = Path.GetFullPath(projectPath + "\\img\\" + p_imageTextEdit.Text);
+                //get solution Web path
+                String solutionWebPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
                 FileInfo fi = new FileInfo(newFilePath);
                 if (!fi.Exists)
                 {
                     //File.Delete(newFilePath);
+                    //Copy file to image folder on Apps 
                     File.Copy(oldPath, newFilePath);
+                    //copy file to image folder on Web
+                    File.Copy(oldPath, solutionWebPath + "\\PetStoreWebClient\\Assets\\images\\" + p_imageTextEdit.Text);
                 }
             }
             //Set time publish
-            p_publishedDateEdit.Text = DateTime.Now.ToString();        
+            p_publishedDateEdit.Text = DateTime.Now.ToString();
         }
 
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -150,14 +158,22 @@ namespace PetStore.Views.PetView
                 PetModel pm = new PetModel();
                 //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
                 //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
+                //Get solution App path
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
+                //get image path
                 String newFilePath = Path.GetFullPath(projectPath + "\\img\\" + p_imageTextEdit.Text);
+                //get solution Web path
+                String solutionWebPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+               
                 FileInfo fi = new FileInfo(newFilePath);
                 if (!fi.Exists)
                 {
                     //File.Delete(newFilePath);
+                    //Copy file to image folder on Apps 
                     File.Copy(oldPath, newFilePath);
+                    //copy file to image folder on Web
+                    File.Copy(oldPath, solutionWebPath + "\\PetStoreWebClient\\Assets\\images\\" + p_imageTextEdit.Text);
                 }
             }
             //Set time publish
@@ -173,14 +189,22 @@ namespace PetStore.Views.PetView
                 PetModel pm = new PetModel();
                 //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
                 //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
+                //Get solution App path
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
+                //get image path
                 String newFilePath = Path.GetFullPath(projectPath + "\\img\\" + p_imageTextEdit.Text);
+                //get solution Web path
+                String solutionWebPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
                 FileInfo fi = new FileInfo(newFilePath);
                 if (!fi.Exists)
                 {
                     //File.Delete(newFilePath);
+                    //Copy file to image folder on Apps 
                     File.Copy(oldPath, newFilePath);
+                    //copy file to image folder on Web
+                    File.Copy(oldPath, solutionWebPath + "\\PetStoreWebClient\\Assets\\images\\" + p_imageTextEdit.Text);
                 }
             }
             //Set time publish
