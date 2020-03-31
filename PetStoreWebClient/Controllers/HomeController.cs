@@ -56,10 +56,5 @@ namespace PetStoreWebClient.Controllers
         {
             return View();
         }
-
-        public ActionResult BuyProductManual()
-        {
-            return View();
-        }
     }
 }
