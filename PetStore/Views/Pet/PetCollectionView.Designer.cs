@@ -314,7 +314,7 @@
             // 
             // btnTestEdit
             // 
-            this.btnTestEdit.Caption = "Test Edit";
+            this.btnTestEdit.Caption = "Edit";
             this.btnTestEdit.Id = 23;
             this.btnTestEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTestEdit.ImageOptions.Image")));
             this.btnTestEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTestEdit.ImageOptions.LargeImage")));
@@ -334,12 +334,11 @@
             // 
             this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiNew);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiEdit);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnTestEdit);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiDelete);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiRefresh);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiRestore);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDetail);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnTestEdit);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Pet Tasks";
