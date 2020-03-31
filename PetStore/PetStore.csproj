@@ -210,6 +210,12 @@
     <Compile Include="DetailPetForm.Designer.cs">
       <DependentUpon>DetailPetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailToys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailToys.Designer.cs">
+      <DependentUpon>DetailToys.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditGift.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,12 @@
     <Compile Include="PetFoodStaff.Designer.cs">
       <DependentUpon>PetFoodStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="PetMedicineStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PetMedicineStaff.Designer.cs">
+      <DependentUpon>PetMedicineStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="PetStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +300,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetToysStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PetToysStaff.Designer.cs">
+      <DependentUpon>PetToysStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="RibbonForm1.cs">
       <SubType>Form</SubType>
@@ -602,6 +620,9 @@
     <EmbeddedResource Include="DetailPetForm.resx">
       <DependentUpon>DetailPetForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DetailToys.resx">
+      <DependentUpon>DetailToys.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditGift.resx">
       <DependentUpon>EditGift.cs</DependentUpon>
     </EmbeddedResource>
@@ -626,8 +647,14 @@
     <EmbeddedResource Include="PetFoodStaff.resx">
       <DependentUpon>PetFoodStaff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PetMedicineStaff.resx">
+      <DependentUpon>PetMedicineStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PetStaff.resx">
       <DependentUpon>PetStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PetToysStaff.resx">
+      <DependentUpon>PetToysStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RibbonForm1.resx">
       <DependentUpon>RibbonForm1.cs</DependentUpon>
@@ -779,6 +806,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refresh.png" />
     <None Include="Resources\floppy_disk_save-512.png" />
     <None Include="Resources\tải xuống %288%29.jpg" />
     <None Include="Resources\tải xuống %287%29.jpg" />
