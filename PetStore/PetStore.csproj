@@ -783,7 +783,6 @@
     <None Include="Resources\tải xuống %288%29.jpg" />
     <None Include="Resources\tải xuống %287%29.jpg" />
     <None Include="img\error-image.png" />
-    <Content Include="img\PET001.jpg" />
     <Content Include="PetStoreModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PetStoreModel.Context.cs</LastGenOutput>

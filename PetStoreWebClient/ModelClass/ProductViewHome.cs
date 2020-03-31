@@ -78,5 +78,15 @@ namespace PetStoreWebClient.ModelClass
             return db.PetFood.Where(x => x.pf_status == "Active" && x.pf_prices > x.pf_salePrice).
                 OrderByDescending(x => (x.pf_prices - x.pf_salePrice)).Take(3).ToList();
         }
+
+        /// <summary>
+        /// get Pet's medicine sale off
+        /// </summary>
+        /// <returns></returns>
+        public List<PetMedicine> getViewPetMedicineSaleOff()
+        {
+            return db.PetMedicine.Where(x => x.pm_status == "Active" && x.pm_prices > x.pm_salePrice).
+                OrderByDescending(x => (x.pm_prices - x.pm_salePrice)).Take(3).ToList();
+        }
     }
 }

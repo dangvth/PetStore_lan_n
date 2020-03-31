@@ -240,6 +240,7 @@
     <Compile Include="ModelClass\CommentModel.cs" />
     <Compile Include="ModelClass\CommentViewUser.cs" />
     <Compile Include="ModelClass\PetFoodModel.cs" />
+    <Compile Include="ModelClass\PetMedicineModel.cs" />
     <Compile Include="ModelClass\PetModel.cs" />
     <Compile Include="ModelClass\ProductViewHome.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
