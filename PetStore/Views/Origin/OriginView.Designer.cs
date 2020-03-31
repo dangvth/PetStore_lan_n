@@ -115,7 +115,7 @@
             // org_idTextEdit
             // 
             this.org_idTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.originViewBindingSource, "org_id", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.org_idTextEdit.Location = new System.Drawing.Point(53, 14);
+            this.org_idTextEdit.Location = new System.Drawing.Point(51, 12);
             this.org_idTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.org_idTextEdit.MenuManager = this.mainRibbonControl;
             this.org_idTextEdit.Name = "org_idTextEdit";
@@ -125,7 +125,7 @@
             this.org_idTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.org_idTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.org_idTextEdit.Properties.ReadOnly = true;
-            this.org_idTextEdit.Size = new System.Drawing.Size(1128, 22);
+            this.org_idTextEdit.Size = new System.Drawing.Size(1132, 22);
             this.org_idTextEdit.StyleController = this.dataLayoutControl1;
             this.org_idTextEdit.TabIndex = 4;
             // 
@@ -256,11 +256,11 @@
             // org_nameTextEdit
             // 
             this.org_nameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.originViewBindingSource, "org_name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.org_nameTextEdit.Location = new System.Drawing.Point(53, 40);
+            this.org_nameTextEdit.Location = new System.Drawing.Point(51, 38);
             this.org_nameTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.org_nameTextEdit.MenuManager = this.mainRibbonControl;
             this.org_nameTextEdit.Name = "org_nameTextEdit";
-            this.org_nameTextEdit.Size = new System.Drawing.Size(1128, 22);
+            this.org_nameTextEdit.Size = new System.Drawing.Size(1132, 22);
             this.org_nameTextEdit.StyleController = this.dataLayoutControl1;
             this.org_nameTextEdit.TabIndex = 5;
             // 
@@ -271,11 +271,11 @@
             this.TypesXtraUserControl.Controls.Add(this.barDockControlRight);
             this.TypesXtraUserControl.Controls.Add(this.barDockControlBottom);
             this.TypesXtraUserControl.Controls.Add(this.barDockControlTop);
-            this.TypesXtraUserControl.Location = new System.Drawing.Point(27, 133);
+            this.TypesXtraUserControl.Location = new System.Drawing.Point(24, 129);
             this.TypesXtraUserControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TypesXtraUserControl.MinimumSize = new System.Drawing.Size(117, 123);
             this.TypesXtraUserControl.Name = "TypesXtraUserControl";
-            this.TypesXtraUserControl.Size = new System.Drawing.Size(1140, 638);
+            this.TypesXtraUserControl.Size = new System.Drawing.Size(1146, 646);
             this.TypesXtraUserControl.TabIndex = 7;
             // 
             // TypesGridControl
@@ -288,7 +288,7 @@
             this.TypesGridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TypesGridControl.MenuManager = this.mainRibbonControl;
             this.TypesGridControl.Name = "TypesGridControl";
-            this.TypesGridControl.Size = new System.Drawing.Size(1140, 608);
+            this.TypesGridControl.Size = new System.Drawing.Size(1146, 616);
             this.TypesGridControl.TabIndex = 0;
             this.TypesGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.TypesGridView});
@@ -377,7 +377,7 @@
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.TypesBarManager;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 608);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 616);
             // 
             // TypesBarManager
             // 
@@ -451,31 +451,31 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.TypesBarManager;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1140, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(1146, 30);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 638);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 646);
             this.barDockControlBottom.Manager = this.TypesBarManager;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1140, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1146, 0);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1140, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(1146, 30);
             this.barDockControlRight.Manager = this.TypesBarManager;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 608);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 616);
             // 
             // org_statusTextEdit
             // 
             this.org_statusTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.originViewBindingSource, "org_status", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.org_statusTextEdit.EditValue = "Active";
-            this.org_statusTextEdit.Location = new System.Drawing.Point(53, 66);
+            this.org_statusTextEdit.Location = new System.Drawing.Point(51, 64);
             this.org_statusTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.org_statusTextEdit.MenuManager = this.mainRibbonControl;
             this.org_statusTextEdit.Name = "org_statusTextEdit";
@@ -484,8 +484,8 @@
             this.org_statusTextEdit.Properties.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.org_statusTextEdit.Properties.ReadOnly = true;
-            this.org_statusTextEdit.Size = new System.Drawing.Size(1128, 22);
+            this.org_statusTextEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.org_statusTextEdit.Size = new System.Drawing.Size(1132, 22);
             this.org_statusTextEdit.StyleController = this.dataLayoutControl1;
             this.org_statusTextEdit.TabIndex = 6;
             // 
@@ -510,14 +510,14 @@
             this.tabbedControlGroup1});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1171, 776);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1175, 780);
             // 
             // ItemFororg_id
             // 
             this.ItemFororg_id.Control = this.org_idTextEdit;
             this.ItemFororg_id.Location = new System.Drawing.Point(0, 0);
             this.ItemFororg_id.Name = "ItemFororg_id";
-            this.ItemFororg_id.Size = new System.Drawing.Size(1171, 26);
+            this.ItemFororg_id.Size = new System.Drawing.Size(1175, 26);
             this.ItemFororg_id.Text = "ID";
             this.ItemFororg_id.TextSize = new System.Drawing.Size(36, 16);
             // 
@@ -526,7 +526,7 @@
             this.ItemFororg_name.Control = this.org_nameTextEdit;
             this.ItemFororg_name.Location = new System.Drawing.Point(0, 26);
             this.ItemFororg_name.Name = "ItemFororg_name";
-            this.ItemFororg_name.Size = new System.Drawing.Size(1171, 26);
+            this.ItemFororg_name.Size = new System.Drawing.Size(1175, 26);
             this.ItemFororg_name.Text = "Name";
             this.ItemFororg_name.TextSize = new System.Drawing.Size(36, 16);
             // 
@@ -535,7 +535,7 @@
             this.ItemFororg_status.Control = this.org_statusTextEdit;
             this.ItemFororg_status.Location = new System.Drawing.Point(0, 52);
             this.ItemFororg_status.Name = "ItemFororg_status";
-            this.ItemFororg_status.Size = new System.Drawing.Size(1171, 26);
+            this.ItemFororg_status.Size = new System.Drawing.Size(1175, 26);
             this.ItemFororg_status.Text = "Status";
             this.ItemFororg_status.TextSize = new System.Drawing.Size(36, 16);
             // 
@@ -544,7 +544,7 @@
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 78);
             this.tabbedControlGroup1.Name = "autoGroupForTabs";
             this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(1171, 698);
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(1175, 702);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup3});
             this.tabbedControlGroup1.Text = "Tabs";
@@ -555,7 +555,7 @@
             this.ItemForTypes});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "autoGroupForTypes";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(1144, 642);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1150, 650);
             this.layoutControlGroup3.Text = "Types";
             // 
             // ItemForTypes
@@ -563,7 +563,7 @@
             this.ItemForTypes.Control = this.TypesXtraUserControl;
             this.ItemForTypes.Location = new System.Drawing.Point(0, 0);
             this.ItemForTypes.Name = "ItemForTypes";
-            this.ItemForTypes.Size = new System.Drawing.Size(1144, 642);
+            this.ItemForTypes.Size = new System.Drawing.Size(1150, 650);
             this.ItemForTypes.StartNewLine = true;
             this.ItemForTypes.Text = "Types";
             this.ItemForTypes.TextSize = new System.Drawing.Size(0, 0);
