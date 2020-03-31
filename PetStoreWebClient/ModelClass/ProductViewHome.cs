@@ -49,6 +49,17 @@ namespace PetStoreWebClient.ModelClass
         }
 
         /// <summary>
+        /// get top pet's toys by id desc
+        /// </summary>
+        /// <param name="top"></param>
+        /// <returns></returns>
+        public List<PetMedicine> getViewPetMedicines(int top)
+        {
+            return db.PetMedicine.Where(x => x.pm_status == "Active").
+                OrderByDescending(x => x.pm_id).Take(top).ToList();
+        }
+
+        /// <summary>
         /// get Pet Sale off
         /// </summary>
         /// <returns></returns>

@@ -6,6 +6,7 @@
     var viewPetFoodList = (List<PetStoreWebClient.EF.PetFood>)ViewBag.viewPetFood;
     var viewPetToyList = (List<PetStoreWebClient.EF.PetToys>)ViewBag.viewPetToy;
     var viewPetSaleOffList = (List<PetStoreWebClient.EF.Pet>)ViewBag.viewPetSaleOff;
+    var viewPetMedicineList = (List<PetStoreWebClient.EF.PetMedicine>)ViewBag.viewPetMedicine;
 }
 
 @section slide{
@@ -16,8 +17,8 @@
                     <h3>Products</h3>
                     <li><a href="/pet/list">Pet</a></li>
                     <li><a href="/petfood/list">Pet's foods</a></li>
-                    <li><a href="#">Pet's Toys</a></li>
-                    <li><a href="#">Pet's Medicine</a></li>
+                    <li><a href="/pet-toy/list">Pet's Toys</a></li>
+                    <li><a href="/pet-medicine/list">Pet's Medicine</a></li>
                 </ul>
             </div>
         </div>
@@ -59,7 +60,7 @@
             <h3>New Pets</h3>
         </div>
         <div class="see">
-            <p><a href="#">See all Products</a></p>
+            <p><a href="/pet/list">See all Products</a></p>
         </div>
         <div class="clear"></div>
     </div>
@@ -116,15 +117,16 @@
             <h3>New Pet's Toys</h3>
         </div>
         <div class="see">
-            <p><a href="#">See all Products</a></p>
+            <p><a href="/pet-toy/list">See all Products</a></p>
         </div>
         <div class="clear"></div>
     </div>
     <div class="section group">
         @foreach (var item in viewPetToyList)
         {
+            var url = "/detail/pet-toy/" + item.pt_id;
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="#"><img class="guest-image" src="/Assets/images/@item.pt_image" alt="" /></a>
+                <a href="@url"><img class="guest-image" src="/Assets/images/@item.pt_image" alt="" /></a>
                 <h2>@item.pt_name</h2>
                 <div class="price-details">
                     <div class="price-number">
@@ -144,22 +146,23 @@
             <h3>New Pet's Medicines</h3>
         </div>
         <div class="see">
-            <p><a href="#">See all Products</a></p>
+            <p><a href="/pet-medicine/list">See all Products</a></p>
         </div>
         <div class="clear"></div>
     </div>
     <div class="section group">
-        @foreach (var item in viewPetToyList)
+        @foreach (var item in viewPetMedicineList)
         {
+            var url = "/detail/pet-medicine/" + item.pm_id;
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="#"><img class="guest-image" src="/Assets/images/@item.pt_image" alt="" /></a>
-                <h2>@item.pt_name</h2>
+                <a href="@url"><img class="guest-image" src="/Assets/images/@item.pm_image" alt="" /></a>
+                <h2>@item.pm_name</h2>
                 <div class="price-details">
                     <div class="price-number">
-                        <p><span class="rupees">@(item.pt_salePrice)đ</span></p>
+                        <p><span class="rupees">@(item.pm_salePrice.Value.ToString("N0"))đ</span></p>
                     </div>
                     <div class="add-cart">
-                        <h4><a href="#">Add to Cart</a></h4>
+                        <h4><a href="/add-to-cart?productID=@item.pm_id&Quantity=1">Add to Cart</a></h4>
                     </div>
                     <div class="clear"></div>
                 </div>

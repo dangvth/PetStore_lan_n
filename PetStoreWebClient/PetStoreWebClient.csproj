@@ -206,6 +206,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PetController.cs" />
     <Compile Include="Controllers\PetFoodController.cs" />
+    <Compile Include="Controllers\PetMedicineController.cs" />
+    <Compile Include="Controllers\PetToyController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\Bill.cs" />
@@ -501,8 +503,13 @@
     <Content Include="Views\Pet\Search.cshtml" />
     <Content Include="Views\Home\MyAccount.cshtml" />
     <Content Include="Views\Home\Manual.cshtml" />
-
     <Content Include="Views\Accounts\ChangePassword.cshtml" />
+    <Content Include="Views\PetMedicine\Index.cshtml" />
+    <Content Include="Views\PetToy\Index.cshtml" />
+    <Content Include="Views\PetToy\Detail.cshtml" />
+    <Content Include="Views\PetToy\Search.cshtml" />
+    <Content Include="Views\PetMedicine\Detail.cshtml" />
+    <Content Include="Views\PetMedicine\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

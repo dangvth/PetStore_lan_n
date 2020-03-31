@@ -65,6 +65,7 @@
             // 
             this.pnlChangePwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlChangePwd.BackColor = System.Drawing.Color.Transparent;
+            this.pnlChangePwd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlChangePwd.Controls.Add(this.lblLogout);
             this.pnlChangePwd.Controls.Add(this.btnLogout);
             this.pnlChangePwd.Controls.Add(this.btnChangePassword);

@@ -20,6 +20,7 @@ namespace PetStoreWebClient.Controllers
             ViewBag.viewPet = productView.getViewPet(4);
             ViewBag.viewPetFood = productView.getViewPetFood(4);
             ViewBag.viewPetToy = productView.getViewPetToys(4);
+            ViewBag.viewPetMedicine = productView.getViewPetMedicines(4);
             ViewBag.viewPetSaleOff = productView.getViewPetSaleOff();
 
             return View();
