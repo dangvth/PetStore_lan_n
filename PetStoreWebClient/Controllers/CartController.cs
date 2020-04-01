@@ -19,15 +19,15 @@ namespace PetStoreWebClient.Controllers
             //get cart
             var cart = Session[cartSession];
             var list = new List<CartItem>();
-
+            //constructor lists
             var listCartPetFood = new List<CartPetFoodItem>();
             var listCartPet = new List<CartPetItem>();
             var listCartPetToy = new List<CartPetToyItem>();
             var listCartPetMedicine = new List<CartPetMedicineItem>();
-   
+            //cart have item
             if (cart != null)
             {
-                list = (List<CartItem>)cart;
+                list = (List<CartItem>)cart;//get item in session cart
                 PetFoodModel pfm = new PetFoodModel();
                 foreach (var item in list)
                 {
@@ -38,7 +38,7 @@ namespace PetStoreWebClient.Controllers
                         CartPetFoodItem cpfi = new CartPetFoodItem();
                         cpfi.Petfood = pf;
                         cpfi.Quantity = item.Quantity;
-
+                        //add to list pet food
                         listCartPetFood.Add(cpfi);
                     }
                     //product is pet
@@ -48,7 +48,7 @@ namespace PetStoreWebClient.Controllers
                         CartPetItem cpi = new CartPetItem();
                         cpi.pet = p;
                         cpi.Quantity = item.Quantity;
-
+                        //add to pet list
                         listCartPet.Add(cpi);
                     }
                     //product os pet's medicine
@@ -58,7 +58,7 @@ namespace PetStoreWebClient.Controllers
                         CartPetMedicineItem cpmi = new CartPetMedicineItem();
                         cpmi.petMedicine = pm;
                         cpmi.Quantity = item.Quantity;
-
+                        //add to pet medicine list
                         listCartPetMedicine.Add(cpmi);
                     }
                     //Product is Pet's toys
@@ -68,11 +68,11 @@ namespace PetStoreWebClient.Controllers
                         CartPetToyItem cpti = new CartPetToyItem();
                         cpti.petToy = pt;
                         cpti.Quantity = item.Quantity;
-
+                        //add to pet toy list
                         listCartPetToy.Add(cpti);
                     }
                 }
-
+                //set lists to ViewBag
                 ViewBag.listCartP = listCartPet;
                 ViewBag.listCartPT = listCartPetToy;
                 ViewBag.listCartPM = listCartPetMedicine;

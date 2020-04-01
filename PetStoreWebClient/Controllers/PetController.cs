@@ -78,14 +78,18 @@ namespace PetStoreWebClient.Controllers
             var cmt = new CommentModel();
             var cmtd = new CommentDetailModel();
             var pet = new PetModel();
-
+            //get data of detail pet choose
             var petDetail = pet.getPetByID(pID);
+            //get list all user
             var listAllUser = new UserManagement().getAllViewUser();
+            //set list relate Pet to ViewBag
             ViewBag.relatedPet = pet.getPetRelated(petDetail.p_id);
+            //set list all user and pet detail to viewBag
             ViewBag.listUser = listAllUser;
             ViewBag.petDetail = petDetail;
 
             int totalRecord = 0;
+            //get list comment in a page
             var allCmtOfPet = cmt.getAllCommentByPetFoodID(ref totalRecord, pID, page, pageSize);
 
             ViewBag.Total = totalRecord;
@@ -101,7 +105,7 @@ namespace PetStoreWebClient.Controllers
             ViewBag.last = totalPage;
             ViewBag.next = page + 1;
             ViewBag.prev = page - 1;
-
+            //set list all comment reply to viewBag
             ViewBag.listAllCommentDetail = cmtd.getAllCommentDetail();
             return View(allCmtOfPet);
         }
@@ -109,9 +113,11 @@ namespace PetStoreWebClient.Controllers
         [HttpPost]
         public ActionResult Comment(string pID, string txtComment)
         {
+            //get Session login
             var loginSession = Session["userLogin"];
-            if (loginSession != null)
+            if (loginSession != null)//Login already
             {
+                //get user login
                 var user = (PetStoreWebClient.EF.User)loginSession;
                 Comment cm = new Comment();
                 cm.cmt_published = DateTime.Now;
@@ -119,10 +125,11 @@ namespace PetStoreWebClient.Controllers
                 cm.cmt_content = txtComment;
                 cm.cmt_status = "Active";
                 cm.u_id = user.u_id;
+                //add comment to db
                 var cmt = new CommentModel().InsertComment(cm);
                 return Redirect("/detail/pet/" + pID);
             }
-            else
+            else//user login not yet.
             {
                 return RedirectToAction("Index", "Accounts");
             }
@@ -131,9 +138,11 @@ namespace PetStoreWebClient.Controllers
         [HttpPost]
         public ActionResult CommentDetail(int cmtID, int page, string txtCommentDetail, string pID)
         {
+            //get Session Login
             var loginSession = Session["userLogin"];
-            if (loginSession != null)
+            if (loginSession != null)//user login already
             {
+                //get user login
                 var user = (PetStoreWebClient.EF.User)loginSession;
                 CommentDetail cmd = new CommentDetail();
                 cmd.cmtd_published = DateTime.Now;
@@ -141,10 +150,11 @@ namespace PetStoreWebClient.Controllers
                 cmd.cmt_id = cmtID;
                 cmd.cmtd_content = txtCommentDetail;
                 cmd.u_id = user.u_id;
+                //add comment reply to db
                 var commentDetail = new CommentDetailModel().InsertCommentDetail(cmd);
                 return Redirect("/detail/pet/" + pID + "?page=" + page);
             }
-            else
+            else//user login not yet
             {
                 return RedirectToAction("Index", "Accounts");
             }
