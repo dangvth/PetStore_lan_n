@@ -70,7 +70,11 @@ namespace PetStoreWebClient
                 url: "detail/pet-medicine/{pmID}",
                 defaults: new { controller = "PetMedicine", action = "Detail", id = UrlParameter.Optional }
             );
-
+            routes.MapRoute(
+               name: "Pettoy Search",
+               url: "Pettoy/search",
+               defaults: new { controller = "PetToy", action = "Search", id = UrlParameter.Optional }
+           );
             routes.MapRoute(
                 name: "Pet's Toy Detail",
                 url: "detail/pet-toy/{ptID}",

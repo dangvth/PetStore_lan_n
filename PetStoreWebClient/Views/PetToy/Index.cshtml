@@ -1,8 +1,140 @@
-﻿
+﻿@model List<PetStoreWebClient.EF.PetToys>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var viewPTSaleOff = (List<PetStoreWebClient.EF.PetToys>)ViewBag.viewPetToySaleOff;
 }
+@section search{
+    <div class="search_box">
+        <form action="/Pettoy/search" method="get">
+            <input type="text" name="keywordPet" id="txtKeywordPet" placeholder="Search..."><input type="submit" value="">
+        </form>
+    </div>
+}
+@section slide{
+    <div class="header_slide">
+        <div class="header_bottom_left">
+            <div class="categories">
+                <ul>
+                    <h3>Products</h3>
+                    <li><a href="/pet/list">Pet</a></li>
+                    <li><a href="/petfood/list">Pet's foods</a></li>
+                    <li><a href="/pet-toy/list">Pet's Toys</a></li>
+                    <li><a href="/pet-medicine/list">Pet's Medicine</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_bottom_right">
+            <div class="slider">
+                <div id="slider">
+                    <div id="mover">
+                        @foreach (var item in viewPTSaleOff)
+                        {
+                            //Calculate discount rate
+                            double disRate = (double)(100 - ((item.pt_salePrice * 100) / item.pt_prices));
+                            //Calculate discount price
+                            int disPrice = (int)(item.pt_prices - item.pt_salePrice);
+                            var url = "/detail/pet-toy/" + item.pt_id;
+                            <div id="slide-1" class="slide">
+                                <div class="slider-img">
+                                    <a href="@url"><img class="pettoy-slide-image" src="~/Assets/images/@item.pt_image" alt="learn more" /></a>
+                                </div>
+                                <div class="slider-text">
+                                    @*Name pet*@
+                                    <h1>@item.pt_name<br><span>SALE</span></h1>
+                                    <h2>UpTo @disRate% OFF</h2>
+                                    <div class="features_list">
+                                        <h4>@item.pt_salePrice.Value.ToString("N0")đ (-@disPrice.ToString("N0")đ)</h4>
+                                    </div>
+                                    <a href="/add-to-cart?productID=@item.pt_id&Quantity=1" class="btn btn-danger">Buy Now</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+}
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>Pet Toy</h3>
+        </div>
+        <div class="see">
+            <p><a href="#">See all Products</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in Model)
+        {
+            var url = "/detail/pet-toy/" + item.pt_id;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img src="~/Assets/images/@item.pt_image" alt="" /></a>
+                <h2>@item.pt_name</h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@item.pt_salePrice.Value.ToString("N0")đ</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/add-to-cart?productID=@item.pt_id&Quantity=1">Add to Cart</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+        <div class="clear"></div>
+        <!--Paging-->
+        @if (ViewBag.totalPage > 1)     //Has product in list
+        {
+            //Get maximum page will display on window
+            var pageDisplay = (int)ViewBag.maxPage;
+            //Get total page
+            int totalPage = (int)ViewBag.totalPage;
+            //Get current page
+            int currentPage = (int)ViewBag.Page;
 
-<h2>Pet Toys List</h2>
+            //Create StartIndex and EndIndex paging link
+            var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+            var endPageINdex = Math.Min(totalPage, currentPage + pageDisplay / 2);
 
+            //Set URL webpage
+            var url = "/pet-toy/list";
+            <ul class="pagination" style="float: right">
+                @* If current page from page 2 and up *@
+                @* display First and Previous page button *@
+                @if (currentPage > ViewBag.first)
+                {
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.first" title="First page"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.prev" title="Previous page"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                }
+                @* Paging *@
+                @for (int i = startPageIndex; i <= endPageINdex; i++)
+                {
+                    if (i == currentPage)
+                    {
+                        <li class="page-item active"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
+                    }
+                }
+                @* Display Next and Last page button *@
+                @if (currentPage < totalPage)
+                {
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.next" title="Next page"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.last" title="Last page"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                }
+            </ul>
+        }
+        else    //Don't have products in list
+        {
+            <span class="alert alert-danger">Dont have any item</span>
+        }
+    </div>
+</div>

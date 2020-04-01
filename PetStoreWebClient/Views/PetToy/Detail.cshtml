@@ -2,7 +2,138 @@
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var relatedPettoy = (List<PetStoreWebClient.EF.PetToys>)ViewBag.relatedPettoy;
+    var pettoyDetail = (PetStoreWebClient.EF.PetToys)ViewBag.petToyDetail;
 }
 
-<h2>Detail Pet toys</h2>
+<div class="content">
+    <div class="section group">
+        <div class="cont-desc span_1_of_2">
+            <div class="product-details">
+                <div class="grid images_3_of_2">
+                    <div id="container">
+                        <div id="products_example">
+                            <div id="products">
+                                <div class="slides_container">
+                                    <a href="#" target="_blank"><img src="~/Assets/images/@pettoyDetail.pt_image" alt=" " /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+
+                <div class="desc span_3_of_2">
+                    <h2>@pettoyDetail.pt_name</h2>
+                    <div class="price">
+                        <p>Price: <span>@pettoyDetail.pt_salePrice.Value.ToString("N0")đ</span></p>
+                    </div>
+
+                    <div class="share-desc">
+                        <div class="share">
+                            <p>Share Product :</p>
+                            <ul>
+                                <li><a href="#"><img src="~/Assets/images/facebook.png" alt="" /></a></li>
+                                <li><a href="#"><img src="~/Assets/images/twitter.png" alt="" /></a></li>
+                            </ul>
+                        </div>
+                        <button class="button" onclick="location.href='/add-to-cart?productID=@pettoyDetail.pt_id&Quantity=1'">Add to Cart</button>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="product_desc">
+                <div id="horizontalTab">
+                    <ul class="resp-tabs-list">
+                        <li>Description</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <div class="product-desc">
+                            <p>@pettoyDetail.pt_description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#horizontalTab').easyResponsiveTabs({
+                        type: 'default', //Types: default, vertical, accordion
+                        width: 'auto', //auto or any width like 600px
+                        fit: true   // 100% fit in a container
+                    });
+                });
+            </script>
+            <div class="content_bottom">
+                <div class="heading">
+                    <h3>Related Products</h3>
+                </div>
+                <div class="see">
+                    <p><a href="/pet-medicine/list">See all Products</a></p>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="section group">
+                @foreach (var item in relatedPettoy)
+                {
+                    var url = "/detail/pet-toy/" + item.pt_id;
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <a href="@url"><img src="~/Assets/images/@item.pt_image" alt=""></a>
+                        <div class="price" style="border:none">
+                            <div class="add-cart" style="float:none">
+                                <h4><a href="/add-to-cart?productID=@item.pt_id&Quantity=1l">Add to Cart</a></h4>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="rightsidebar span_3_of_1">
+            <h2>Products</h2>
+            <ul class="side-w3ls">
+                <li><a href="/pet/list">Pet</a></li>
+                <li><a href="/petfood/list">Pet's foods</a></li>
+                <li><a href="/pet-toy/list">Pet's Toys</a></li>
+                <li><a href="/pet-medicine/list">Pet's Medicine</a></li>
+            </ul>
+            <br />
+            <div class="community-poll">
+                <h2>Community Poll</h2>
+                <p>What is the main reason for you to purchase products online?</p>
+                <div class="poll">
+                    <form>
+                        <ul>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="1">
+                                <span class="label"><label>More convenient shipping and delivery </label></span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="2">
+                                <span class="label"><label for="vote_2">Lower price</label></span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="3">
+                                <span class="label"><label for="vote_3">Bigger choice</label></span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="5">
+                                <span class="label"><label for="vote_5">Payments security </label></span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="6">
+                                <span class="label"><label for="vote_6">30-day Money Back Guarantee </label></span>
+                            </li>
+                            <li>
+                                <input type="radio" name="vote" class="radio" value="7">
+                                <span class="label"><label for="vote_7">Other.</label></span>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -66,45 +66,63 @@ namespace PetStore.Views.PetFoodView
             }
             else
             {
-                XtraMessageBox.Show("Please choose a image with (*.jpg)/(*.png) file !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Please choose a image with *.jpg or *.png file !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            String oldPath = openDialog.FileName;
+            String fromPath = openDialog.FileName;
             //get solution path
             String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
             //copy file to image folder
-            File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
-            File.Copy(oldPath, @"../../img/" + pf_imageTextEdit.Text);
-            //message success
-            MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (fromPath != "")
+            {
+                File.Copy(fromPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
+                File.Copy(fromPath, @"../../img/" + pf_imageTextEdit.Text);
+            }
+            if (pf_nameTextEdit.Text != "")
+            {
+                //message success
+                MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            String oldPath = openDialog.FileName;
+            String fromPath = openDialog.FileName;
             //get solution path
             String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            //copy file to image folder
-            File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
-            File.Copy(oldPath, @"../../img/" + pf_imageTextEdit.Text);
-            //message success
-            MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (fromPath != "")
+            {
+                //copy file to image folder
+                File.Copy(fromPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
+                File.Copy(fromPath, @"../../img/" + pf_imageTextEdit.Text);
+            }
+            if (pf_nameTextEdit.Text != "")
+            {
+                //message success
+                MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            String oldPath = openDialog.FileName;
+            String fromPath = openDialog.FileName;
             //get solution path
             String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            //copy file to image folder
-            File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
-            File.Copy(oldPath, @"../../img/" + pf_imageTextEdit.Text);
-            //message success
-            MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (fromPath != "")
+            {
+                //copy file to image folder
+                File.Copy(fromPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pf_imageTextEdit.Text);
+                File.Copy(fromPath, @"../../img/" + pf_imageTextEdit.Text);
+            }
+            if (pf_nameTextEdit.Text != "")
+            {
+                //message success
+                MessageBox.Show("Save food Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void PetFoodView_Load(object sender, EventArgs e)
@@ -121,6 +139,8 @@ namespace PetStore.Views.PetFoodView
             //get next id
             PetFoodModel pfm = new PetFoodModel();
             pf_idTextEdit.Text = pfm.getNextID();
+            //auto set status new item is Active
+            pf_statusTextEdit.SelectedItem = "Active";
         }
     }
 }

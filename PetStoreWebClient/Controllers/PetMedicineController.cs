@@ -44,7 +44,7 @@ namespace PetStoreWebClient.Controllers
         {
             var productView = new ProductViewHome();
             int totalRecord = 0;
-            //get list pet food sale off
+            //get list pet medcine sale off
             ViewBag.viewPetMedicineSaleOff = productView.getViewPetMedicineSaleOff();
             //get list search
             var allPetmedicine = new PetMedicineModel().Search(keyword, ref totalRecord, page, pageSize);
@@ -71,7 +71,7 @@ namespace PetStoreWebClient.Controllers
             return View(allPetmedicine);
         }
 
-        //detail pet food page
+        //detail pet medicine page
         public ActionResult Detail(String pmID)
         {
             var petMedicine = new PetMedicineModel();
@@ -84,7 +84,7 @@ namespace PetStoreWebClient.Controllers
         }
 
         /// <summary>
-        /// get list name of pet food have keyword search
+        /// get list name of pet medicine have keyword search
         /// </summary>
         /// <param name="term"></param>
         /// <returns></returns>

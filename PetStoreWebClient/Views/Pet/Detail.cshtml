@@ -43,6 +43,30 @@
                 </div>
                 <div class="clear"></div>
             </div>
+            <!--description-->
+            <div class="product_desc">
+                <div id="horizontalTab">
+                    <ul class="resp-tabs-list">
+                        <li>Description</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <div class="product-desc">
+                            <p>@petDetail.p_description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#horizontalTab').easyResponsiveTabs({
+                        type: 'default', //Types: default, vertical, accordion
+                        width: 'auto', //auto or any width like 600px
+                        fit: true   // 100% fit in a container
+                    });
+                });
+            </script>
+            <!--End Description-->
             <div class="content_bottom">
                 <div class="heading">
                     <h3>Related Products</h3>
@@ -73,8 +97,8 @@
             <ul class="side-w3ls">
                 <li><a href="/pet/list">Pet</a></li>
                 <li><a href="/petfood/list">Pet's foods</a></li>
-                <li><a href="#">Pet's Toys</a></li>
-                <li><a href="#">Pet's Medicine</a></li>
+                <li><a href="/pet-toy/list">Pet's Toys</a></li>
+                <li><a href="/pet-medicine/list">Pet's Medicine</a></li>
             </ul>
             <br />
             <div class="community-poll">
@@ -150,7 +174,7 @@
                                                     {
                                                         <h6 class="comment-name by-employee">@user.u_name</h6>
                                                     }
-                                                    else if(user.r_name == "Administrator")
+                                                    else if (user.r_name == "Administrator")
                                                     {
                                                         <h6 class="comment-name by-admin">@user.u_name</h6>
                                                     }
@@ -246,24 +270,24 @@
             <ul class="pagination pagination-sm" style="float: left; margin-left: 30px">
                 @if (currentPage > ViewBag.first)
                 {
-                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.first" title="First page"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
-                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.prev" title="Previous page"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.first" title="First page"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.prev" title="Previous page"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
                 }
                 @for (int i = startPageIndex; i <= endPageINdex; i++)
                 {
                     if (i == currentPage)
                     {
-                        <li class="page-item active"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
+                <li class="page-item active"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
                     }
                     else
                     {
-                        <li class="page-item"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
+                <li class="page-item"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
                     }
                 }
                 @if (currentPage < totalPage)
                 {
-                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.next" title="Next page"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.last" title="Last page"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.next" title="Next page"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.last" title="Last page"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
                 }
             </ul>
         }
