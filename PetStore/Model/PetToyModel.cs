@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace PetStore.Model
 {
-    class PetToysModel
+    class PetToyModel
     {
         ArrayList ptList;
 
-        public PetToysModel()
+        public PetToyModel()
         {
 
         }
@@ -93,7 +93,7 @@ namespace PetStore.Model
         /// </summary>
         /// <param name="ptId"></param>
         /// <returns></returns>
-        public PetToy getPetToys(String ptId)
+        public PetToy getPetToy(String ptId)
         {
             var db = new PetStoreEntities();
             var PetToys = db.PetToys.Find(ptId);
