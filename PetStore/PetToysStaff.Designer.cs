@@ -29,40 +29,50 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.PetmedicineGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gcToys = new DevExpress.XtraGrid.GridControl();
+            this.petStoreDataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.petStoreDataSet2 = new PetStore.PetStoreDataSet2();
+            this.gridToys = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btndetail = new DevExpress.XtraBars.BarButtonItem();
             this.btnrefresh = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.petStoreDataSet2 = new PetStore.PetStoreDataSet2();
-            this.petStoreDataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PetmedicineGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcToys)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridToys)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControl1
+            // gcToys
             // 
-            this.gridControl1.DataSource = this.petStoreDataSet2BindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(0, 147);
-            this.gridControl1.MainView = this.PetmedicineGrid;
-            this.gridControl1.MenuManager = this.ribbonControl1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1255, 407);
-            this.gridControl1.TabIndex = 8;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.PetmedicineGrid});
+            this.gcToys.DataSource = this.petStoreDataSet2BindingSource;
+            this.gcToys.Location = new System.Drawing.Point(0, 147);
+            this.gcToys.MainView = this.gridToys;
+            this.gcToys.MenuManager = this.ribbonControl1;
+            this.gcToys.Name = "gcToys";
+            this.gcToys.Size = new System.Drawing.Size(1255, 407);
+            this.gcToys.TabIndex = 8;
+            this.gcToys.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridToys});
             // 
-            // PetmedicineGrid
+            // petStoreDataSet2BindingSource
             // 
-            this.PetmedicineGrid.GridControl = this.gridControl1;
-            this.PetmedicineGrid.Name = "PetmedicineGrid";
-            
+            this.petStoreDataSet2BindingSource.DataSource = this.petStoreDataSet2;
+            this.petStoreDataSet2BindingSource.Position = 0;
+            // 
+            // petStoreDataSet2
+            // 
+            this.petStoreDataSet2.DataSetName = "PetStoreDataSet2";
+            this.petStoreDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridToys
+            // 
+            this.gridToys.GridControl = this.gcToys;
+            this.gridToys.Name = "gridToys";
+            this.gridToys.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gcToys_RowClick);
             // 
             // ribbonControl1
             // 
@@ -119,41 +129,31 @@
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(1255, 31);
             // 
-            // petStoreDataSet2
-            // 
-            this.petStoreDataSet2.DataSetName = "PetStoreDataSet2";
-            this.petStoreDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // petStoreDataSet2BindingSource
-            // 
-            this.petStoreDataSet2BindingSource.DataSource = this.petStoreDataSet2;
-            this.petStoreDataSet2BindingSource.Position = 0;
-            // 
             // PetToysStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1255, 603);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.gcToys);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "PetToysStaff";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "PetToysStaff";
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PetmedicineGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcToys)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridToys)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView PetmedicineGrid;
+        private DevExpress.XtraGrid.GridControl gcToys;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridToys;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.BarButtonItem btndetail;
         private DevExpress.XtraBars.BarButtonItem btnrefresh;

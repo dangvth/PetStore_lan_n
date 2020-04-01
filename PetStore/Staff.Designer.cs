@@ -159,6 +159,7 @@
             this.btnPToy.LargeWidth = 65;
             this.btnPToy.Name = "btnPToy";
             this.btnPToy.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnPToy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPToy_ItemClick);
             // 
             // btnPMed
             // 

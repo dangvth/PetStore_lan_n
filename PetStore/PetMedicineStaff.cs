@@ -65,13 +65,21 @@ namespace PetStore
 
         private void btnRefresh_ItemClick(object sender, ItemClickEventArgs e)
         {
-            PetMedicineStaff_Load(sender, e);
+            PetMedicineModel pmm = new PetMedicineModel();
+
+            petStoreDataSet3BindingSource.DataSource = pmm.GetAllPetMedicineToArrayList();
+            gcMedicine.DataSource = petStoreDataSet3BindingSource;
         }
 
-        private void tblMed_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        private void gcMedicine_Click(object sender, EventArgs e)
         {
             int idx = tblMed.FocusedRowHandle;
-            pmIDSelected = tblMed.GetRowCellValue(idx, "pm_id").ToString();
+            if (tblMed.GetRowCellValue(idx, tblMed.Columns[0]) != null)
+            {
+                pmIDSelected = tblMed.GetRowCellValue(idx, tblMed.Columns[0]).ToString();
+            }
         }
     }
+
+   
 }

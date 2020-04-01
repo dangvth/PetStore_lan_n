@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.gcMedicine = new DevExpress.XtraGrid.GridControl();
+            this.medicinedataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medicinedata = new PetStore.Medicinedata();
             this.tblMed = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnDetail = new DevExpress.XtraBars.BarButtonItem();
@@ -40,15 +42,13 @@
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.petStoreDataSet3 = new PetStore.PetStoreDataSet3();
             this.petStoreDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.medicinedata = new PetStore.Medicinedata();
-            this.medicinedataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gcMedicine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblMed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet3BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicinedata)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicinedataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar
@@ -68,12 +68,22 @@
             this.gcMedicine.TabIndex = 5;
             this.gcMedicine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tblMed});
+            this.gcMedicine.Click += new System.EventHandler(this.gcMedicine_Click);
+            // 
+            // medicinedataBindingSource
+            // 
+            this.medicinedataBindingSource.DataSource = this.medicinedata;
+            this.medicinedataBindingSource.Position = 0;
+            // 
+            // medicinedata
+            // 
+            this.medicinedata.DataSetName = "Medicinedata";
+            this.medicinedata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblMed
             // 
             this.tblMed.GridControl = this.gcMedicine;
             this.tblMed.Name = "tblMed";
-            this.tblMed.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.tblMed_RowClick);
             // 
             // ribbonControl1
             // 
@@ -140,16 +150,6 @@
             this.petStoreDataSet3BindingSource.DataSource = this.petStoreDataSet3;
             this.petStoreDataSet3BindingSource.Position = 0;
             // 
-            // medicinedata
-            // 
-            this.medicinedata.DataSetName = "Medicinedata";
-            this.medicinedata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // medicinedataBindingSource
-            // 
-            this.medicinedataBindingSource.DataSource = this.medicinedata;
-            this.medicinedataBindingSource.Position = 0;
-            // 
             // PetMedicineStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,12 +165,12 @@
             this.Text = "PetMedicineStaff";
             this.Load += new System.EventHandler(this.PetMedicineStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcMedicine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblMed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet3BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicinedata)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicinedataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
