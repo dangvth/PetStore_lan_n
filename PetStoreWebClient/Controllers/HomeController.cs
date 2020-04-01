@@ -34,6 +34,7 @@ namespace PetStoreWebClient.Controllers
             var list = new List<CartItem>();
             if (cart != null) // check cart is not null
             {
+                //get list item cart
                 list = (List<CartItem>)cart;
                 ViewBag.ListItem = list;
             }
@@ -43,7 +44,7 @@ namespace PetStoreWebClient.Controllers
         [ChildActionOnly]
         public PartialViewResult HeaderPage()
         {
-            //get login
+            //get login session
             var sessLogin = Session[userLogin];
             return PartialView(sessLogin);
         }

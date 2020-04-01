@@ -40,61 +40,64 @@
             // 
             // btnChangePassword
             // 
+            this.btnChangePassword.BackColor = System.Drawing.Color.Transparent;
             this.btnChangePassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.BackgroundImage")));
             this.btnChangePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnChangePassword.ForeColor = System.Drawing.Color.Transparent;
-            this.btnChangePassword.Location = new System.Drawing.Point(25, 2);
+            this.btnChangePassword.Location = new System.Drawing.Point(28, 17);
             this.btnChangePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(77, 59);
+            this.btnChangePassword.Size = new System.Drawing.Size(61, 59);
             this.btnChangePassword.TabIndex = 1;
             this.btnChangePassword.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.UseVisualStyleBackColor = false;
             this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // lblChangePwd
             // 
-            this.lblChangePwd.AutoSize = true;
-            this.lblChangePwd.Location = new System.Drawing.Point(10, 75);
+            this.lblChangePwd.Location = new System.Drawing.Point(-5, 78);
             this.lblChangePwd.Name = "lblChangePwd";
-            this.lblChangePwd.Size = new System.Drawing.Size(117, 17);
+            this.lblChangePwd.Size = new System.Drawing.Size(128, 17);
             this.lblChangePwd.TabIndex = 2;
             this.lblChangePwd.Text = "Change password";
+            this.lblChangePwd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlChangePwd
             // 
             this.pnlChangePwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlChangePwd.BackColor = System.Drawing.Color.Transparent;
-            this.pnlChangePwd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlChangePwd.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pnlChangePwd.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlChangePwd.Controls.Add(this.lblLogout);
             this.pnlChangePwd.Controls.Add(this.btnLogout);
             this.pnlChangePwd.Controls.Add(this.btnChangePassword);
             this.pnlChangePwd.Controls.Add(this.lblChangePwd);
-            this.pnlChangePwd.Location = new System.Drawing.Point(903, 32);
+            this.pnlChangePwd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnlChangePwd.Location = new System.Drawing.Point(894, 27);
             this.pnlChangePwd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlChangePwd.Name = "pnlChangePwd";
-            this.pnlChangePwd.Size = new System.Drawing.Size(215, 103);
+            this.pnlChangePwd.Size = new System.Drawing.Size(224, 114);
             this.pnlChangePwd.TabIndex = 3;
             // 
             // lblLogout
             // 
-            this.lblLogout.AutoSize = true;
-            this.lblLogout.Location = new System.Drawing.Point(133, 75);
+            this.lblLogout.Location = new System.Drawing.Point(129, 78);
             this.lblLogout.Name = "lblLogout";
-            this.lblLogout.Size = new System.Drawing.Size(52, 17);
+            this.lblLogout.Size = new System.Drawing.Size(68, 17);
             this.lblLogout.TabIndex = 4;
             this.lblLogout.Text = "Logout";
+            this.lblLogout.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnLogout
             // 
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
             this.btnLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.BackgroundImage")));
             this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLogout.Location = new System.Drawing.Point(124, 2);
+            this.btnLogout.Location = new System.Drawing.Point(132, 17);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(77, 59);
+            this.btnLogout.Size = new System.Drawing.Size(65, 59);
             this.btnLogout.TabIndex = 3;
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // petStoreEntitiesView1
@@ -121,7 +124,6 @@
             this.Text = "Administrator";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlChangePwd.ResumeLayout(false);
-            this.pnlChangePwd.PerformLayout();
             this.ResumeLayout(false);
 
         }
