@@ -23,7 +23,6 @@ Author: Thaonmce130353
     <link href="/Assets/Assets Login/css/style.css" rel='stylesheet' type='text/css' media="all">
     <!--//style sheet end here-->
     <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
-    
     <style>
         .error {
             color: red;
@@ -51,7 +50,7 @@ Author: Thaonmce130353
                         <h4 style="color: black; font-weight: bold; ">Sign Up</h4>
                     </div>
 
-                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <!-- Input Fullname -->
                     <div class="form-left-to-w3l">
                         @Html.TextBox("fullName", "", new { @placeholder = "Full name", @required = true, @autofocus = true })
@@ -138,9 +137,9 @@ Author: Thaonmce130353
                 <div class="icon-head-wthree">
                     <h2><span class="fa fa-diamond t-w3" aria-hidden="true"></span></h2>
                     <h4 style="color: black; font-weight: bold; ">Login</h4>
-                </div>
+                </div> 
 
-                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <!-- Input Username -->
                 <div class="form-left-to-w3l">
                     @Html.TextBoxFor(model => model.ac_userName, new { @placeholder = "User name", @required = true })
@@ -217,7 +216,7 @@ Author: Thaonmce130353
                     ac_pwd: {
                         required: true,
                         minlength: 4,
-                        maxlength: 16
+                        maxlength: 20
                         //regexPassword: true
                     },
                 },
@@ -235,8 +234,8 @@ Author: Thaonmce130353
                     },
                     phone: {
                         required: "Phone can't be blank.",
-                        minlength: "Phone number must be 0 digits.",
-                        maxlength: "Phone number must be 0 digits.",
+                        minlength: "Phone number must be 10 digits.",
+                        maxlength: "Phone number must be 10 digits.",
                         //regexPhone: "Phone number must be 0 digits.",
                     },
                     ac_userName: {

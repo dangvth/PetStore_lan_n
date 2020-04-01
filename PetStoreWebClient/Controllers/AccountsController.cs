@@ -73,9 +73,17 @@ namespace PetStoreWebClient.Controllers
             string gender = Fields["gender"];
             string username = account.ac_userName.ToString();
             string password = account.ac_pwd.ToString();
+            AccountManagement am = new AccountManagement();
 
             //Check validation format
-            if (!ValidationFormat.isEmailFormat(email)) //Check email format 
+            if (fullname.Equals("") || addr.Equals("") || email.Equals("") || phone.Equals("")
+                || username.Equals("") || password.Equals("")) //Check all fields has been fill
+            {
+                //send error message
+                ModelState.AddModelError("", "Any fields can not be blank!!!!");
+                return View("Index");
+            }
+            else if (!ValidationFormat.isEmailValid(email)) //Check email format 
             {
                 //send error message
                 ModelState.AddModelError("", "Email is not correct format!!!!");
@@ -87,40 +95,41 @@ namespace PetStoreWebClient.Controllers
                 ModelState.AddModelError("", "Phone number must be 10 digits!!!!");
                 return View("Index");
             }
+            else if (am.isAccountExists(username))
+            {
+                //send error message
+                ModelState.AddModelError("", "The username has already exists!!!!");
+                return View("Index");
+            }
             else if (!ValidationFormat.isPasswordFormat(password)) //Check password format
             {
                 //send error message
                 ModelState.AddModelError("", "Password must be between 4 to 20 characters!!!!");
                 return View("Index");
-            }
-            else if (!(fullname.Equals("") || addr.Equals("") || email.Equals("") || phone.Equals("")
-                || username.Equals("") || password.Equals(""))) //Check all fields has been fill
-            {
-                //Insert Account and return account ID
-                AccountManagement am = new AccountManagement();
-                var pwdEncrypt = Encryptor.SHA256_Encrypt(account.ac_pwd);
-                account.ac_pwd = pwdEncrypt;
-                account.ac_status = "Active";
-                account.r_id = 3;
-                int acID = am.InsertAccount(account);
-                //If insert Account successful then insert User
-                if (acID > 0)
-                {
-                    //Insert User
-                    UserManagement um = new UserManagement();
-                    um.InsertUser(fullname, gender, email, phone, addr, acID);
-                    //Create session 
-                    Session["username"] = account.ac_userName;
-                    //Session["userID"] = user;
-                    //Redirect to Action Index on HomeController
-                    return RedirectToAction("Index", "Home");
-                }
-            }
-            else    //If has field is blank 
+            }            
+            else    //If don't have fields is blank 
             {
                 //send error message
-                ModelState.AddModelError("", "Any fields can not be blank!!!!");
+                ModelState.AddModelError("", "Sign Up Successful!");
                 return View("Index");
+                ////Insert Account and return account ID
+                //var pwdEncrypt = Encryptor.SHA256_Encrypt(account.ac_pwd);
+                //account.ac_pwd = pwdEncrypt;
+                //account.ac_status = "Active";
+                //account.r_id = 3;
+                //int acID = am.InsertAccount(account);
+                ////If insert Account successful then insert User
+                //if (acID > 0)
+                //{
+                //    //Insert User
+                //    UserManagement um = new UserManagement();
+                //    um.InsertUser(fullname, gender, email, phone, addr, acID);
+                //    //Create session 
+                //    Session["username"] = account.ac_userName;
+                //    //Session["userID"] = user;
+                //    //Redirect to Action Index on HomeController
+                //    return RedirectToAction("Index", "Home");
+                //}
             }
             return View("Index");
         }
@@ -131,43 +140,51 @@ namespace PetStoreWebClient.Controllers
             string oldPassword = Fields["oldPassword"];
             string newPassword = Fields["newPassword"];
             string re_newPassword = Fields["re_newPassword"];
-            //string user = Session["username"].ToString();
+            string user = (string)Session["username"];
 
             AccountManagement am = new AccountManagement();
 
-            ////check conditions to change password
-            //if (oldPassword.Equals("") || newPassword.Equals("") || re_newPassword.Equals(""))
-            //{
-            //    //send error message
-            //    ModelState.AddModelError("", "Any fields can not be blank!!!!");
-            //    return View();
-            //}
-            //else if (!am.isOldPassword(user, oldPassword))
-            //{
-            //    //send error message
-            //    ModelState.AddModelError("", "The old password is not correct!!!!");
-            //    return View();
-            //}
-            //else if (!ValidationFormat.isPasswordFormat(newPassword))
-            //{
-            //    //send error message
-            //    ModelState.AddModelError("", "Password must be between 4 to 20 characters!!!!");
-            //    return View();
-            //}
-            //else
-            //{
-            //    if (!newPassword.Equals(re_newPassword))
-            //    {
-            //        //send error message
-            //        ModelState.AddModelError("", "Confirm password is not same with new password!!!!");
-            //        return View();
-            //    } else
-            //    {
-            //        //change password
-            //        am.ChangePassword(user, newPassword);
-            //        return RedirectToAction("Index", "Home");
-            //    }
-            //}
+            //check conditions to change password
+            if (oldPassword == null || newPassword == null || re_newPassword == null)
+            {
+                return View();
+            }
+            else if (oldPassword.Equals("") || newPassword.Equals("") || re_newPassword.Equals(""))
+            {
+                //send error message
+                ModelState.AddModelError("", "Any fields can not be blank!!!!");
+                return View();
+            }
+            else if (!am.isOldPassword(user, oldPassword))
+            {
+                //send error message
+                ModelState.AddModelError("", "The old password is not correct!!!!");
+                return View();
+            }
+            else if (!ValidationFormat.isPasswordFormat(newPassword))
+            {
+                //send error message
+                        ModelState.AddModelError("", "Password must be between 4 to 20 characters!!!!");
+                return View();
+            }
+            else
+            {
+                if (!newPassword.Equals(re_newPassword))
+                {
+                    //send error message
+                    ModelState.AddModelError("", "Confirm password is not same with new password!!!!");
+                    return View();
+                }
+                else
+                {
+                    //send error message
+                    ModelState.AddModelError("", "Change successfull");
+                    return View();
+                    //change password
+                    //am.ChangePassword(user, newPassword);
+                    //return RedirectToAction("Index", "Home");
+                }
+            }
             return View();
         }
 

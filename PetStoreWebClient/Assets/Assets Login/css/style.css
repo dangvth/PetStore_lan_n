@@ -145,6 +145,16 @@ a {
 }
 
 
+/*text danger*/
+.text-danger {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.validation-summary-errors {
+    color: red;
+}
+
 /* text align right */
 
 .txt-lt {
