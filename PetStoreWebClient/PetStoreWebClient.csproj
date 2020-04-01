@@ -340,6 +340,7 @@
     <Content Include="Assets\images\value-rating.png" />
     <Content Include="Assets\images\wishlist.png" />
     <Content Include="Assets\JSController\cartController.js" />
+    <Content Include="Assets\JSController\ChangePasswordValidation.js" />
     <Content Include="Assets\JSController\PetSearch.js" />
     <Content Include="Assets\JSController\pfSearchController.js" />
     <Content Include="Assets\js\bootstrap.min.js" />
