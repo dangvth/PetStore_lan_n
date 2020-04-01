@@ -242,6 +242,7 @@
     <Compile Include="ModelClass\PetFoodModel.cs" />
     <Compile Include="ModelClass\PetMedicineModel.cs" />
     <Compile Include="ModelClass\PetModel.cs" />
+    <Compile Include="ModelClass\PetToyModel.cs" />
     <Compile Include="ModelClass\ProductViewHome.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
