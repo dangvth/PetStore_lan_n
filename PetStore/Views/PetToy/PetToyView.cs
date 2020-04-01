@@ -7,10 +7,9 @@ using DevExpress.Utils.MVVM.Services;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Base;
 using PetStore.Model;
-using Microsoft.Win32;
+
 using System.Windows.Forms;
 using System.IO;
-
 namespace PetStore.Views.PetToyView{
     public partial class PetToyView : XtraUserControl {
         OpenFileDialog openDialog = new OpenFileDialog();
