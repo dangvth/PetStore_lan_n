@@ -108,6 +108,7 @@
             // 
             this.gvFood.GridControl = this.gcFood;
             this.gvFood.Name = "gvFood";
+            this.gvFood.OptionsBehavior.Editable = false;
             this.gvFood.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvFood_RowClick);
             // 
             // PetFoodStaff
