@@ -276,6 +276,7 @@
     <Compile Include="Object\Medicine.cs" />
     <Compile Include="Object\Pet.cs" />
     <Compile Include="Object\Role.cs" />
+    <Compile Include="Object\Toys.cs" />
     <Compile Include="Object\Type.cs" />
     <Compile Include="OnlineOrder.cs">
       <SubType>Form</SubType>
