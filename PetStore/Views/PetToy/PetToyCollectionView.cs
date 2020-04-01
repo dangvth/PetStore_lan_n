@@ -6,9 +6,14 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors;
 using DevExpress.Utils.MVVM.Services;
 using DevExpress.XtraBars;
+using PetStore.Model;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace PetStore.Views.PetToyCollectionView{
     public partial class PetToyCollectionView : XtraUserControl {
+        private String ptIDSelected = "";
         public PetToyCollectionView() {
             InitializeComponent();
 			if(!mvvmContext.IsDesignMode)
@@ -43,6 +48,75 @@ namespace PetStore.Views.PetToyCollectionView{
                     popupMenu.ShowPopup(gridControl.PointToScreen(e.Location), s);
                 }
             };
+        }
+
+        private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (ptIDSelected != "")
+            {
+                PetToyModel ptm = new PetToyModel();
+                ptm.DeletePetToys(ptIDSelected);
+                XtraMessageBox.Show("Delete successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show("Please choose  Toys item to delete !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bbiRestore_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (ptIDSelected != "")
+            {
+                PetToyModel ptm = new PetToyModel();
+                ptm.RestorePetToys(ptIDSelected);
+                XtraMessageBox.Show("Restore successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show("Please choose Toys item to restore !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnDetail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (ptIDSelected != "")
+            {
+                DetailToys dts = new DetailToys();
+                PetToyModel ptm = new PetToyModel();
+
+                PetToy toy = ptm.getPetToy(ptIDSelected);
+
+                dts.txtToysId.Text = toy.pt_id;
+                dts.txtToysName.Text = toy.pt_name;
+                dts.txtToySaleprices.Text = toy.pt_salePrice.ToString();
+                dts.txtAmount.Text = toy.pt_amount.ToString();
+                dts.txtDescript.Text = toy.pt_description;
+
+                if (toy.pt_status == "Active") { dts.txtstatus.ForeColor = Color.Green; }
+                else { dts.txtstatus.ForeColor = Color.Red; }
+
+                dts.txtstatus.Text = toy.pt_status;
+
+                dts.lblDetail.Text = "Pet's Toys detail for '" + toy.pt_name + "'";
+
+                String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
+                String pathImage = projectPath + "\\img\\" + toy.pt_image;
+                Image img = Image.FromFile(pathImage);
+                dts.ptbimage.Image = ptm.ResizeImage(img, 440, 440);
+
+                dts.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please choose a Toys to view detail !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void gridView_RowClick(object sender, RowClickEventArgs e)
+        {
+            int idx = gridView.FocusedRowHandle;
+            ptIDSelected = gridView.GetRowCellValue(idx, "pt_id").ToString();
         }
     }
 }

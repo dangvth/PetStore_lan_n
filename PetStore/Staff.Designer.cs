@@ -57,9 +57,11 @@
             this.rbpgGift = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpComment = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbAccount = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbpgAccount = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ribbonTheme = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
@@ -84,16 +86,17 @@
             this.btnResetPassword,
             this.btnRestoreCmt,
             this.btnViewCmtd,
-            this.btnCmtList});
+            this.btnCmtList,
+            this.ribbonGalleryBarItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 21;
+            this.ribbon.MaxItemId = 22;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpSales,
             this.rbpProduct,
             this.rbpComment,
-            this.rbAccount});
+            this.rbSystem});
             this.ribbon.Size = new System.Drawing.Size(1125, 176);
             // 
             // barButtonItem1
@@ -159,6 +162,7 @@
             this.btnPToy.LargeWidth = 65;
             this.btnPToy.Name = "btnPToy";
             this.btnPToy.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnPToy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPToy_ItemClick);
             // 
             // btnPMed
             // 
@@ -167,6 +171,7 @@
             this.btnPMed.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPMed.ImageOptions.Image")));
             this.btnPMed.Name = "btnPMed";
             this.btnPMed.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnPMed.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPMed_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -286,19 +291,32 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Comment";
             // 
-            // rbAccount
+            // rbSystem
             // 
-            this.rbAccount.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
-            this.rbAccount.Name = "rbAccount";
-            this.rbAccount.Text = "Account";
+            this.rbSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbpgAccount,
+            this.ribbonTheme});
+            this.rbSystem.Name = "rbSystem";
+            this.rbSystem.Text = "System";
             // 
-            // ribbonPageGroup2
+            // rbpgAccount
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnLogout);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnResetPassword);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            this.rbpgAccount.ItemLinks.Add(this.btnLogout);
+            this.rbpgAccount.ItemLinks.Add(this.btnResetPassword);
+            this.rbpgAccount.Name = "rbpgAccount";
+            this.rbpgAccount.Text = "Account";
+            // 
+            // ribbonTheme
+            // 
+            this.ribbonTheme.ItemLinks.Add(this.ribbonGalleryBarItem1);
+            this.ribbonTheme.Name = "ribbonTheme";
+            this.ribbonTheme.Text = "Theme";
+            // 
+            // ribbonGalleryBarItem1
+            // 
+            this.ribbonGalleryBarItem1.Caption = "ribbonGalleryBarItem1";
+            this.ribbonGalleryBarItem1.Id = 21;
+            this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
             // 
             // Staff
             // 
@@ -342,11 +360,13 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbpgGift;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.BarButtonItem btnResetPassword;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rbAccount;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbSystem;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbpgAccount;
         private DevExpress.XtraBars.BarButtonItem btnRestoreCmt;
         private DevExpress.XtraBars.BarButtonItem btnViewCmtd;
         private System.Windows.Forms.BindingSource bindingSource;
         private DevExpress.XtraBars.BarButtonItem btnCmtList;
+        private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonTheme;
     }
 }

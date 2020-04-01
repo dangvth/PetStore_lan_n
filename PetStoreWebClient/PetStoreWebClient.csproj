@@ -240,6 +240,7 @@
     <Compile Include="ModelClass\CommentModel.cs" />
     <Compile Include="ModelClass\CommentViewUser.cs" />
     <Compile Include="ModelClass\PetFoodModel.cs" />
+    <Compile Include="ModelClass\PetMedicineModel.cs" />
     <Compile Include="ModelClass\PetModel.cs" />
     <Compile Include="ModelClass\ProductViewHome.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -339,6 +340,7 @@
     <Content Include="Assets\images\value-rating.png" />
     <Content Include="Assets\images\wishlist.png" />
     <Content Include="Assets\JSController\cartController.js" />
+    <Content Include="Assets\JSController\ChangePasswordValidation.js" />
     <Content Include="Assets\JSController\PetSearch.js" />
     <Content Include="Assets\JSController\pfSearchController.js" />
     <Content Include="Assets\js\bootstrap.min.js" />

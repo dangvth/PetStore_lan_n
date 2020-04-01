@@ -210,6 +210,12 @@
     <Compile Include="DetailPetForm.Designer.cs">
       <DependentUpon>DetailPetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailToys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailToys.Designer.cs">
+      <DependentUpon>DetailToys.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditGift.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,11 @@
     <Compile Include="Enter Quantity.Designer.cs">
       <DependentUpon>Enter Quantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Medicinedata.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Medicinedata.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\CommentDetailModel.cs" />
     <Compile Include="Model\CommentModel.cs" />
@@ -265,6 +276,7 @@
     <Compile Include="Object\Medicine.cs" />
     <Compile Include="Object\Pet.cs" />
     <Compile Include="Object\Role.cs" />
+    <Compile Include="Object\Toys.cs" />
     <Compile Include="Object\Type.cs" />
     <Compile Include="OnlineOrder.cs">
       <SubType>Form</SubType>
@@ -278,6 +290,12 @@
     <Compile Include="PetFoodStaff.Designer.cs">
       <DependentUpon>PetFoodStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="PetMedicineStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PetMedicineStaff.Designer.cs">
+      <DependentUpon>PetMedicineStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="PetStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +306,22 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetToysStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PetToysStaff.Designer.cs">
+      <DependentUpon>PetToysStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="RibbonForm1.cs">
       <SubType>Form</SubType>
@@ -602,6 +636,9 @@
     <EmbeddedResource Include="DetailPetForm.resx">
       <DependentUpon>DetailPetForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DetailToys.resx">
+      <DependentUpon>DetailToys.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditGift.resx">
       <DependentUpon>EditGift.cs</DependentUpon>
     </EmbeddedResource>
@@ -626,8 +663,14 @@
     <EmbeddedResource Include="PetFoodStaff.resx">
       <DependentUpon>PetFoodStaff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PetMedicineStaff.resx">
+      <DependentUpon>PetMedicineStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PetStaff.resx">
       <DependentUpon>PetStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PetToysStaff.resx">
+      <DependentUpon>PetToysStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RibbonForm1.resx">
       <DependentUpon>RibbonForm1.cs</DependentUpon>
@@ -741,6 +784,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PetStoreModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Medicinedata.xsc">
+      <DependentUpon>Medicinedata.xsd</DependentUpon>
+    </None>
+    <None Include="Medicinedata.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Medicinedata.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Medicinedata.xss">
+      <DependentUpon>Medicinedata.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="PetStoreDataSet.xsc">
       <DependentUpon>PetStoreDataSet.xsd</DependentUpon>
@@ -764,6 +818,28 @@
     <None Include="PetStoreDataSet1.xss">
       <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="PetStoreDataSet2.xsc">
+      <DependentUpon>PetStoreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet2.xss">
+      <DependentUpon>PetStoreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet3.xsc">
+      <DependentUpon>PetStoreDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet3.xss">
+      <DependentUpon>PetStoreDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="PetStoreModel.edmx.diagram">
       <DependentUpon>PetStoreModel.edmx</DependentUpon>
     </None>
@@ -779,11 +855,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refresh.png" />
     <None Include="Resources\floppy_disk_save-512.png" />
     <None Include="Resources\tải xuống %288%29.jpg" />
     <None Include="Resources\tải xuống %287%29.jpg" />
     <None Include="img\error-image.png" />
-    <Content Include="img\PET001.jpg" />
     <Content Include="PetStoreModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PetStoreModel.Context.cs</LastGenOutput>

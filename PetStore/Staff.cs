@@ -97,5 +97,23 @@ namespace PetStore
             lg.Show();
             this.Close();
         }
+
+        private void btnPMed_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            resetFormChildren();
+            PetMedicineStaff pms = new PetMedicineStaff();
+            pms.MdiParent = this;
+            pms.Dock = DockStyle.Fill;
+            pms.Show();
+        }
+
+        private void btnPToy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            resetFormChildren();
+            PetToysStaff pms = new PetToysStaff();
+            pms.MdiParent = this;
+            pms.Dock = DockStyle.Fill;
+            pms.Show();
+        }
     }
 }
