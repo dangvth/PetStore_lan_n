@@ -54,7 +54,7 @@ namespace PetStore.Views.PetToyCollectionView{
         {
             if (ptIDSelected != "")
             {
-                PetToysModel ptm = new PetToysModel();
+                PetToyModel ptm = new PetToyModel();
                 ptm.DeletePetToys(ptIDSelected);
                 XtraMessageBox.Show("Delete successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -68,7 +68,7 @@ namespace PetStore.Views.PetToyCollectionView{
         {
             if (ptIDSelected != "")
             {
-                PetToysModel ptm = new PetToysModel();
+                PetToyModel ptm = new PetToyModel();
                 ptm.RestorePetToys(ptIDSelected);
                 XtraMessageBox.Show("Restore successful !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -83,9 +83,9 @@ namespace PetStore.Views.PetToyCollectionView{
             if (ptIDSelected != "")
             {
                 DetailToys dts = new DetailToys();
-                PetToysModel ptm = new PetToysModel();
+                PetToyModel ptm = new PetToyModel();
 
-                PetToy toy = ptm.getPetToys(ptIDSelected);
+                PetToy toy = ptm.getPetToy(ptIDSelected);
 
                 dts.txtToysId.Text = toy.pt_id;
                 dts.txtToysName.Text = toy.pt_name;

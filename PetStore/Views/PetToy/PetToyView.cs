@@ -47,7 +47,7 @@ namespace PetStore.Views.PetToyView{
 
         private void pt_idTextEdit_Properties_Click(object sender, EventArgs e)
         {
-            PetToysModel ptm = new PetToysModel();
+            PetToyModel ptm = new PetToyModel();
             pt_idTextEdit.Text = ptm.getNextID();
         }
 

@@ -31,9 +31,9 @@ namespace PetStore
             if (ptIDSelected != "")
             {
                 DetailToys dts = new DetailToys();
-                PetToysModel ptm = new PetToysModel();
+                PetToyModel ptm = new PetToyModel();
 
-                PetToy toy = ptm.getPetToys(ptIDSelected);
+                PetToy toy = ptm.getPetToy(ptIDSelected);
 
                 dts.txtToysId.Text = toy.pt_id;
                 dts.txtToysName.Text = toy.pt_name;
@@ -63,7 +63,7 @@ namespace PetStore
 
         private void btnrefresh_ItemClick(object sender, ItemClickEventArgs e)
         {
-            PetToysModel ptm = new PetToysModel();
+            PetToyModel ptm = new PetToyModel();
 
             petStoreDataSet2BindingSource.DataSource = ptm.GetAllPetToysToArrayList();
            gcToys.DataSource = petStoreDataSet2BindingSource;
