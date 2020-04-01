@@ -207,6 +207,8 @@ Author: Thaonmce130353
                     },
                     phone: {
                         required: true,
+                        minlength: 10,
+                        maxlength: 10
                         //regexPhone: true
                     },
                     ac_userName: {
@@ -214,7 +216,9 @@ Author: Thaonmce130353
                     },
                     ac_pwd: {
                         required: true,
-                        regexPassword: true
+                        minlength: 4,
+                        maxlength: 16
+                        //regexPassword: true
                     },
                 },
                 messages: {
@@ -231,14 +235,18 @@ Author: Thaonmce130353
                     },
                     phone: {
                         required: "Phone can't be blank.",
-                        regexPhone: "Phone number must be 0 digits.",
+                        minlength: "Phone number must be 0 digits.",
+                        maxlength: "Phone number must be 0 digits.",
+                        //regexPhone: "Phone number must be 0 digits.",
                     },
                     ac_userName: {
                         required: "Username can't be blank.",
                     },
                     ac_pwd: {
                         required: "Password can't be blank.",
-                        regexPassword: "Password must be between 4 to 20 characters.",
+                        minlength: "Password must be between 4 to 20 characters.",
+                        maxlength: "Password must be between 4 to 20 characters.",
+                        //regexPassword: "Password must be between 4 to 20 characters.",
                     }
                 }
             });
