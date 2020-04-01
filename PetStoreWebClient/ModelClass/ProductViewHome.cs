@@ -49,6 +49,17 @@ namespace PetStoreWebClient.ModelClass
         }
 
         /// <summary>
+        /// get top pet's toys by id desc
+        /// </summary>
+        /// <param name="top"></param>
+        /// <returns></returns>
+        public List<PetMedicine> getViewPetMedicines(int top)
+        {
+            return db.PetMedicine.Where(x => x.pm_status == "Active").
+                OrderByDescending(x => x.pm_id).Take(top).ToList();
+        }
+
+        /// <summary>
         /// get Pet Sale off
         /// </summary>
         /// <returns></returns>
@@ -66,6 +77,16 @@ namespace PetStoreWebClient.ModelClass
         {
             return db.PetFood.Where(x => x.pf_status == "Active" && x.pf_prices > x.pf_salePrice).
                 OrderByDescending(x => (x.pf_prices - x.pf_salePrice)).Take(3).ToList();
+        }
+
+        /// <summary>
+        /// get Pet's medicine sale off
+        /// </summary>
+        /// <returns></returns>
+        public List<PetMedicine> getViewPetMedicineSaleOff()
+        {
+            return db.PetMedicine.Where(x => x.pm_status == "Active" && x.pm_prices > x.pm_salePrice).
+                OrderByDescending(x => (x.pm_prices - x.pm_salePrice)).Take(3).ToList();
         }
     }
 }

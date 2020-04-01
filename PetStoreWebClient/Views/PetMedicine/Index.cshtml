@@ -1,0 +1,131 @@
+﻿
+@model List<PetStoreWebClient.EF.PetMedicine>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var viewPMSaleOff = (List<PetStoreWebClient.EF.PetMedicine>)ViewBag.viewPetMedicineSaleOff;
+}
+
+@section search{
+    <div class="search_box">
+        <form action="/Petmedicine/search" method="get">
+            <input type="text" name="keyword" id="txtKeyword" placeholder="Search..."><input type="submit" value="">
+        </form>
+    </div>
+}
+
+@section slide{
+    <div class="header_slide">
+        <div class="header_bottom_left">
+            <div class="categories">
+                <ul>
+                    <h3>Products</h3>
+                    <li>@Html.ActionLink("Pet", "Index", "Pet")</li>
+                    <li><a href="pet-medicine/list">Pet's Medicine</a></li>
+                    <li><a href="#">Pet's Toys</a></li>
+                    <li><a href="#">Pet's Food</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_bottom_right">
+            <div class="slider">
+                <div id="slider">
+                    <div id="mover">
+                        @foreach (var item in viewPMSaleOff)
+                        {
+                            double disRate = (double)(100 - ((item.pm_salePrice * 100) / item.pm_prices));
+                            int disPrice = (int)(item.pm_prices - item.pm_salePrice);
+                            <div id="slide-1" class="slide">
+                                <div class="slider-img">
+                                    <a href="#"><img class="petmedicine-slide-image" src="~/Assets/images/@item.pm_image" alt="learn more" /></a>
+                                </div>
+                                <div class="slider-text">
+                                    <h1>@item.pm_name<br><span>SALE</span></h1>
+                                    <h2>UPTo @disRate% OFF</h2>
+                                    <div class="features_list">
+                                        <h4>@item.pm_salePrice.Value.ToString("N0")đ (-@disPrice.ToString("N0")đ)</h4>
+                                    </div>
+                                    <a href="/add-to-cart?productID=@item.pm_id&Quantity=1" class="btn btn-danger">Buy Now</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+}
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>Pet's Medicine</h3>
+        </div>
+        <div class="see">
+            <p><a href="/pet-medicine/list">See all Products</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in Model)
+        {
+            var url = "/detail/pet-medicine/" + item.pm_id;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img class="img-petmedicine-list" src="~/Assets/images/@item.pm_image" alt="" height="230" width="230" /></a>
+                <h2>@item.pm_name</h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@item.pm_salePrice.Value.ToString("N0")đ</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/add-to-cart?productID=@item.pm_id&Quantity=1">Add to Cart</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+        <div class="clear"></div>
+        <!--Phân trang-->
+        @if (ViewBag.totalPage > 1)
+        {
+            var pageDisplay = (int)ViewBag.maxPage;
+            int totalPage = (int)ViewBag.totalPage;
+            int currentPage = (int)ViewBag.Page;
+
+            //Create numberic link
+            var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+            var endPageINdex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+            var url = "/pet-medicine/list";
+            <ul class="pagination" style="float: right">
+                @if (currentPage > ViewBag.first)
+                {
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.first" title="First page"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.prev" title="Previous page"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                }
+                @for (int i = startPageIndex; i <= endPageINdex; i++)
+                {
+                    if (i == currentPage)
+                    {
+                        <li class="page-item active"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" href="@url?page=@i" title="Page @i">@i</a></li>
+                    }
+                }
+                @if (currentPage < totalPage)
+                {
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.next" title="Next page"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.last" title="Last page"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                }
+            </ul>
+        }
+        else
+        {
+            <span class="alert alert-danger">Dont have any item</span>
+        }
+    </div>
+</div>
