@@ -8,11 +8,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using PetStore.Model;
+using System.IO;
 
 namespace PetStore
 {
     public partial class PetMedicineStaff : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        String pmIDSelected = "";
         public PetMedicineStaff()
         {
             InitializeComponent();
@@ -20,7 +23,55 @@ namespace PetStore
 
         private void PetMedicineStaff_Load(object sender, EventArgs e)
         {
+            PetMedicineModel pmm = new PetMedicineModel();
+            medicinedataBindingSource.DataSource = pmm.GetAllPetMedicineToArrayList();
+            gcMedicine.DataSource = medicinedataBindingSource;
+        }
 
+        private void btnDetail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (pmIDSelected != "")
+            {
+                DetailMedicine dmd = new DetailMedicine();
+                PetMedicineModel pmm = new PetMedicineModel();
+
+                PetMedicine med = pmm.getPetMedicine(pmIDSelected);
+
+                dmd.txtPmdId.Text = med.pm_id;
+                dmd.txtPmdName.Text = med.pm_name;
+                dmd.txtPmdSaleprices.Text = med.pm_salePrice.ToString();
+                dmd.txtPmdAmount.Text = med.pm_amount.ToString();
+                dmd.txtPmdDescript.Text = med.pm_description;
+
+                if (med.pm_status == "Active") { dmd.txtPmdStatus.ForeColor = Color.Green; }
+                else { dmd.txtPmdStatus.ForeColor = Color.Red; }
+
+                dmd.txtPmdStatus.Text = med.pm_status;
+
+                dmd.lbldetail.Text = "Pet's Medicine detail for '" + med.pm_name + "'";
+
+                String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
+                String pathImage = projectPath + "\\img\\" + med.pm_image;
+                Image img = Image.FromFile(pathImage);
+                dmd.ptbimage.Image = pmm.ResizeImage(img, 440, 440);
+
+                dmd.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please choose a Medicine to view detail !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnRefresh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            PetMedicineStaff_Load(sender, e);
+        }
+
+        private void tblMed_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            int idx = tblMed.FocusedRowHandle;
+            pmIDSelected = tblMed.GetRowCellValue(idx, "pm_id").ToString();
         }
     }
 }

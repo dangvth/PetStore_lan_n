@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gcMedicine = new DevExpress.XtraGrid.GridControl();
             this.tblMed = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnDetail = new DevExpress.XtraBars.BarButtonItem();
@@ -37,9 +38,17 @@
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            this.petStoreDataSet3 = new PetStore.PetStoreDataSet3();
+            this.petStoreDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medicinedata = new PetStore.Medicinedata();
+            this.medicinedataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.gcMedicine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblMed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet3BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar
@@ -48,21 +57,23 @@
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Size = new System.Drawing.Size(1139, 20);
             // 
-            // gridControl1
+            // gcMedicine
             // 
-            this.gridControl1.Location = new System.Drawing.Point(0, 147);
-            this.gridControl1.MainView = this.tblMed;
-            this.gridControl1.MenuManager = this.ribbonControl1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1139, 239);
-            this.gridControl1.TabIndex = 5;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gcMedicine.DataSource = this.medicinedataBindingSource;
+            this.gcMedicine.Location = new System.Drawing.Point(0, 147);
+            this.gcMedicine.MainView = this.tblMed;
+            this.gcMedicine.MenuManager = this.ribbonControl1;
+            this.gcMedicine.Name = "gcMedicine";
+            this.gcMedicine.Size = new System.Drawing.Size(1139, 239);
+            this.gcMedicine.TabIndex = 5;
+            this.gcMedicine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tblMed});
             // 
             // tblMed
             // 
-            this.tblMed.GridControl = this.gridControl1;
+            this.tblMed.GridControl = this.gcMedicine;
             this.tblMed.Name = "tblMed";
+            this.tblMed.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.tblMed_RowClick);
             // 
             // ribbonControl1
             // 
@@ -77,7 +88,7 @@
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2});
-            this.ribbonControl1.Size = new System.Drawing.Size(1139, 141);
+            this.ribbonControl1.Size = new System.Drawing.Size(1139, 143);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // btnDetail
@@ -87,6 +98,7 @@
             this.btnDetail.ImageOptions.Image = global::PetStore.Properties.Resources.tải_xuống__7_;
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnDetail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDetail_ItemClick);
             // 
             // btnRefresh
             // 
@@ -95,6 +107,7 @@
             this.btnRefresh.ImageOptions.Image = global::PetStore.Properties.Resources.refresh;
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
             // ribbonPage2
             // 
@@ -117,22 +130,47 @@
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(1139, 27);
             // 
+            // petStoreDataSet3
+            // 
+            this.petStoreDataSet3.DataSetName = "PetStoreDataSet3";
+            this.petStoreDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // petStoreDataSet3BindingSource
+            // 
+            this.petStoreDataSet3BindingSource.DataSource = this.petStoreDataSet3;
+            this.petStoreDataSet3BindingSource.Position = 0;
+            // 
+            // medicinedata
+            // 
+            this.medicinedata.DataSetName = "Medicinedata";
+            this.medicinedata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // medicinedataBindingSource
+            // 
+            this.medicinedataBindingSource.DataSource = this.medicinedata;
+            this.medicinedataBindingSource.Position = 0;
+            // 
             // PetMedicineStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1139, 483);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.gcMedicine);
             this.Controls.Add(this.ribbonStatusBar1);
-            this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this.ribbonStatusBar);
+            this.Controls.Add(this.ribbonControl1);
             this.Name = "PetMedicineStaff";
+            this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "PetMedicineStaff";
             this.Load += new System.EventHandler(this.PetMedicineStaff_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMedicine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblMed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet3BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,13 +178,17 @@
 
         #endregion
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView tblMed;
+        private DevExpress.XtraGrid.GridControl gcMedicine;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.BarButtonItem btnDetail;
         private DevExpress.XtraBars.BarButtonItem btnRefresh;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private System.Windows.Forms.BindingSource petStoreDataSet3BindingSource;
+        private PetStoreDataSet3 petStoreDataSet3;
+        private System.Windows.Forms.BindingSource medicinedataBindingSource;
+        private Medicinedata medicinedata;
+        public DevExpress.XtraGrid.Views.Grid.GridView tblMed;
     }
 }

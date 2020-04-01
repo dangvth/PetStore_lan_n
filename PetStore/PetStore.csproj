@@ -252,6 +252,11 @@
     <Compile Include="Enter Quantity.Designer.cs">
       <DependentUpon>Enter Quantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Medicinedata.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Medicinedata.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\CommentDetailModel.cs" />
     <Compile Include="Model\CommentModel.cs" />
@@ -300,6 +305,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetStoreDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetStoreDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="PetToysStaff.cs">
       <SubType>Form</SubType>
@@ -768,6 +783,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PetStoreModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Medicinedata.xsc">
+      <DependentUpon>Medicinedata.xsd</DependentUpon>
+    </None>
+    <None Include="Medicinedata.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Medicinedata.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Medicinedata.xss">
+      <DependentUpon>Medicinedata.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="PetStoreDataSet.xsc">
       <DependentUpon>PetStoreDataSet.xsd</DependentUpon>
@@ -790,6 +816,28 @@
     </None>
     <None Include="PetStoreDataSet1.xss">
       <DependentUpon>PetStoreDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet2.xsc">
+      <DependentUpon>PetStoreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet2.xss">
+      <DependentUpon>PetStoreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet3.xsc">
+      <DependentUpon>PetStoreDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PetStoreDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetStoreDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetStoreDataSet3.xss">
+      <DependentUpon>PetStoreDataSet3.xsd</DependentUpon>
     </None>
     <None Include="PetStoreModel.edmx.diagram">
       <DependentUpon>PetStoreModel.edmx</DependentUpon>

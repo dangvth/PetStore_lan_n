@@ -104,7 +104,7 @@ namespace PetStore.Views.PetMedicineCollectionView{
 
                 dmd.txtPmdStatus.Text = med.pm_status;
                
-                dmd.lbldetail.Text = "Pet's Food detail for '" + med.pm_name + "'";
+                dmd.lbldetail.Text = "Pet's Medicine detail for '" + med.pm_name + "'";
 
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
                 String pathImage = projectPath + "\\img\\" + med.pm_image;

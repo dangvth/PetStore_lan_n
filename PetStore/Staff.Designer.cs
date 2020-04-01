@@ -94,7 +94,7 @@
             this.rbpProduct,
             this.rbpComment,
             this.rbAccount});
-            this.ribbon.Size = new System.Drawing.Size(1125, 176);
+            this.ribbon.Size = new System.Drawing.Size(1125, 141);
             // 
             // barButtonItem1
             // 
@@ -167,6 +167,7 @@
             this.btnPMed.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPMed.ImageOptions.Image")));
             this.btnPMed.Name = "btnPMed";
             this.btnPMed.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnPMed.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPMed_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -303,7 +304,7 @@
             // Staff
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 756);
             this.Controls.Add(this.ribbon);
