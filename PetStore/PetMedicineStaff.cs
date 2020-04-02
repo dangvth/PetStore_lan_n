@@ -53,7 +53,7 @@ namespace PetStore
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
                 String pathImage = projectPath + "\\img\\" + med.pm_image;
                 Image img = Image.FromFile(pathImage);
-                dmd.ptbimage.Image = pmm.ResizeImage(img, 440, 440);
+                dmd.ptbimage.Image = pmm.ResizeImage(img, 200, 200);
 
                 dmd.ShowDialog();
             }

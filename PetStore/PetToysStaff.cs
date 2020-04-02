@@ -21,9 +21,9 @@ namespace PetStore
             InitializeComponent();
         }
 
-        private void ribbon_Click(object sender, EventArgs e)
+        private void PetToysStaff_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btndetail_ItemClick(object sender, ItemClickEventArgs e)
@@ -51,7 +51,7 @@ namespace PetStore
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
                 String pathImage = projectPath + "\\img\\" + toy.pt_image;
                 Image img = Image.FromFile(pathImage);
-                dts.ptbimage.Image = ptm.ResizeImage(img, 440, 440);
+                dts.ptbimage.Image = ptm.ResizeImage(img, 200, 200);
 
                 dts.ShowDialog();
             }
@@ -76,6 +76,13 @@ namespace PetStore
             {
                 ptIDSelected = gridToys.GetRowCellValue(idx, gridToys.Columns[0]).ToString();
             }
+        }
+
+        private void gcToys_Load(object sender, EventArgs e)
+        {
+            PetToyModel ptm = new PetToyModel();
+            petStoreDataSet2BindingSource.DataSource = ptm.GetAllPetToysToArrayList();
+            gcToys.DataSource = petStoreDataSet2BindingSource;
         }
     }
 }
