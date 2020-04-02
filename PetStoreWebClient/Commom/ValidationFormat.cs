@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -13,12 +14,17 @@ namespace PetStoreWebClient.Commom
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        public static bool isEmailFormat(string email)
+        public static bool isEmailValid(string email)
         {
-            //Initialize Regex Object
-            string regex = "/[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm";
-            bool isMatch = Regex.IsMatch(email, regex);
-            return isMatch;
+            try
+            {
+                MailAddress mad = new MailAddress(email);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -26,11 +32,11 @@ namespace PetStoreWebClient.Commom
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        public static bool isPhoneFormat(string email)
+        public static bool isPhoneFormat(string phone)
         {
             //Initialize Regex Object
-            string regex = "";
-            bool isMatch = Regex.IsMatch(email, regex);
+            string regex = "^.{10}$";
+            bool isMatch = Regex.IsMatch(phone, regex);
             return isMatch;
         }
 
@@ -39,11 +45,11 @@ namespace PetStoreWebClient.Commom
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        public static bool isPasswordFormat(string email)
+        public static bool isPasswordFormat(string password)
         {
             //Initialize Regex Object
-            string regex = "^{4, 20}$";
-            bool isMatch = Regex.IsMatch(email, regex);
+            string regex = "^.{4,20}$";
+            bool isMatch = Regex.IsMatch(password, regex);
             return isMatch;
         }
     }
