@@ -110,26 +110,27 @@ namespace PetStoreWebClient.Controllers
             else    //If don't have fields is blank 
             {
                 //send error message
-                ModelState.AddModelError("", "Sign Up Successful!");
-                return View("Index");
-                ////Insert Account and return account ID
-                //var pwdEncrypt = Encryptor.SHA256_Encrypt(account.ac_pwd);
-                //account.ac_pwd = pwdEncrypt;
-                //account.ac_status = "Active";
-                //account.r_id = 3;
-                //int acID = am.InsertAccount(account);
-                ////If insert Account successful then insert User
-                //if (acID > 0)
-                //{
-                //    //Insert User
-                //    UserManagement um = new UserManagement();
-                //    um.InsertUser(fullname, gender, email, phone, addr, acID);
-                //    //Create session 
-                //    Session["username"] = account.ac_userName;
-                //    //Session["userID"] = user;
-                //    //Redirect to Action Index on HomeController
-                //    return RedirectToAction("Index", "Home");
-                //}
+                //ModelState.AddModelError("", "Sign Up Successful!");
+                //return View("Index");
+
+                //Insert Account and return account ID
+                var pwdEncrypt = Encryptor.SHA256_Encrypt(account.ac_pwd);
+                account.ac_pwd = pwdEncrypt;
+                account.ac_status = "Active";
+                account.r_id = 3;
+                int acID = am.InsertAccount(account);
+                //If insert Account successful then insert User
+                if (acID > 0)
+                {
+                    //Insert User
+                    UserManagement um = new UserManagement();
+                    um.InsertUser(fullname, gender, email, phone, addr, acID);
+                    //Create session 
+                    Session["username"] = account.ac_userName;
+                    //Session["userID"] = user;
+                    //Redirect to Action Index on HomeController
+                    return RedirectToAction("Index", "Home");
+                }
             }
             return View("Index");
         }
