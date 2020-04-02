@@ -14,6 +14,10 @@ namespace PetStore
     public partial class Login : Form
     {
         private Model.AccountModel am;
+
+        /// <summary>
+        /// Initialize Login class
+        /// </summary>
         public Login()
         {
             InitializeComponent();
@@ -24,20 +28,26 @@ namespace PetStore
         {
         }
 
+        /// <summary>
+        /// Authentication Administrator or Employee when login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userName = txtUsername.Text;
             string pwd = txtPwd.Text;
+            //get role of account
             int role = am.checkRole(userName);
-            if (am.isCorrectAccount(userName, pwd))
+            //if correct account then decentralization
+            if (am.isCorrectAccount(userName, pwd))     
             {
                 //check role if role = 1 then load form Administrator, 
                 //role = 2 then load form Staff
                 if (am.checkRole(userName) == 1)
                 {
                     frmAdmin ad = new frmAdmin();
-                    //PetStore.Views.PetStoreEntitiesView.PetStoreEntitiesView psv = new Views.PetStoreEntitiesView.PetStoreEntitiesView();
-                    //psv.Sender(txtUsername.Text);
+                    //send username to admin form
                     ad.SenderAD(txtUsername.Text);
                     ad.Show();
                     this.Hide();
@@ -45,12 +55,13 @@ namespace PetStore
                 else if (am.checkRole(userName) == 2)
                 {
                     Staff s = new Staff();
+                    //send username to Staff form
                     s.SenderStaffUser(txtUsername.Text);
                     s.Show();
                     this.Hide();
                 }
             }
-            else
+            else    //Send error message when enter wrong account
             {
                 MessageBox.Show("Username or Password is not correct!", "Login",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

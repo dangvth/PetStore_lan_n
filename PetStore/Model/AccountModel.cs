@@ -16,6 +16,7 @@ namespace PetStore.Model
         PetStoreEntities db;
         List<PetStore.Account> acList;
 
+        //Initialize Model class for Account
         public AccountModel()
         {
             db = new PetStoreEntities();
@@ -141,11 +142,15 @@ namespace PetStore.Model
         /// <returns></returns>
         public bool isOldPassword(int id, string oldPassword)
         {
+            //get account based on account id
             Account ac = db.Accounts.Where(x => x.ac_id == id).SingleOrDefault();
+            //check password user inputted and password in database
+            //if same, return true
             if (ac.ac_pwd.Equals(Encryptor.SHA256_Encrypt(oldPassword)))
             {
                 return true;
             }
+            //if not same, return false
             return false;
         }
 
@@ -156,7 +161,9 @@ namespace PetStore.Model
         /// <returns></returns>
         public int checkRole(string userInput)
         {
+            //get account list
             getAccount();
+            //get role id
             foreach (Account a in acList)
             {
                 if (a.ac_userName.Equals(userInput))

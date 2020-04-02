@@ -87,12 +87,17 @@ namespace PetStore.Views.PetView
         /// <param name="e"></param>
         private void p_imageTextEdit_Click(object sender, EventArgs e)
         {
+            //The Filter in open dialog will only accept file .jpg and .png
             openDialog.Filter = "Image files (*.jpg)|*.jpg|Image files (*.png)|*.png|All files (*.*)|*.*";
             openDialog.ShowDialog();
+
+            //if file choosen is not empy and is image file 
+            //then set image name for image file
             if (openDialog.FileName != "" && (openDialog.FileName.EndsWith(".jpg") || openDialog.FileName.EndsWith(".png")))
             {
                 p_imageTextEdit.Text = openDialog.FileName;
                 PetModel pm = new PetModel();
+                //set name image file is Pet's ID appends .jpg or .png
                 if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
                 else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
             }
@@ -118,6 +123,11 @@ namespace PetStore.Views.PetView
             p_publishedDateEdit.Text = System.DateTime.Now.ToString();
         }
 
+        /// <summary>
+        /// Save Pet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String image = "";
@@ -127,6 +137,7 @@ namespace PetStore.Views.PetView
                 PetModel pm = new PetModel();
                 //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
                 //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
+                
                 //Get solution App path
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
@@ -149,6 +160,11 @@ namespace PetStore.Views.PetView
             p_publishedDateEdit.Text = DateTime.Now.ToString();
         }
 
+        /// <summary>
+        /// Save pet and close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String image = "";
@@ -180,6 +196,11 @@ namespace PetStore.Views.PetView
             p_publishedDateEdit.Text = DateTime.Now.ToString();
         }
 
+        /// <summary>
+        /// Save pet and create a new form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String image = "";
@@ -189,6 +210,7 @@ namespace PetStore.Views.PetView
                 PetModel pm = new PetModel();
                 //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
                 //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
+                
                 //Get solution App path
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
@@ -211,6 +233,11 @@ namespace PetStore.Views.PetView
             p_publishedDateEdit.Text = DateTime.Now.ToString();
         }
 
+        /// <summary>
+        /// Event Load PetView form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PetView_Load(object sender, EventArgs e)
         {
             PetModel pm = new PetModel();
