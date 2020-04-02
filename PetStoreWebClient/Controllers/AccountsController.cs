@@ -10,6 +10,7 @@ namespace PetStoreWebClient.Controllers
 {
     public class AccountsController : Controller
     {
+        PetStoreOnlineDbContext db = new PetStoreOnlineDbContext();
         // GET: Accounts
         public ActionResult Index()
         {
@@ -125,9 +126,11 @@ namespace PetStoreWebClient.Controllers
                     //Insert User
                     UserManagement um = new UserManagement();
                     um.InsertUser(fullname, gender, email, phone, addr, acID);
+                    var user = um.getUserByAccountID(acID);
+                    //var user = db.User.LastOrDefault();
                     //Create session 
                     Session["username"] = account.ac_userName;
-                    //Session["userID"] = user;
+                    Session["userLogin"] = user;
                     //Redirect to Action Index on HomeController
                     return RedirectToAction("Index", "Home");
                 }
@@ -179,11 +182,11 @@ namespace PetStoreWebClient.Controllers
                 else
                 {
                     //send error message
-                    ModelState.AddModelError("", "Change successfull");
-                    return View();
+                    //ModelState.AddModelError("", "Change successfull");
+                    //return View();
                     //change password
-                    //am.ChangePassword(user, newPassword);
-                    //return RedirectToAction("Index", "Home");
+                    am.ChangePassword(user, newPassword);
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View();
