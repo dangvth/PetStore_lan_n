@@ -91,11 +91,12 @@
             this.ribbon.SearchEditItem,
             this.barButtonItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbon.MaxItemId = 2;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(665, 143);
+            this.ribbon.Size = new System.Drawing.Size(776, 178);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // barButtonItem1
@@ -125,16 +126,18 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 542);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 668);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(665, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(776, 37);
             // 
             // ptbimage
             // 
-            this.ptbimage.Location = new System.Drawing.Point(12, 178);
+            this.ptbimage.Location = new System.Drawing.Point(14, 219);
+            this.ptbimage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ptbimage.Name = "ptbimage";
-            this.ptbimage.Size = new System.Drawing.Size(255, 313);
+            this.ptbimage.Size = new System.Drawing.Size(297, 385);
             this.ptbimage.TabIndex = 2;
             this.ptbimage.TabStop = false;
             // 
@@ -142,9 +145,9 @@
             // 
             this.lbldetail.AutoSize = true;
             this.lbldetail.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldetail.Location = new System.Drawing.Point(304, 178);
+            this.lbldetail.Location = new System.Drawing.Point(355, 219);
             this.lbldetail.Name = "lbldetail";
-            this.lbldetail.Size = new System.Drawing.Size(58, 19);
+            this.lbldetail.Size = new System.Drawing.Size(69, 24);
             this.lbldetail.TabIndex = 3;
             this.lbldetail.Text = "Detail";
             // 
@@ -161,72 +164,80 @@
             this.layoutControl1.Controls.Add(this.txtPmdAmount);
             this.layoutControl1.Controls.Add(this.txtPmdDescript);
             this.layoutControl1.Controls.Add(this.txtPmdStatus);
-            this.layoutControl1.Location = new System.Drawing.Point(270, 231);
+            this.layoutControl1.Location = new System.Drawing.Point(315, 284);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(637, 110, 690, 504);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(381, 180);
+            this.layoutControl1.Size = new System.Drawing.Size(444, 222);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // txtPmdId
             // 
-            this.txtPmdId.Location = new System.Drawing.Point(124, 12);
+            this.txtPmdId.Location = new System.Drawing.Point(156, 14);
+            this.txtPmdId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPmdId.MenuManager = this.ribbon;
             this.txtPmdId.Name = "txtPmdId";
             this.txtPmdId.Properties.ReadOnly = true;
-            this.txtPmdId.Size = new System.Drawing.Size(245, 20);
+            this.txtPmdId.Size = new System.Drawing.Size(274, 22);
             this.txtPmdId.StyleController = this.layoutControl1;
             this.txtPmdId.TabIndex = 4;
             // 
             // txtPmdName
             // 
-            this.txtPmdName.Location = new System.Drawing.Point(124, 38);
+            this.txtPmdName.EditValue = "";
+            this.txtPmdName.Location = new System.Drawing.Point(156, 42);
+            this.txtPmdName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPmdName.MenuManager = this.ribbon;
             this.txtPmdName.Name = "txtPmdName";
             this.txtPmdName.Properties.AutoHeight = false;
             this.txtPmdName.Properties.ReadOnly = true;
-            this.txtPmdName.Size = new System.Drawing.Size(245, 20);
+            this.txtPmdName.Size = new System.Drawing.Size(274, 52);
             this.txtPmdName.StyleController = this.layoutControl1;
             this.txtPmdName.TabIndex = 5;
             // 
             // txtPmdSaleprices
             // 
-            this.txtPmdSaleprices.Location = new System.Drawing.Point(124, 68);
+            this.txtPmdSaleprices.Location = new System.Drawing.Point(156, 100);
+            this.txtPmdSaleprices.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPmdSaleprices.MenuManager = this.ribbon;
             this.txtPmdSaleprices.Name = "txtPmdSaleprices";
             this.txtPmdSaleprices.Properties.ReadOnly = true;
-            this.txtPmdSaleprices.Size = new System.Drawing.Size(245, 20);
+            this.txtPmdSaleprices.Size = new System.Drawing.Size(274, 22);
             this.txtPmdSaleprices.StyleController = this.layoutControl1;
             this.txtPmdSaleprices.TabIndex = 6;
             // 
             // txtPmdAmount
             // 
-            this.txtPmdAmount.Location = new System.Drawing.Point(124, 94);
+            this.txtPmdAmount.Location = new System.Drawing.Point(156, 128);
+            this.txtPmdAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPmdAmount.MenuManager = this.ribbon;
             this.txtPmdAmount.Name = "txtPmdAmount";
             this.txtPmdAmount.Properties.ReadOnly = true;
-            this.txtPmdAmount.Size = new System.Drawing.Size(245, 20);
+            this.txtPmdAmount.Size = new System.Drawing.Size(274, 22);
             this.txtPmdAmount.StyleController = this.layoutControl1;
             this.txtPmdAmount.TabIndex = 7;
             // 
             // txtPmdDescript
             // 
-            this.txtPmdDescript.Location = new System.Drawing.Point(124, 120);
+            this.txtPmdDescript.Location = new System.Drawing.Point(156, 156);
+            this.txtPmdDescript.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPmdDescript.MenuManager = this.ribbon;
             this.txtPmdDescript.Name = "txtPmdDescript";
             this.txtPmdDescript.Properties.ReadOnly = true;
-            this.txtPmdDescript.Size = new System.Drawing.Size(245, 20);
+            this.txtPmdDescript.Size = new System.Drawing.Size(274, 22);
             this.txtPmdDescript.StyleController = this.layoutControl1;
             this.txtPmdDescript.TabIndex = 8;
             // 
             // txtPmdStatus
             // 
-            this.txtPmdStatus.Location = new System.Drawing.Point(124, 144);
+            this.txtPmdStatus.Location = new System.Drawing.Point(156, 182);
+            this.txtPmdStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPmdStatus.MenuManager = this.ribbon;
             this.txtPmdStatus.Name = "txtPmdStatus";
             this.txtPmdStatus.Properties.ReadOnly = true;
-            this.txtPmdStatus.Size = new System.Drawing.Size(245, 20);
+            this.txtPmdStatus.Size = new System.Drawing.Size(274, 22);
             this.txtPmdStatus.StyleController = this.layoutControl1;
             this.txtPmdStatus.TabIndex = 9;
             // 
@@ -250,7 +261,7 @@
             this.simpleSeparator6,
             this.layoutControlItem6});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(381, 180);
+            this.Root.Size = new System.Drawing.Size(444, 222);
             this.Root.Text = "Layout";
             this.Root.TextVisible = false;
             // 
@@ -259,118 +270,119 @@
             this.layoutControlItem1.Control = this.txtPmdId;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(361, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(420, 26);
             this.layoutControlItem1.Text = "PMD_ID:";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(109, 16);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(139, 19);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtPmdName;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(166, 24);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 28);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(194, 30);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(361, 28);
+            this.layoutControlItem2.Size = new System.Drawing.Size(420, 56);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "PMD_Name";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(109, 16);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(139, 19);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.txtPmdSaleprices;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 56);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 86);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(361, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(420, 26);
             this.layoutControlItem3.Text = "PMD_SalePrices";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(109, 16);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(139, 19);
             // 
             // simpleSeparator3
             // 
             this.simpleSeparator3.AllowHotTrack = false;
-            this.simpleSeparator3.Location = new System.Drawing.Point(0, 80);
+            this.simpleSeparator3.Location = new System.Drawing.Point(0, 112);
             this.simpleSeparator3.Name = "simpleSeparator3";
-            this.simpleSeparator3.Size = new System.Drawing.Size(361, 2);
+            this.simpleSeparator3.Size = new System.Drawing.Size(420, 2);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.txtPmdAmount;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 82);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 114);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(361, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(420, 26);
             this.layoutControlItem4.Text = "PMD_Amount";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(109, 16);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(139, 19);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txtPmdDescript;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 108);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 142);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(361, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(420, 26);
             this.layoutControlItem5.Text = "PMD_Description";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(109, 16);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(139, 19);
             // 
             // simpleSeparator4
             // 
             this.simpleSeparator4.AllowHotTrack = false;
-            this.simpleSeparator4.Location = new System.Drawing.Point(0, 54);
+            this.simpleSeparator4.Location = new System.Drawing.Point(0, 84);
             this.simpleSeparator4.Name = "simpleSeparator4";
-            this.simpleSeparator4.Size = new System.Drawing.Size(361, 2);
+            this.simpleSeparator4.Size = new System.Drawing.Size(420, 2);
             // 
             // simpleSeparator1
             // 
             this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.Location = new System.Drawing.Point(0, 24);
+            this.simpleSeparator1.Location = new System.Drawing.Point(0, 26);
             this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(361, 2);
+            this.simpleSeparator1.Size = new System.Drawing.Size(420, 2);
             // 
             // simpleSeparator2
             // 
             this.simpleSeparator2.AllowHotTrack = false;
-            this.simpleSeparator2.Location = new System.Drawing.Point(0, 106);
+            this.simpleSeparator2.Location = new System.Drawing.Point(0, 140);
             this.simpleSeparator2.Name = "simpleSeparator2";
-            this.simpleSeparator2.Size = new System.Drawing.Size(361, 2);
+            this.simpleSeparator2.Size = new System.Drawing.Size(420, 2);
             // 
             // simpleSeparator5
             // 
             this.simpleSeparator5.AllowHotTrack = false;
-            this.simpleSeparator5.Location = new System.Drawing.Point(0, 158);
+            this.simpleSeparator5.Location = new System.Drawing.Point(0, 196);
             this.simpleSeparator5.Name = "simpleSeparator5";
-            this.simpleSeparator5.Size = new System.Drawing.Size(361, 2);
+            this.simpleSeparator5.Size = new System.Drawing.Size(420, 2);
             // 
             // simpleSeparator6
             // 
             this.simpleSeparator6.AllowHotTrack = false;
-            this.simpleSeparator6.Location = new System.Drawing.Point(0, 156);
+            this.simpleSeparator6.Location = new System.Drawing.Point(0, 194);
             this.simpleSeparator6.Name = "simpleSeparator6";
-            this.simpleSeparator6.Size = new System.Drawing.Size(361, 2);
+            this.simpleSeparator6.Size = new System.Drawing.Size(420, 2);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.txtPmdStatus;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 132);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 168);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(361, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(420, 26);
             this.layoutControlItem6.Text = "PMD_Status";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(109, 16);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(139, 19);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(305, 222);
+            this.label2.Location = new System.Drawing.Point(356, 273);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 7;
             // 
             // DetailMedicine
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 573);
+            this.ClientSize = new System.Drawing.Size(776, 705);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.lbldetail);
             this.Controls.Add(this.ptbimage);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DetailMedicine";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;

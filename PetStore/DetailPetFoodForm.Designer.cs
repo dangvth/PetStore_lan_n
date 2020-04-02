@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailPetFoodForm));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnClose = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -102,9 +102,9 @@
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
             this.btnClose.LargeWidth = 70;
             this.btnClose.Name = "btnClose";
-            toolTipItem3.Text = "Close view Pet\'s food detail";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnClose.SuperTip = superToolTip3;
+            toolTipItem1.Text = "Close view Pet\'s food detail";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnClose.SuperTip = superToolTip1;
             this.btnClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnClose_ItemClick);
             // 
             // ribbonPage1
@@ -149,6 +149,7 @@
             // 
             // lctBox
             // 
+            this.lctBox.AutoSize = true;
             this.lctBox.Controls.Add(this.te_pfStatus);
             this.lctBox.Controls.Add(this.te_Type);
             this.lctBox.Controls.Add(this.te_pfAmount);
@@ -159,13 +160,13 @@
             this.lctBox.Location = new System.Drawing.Point(466, 278);
             this.lctBox.Name = "lctBox";
             this.lctBox.Root = this.Root;
-            this.lctBox.Size = new System.Drawing.Size(457, 276);
+            this.lctBox.Size = new System.Drawing.Size(457, 312);
             this.lctBox.TabIndex = 4;
             this.lctBox.Text = "layoutControl1";
             // 
             // te_pfStatus
             // 
-            this.te_pfStatus.Location = new System.Drawing.Point(117, 216);
+            this.te_pfStatus.Location = new System.Drawing.Point(117, 260);
             this.te_pfStatus.MenuManager = this.ribbon;
             this.te_pfStatus.Name = "te_pfStatus";
             this.te_pfStatus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -177,7 +178,7 @@
             // 
             // te_Type
             // 
-            this.te_Type.Location = new System.Drawing.Point(117, 182);
+            this.te_Type.Location = new System.Drawing.Point(117, 226);
             this.te_Type.MenuManager = this.ribbon;
             this.te_Type.Name = "te_Type";
             this.te_Type.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -189,7 +190,7 @@
             // 
             // te_pfAmount
             // 
-            this.te_pfAmount.Location = new System.Drawing.Point(117, 148);
+            this.te_pfAmount.Location = new System.Drawing.Point(117, 192);
             this.te_pfAmount.MenuManager = this.ribbon;
             this.te_pfAmount.Name = "te_pfAmount";
             this.te_pfAmount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -201,7 +202,7 @@
             // 
             // te_pfPriceSale
             // 
-            this.te_pfPriceSale.Location = new System.Drawing.Point(117, 114);
+            this.te_pfPriceSale.Location = new System.Drawing.Point(117, 158);
             this.te_pfPriceSale.MenuManager = this.ribbon;
             this.te_pfPriceSale.Name = "te_pfPriceSale";
             this.te_pfPriceSale.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -213,7 +214,7 @@
             // 
             // te_pfPrice
             // 
-            this.te_pfPrice.Location = new System.Drawing.Point(117, 80);
+            this.te_pfPrice.Location = new System.Drawing.Point(117, 124);
             this.te_pfPrice.MenuManager = this.ribbon;
             this.te_pfPrice.Name = "te_pfPrice";
             this.te_pfPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -225,15 +226,17 @@
             // 
             // te_pfName
             // 
+            this.te_pfName.AllowDrop = true;
+            this.te_pfName.EditValue = "Text By Nguyen Minh Thao CE130353 SE1302";
             this.te_pfName.Location = new System.Drawing.Point(117, 46);
-            this.te_pfName.MaximumSize = new System.Drawing.Size(328, 60);
+            this.te_pfName.MaximumSize = new System.Drawing.Size(328, 80);
             this.te_pfName.MenuManager = this.ribbon;
-            this.te_pfName.MinimumSize = new System.Drawing.Size(328, 30);
+            this.te_pfName.MinimumSize = new System.Drawing.Size(328, 70);
             this.te_pfName.Name = "te_pfName";
             this.te_pfName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.te_pfName.Properties.Appearance.Options.UseFont = true;
             this.te_pfName.Properties.ReadOnly = true;
-            this.te_pfName.Size = new System.Drawing.Size(328, 30);
+            this.te_pfName.Size = new System.Drawing.Size(328, 70);
             this.te_pfName.StyleController = this.lctBox;
             this.te_pfName.TabIndex = 5;
             // 
@@ -263,7 +266,7 @@
             this.PFType,
             this.PFStatus});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(457, 276);
+            this.Root.Size = new System.Drawing.Size(457, 312);
             this.Root.TextVisible = false;
             // 
             // PFID
@@ -279,9 +282,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 238);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 282);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(437, 18);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(437, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // PFName
@@ -290,8 +293,12 @@
             this.PFName.AppearanceItemCaption.Options.UseFont = true;
             this.PFName.Control = this.te_pfName;
             this.PFName.Location = new System.Drawing.Point(0, 34);
+            this.PFName.MaxSize = new System.Drawing.Size(437, 78);
+            this.PFName.MinSize = new System.Drawing.Size(437, 78);
             this.PFName.Name = "PFName";
-            this.PFName.Size = new System.Drawing.Size(437, 34);
+            this.PFName.OptionsCustomization.AllowDrop = DevExpress.XtraLayout.ItemDragDropMode.UseParentOptions;
+            this.PFName.Size = new System.Drawing.Size(437, 78);
+            this.PFName.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.PFName.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFPrice
@@ -299,7 +306,7 @@
             this.PFPrice.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFPrice.AppearanceItemCaption.Options.UseFont = true;
             this.PFPrice.Control = this.te_pfPrice;
-            this.PFPrice.Location = new System.Drawing.Point(0, 68);
+            this.PFPrice.Location = new System.Drawing.Point(0, 112);
             this.PFPrice.Name = "PFPrice";
             this.PFPrice.Size = new System.Drawing.Size(437, 34);
             this.PFPrice.TextSize = new System.Drawing.Size(102, 24);
@@ -309,7 +316,7 @@
             this.PFPriceSale.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFPriceSale.AppearanceItemCaption.Options.UseFont = true;
             this.PFPriceSale.Control = this.te_pfPriceSale;
-            this.PFPriceSale.Location = new System.Drawing.Point(0, 102);
+            this.PFPriceSale.Location = new System.Drawing.Point(0, 146);
             this.PFPriceSale.Name = "PFPriceSale";
             this.PFPriceSale.Size = new System.Drawing.Size(437, 34);
             this.PFPriceSale.TextSize = new System.Drawing.Size(102, 24);
@@ -319,7 +326,7 @@
             this.PFAmount.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFAmount.AppearanceItemCaption.Options.UseFont = true;
             this.PFAmount.Control = this.te_pfAmount;
-            this.PFAmount.Location = new System.Drawing.Point(0, 136);
+            this.PFAmount.Location = new System.Drawing.Point(0, 180);
             this.PFAmount.Name = "PFAmount";
             this.PFAmount.Size = new System.Drawing.Size(437, 34);
             this.PFAmount.TextSize = new System.Drawing.Size(102, 24);
@@ -329,7 +336,7 @@
             this.PFType.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFType.AppearanceItemCaption.Options.UseFont = true;
             this.PFType.Control = this.te_Type;
-            this.PFType.Location = new System.Drawing.Point(0, 170);
+            this.PFType.Location = new System.Drawing.Point(0, 214);
             this.PFType.Name = "PFType";
             this.PFType.Size = new System.Drawing.Size(437, 34);
             this.PFType.TextSize = new System.Drawing.Size(102, 24);
@@ -339,7 +346,7 @@
             this.PFStatus.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFStatus.AppearanceItemCaption.Options.UseFont = true;
             this.PFStatus.Control = this.te_pfStatus;
-            this.PFStatus.Location = new System.Drawing.Point(0, 204);
+            this.PFStatus.Location = new System.Drawing.Point(0, 248);
             this.PFStatus.Name = "PFStatus";
             this.PFStatus.Size = new System.Drawing.Size(437, 34);
             this.PFStatus.TextSize = new System.Drawing.Size(102, 24);
@@ -354,9 +361,9 @@
             this.btnChangeImage.Name = "btnChangeImage";
             this.btnChangeImage.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnChangeImage.Size = new System.Drawing.Size(40, 38);
-            toolTipItem4.Text = "Change Image of Pet\'s food";
-            superToolTip4.Items.Add(toolTipItem4);
-            this.btnChangeImage.SuperTip = superToolTip4;
+            toolTipItem2.Text = "Change Image of Pet\'s food";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.btnChangeImage.SuperTip = superToolTip2;
             this.btnChangeImage.TabIndex = 7;
             this.btnChangeImage.Click += new System.EventHandler(this.btnChangeImage_Click);
             // 
