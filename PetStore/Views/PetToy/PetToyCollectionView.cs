@@ -103,7 +103,7 @@ namespace PetStore.Views.PetToyCollectionView{
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
                 String pathImage = projectPath + "\\img\\" + toy.pt_image;
                 Image img = Image.FromFile(pathImage);
-                dts.ptbimage.Image = ptm.ResizeImage(img, 440, 440);
+                dts.ptbimage.Image = ptm.ResizeImage(img, 200, 200);
 
                 dts.ShowDialog();
             }
