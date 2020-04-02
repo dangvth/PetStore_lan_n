@@ -44,7 +44,7 @@ namespace PetStore.Views.PetToyView{
 						 
 			bbiCustomize.ItemClick += (s, e) => { dataLayoutControl1.ShowCustomizationForm(); };
        }
-
+        String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private void pt_idTextEdit_Properties_Click(object sender, EventArgs e)
         {
             PetToyModel ptm = new PetToyModel();
@@ -57,9 +57,9 @@ namespace PetStore.Views.PetToyView{
             openDialog.ShowDialog();
             if (openDialog.FileName != "" && (openDialog.FileName.EndsWith(".jpg") || openDialog.FileName.EndsWith(".png")))
             {
-                PetMedicineModel pmm = new PetMedicineModel();
-                if (openDialog.FileName.EndsWith(".jpg")) { pt_imageTextEdit.Text = pmm.getNextID() + ".jpg"; }
-                else { pt_imageTextEdit.Text = pmm.getNextID() + ".png"; }
+                PetToyModel ptm = new PetToyModel();
+                if (openDialog.FileName.EndsWith(".jpg")) { pt_imageTextEdit.Text = ptm.getNextID() + ".jpg"; }
+                else { pt_imageTextEdit.Text = ptm.getNextID() + ".png"; }
             }
             else
             {
@@ -76,6 +76,7 @@ namespace PetStore.Views.PetToyView{
             {
                 File.Delete(oldFilePath);
             }
+            File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pt_imageTextEdit.Text);
             File.Copy(oldPath, @"../../img/" + pt_imageTextEdit.Text);
             MessageBox.Show("Save Toys Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -89,6 +90,7 @@ namespace PetStore.Views.PetToyView{
             {
                 File.Delete(oldFilePath);
             }
+            File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pt_imageTextEdit.Text);
             File.Copy(oldPath, @"../../img/" + pt_imageTextEdit.Text);
             MessageBox.Show("Save Toys Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -102,6 +104,7 @@ namespace PetStore.Views.PetToyView{
             {
                 File.Delete(oldFilePath);
             }
+            File.Copy(oldPath, solutionPath + "\\PetStoreWebClient\\Assets\\images\\" + pt_imageTextEdit.Text);
             File.Copy(oldPath, @"../../img/" + pt_imageTextEdit.Text);
             MessageBox.Show("Save Toys Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

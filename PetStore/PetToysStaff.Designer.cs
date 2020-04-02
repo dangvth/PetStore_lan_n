@@ -57,6 +57,7 @@
             this.gcToys.TabIndex = 8;
             this.gcToys.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridToys});
+            this.gcToys.Load += new System.EventHandler(this.gcToys_Load);
             // 
             // petStoreDataSet2BindingSource
             // 

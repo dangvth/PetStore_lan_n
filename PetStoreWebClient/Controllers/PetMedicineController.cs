@@ -9,7 +9,7 @@ namespace PetStoreWebClient.Controllers
     public class PetMedicineController : Controller
     {
         // GET: PetMedicine
-        public ActionResult Index(int page = 1, int pageSize = 12)
+        public ActionResult Index(int page = 1, int pageSize = 4)
         {
             var productView = new ProductViewHome();
             int totalRecord = 0;

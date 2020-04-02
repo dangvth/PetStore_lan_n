@@ -150,12 +150,12 @@ namespace PetStore.Model
                 {
                     if (data.pt_amount > 0)
                     {
-                        ptList.Add(new Object.Medicine(data.pt_id, data.pt_name, Convert.ToInt32(data.pt_salePrice),
+                        ptList.Add(new Object.Toys(data.pt_id, data.pt_name, Convert.ToInt32(data.pt_salePrice),
                                                    Convert.ToInt32(data.pt_amount), data.pt_description, "Active"));
                     }
                     else
                     {
-                        ptList.Add(new Object.Food(data.pt_id, data.pt_name, Convert.ToInt32(data.pt_salePrice),
+                        ptList.Add(new Object.Toys(data.pt_id, data.pt_name, Convert.ToInt32(data.pt_salePrice),
                                                    Convert.ToInt32(data.pt_amount), data.pt_description, "Inactive"));
                     }
                 }
