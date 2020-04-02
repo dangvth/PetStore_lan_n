@@ -156,7 +156,7 @@ namespace PetStore.Model
                     }
                     else
                     {
-                        pmList.Add(new Object.Food(data.pm_id, data.pm_name, Convert.ToInt32(data.pm_salePrice),
+                        pmList.Add(new Object.Medicine(data.pm_id, data.pm_name, Convert.ToInt32(data.pm_salePrice),
                                                    Convert.ToInt32(data.pm_amount), data.pm_description, "Inactive"));
                     }
                 }
