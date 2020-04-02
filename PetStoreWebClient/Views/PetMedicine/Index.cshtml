@@ -33,11 +33,12 @@
                     <div id="mover">
                         @foreach (var item in viewPMSaleOff)
                         {
+                            var url = "/detail/pet-medicine/" + item.pm_id;
                             double disRate = (double)(100 - ((item.pm_salePrice * 100) / item.pm_prices));
                             int disPrice = (int)(item.pm_prices - item.pm_salePrice);
                             <div id="slide-1" class="slide">
                                 <div class="slider-img">
-                                    <a href="#"><img class="petmedicine-slide-image" src="~/Assets/images/@item.pm_image" alt="learn more" /></a>
+                                    <a href="@url"><img class="petmedicine-slide-image" src="~/Assets/images/@item.pm_image" alt="learn more" /></a>
                                 </div>
                                 <div class="slider-text">
                                     <h1>@item.pm_name<br><span>SALE</span></h1>
@@ -121,7 +122,9 @@
                     <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.next" title="Next page"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                     <li class="page-item"><a class="page-link" href="@url?page=@ViewBag.last" title="Last page"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
                 }
+                
             </ul>
+            
         }
         else
         {
