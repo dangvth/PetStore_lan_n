@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Staff));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnOnlineOrder = new DevExpress.XtraBars.BarButtonItem();
@@ -62,6 +62,7 @@
             this.rbpgAccount = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonTheme = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
@@ -87,10 +88,11 @@
             this.btnRestoreCmt,
             this.btnViewCmtd,
             this.btnCmtList,
-            this.ribbonGalleryBarItem1});
+            this.ribbonGalleryBarItem1,
+            this.skinRibbonGalleryBarItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 22;
+            this.ribbon.MaxItemId = 23;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpSales,
@@ -141,9 +143,9 @@
             this.btnPFood.LargeWidth = 65;
             this.btnPFood.Name = "btnPFood";
             this.btnPFood.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipItem1.Text = "Show Pet\'s food list";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnPFood.SuperTip = superToolTip1;
+            toolTipItem3.Text = "Show Pet\'s food list";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnPFood.SuperTip = superToolTip3;
             this.btnPFood.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPFood_ItemClick);
             // 
             // btnPAccessories
@@ -234,9 +236,9 @@
             this.btnCmtList.LargeWidth = 70;
             this.btnCmtList.Name = "btnCmtList";
             this.btnCmtList.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipItem2.Text = "Show comment list of user";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnCmtList.SuperTip = superToolTip2;
+            toolTipItem4.Text = "Show comment list of user";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.btnCmtList.SuperTip = superToolTip4;
             this.btnCmtList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCmtList_ItemClick);
             // 
             // ribbonGalleryBarItem1
@@ -314,9 +316,15 @@
             // 
             // ribbonTheme
             // 
-            this.ribbonTheme.ItemLinks.Add(this.ribbonGalleryBarItem1);
+            this.ribbonTheme.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
             this.ribbonTheme.Name = "ribbonTheme";
             this.ribbonTheme.Text = "Theme";
+            // 
+            // skinRibbonGalleryBarItem1
+            // 
+            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
+            this.skinRibbonGalleryBarItem1.Id = 22;
+            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
             // Staff
             // 
@@ -369,5 +377,6 @@
         private DevExpress.XtraBars.BarButtonItem btnCmtList;
         private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonTheme;
+        private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
     }
 }

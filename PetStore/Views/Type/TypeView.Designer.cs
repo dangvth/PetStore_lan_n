@@ -113,6 +113,10 @@
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.PetsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.PetFoodsPopUpMenu = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.colorg_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colorg_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colorg_status = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTypes = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.t_idTextEdit.Properties)).BeginInit();
@@ -352,6 +356,11 @@
             // 
             // OriginLookUpEditView
             // 
+            this.OriginLookUpEditView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colorg_id,
+            this.colorg_name,
+            this.colorg_status,
+            this.colTypes});
             this.OriginLookUpEditView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.OriginLookUpEditView.Name = "OriginLookUpEditView";
             this.OriginLookUpEditView.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -1026,6 +1035,40 @@
             this.PetFoodsPopUpMenu.Manager = this.PetFoodsBarManager;
             this.PetFoodsPopUpMenu.Name = "PetFoodsPopUpMenu";
             // 
+            // colorg_id
+            // 
+            this.colorg_id.FieldName = "org_id";
+            this.colorg_id.MinWidth = 25;
+            this.colorg_id.Name = "colorg_id";
+            this.colorg_id.Visible = true;
+            this.colorg_id.VisibleIndex = 0;
+            this.colorg_id.Width = 94;
+            // 
+            // colorg_name
+            // 
+            this.colorg_name.FieldName = "org_name";
+            this.colorg_name.MinWidth = 25;
+            this.colorg_name.Name = "colorg_name";
+            this.colorg_name.Visible = true;
+            this.colorg_name.VisibleIndex = 1;
+            this.colorg_name.Width = 94;
+            // 
+            // colorg_status
+            // 
+            this.colorg_status.FieldName = "org_status";
+            this.colorg_status.MinWidth = 25;
+            this.colorg_status.Name = "colorg_status";
+            this.colorg_status.Visible = true;
+            this.colorg_status.VisibleIndex = 2;
+            this.colorg_status.Width = 94;
+            // 
+            // colTypes
+            // 
+            this.colTypes.FieldName = "Types";
+            this.colTypes.MinWidth = 25;
+            this.colTypes.Name = "colTypes";
+            this.colTypes.Width = 94;
+            // 
             // TypeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1165,5 +1208,9 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForPetFoods;
         private DevExpress.XtraLayout.LayoutControlItem ItemFororg_id;
         private DevExpress.XtraEditors.ComboBoxEdit t_statusTextEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn colorg_id;
+        private DevExpress.XtraGrid.Columns.GridColumn colorg_name;
+        private DevExpress.XtraGrid.Columns.GridColumn colorg_status;
+        private DevExpress.XtraGrid.Columns.GridColumn colTypes;
     }
 }
