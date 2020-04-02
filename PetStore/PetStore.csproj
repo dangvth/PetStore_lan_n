@@ -710,6 +710,12 @@
     <EmbeddedResource Include="Views\Account\AccountView.resx">
       <DependentUpon>AccountView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\BillDetail\BillDetailCollectionView.resx">
+      <DependentUpon>BillDetailCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Bill\BillCollectionView.resx">
+      <DependentUpon>BillCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CommentDetail\CommentDetailCollectionView.resx">
       <DependentUpon>CommentDetailCollectionView.cs</DependentUpon>
     </EmbeddedResource>
