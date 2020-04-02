@@ -13,7 +13,7 @@ namespace PetStoreWebClient.Controllers
     public class UsersController : Controller
     {
         private PetStoreOnlineDbContext db = new PetStoreOnlineDbContext();
-
+        private const String userLogin = "userLogin";
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
@@ -55,13 +55,14 @@ namespace PetStoreWebClient.Controllers
         }
 
         // GET: Users/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit()
         {
-            if (id == null)
+            var sessLogin = (User) Session[userLogin];
+            if (sessLogin == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.User.Find(id);
+            User user = db.User.Find(sessLogin.u_id);
             if (user == null)
             {
                 return HttpNotFound();

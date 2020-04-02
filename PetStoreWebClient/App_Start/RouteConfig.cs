@@ -136,6 +136,12 @@ namespace PetStoreWebClient
             );
 
             routes.MapRoute(
+                name: "Edit profile",
+                url: "edit-profile",
+                defaults: new { controller = "Users", action = "Edit", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Home",
                 url: "home",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

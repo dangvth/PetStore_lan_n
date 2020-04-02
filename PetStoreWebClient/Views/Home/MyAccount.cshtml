@@ -1,4 +1,5 @@
-﻿
+﻿@model PetStoreWebClient.EF.User
+
 @{
     ViewBag.Title = "MyAccount";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,11 +9,69 @@
     <div class="section group">
         <div class="cont-desc span_1_of_2">
            <h2>My Profile</h2> <!--Design form here-->
+            <div class="container">
+                <div class="row my-2">
+                    <div class="col-lg-8 order-lg-2">
+                        
+                        <div class="tab-content py-4">
+                            <div class="tab-pane active" id="profile">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fullname:</font></font></label>
+                                            <div class="col-lg-9">
+                                                <label class="col-lg-12 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.u_name</font></font></label>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gender:</font></font></label>
+                                            <div class="col-lg-9">
+                                                <label class="col-lg-12 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.u_gender</font></font></label>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Email:</font></font></label>
+                                            <div class="col-lg-9">
+                                                <label class="col-lg-12 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.u_email</font></font></label>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phone number:</font></font></label>
+                                            <div class="col-lg-9">
+                                                <label class="col-lg-12 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.u_phone</font></font></label>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Address:</font></font></label>
+                                            <div class="col-lg-9">
+                                                <label class="col-lg-12 col-form-label form-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.u_address</font></font></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/row-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 order-lg-1 text-center">
+                        <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                        @*<h6 class="mt-2">Upload a different photo</h6>
+                    <label class="custom-file">
+                        <input type="file" id="file" class="custom-file-input">
+                        <span class="custom-file-control">Choose file</span>
+                    </label>*@
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="rightsidebar span_3_of_1">
             <h2>My Account</h2>
             <ul class="side-w3ls">
-                <li><a href="#">Change profile</a></li>
+                <li><a href="/edit-profile">Change profile</a></li>
                 <li>@Html.ActionLink("Change password", "ChangePassword", "Accounts")</li>
             </ul>
             <br />

@@ -51,7 +51,8 @@ namespace PetStoreWebClient.Controllers
 
         public ActionResult MyAccount()
         {
-            return View();
+            var sessLogin = Session[userLogin];
+            return View(sessLogin);
         }
 
         public ActionResult Manual()
