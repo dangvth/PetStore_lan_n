@@ -26,12 +26,20 @@ namespace PetStore
             username = user;
         }
 
+        /// <summary>
+        /// Initialize Admin Form
+        /// </summary>
         public frmAdmin()
         {
             InitializeComponent();
             SenderAD = new sendDataAD(getUserName);           
         }
 
+        /// <summary>
+        /// Open ChangePassword form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(username);
@@ -47,6 +55,11 @@ namespace PetStore
             this.Dispose();
         }
 
+        /// <summary>
+        /// Exit app when click closing form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();

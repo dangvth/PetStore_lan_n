@@ -25,6 +25,9 @@ namespace PetStore
         public sendData SenderUser;
         int id = -1;
 
+        /// <summary>
+        /// Initialize Change Password class 
+        /// </summary>
         public ChangePassword()
         {
             InitializeComponent();
@@ -69,8 +72,7 @@ namespace PetStore
             id = am.getIDByUsername(username);
 
             //check old Password of account
-            //if true, continue processing
-            //if not, send error message
+            //If true, continue processing. If not, send error message
             if (am.isOldPassword(id, txtOldPassword.Text))
             {
                 //new password and re-new password

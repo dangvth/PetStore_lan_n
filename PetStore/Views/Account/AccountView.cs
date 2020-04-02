@@ -13,6 +13,7 @@ namespace PetStore.Views.AccountView{
         //declare variables
         Model.AccountModel am = new Model.AccountModel();
 
+        #region Init Component and Bindings source
         public AccountView() {
             InitializeComponent();
             timer1.Start();
@@ -31,10 +32,10 @@ namespace PetStore.Views.AccountView{
                     args => args.Row as PetStore.User,
                     (gView, entity) => gView.FocusedRowHandle = gView.FindRow(entity));
 						// We want to proceed the Edit command when row double-clicked
-			fluentAPI.WithEvent<RowClickEventArgs>(UsersGridView, "RowClick")
-						.EventToCommand(
-						    x => x.AccountUsersDetails.Edit(null), x => x.AccountUsersDetails.SelectedEntity,
-						    args => (args.Clicks == 2) && (args.Button == System.Windows.Forms.MouseButtons.Left));
+			//fluentAPI.WithEvent<RowClickEventArgs>(UsersGridView, "RowClick")
+			//			.EventToCommand(
+			//			    x => x.AccountUsersDetails.Edit(null), x => x.AccountUsersDetails.SelectedEntity,
+			//			    args => (args.Clicks == 2) && (args.Button == System.Windows.Forms.MouseButtons.Left));
 						//We want to show PopupMenu when row clicked by right button
 			UsersGridView.RowClick += (s, e) => {
                 if(e.Clicks == 1 && e.Button == System.Windows.Forms.MouseButtons.Right) {
@@ -54,7 +55,13 @@ namespace PetStore.Views.AccountView{
 			 
 			bbiCustomize.ItemClick += (s, e) => { dataLayoutControl1.ShowCustomizationForm(); };
        }
+        #endregion
 
+        /// <summary>
+        /// set read only properties for timer 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (!txtAc_userName.Text.Equals(""))
@@ -67,6 +74,11 @@ namespace PetStore.Views.AccountView{
             }
         }
 
+        /// <summary>
+        /// set text for textbox username when text changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAc_userName_TextChanged(object sender, EventArgs e)
         {
             if (!txtAc_userName.Text.Equals(""))
@@ -78,11 +90,21 @@ namespace PetStore.Views.AccountView{
             }
         }
 
+        /// <summary>
+        /// set encryption password and save account
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             txtAc_pwd.Text = MyUtil.Encryptor.SHA256_Encrypt("user@123");
         }
 
+        /// <summary>
+        /// Check textbox username is empty or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAc_userName_Leave(object sender, EventArgs e)
         {
             if (am.checkConcideUsername(txtAc_userName.Text))
@@ -92,11 +114,21 @@ namespace PetStore.Views.AccountView{
             }
         }
 
+        /// <summary>
+        /// set encryption password then save account and close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             txtAc_pwd.Text = MyUtil.Encryptor.SHA256_Encrypt("user@123");
         }
 
+        /// <summary>
+        /// set encryption password then save account and create a new form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             txtAc_pwd.Text = MyUtil.Encryptor.SHA256_Encrypt("user@123");

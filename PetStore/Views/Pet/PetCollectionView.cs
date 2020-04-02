@@ -61,6 +61,11 @@ namespace PetStore.Views.PetCollectionView{
         }
         #endregion
 
+        /// <summary>
+        /// open and set data for Edit Pet Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTestEdit_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (petID != "")
@@ -84,21 +89,27 @@ namespace PetStore.Views.PetCollectionView{
             }
         }
 
+        /// <summary>
+        /// Show Pet detail
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDetail_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (petID != "")
+            if (petID != "")    //check user is select pet
             {
                 DetailPetForm dtPet = new DetailPetForm();
                 PetModel pm = new PetModel();
-
                 Pet p = pm.getPet(petID);
 
+                //set pet data for textbox on PetDetail Form
                 dtPet.txt_pID.Text = p.p_id;
                 dtPet.txt_pName.Text = p.p_name;
                 dtPet.txt_pOriginPrice.Text = p.p_prices.ToString();
                 dtPet.txt_pPriceSale.Text = p.p_salePrice.ToString();
                 dtPet.txt_Type.Text = "";
 
+                //Set color for pet status
                 if (p.p_status == "Active") { dtPet.txt_pStatus.ForeColor = Color.Green; }
                 else { dtPet.txt_pStatus.ForeColor = Color.Red; }
 
@@ -106,11 +117,13 @@ namespace PetStore.Views.PetCollectionView{
                 dtPet.txt_pOriginPrice.Enabled = true;
                 dtPet.lblTitle.Text = p.p_name;
 
+                //get image path, resize and display image to pictureBox
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
                 String pathImage = projectPath + "\\img\\" + p.p_image;
                 Image img = Image.FromFile(pathImage);
                 dtPet.ptbImage.Image = pm.ResizeImage(img, 440, 440);
 
+                //Show PetDetail Form
                 dtPet.ShowDialog();
             }
             else
@@ -119,38 +132,57 @@ namespace PetStore.Views.PetCollectionView{
             }
         }
 
+        /// <summary>
+        /// Delete Pet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (petID != null)
+            if (petID != null)  //check user is select pet
             {
+                //delete pet
                 PetModel pm = new PetModel();
                 pm.InactivePet(petID);
+                //notify for user
                 XtraMessageBox.Show("Delete successful!!!", "Pet Shop", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
-            else
+            else    //if user is not selete pet then send error message
             {
                 XtraMessageBox.Show("Please select a Pet item to delete!!!", "Pet Shop", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
         }
 
+        /// <summary>
+        /// Restore Pet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiRestore_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (petID != null)
+            if (petID != null) //check user is select pet
             {
+                //restore pet
                 PetModel pm = new PetModel();
                 pm.RestorePet(petID);
+                //send notify message for user
                 XtraMessageBox.Show("Restore successful!!!", "Pet Shop", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
-            else
+            else    //if user is not selete pet then send error message
             {
                 XtraMessageBox.Show("Please select a Pet item to restore!!!", "Pet Shop", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
         }
 
+        /// <summary>
+        /// Get id when click on data row in gridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridViewPet_RowClick(object sender, RowClickEventArgs e)
         {
             petID = gridViewPet.GetFocusedRowCellValue("p_id").ToString();

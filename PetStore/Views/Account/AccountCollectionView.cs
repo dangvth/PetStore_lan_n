@@ -50,10 +50,11 @@ namespace PetStore.Views.AccountCollectionView{
             };
         }
 
-        private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
-        {
-        }
-
+        /// <summary>
+        /// Event click on button Delete Account
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBan_DeleteAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
             am.Ban_DeleteAccount(RowID);
@@ -61,12 +62,22 @@ namespace PetStore.Views.AccountCollectionView{
                 MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// Event click on data row on gridViewAccount
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridViewAccount_RowClick(object sender, RowClickEventArgs e)
         {
             RowID = Convert.ToInt32(gridViewAccount.GetFocusedRowCellValue("ac_id"));
             MessageBox.Show(RowID.ToString());
         }
 
+        /// <summary>
+        /// Event click on button Restore
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiRestore_ItemClick(object sender, ItemClickEventArgs e)
         {
             am.RestoreAccount(RowID);
@@ -74,6 +85,11 @@ namespace PetStore.Views.AccountCollectionView{
                 MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// Event click on Reset password
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnResetPwd_ItemClick(object sender, ItemClickEventArgs e)
         {
             am.ResetPassword(RowID);

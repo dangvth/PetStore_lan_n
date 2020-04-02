@@ -20,11 +20,17 @@ namespace PetStore
         List<PetStore.Type> tList = new List<Type>();
         string Status = "";
 
+        /// <summary>
+        /// Initialize EditPet Class
+        /// </summary>
         public EditPet()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Load ComboBox by TypeList
+        /// </summary>
         public void loadComboBox()
         {
             tList = tm.getAllType();
@@ -32,6 +38,11 @@ namespace PetStore
             cbx_Type.Properties.DisplayMember = "t_name";
         }
 
+        /// <summary>
+        /// Edit Pet and close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (te_PName.Text != "" && te_POriginPrice.Text != "" && te_PSalePrice.Text != ""
@@ -39,11 +50,15 @@ namespace PetStore
             {
                 PetModel pm = new PetModel();
                 TypeModel tm = new TypeModel();
+                //get pet status
                 int pStatus = tm.getIDByTName(Status);
                 String image = "";
+                //get name of image file already in database
                 String oldImageName = pm.getPet(te_PID.Text).p_image;
+                //Check Image is empty or not
                 if (te_PImage.Text != "")
                 {
+                    //set name image file is Pet's ID appends .jpg or .png
                     if (openDialog.FileName.EndsWith(".jpg")) { image = te_PID.Text + ".jpg"; }
                     else { image = te_PID.Text + ".png"; }
 
@@ -93,6 +108,11 @@ namespace PetStore
             }
         }
 
+        /// <summary>
+        /// Reset data on textbox 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReset_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var db = new PetStoreEntities();
@@ -120,12 +140,22 @@ namespace PetStore
             Status = cbx_Type.Text;
         }
 
+        /// <summary>
+        /// Open dialog and allow user choose image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void te_PImage_Click(object sender, EventArgs e)
         {
+            //The Filter in open dialog will only accept file .jpg and .png
             openDialog.Filter = "Image files (*.jpg)|*.jpg|Image files (*.png)|*.png|All files (*.*)|*.*";
             openDialog.ShowDialog();
+
+            //if file choosen is not empy and is image file 
+            //then set image name for image file
             if (openDialog.FileName != "" && (openDialog.FileName.EndsWith(".jpg") || openDialog.FileName.EndsWith(".png")))
             {
+                //Set file choosen to textbox
                 te_PImage.Text = openDialog.FileName;
             }
             else

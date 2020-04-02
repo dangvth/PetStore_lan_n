@@ -29,9 +29,11 @@ namespace PetStore
             username = user;
         }
 
+        /// <summary>
+        /// Initialize Staff Form
+        /// </summary>
         public Staff()
         {
-            
             InitializeComponent();
             SenderStaffUser = new sendDataStaff(getUserName);
         }
@@ -83,6 +85,11 @@ namespace PetStore
             ps.Show();
         }
 
+        /// <summary>
+        /// Change password
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnResetPassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //MessageBox.Show(username + "\n" + password);
