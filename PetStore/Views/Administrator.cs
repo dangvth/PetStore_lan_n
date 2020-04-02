@@ -44,7 +44,12 @@ namespace PetStore
         {            
             Login lg = new Login();
             lg.Show();
-            this.Close();
+            this.Dispose();
+        }
+
+        private void frmAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

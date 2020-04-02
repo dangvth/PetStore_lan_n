@@ -50,6 +50,7 @@
             this.btnRestoreCmt = new DevExpress.XtraBars.BarButtonItem();
             this.btnViewCmtd = new DevExpress.XtraBars.BarButtonItem();
             this.btnCmtList = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.rbpSales = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpgBillSale = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpProduct = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -59,9 +60,8 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpgAccount = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ribbonTheme = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
@@ -239,6 +239,12 @@
             this.btnCmtList.SuperTip = superToolTip2;
             this.btnCmtList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCmtList_ItemClick);
             // 
+            // ribbonGalleryBarItem1
+            // 
+            this.ribbonGalleryBarItem1.Caption = "ribbonGalleryBarItem1";
+            this.ribbonGalleryBarItem1.Id = 21;
+            this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
+            // 
             // rbpSales
             // 
             this.rbpSales.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -312,12 +318,6 @@
             this.ribbonTheme.Name = "ribbonTheme";
             this.ribbonTheme.Text = "Theme";
             // 
-            // ribbonGalleryBarItem1
-            // 
-            this.ribbonGalleryBarItem1.Caption = "ribbonGalleryBarItem1";
-            this.ribbonGalleryBarItem1.Id = 21;
-            this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
-            // 
             // Staff
             // 
             this.Appearance.Options.UseFont = true;
@@ -332,6 +332,7 @@
             this.Name = "Staff";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Staff";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Staff_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);

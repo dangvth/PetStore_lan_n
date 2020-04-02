@@ -58,5 +58,10 @@ namespace PetStoreWebClient.Controllers
         {
             return View();
         }
+
+        public ActionResult RegisterGuide()
+        {
+            return View();
+        }
     }
 }

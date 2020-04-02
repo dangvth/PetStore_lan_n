@@ -95,7 +95,7 @@ namespace PetStore
         {
             Login lg = new Login();
             lg.Show();
-            this.Close();
+            this.Dispose();
         }
 
         private void btnPMed_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -114,6 +114,11 @@ namespace PetStore
             pms.MdiParent = this;
             pms.Dock = DockStyle.Fill;
             pms.Show();
+        }
+
+        private void Staff_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
