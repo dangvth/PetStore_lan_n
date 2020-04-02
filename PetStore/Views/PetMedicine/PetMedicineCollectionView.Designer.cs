@@ -1,4 +1,6 @@
-﻿namespace PetStore.Views.PetMedicineCollectionView {
+﻿
+
+namespace PetStore.Views.PetMedicineCollectionView {
     partial class PetMedicineCollectionView {
         /// <summary> 
         /// Required designer variable.
@@ -53,7 +55,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
+            //this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             ((System.ComponentModel.ISupportInitialize)(this.W)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petMedicineCollectionViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -61,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // W
@@ -328,22 +330,10 @@
             this.popupMenu.Name = "popupMenu";
             this.popupMenu.Ribbon = this.ribbonControl;
             // 
-            // searchControl1
-            // 
-            this.searchControl1.Location = new System.Drawing.Point(0, 0);
-            this.searchControl1.MenuManager = this.ribbonControl;
-            this.searchControl1.Name = "searchControl1";
-            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Repository.ClearButton(),
-            new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.searchControl1.Size = new System.Drawing.Size(100, 20);
-            this.searchControl1.TabIndex = 4;
-            // 
             // PetMedicineCollectionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.searchControl1);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.W);
             this.Controls.Add(this.ribbonControl);
@@ -356,7 +346,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,6 +382,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiRestore;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private DevExpress.XtraBars.BarButtonItem btndetail;
-        private SearchControl searchControl1;
+        //private SearchControl searchControl1;
     }
 }

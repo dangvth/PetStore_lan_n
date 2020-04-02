@@ -131,16 +131,19 @@ namespace PetStore.Views.PetView
         private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String image = "";
+            String fromPath = openDialog.FileName;
             String oldPath = openDialog.FileName;
             if (!string.IsNullOrEmpty(p_imageTextEdit.Text))
             {
                 PetModel pm = new PetModel();
                 //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
                 //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
-                
                 //Get solution App path
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
+                //Get current application direction
+                Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+                
                 //get image path
                 String newFilePath = Path.GetFullPath(projectPath + "\\img\\" + p_imageTextEdit.Text);
                 //get solution Web path
@@ -151,7 +154,7 @@ namespace PetStore.Views.PetView
                 {
                     //File.Delete(newFilePath);
                     //Copy file to image folder on Apps 
-                    File.Copy(oldPath, newFilePath);
+                    File.Copy(oldPath, @"../../img/" + p_imageTextEdit.Text);
                     //copy file to image folder on Web
                     File.Copy(oldPath, solutionWebPath + "\\PetStoreWebClient\\Assets\\images\\" + p_imageTextEdit.Text);
                 }
@@ -168,6 +171,7 @@ namespace PetStore.Views.PetView
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String image = "";
+            String fromPath = openDialog.FileName;
             String oldPath = openDialog.FileName;
             if (!string.IsNullOrEmpty(p_imageTextEdit.Text))
             {
@@ -177,17 +181,18 @@ namespace PetStore.Views.PetView
                 //Get solution App path
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
 
+                Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
                 //get image path
                 String newFilePath = Path.GetFullPath(projectPath + "\\img\\" + p_imageTextEdit.Text);
                 //get solution Web path
                 String solutionWebPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-               
+
                 FileInfo fi = new FileInfo(newFilePath);
                 if (!fi.Exists)
                 {
                     //File.Delete(newFilePath);
                     //Copy file to image folder on Apps 
-                    File.Copy(oldPath, newFilePath);
+                    File.Copy(oldPath, @"../../img/" + p_imageTextEdit.Text);
                     //copy file to image folder on Web
                     File.Copy(oldPath, solutionWebPath + "\\PetStoreWebClient\\Assets\\images\\" + p_imageTextEdit.Text);
                 }
@@ -204,15 +209,18 @@ namespace PetStore.Views.PetView
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String image = "";
+            String fromPath = openDialog.FileName;
             String oldPath = openDialog.FileName;
             if (!string.IsNullOrEmpty(p_imageTextEdit.Text))
             {
                 PetModel pm = new PetModel();
                 //if (openDialog.FileName.EndsWith(".jpg")) { p_imageTextEdit.Text = pm.SetPetID() + ".jpg"; }
                 //else { p_imageTextEdit.Text = pm.SetPetID() + ".png"; }
-                
                 //Get solution App path
                 String projectPath = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\.."));
+
+                //Get current application direction
+                Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
                 //get image path
                 String newFilePath = Path.GetFullPath(projectPath + "\\img\\" + p_imageTextEdit.Text);
@@ -224,7 +232,7 @@ namespace PetStore.Views.PetView
                 {
                     //File.Delete(newFilePath);
                     //Copy file to image folder on Apps 
-                    File.Copy(oldPath, newFilePath);
+                    File.Copy(oldPath, @"../../img/" + p_imageTextEdit.Text);
                     //copy file to image folder on Web
                     File.Copy(oldPath, solutionWebPath + "\\PetStoreWebClient\\Assets\\images\\" + p_imageTextEdit.Text);
                 }
