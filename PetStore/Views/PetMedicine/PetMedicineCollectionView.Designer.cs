@@ -1,6 +1,4 @@
-﻿
-
-namespace PetStore.Views.PetMedicineCollectionView {
+﻿namespace PetStore.Views.PetMedicineCollectionView {
     partial class PetMedicineCollectionView {
         /// <summary> 
         /// Required designer variable.
@@ -55,7 +53,7 @@ namespace PetStore.Views.PetMedicineCollectionView {
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            //this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
+           
             ((System.ComponentModel.ISupportInitialize)(this.W)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petMedicineCollectionViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -63,7 +61,7 @@ namespace PetStore.Views.PetMedicineCollectionView {
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
+           
             this.SuspendLayout();
             // 
             // W
@@ -330,10 +328,12 @@ namespace PetStore.Views.PetMedicineCollectionView {
             this.popupMenu.Name = "popupMenu";
             this.popupMenu.Ribbon = this.ribbonControl;
             // 
+          
             // PetMedicineCollectionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.W);
             this.Controls.Add(this.ribbonControl);
@@ -346,6 +346,7 @@ namespace PetStore.Views.PetMedicineCollectionView {
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,6 +383,6 @@ namespace PetStore.Views.PetMedicineCollectionView {
         private DevExpress.XtraBars.BarButtonItem bbiRestore;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private DevExpress.XtraBars.BarButtonItem btndetail;
-        //private SearchControl searchControl1;
+        
     }
 }

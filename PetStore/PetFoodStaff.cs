@@ -42,12 +42,14 @@ namespace PetStore
                 DetailPetFoodForm vdf = new DetailPetFoodForm();
                 PetFoodModel pfm = new PetFoodModel();
                 PetFood f = pfm.getPetFood(IDSelected);
+                var Db = new PetStoreEntities();
+                var typeFood = Db.Types.Find(f.t_id);
                 //set data to detail form
                 vdf.te_pfID.Text = f.pf_id;
                 vdf.te_pfName.Text = f.pf_name;
                 vdf.te_pfPriceSale.Text = f.pf_salePrice.ToString();
                 vdf.te_pfAmount.Text = f.pf_amount.ToString();
-                vdf.te_Type.Text = "Pet's Food";
+                vdf.te_Type.Text = typeFood.t_name;
                 if (f.pf_status == "Active") { vdf.te_pfStatus.ForeColor = Color.Green; }
                 else { vdf.te_pfStatus.ForeColor = Color.Red; }
                 vdf.te_pfStatus.Text = f.pf_status;
