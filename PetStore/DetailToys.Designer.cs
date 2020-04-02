@@ -128,7 +128,7 @@
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2});
-            this.ribbonControl1.Size = new System.Drawing.Size(626, 141);
+            this.ribbonControl1.Size = new System.Drawing.Size(626, 143);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // btnclose
@@ -138,6 +138,7 @@
             this.btnclose.ImageOptions.Image = global::PetStore.Properties.Resources.tải_xuống__8_;
             this.btnclose.Name = "btnclose";
             this.btnclose.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnclose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnclose_ItemClick);
             // 
             // ribbonPage2
             // 
@@ -155,10 +156,10 @@
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 464);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 460);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(626, 27);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(626, 31);
             // 
             // txtToysName
             // 
@@ -304,6 +305,8 @@
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "DetailToys";
+            this.Ribbon = this.ribbonControl1;
+            this.StatusBar = this.ribbonStatusBar1;
             this.Text = "DetailToys";
             ((System.ComponentModel.ISupportInitialize)(this.ptbimage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
