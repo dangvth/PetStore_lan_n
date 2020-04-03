@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Staff));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnOnlineOrder = new DevExpress.XtraBars.BarButtonItem();
@@ -51,6 +51,7 @@
             this.btnViewCmtd = new DevExpress.XtraBars.BarButtonItem();
             this.btnCmtList = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
+            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.rbpSales = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpgBillSale = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpProduct = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -62,7 +63,6 @@
             this.rbpgAccount = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonTheme = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +99,7 @@
             this.rbpProduct,
             this.rbpComment,
             this.rbSystem});
-            this.ribbon.Size = new System.Drawing.Size(1125, 176);
+            this.ribbon.Size = new System.Drawing.Size(1125, 141);
             // 
             // barButtonItem1
             // 
@@ -116,6 +116,7 @@
             this.btnOnlineOrder.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnOnlineOrder.ImageOptions.LargeImage")));
             this.btnOnlineOrder.LargeWidth = 75;
             this.btnOnlineOrder.Name = "btnOnlineOrder";
+            this.btnOnlineOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOnlineOrder_ItemClick);
             // 
             // btnSellProduct
             // 
@@ -143,9 +144,9 @@
             this.btnPFood.LargeWidth = 65;
             this.btnPFood.Name = "btnPFood";
             this.btnPFood.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipItem3.Text = "Show Pet\'s food list";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnPFood.SuperTip = superToolTip3;
+            toolTipItem1.Text = "Show Pet\'s food list";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnPFood.SuperTip = superToolTip1;
             this.btnPFood.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPFood_ItemClick);
             // 
             // btnPAccessories
@@ -236,9 +237,9 @@
             this.btnCmtList.LargeWidth = 70;
             this.btnCmtList.Name = "btnCmtList";
             this.btnCmtList.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipItem4.Text = "Show comment list of user";
-            superToolTip4.Items.Add(toolTipItem4);
-            this.btnCmtList.SuperTip = superToolTip4;
+            toolTipItem2.Text = "Show comment list of user";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.btnCmtList.SuperTip = superToolTip2;
             this.btnCmtList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCmtList_ItemClick);
             // 
             // ribbonGalleryBarItem1
@@ -246,6 +247,12 @@
             this.ribbonGalleryBarItem1.Caption = "ribbonGalleryBarItem1";
             this.ribbonGalleryBarItem1.Id = 21;
             this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
+            // 
+            // skinRibbonGalleryBarItem1
+            // 
+            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
+            this.skinRibbonGalleryBarItem1.Id = 22;
+            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
             // rbpSales
             // 
@@ -320,16 +327,10 @@
             this.ribbonTheme.Name = "ribbonTheme";
             this.ribbonTheme.Text = "Theme";
             // 
-            // skinRibbonGalleryBarItem1
-            // 
-            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
-            this.skinRibbonGalleryBarItem1.Id = 22;
-            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
-            // 
             // Staff
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 756);
             this.Controls.Add(this.ribbon);

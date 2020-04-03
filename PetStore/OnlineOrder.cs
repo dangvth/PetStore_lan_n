@@ -52,12 +52,14 @@ namespace PetStore
             if (selectedID != -1)
             {
                 Bill bill;
-                
+                SelectGift sg = new SelectGift();
+                sg.ShowDialog(this);
                 UserModel um = new UserModel();
                 using (var db = new PetStoreEntities())
                 {
                     var u = db.Bills.Find(selectedID);
                     bill = u;
+                    u.g_id = sg.cbbGift.SelectedValue.ToString();
                     u.b_status = "Acitve";
                     db.SaveChanges();
                 }
@@ -124,8 +126,7 @@ namespace PetStore
                 report.Parameters["pDate"].Value = bill.b_purchaseDate;
                 report.Parameters["pTotal"].Value = bill.b_total;
                 report.Parameters["pID"].Value = bill.b_id;
-                SelectGift sg = new SelectGift();
-                sg.ShowDialog(this);
+                
                 report.Parameters["pGift"].Value = sg.cbbGift.Text;
                 report.GridControl = gc;
                 ReportPrintTool printTool = new ReportPrintTool(report);

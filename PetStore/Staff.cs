@@ -127,5 +127,14 @@ namespace PetStore
         {
             Application.Exit();
         }
+
+        private void btnOnlineOrder_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            resetFormChildren();
+            OnlineOrder oo = new OnlineOrder();
+            oo.MdiParent = this;
+            oo.Dock = DockStyle.Fill;
+            oo.Show();
+        }
     }
 }
