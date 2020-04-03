@@ -70,7 +70,7 @@ namespace PetStore
         private void btnSellProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             resetFormChildren();
-            rbbSell sp = new rbbSell();
+            rbbSell sp = new rbbSell(username);
             sp.MdiParent = this;
             sp.Dock = DockStyle.Fill;
             sp.Show();
