@@ -98,6 +98,13 @@ namespace PetStore.Views.PetFoodCollectionView{
                 var db = new PetStoreEntities();
                 var pf = db.PetFoods.Find(pfIDSelected);
                 var type = db.Types.Find(pf.t_id);
+                List<PetStore.Type> typeList = db.Types.ToList();
+                foreach (var item in typeList)
+                {
+                    epf.te_Type.Properties.Items.Add(item.t_name);
+                }
+                epf.te_Type.SelectedItem = type.t_name;
+                
                 //set data of item edit to Edit form
                 epf.te_FoodID.Text = pf.pf_id;
                 epf.te_FoodName.Text = pf.pf_name;
@@ -105,7 +112,9 @@ namespace PetStore.Views.PetFoodCollectionView{
                 epf.te_FoodSalePrice.Text = pf.pf_salePrice + "";
                 epf.te_FoodStatus.SelectedItem = pf.pf_status;
                 epf.te_FoodAmount.Text = pf.pf_amount + "";
-                epf.te_Type.Text = type.t_name;
+
+
+                //epf.te_Type.Text = type.t_name;
                 //show Edit form
                 epf.ShowDialog();
             }

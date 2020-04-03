@@ -383,6 +383,5 @@
         private DevExpress.XtraBars.BarButtonItem bbiRestore;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private DevExpress.XtraBars.BarButtonItem btndetail;
-        
     }
 }

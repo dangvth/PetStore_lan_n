@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditPetFood));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnSaveEdit = new DevExpress.XtraBars.BarButtonItem();
             this.btnReset = new DevExpress.XtraBars.BarButtonItem();
@@ -42,7 +42,6 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.te_Type = new DevExpress.XtraEditors.TextEdit();
             this.te_FoodAmount = new DevExpress.XtraEditors.TextEdit();
             this.te_FoodSalePrice = new DevExpress.XtraEditors.TextEdit();
             this.te_FoodPrice = new DevExpress.XtraEditors.TextEdit();
@@ -50,6 +49,7 @@
             this.te_FoodID = new DevExpress.XtraEditors.TextEdit();
             this.te_FoodStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             this.te_FoodImage = new DevExpress.XtraEditors.ButtonEdit();
+            this.te_Type = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -64,7 +64,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.te_Type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodSalePrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodPrice.Properties)).BeginInit();
@@ -72,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodImage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_Type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -109,9 +109,9 @@
             this.btnSaveEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSaveEdit.ImageOptions.LargeImage")));
             this.btnSaveEdit.LargeWidth = 60;
             this.btnSaveEdit.Name = "btnSaveEdit";
-            toolTipItem3.Text = "Accept change Pet\'s food in selected";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnSaveEdit.SuperTip = superToolTip3;
+            toolTipItem1.Text = "Accept change Pet\'s food in selected";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnSaveEdit.SuperTip = superToolTip1;
             this.btnSaveEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSaveEdit_ItemClick);
             // 
             // btnReset
@@ -132,9 +132,9 @@
             this.btnCloseEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCloseEdit.ImageOptions.LargeImage")));
             this.btnCloseEdit.LargeWidth = 60;
             this.btnCloseEdit.Name = "btnCloseEdit";
-            toolTipItem4.Text = "Close Edit Pet\'s food form";
-            superToolTip4.Items.Add(toolTipItem4);
-            this.btnCloseEdit.SuperTip = superToolTip4;
+            toolTipItem2.Text = "Close Edit Pet\'s food form";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.btnCloseEdit.SuperTip = superToolTip2;
             this.btnCloseEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCloseEdit_ItemClick);
             // 
             // Tool
@@ -161,7 +161,6 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.te_Type);
             this.layoutControl1.Controls.Add(this.te_FoodAmount);
             this.layoutControl1.Controls.Add(this.te_FoodSalePrice);
             this.layoutControl1.Controls.Add(this.te_FoodPrice);
@@ -169,6 +168,7 @@
             this.layoutControl1.Controls.Add(this.te_FoodID);
             this.layoutControl1.Controls.Add(this.te_FoodStatus);
             this.layoutControl1.Controls.Add(this.te_FoodImage);
+            this.layoutControl1.Controls.Add(this.te_Type);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl1.Font = new System.Drawing.Font("Tahoma", 10F);
             this.layoutControl1.Location = new System.Drawing.Point(0, 178);
@@ -177,19 +177,6 @@
             this.layoutControl1.Size = new System.Drawing.Size(800, 307);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // te_Type
-            // 
-            this.te_Type.EditValue = "";
-            this.te_Type.Location = new System.Drawing.Point(79, 214);
-            this.te_Type.MenuManager = this.ribbon;
-            this.te_Type.Name = "te_Type";
-            this.te_Type.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.te_Type.Properties.Appearance.Options.UseFont = true;
-            this.te_Type.Properties.ReadOnly = true;
-            this.te_Type.Size = new System.Drawing.Size(709, 30);
-            this.te_Type.StyleController = this.layoutControl1;
-            this.te_Type.TabIndex = 10;
             // 
             // te_FoodAmount
             // 
@@ -278,6 +265,23 @@
             this.te_FoodImage.StyleController = this.layoutControl1;
             this.te_FoodImage.TabIndex = 6;
             this.te_FoodImage.Click += new System.EventHandler(this.te_FoodImage_Click);
+            // 
+            // te_Type
+            // 
+            this.te_Type.EditValue = "";
+            this.te_Type.Location = new System.Drawing.Point(79, 214);
+            this.te_Type.MenuManager = this.ribbon;
+            this.te_Type.Name = "te_Type";
+            this.te_Type.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.te_Type.Properties.Appearance.Options.UseFont = true;
+            this.te_Type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.te_Type.Properties.DropDownRows = 5;
+            this.te_Type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.te_Type.Size = new System.Drawing.Size(709, 30);
+            this.te_Type.StyleController = this.layoutControl1;
+            this.te_Type.TabIndex = 10;
+            this.te_Type.SelectedValueChanged += new System.EventHandler(this.te_Type_SelectedValueChanged);
             // 
             // Root
             // 
@@ -398,7 +402,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.te_Type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodSalePrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodPrice.Properties)).EndInit();
@@ -406,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_FoodImage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_Type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -449,6 +453,6 @@
         public DevExpress.XtraEditors.ComboBoxEdit te_FoodStatus;
         public DevExpress.XtraEditors.ButtonEdit te_FoodImage;
         private DevExpress.XtraEditors.XtraOpenFileDialog openDialog;
-        public DevExpress.XtraEditors.TextEdit te_Type;
+        public DevExpress.XtraEditors.ComboBoxEdit te_Type;
     }
 }

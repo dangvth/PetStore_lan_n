@@ -16,6 +16,7 @@ namespace PetStore
 {
     public partial class EditPetFood : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        private string selectedType = "";
         public EditPetFood()
         {
             InitializeComponent();
@@ -68,8 +69,10 @@ namespace PetStore
                     image = oldImageName;
                 }
                 //update pet food on database
+                var db = new PetStoreEntities();
+                var typeID = (int)db.Types.FirstOrDefault(x => x.t_name == selectedType).t_id;
                 pfm.UpdateFood(te_FoodID.Text, te_FoodName.Text, Convert.ToInt32(te_FoodPrice.Text),
-                         Convert.ToInt32(te_FoodSalePrice.Text), Convert.ToInt32(te_FoodAmount.Text), 2, te_FoodStatus.Text, image);
+                         Convert.ToInt32(te_FoodSalePrice.Text), Convert.ToInt32(te_FoodAmount.Text), typeID, te_FoodStatus.Text, image);
                 //message success
                 XtraMessageBox.Show("Edit successful !!!", "Congratulation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -112,6 +115,11 @@ namespace PetStore
         private void btnCloseEdit_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void te_Type_SelectedValueChanged(object sender, EventArgs e)
+        {
+            selectedType = te_Type.Text;
         }
     }
 }
