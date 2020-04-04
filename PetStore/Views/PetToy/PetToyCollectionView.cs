@@ -49,7 +49,7 @@ namespace PetStore.Views.PetToyCollectionView{
                 }
             };
         }
-
+        //delete button, set status ti inactive
         private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (ptIDSelected != "")
@@ -63,7 +63,7 @@ namespace PetStore.Views.PetToyCollectionView{
                 XtraMessageBox.Show("Please choose  Toys item to delete !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        //restore product, set status to active
         private void bbiRestore_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (ptIDSelected != "")
@@ -77,7 +77,7 @@ namespace PetStore.Views.PetToyCollectionView{
                 XtraMessageBox.Show("Please choose Toys item to restore !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        //button detail
         private void btnDetail_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (ptIDSelected != "")
@@ -112,7 +112,7 @@ namespace PetStore.Views.PetToyCollectionView{
                 MessageBox.Show("Please choose a Toys to view detail !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        //goeclick to get id product
         private void gridView_RowClick(object sender, RowClickEventArgs e)
         {
             int idx = gridView.FocusedRowHandle;

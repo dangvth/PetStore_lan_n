@@ -20,14 +20,14 @@ namespace PetStore
         {
             InitializeComponent();
         }
-
+        //load data
         private void PetMedicineStaff_Load(object sender, EventArgs e)
         {
             PetMedicineModel pmm = new PetMedicineModel();
             medicinedataBindingSource.DataSource = pmm.GetAllPetMedicineToArrayList();
             gcMedicine.DataSource = medicinedataBindingSource;
         }
-
+        //button detail to show datail product
         private void btnDetail_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (pmIDSelected != "")
@@ -62,7 +62,7 @@ namespace PetStore
                 MessageBox.Show("Please choose a Medicine to view detail !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        // reload data 
         private void btnRefresh_ItemClick(object sender, ItemClickEventArgs e)
         {
             PetMedicineModel pmm = new PetMedicineModel();
@@ -70,7 +70,7 @@ namespace PetStore
             petStoreDataSet3BindingSource.DataSource = pmm.GetAllPetMedicineToArrayList();
             gcMedicine.DataSource = petStoreDataSet3BindingSource;
         }
-
+        //row click to get data
         private void gcMedicine_Click(object sender, EventArgs e)
         {
             int idx = tblMed.FocusedRowHandle;

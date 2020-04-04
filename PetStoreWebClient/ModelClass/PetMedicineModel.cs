@@ -55,7 +55,7 @@ namespace PetStoreWebClient.ModelClass
         }
 
         /// <summary>
-        /// get related pet food in sale off
+        /// get related pet medicine in sale off
         /// </summary>
         /// <param name="pmID"></param>
         /// <returns></returns>
@@ -76,7 +76,7 @@ namespace PetStoreWebClient.ModelClass
         }
 
         /// <summary>
-        /// get Pet food element show on website with paging and keyword search
+        /// get Pet medicine element show on website with paging and keyword search
         /// </summary>
         /// <param name="keyword"></param>
         /// <param name="totalRecord"></param>
@@ -91,7 +91,7 @@ namespace PetStoreWebClient.ModelClass
         }
 
         /// <summary>
-        /// list name of pet food like keyword
+        /// list name of pet Medicine like keyword
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>

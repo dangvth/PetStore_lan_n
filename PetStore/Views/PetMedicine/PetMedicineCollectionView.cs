@@ -49,7 +49,7 @@ namespace PetStore.Views.PetMedicineCollectionView{
                 }
             };
         }
-
+        //Button delete, Set status to inactive 
         private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (pmIDSelected != "")
@@ -63,13 +63,13 @@ namespace PetStore.Views.PetMedicineCollectionView{
                 XtraMessageBox.Show("Please choose  Medicine item to delete !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        //grid view rowclick
         private void gridView_RowClick(object sender, RowClickEventArgs e)
         {
             int idx = gridView.FocusedRowHandle;
             pmIDSelected = gridView.GetRowCellValue(idx, "pm_id").ToString();
         }
-
+        //button restore set status to active
         private void bbiRestore_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (pmIDSelected != "")
@@ -83,7 +83,7 @@ namespace PetStore.Views.PetMedicineCollectionView{
                 XtraMessageBox.Show("Please choose Medicine item to restore !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        //button detail product
         private void btndetail_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (pmIDSelected != "")
@@ -119,27 +119,27 @@ namespace PetStore.Views.PetMedicineCollectionView{
             }
         }
 
-        private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (pmIDSelected != "")
-            {
-                EditMedicine edm = new EditMedicine();
-                var db = new PetStoreEntities();
-                var pm = db.PetMedicines.Find(pmIDSelected);
-                edm.txtPmdId.Text = pm.pm_id;
-                edm.txtPmdname.Text = pm.pm_name;
+        //private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
+        //{
+        //    if (pmIDSelected != "")
+        //    {
+        //        EditMedicine edm = new EditMedicine();
+        //        var db = new PetStoreEntities();
+        //        var pm = db.PetMedicines.Find(pmIDSelected);
+        //        edm.txtPmdId.Text = pm.pm_id;
+        //        edm.txtPmdname.Text = pm.pm_name;
                 
-                edm.txtPmdprices.Text = pm.pm_prices + "";
-                edm.txtPmdsaleprices.Text = pm.pm_salePrice + "";
-                edm.txtPmdDescript.Text = pm.pm_description ;
-                edm.cbbstatus.SelectedItem = pm.pm_status;
-                edm.txtPmdamount.Text = pm.pm_amount + "";
-                edm.ShowDialog();
-            }
-            else
-            {
-                XtraMessageBox.Show("Please choose a Medicine item to Edit !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        //        edm.txtPmdprices.Text = pm.pm_prices + "";
+        //        edm.txtPmdsaleprices.Text = pm.pm_salePrice + "";
+        //        edm.txtPmdDescript.Text = pm.pm_description ;
+        //        edm.cbbstatus.SelectedItem = pm.pm_status;
+        //        edm.txtPmdamount.Text = pm.pm_amount + "";
+        //        edm.ShowDialog();
+        //    }
+        //    else
+        //    {
+        //        XtraMessageBox.Show("Please choose a Medicine item to Edit !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
     }
 }
