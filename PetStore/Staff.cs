@@ -66,7 +66,11 @@ namespace PetStore
             cs.Dock = DockStyle.Fill;
             cs.Show();
         }
-
+        /// <summary>
+        /// Show sell product form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSellProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             resetFormChildren();
@@ -127,7 +131,11 @@ namespace PetStore
         {
             Application.Exit();
         }
-
+        /// <summary>
+        /// Show Online Order form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOnlineOrder_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             resetFormChildren();

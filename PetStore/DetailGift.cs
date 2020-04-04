@@ -13,11 +13,18 @@ namespace PetStore
 {
     public partial class DetailGift : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public DetailGift()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();

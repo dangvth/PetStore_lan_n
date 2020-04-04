@@ -153,7 +153,7 @@
             this.pm_idTextEdit.MenuManager = this.mainRibbonControl;
             this.pm_idTextEdit.Name = "pm_idTextEdit";
             this.pm_idTextEdit.Properties.ReadOnly = true;
-            this.pm_idTextEdit.Properties.Click += new System.EventHandler(this.pm_idTextEdit_Properties_Click);
+            // this.pm_idTextEdit.Properties.Click += new System.EventHandler(this.pm_idTextEdit_Properties_Click);
             this.pm_idTextEdit.Size = new System.Drawing.Size(944, 20);
             this.pm_idTextEdit.StyleController = this.dataLayoutControl1;
             this.pm_idTextEdit.TabIndex = 4;

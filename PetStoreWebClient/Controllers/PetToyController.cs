@@ -79,7 +79,7 @@ namespace PetStoreWebClient.Controllers
             //get pet detail
             var pettoyDetail = petToy.getPetToyByID(ptID);
             //get list relative pet medicine
-            ViewBag.relatedPetToy = petToy.getPetMedicineRelated(pettoyDetail.pt_id);
+            ViewBag.relatedPetToy = petToy.getPetToyRelated(pettoyDetail.pt_id);
             ViewBag.pettoyDetail = pettoyDetail;
             return View();
         }

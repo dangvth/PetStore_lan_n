@@ -16,17 +16,27 @@ namespace PetStore
 {
     public partial class OnlineOrder : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        //declare variables
         int selectedID = -1;
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public OnlineOrder()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Load data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnlineOrder_Load(object sender, EventArgs e)
         {
             load();
         }
-
+        /// <summary>
+        /// Load order
+        /// </summary>
         private void load()
         {
             UserModel um = new UserModel();
@@ -46,7 +56,11 @@ namespace PetStore
                 grvOrder.DataSource = table;
             }
         }
-
+        /// <summary>
+        /// Accept order and print bill
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiAccept_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (selectedID != -1)
@@ -135,12 +149,20 @@ namespace PetStore
                 load();
             }
         }
-
+        /// <summary>
+        /// Get order ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grvOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedID = int.Parse(grvOrder.CurrentRow.Cells[0].Value.ToString());
         }
-
+        /// <summary>
+        /// Cancel order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiCancel_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (selectedID != -1)
@@ -154,7 +176,11 @@ namespace PetStore
                 load();
             }
         }
-
+        /// <summary>
+        /// Show detail of bill
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
             DataGridView grvPrint = new DataGridView();

@@ -25,7 +25,7 @@ namespace PetStore
         {
             
         }
-
+        //buttondetail to show detail of product
         private void btndetail_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (ptIDSelected != "")
@@ -60,7 +60,7 @@ namespace PetStore
                 MessageBox.Show("Please choose a Toys to view detail !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        //reload data
         private void btnrefresh_ItemClick(object sender, ItemClickEventArgs e)
         {
             PetToyModel ptm = new PetToyModel();
@@ -68,7 +68,7 @@ namespace PetStore
             petStoreDataSet2BindingSource.DataSource = ptm.GetAllPetToysToArrayList();
            gcToys.DataSource = petStoreDataSet2BindingSource;
         }
-
+        //row click to get id product
         private void gcToys_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             int idx = gridToys.FocusedRowHandle;
@@ -77,7 +77,7 @@ namespace PetStore
                 ptIDSelected = gridToys.GetRowCellValue(idx, gridToys.Columns[0]).ToString();
             }
         }
-
+        //load data
         private void gcToys_Load(object sender, EventArgs e)
         {
             PetToyModel ptm = new PetToyModel();

@@ -15,11 +15,18 @@ namespace PetStore
 {
     public partial class EditGift : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public EditGift()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Save gift
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (txt_gName.Text != "")
@@ -72,7 +79,11 @@ namespace PetStore
                 XtraMessageBox.Show("Please fill in full information !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        /// <summary>
+        /// Choose image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txt_gImage_Click(object sender, EventArgs e)
         {
             openDialog.Filter = "Image files (*.jpg)|*.jpg|Image files (*.png)|*.png|All files (*.*)|*.*";
@@ -86,7 +97,11 @@ namespace PetStore
                 XtraMessageBox.Show("Please choose a image with (*.jpg)/(*.png) file !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        /// <summary>
+        /// Reset change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReset_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var db = new PetStoreEntities();
@@ -95,7 +110,11 @@ namespace PetStore
             txt_gImage.Text = "";
             txt_gStatus.SelectedItem = g.g_status;
         }
-
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCloseEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
