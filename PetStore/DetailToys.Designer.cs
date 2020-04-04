@@ -113,6 +113,7 @@
             this.txtToysId.Location = new System.Drawing.Point(68, 12);
             this.txtToysId.MenuManager = this.ribbonControl1;
             this.txtToysId.Name = "txtToysId";
+            this.txtToysId.Properties.ReadOnly = true;
             this.txtToysId.Size = new System.Drawing.Size(221, 20);
             this.txtToysId.StyleController = this.layoutControl1;
             this.txtToysId.TabIndex = 4;
@@ -167,6 +168,7 @@
             this.txtToysName.Location = new System.Drawing.Point(68, 36);
             this.txtToysName.MenuManager = this.ribbonControl1;
             this.txtToysName.Name = "txtToysName";
+            this.txtToysName.Properties.ReadOnly = true;
             this.txtToysName.Size = new System.Drawing.Size(221, 20);
             this.txtToysName.StyleController = this.layoutControl1;
             this.txtToysName.TabIndex = 5;
@@ -176,6 +178,7 @@
             this.txtToySaleprices.Location = new System.Drawing.Point(68, 60);
             this.txtToySaleprices.MenuManager = this.ribbonControl1;
             this.txtToySaleprices.Name = "txtToySaleprices";
+            this.txtToySaleprices.Properties.ReadOnly = true;
             this.txtToySaleprices.Size = new System.Drawing.Size(221, 20);
             this.txtToySaleprices.StyleController = this.layoutControl1;
             this.txtToySaleprices.TabIndex = 6;
@@ -185,6 +188,7 @@
             this.txtDescript.Location = new System.Drawing.Point(68, 84);
             this.txtDescript.MenuManager = this.ribbonControl1;
             this.txtDescript.Name = "txtDescript";
+            this.txtDescript.Properties.ReadOnly = true;
             this.txtDescript.Size = new System.Drawing.Size(221, 20);
             this.txtDescript.StyleController = this.layoutControl1;
             this.txtDescript.TabIndex = 7;
@@ -194,6 +198,7 @@
             this.txtDate.Location = new System.Drawing.Point(68, 108);
             this.txtDate.MenuManager = this.ribbonControl1;
             this.txtDate.Name = "txtDate";
+            this.txtDate.Properties.ReadOnly = true;
             this.txtDate.Size = new System.Drawing.Size(221, 20);
             this.txtDate.StyleController = this.layoutControl1;
             this.txtDate.TabIndex = 8;
@@ -203,6 +208,7 @@
             this.txtAmount.Location = new System.Drawing.Point(68, 132);
             this.txtAmount.MenuManager = this.ribbonControl1;
             this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Properties.ReadOnly = true;
             this.txtAmount.Size = new System.Drawing.Size(221, 20);
             this.txtAmount.StyleController = this.layoutControl1;
             this.txtAmount.TabIndex = 9;
@@ -212,6 +218,7 @@
             this.txtstatus.Location = new System.Drawing.Point(68, 156);
             this.txtstatus.MenuManager = this.ribbonControl1;
             this.txtstatus.Name = "txtstatus";
+            this.txtstatus.Properties.ReadOnly = true;
             this.txtstatus.Size = new System.Drawing.Size(221, 20);
             this.txtstatus.StyleController = this.layoutControl1;
             this.txtstatus.TabIndex = 10;

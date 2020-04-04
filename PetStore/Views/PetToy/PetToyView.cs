@@ -13,11 +13,11 @@ using System.IO;
 namespace PetStore.Views.PetToyView{
     public partial class PetToyView : XtraUserControl {
         OpenFileDialog openDialog = new OpenFileDialog();
-
         public PetToyView() {
             InitializeComponent();
 			if(!mvvmContext.IsDesignMode)
 				InitBindings();
+            timer.Start();
 		}
 		void InitBindings() {
 		    var fluentAPI = mvvmContext.OfType<PetStore.ViewModels.PetToyViewModel>();
