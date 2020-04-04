@@ -13,13 +13,21 @@ namespace PetStore
 {
     public partial class rbbSelectProduct : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        //Declare variables
         public const int Row_Height = 100;
         public int status, qty;
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public rbbSelectProduct()
         {
             InitializeComponent();
             displayProduct("Pets");
         }
+        /// <summary>
+        /// Display product
+        /// </summary>
+        /// <param name="name"></param>
         public void displayProduct(string name)
         {
             if (name.Equals("Pets"))
@@ -134,7 +142,11 @@ namespace PetStore
                 }
             }
         }
-
+        /// <summary>
+        /// Display navagator
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bliProduct_ItemClick(object sender, ItemClickEventArgs e)
         {
             switch (bliProduct.ItemIndex)
@@ -168,12 +180,18 @@ namespace PetStore
                     break;
         }
         }
-
+        /// <summary>
+        /// Enable, disable add button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             checkBbiAddStatus();
         }
-
+        /// <summary>
+        /// Enable, disable add button
+        /// </summary>
         private void checkBbiAddStatus()
         {
             bbiAdd.Enabled = false;
@@ -190,7 +208,11 @@ namespace PetStore
                 bbiAdd.Enabled = true;
             }
         }
-
+        /// <summary>
+        /// Show enter quantity form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiAdd_ItemClick(object sender, ItemClickEventArgs e)
         {
             int index = -1;

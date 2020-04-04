@@ -16,19 +16,25 @@ namespace PetStore
 {
     public partial class rbbSell : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        //declare variables
         List<string> list;
         DataTable table;
-        //declare variables
         string username = "";
+        User u;
+        int total = 0;
         //Initialize a delegate to get username 
         public delegate void sendDataSell(string data);
         public sendDataSell SenderSellUser;
-        User u;
-        int total = 0;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="user"></param>
         public rbbSell(string user)
         {
             InitializeComponent();
+
             username = user;
+            //get username from staff
             using (var db = new PetStoreEntities())
             {
                 var list = db.Accounts;
@@ -51,32 +57,46 @@ namespace PetStore
                     }
                 }
             }
+            //Display gift combobox
             foreach (var gift in this.petStoreDataSet1.Gift)
             {
                 cbbGift.SelectedText = gift.g_name;
                 break;
             }
-            
+            //Init data grid view
             resetTable();
         }
-       
+       /// <summary>
+       /// Reset data grid view
+       /// </summary>
         private void resetTable()
         {
+            //Init data table
             table = new DataTable();
+            //Init item list
             list = new List<string>();
+            //Add column to data table
             table.Columns.Add(new DataColumn("Name", typeof(string)));
             table.Columns.Add(new DataColumn("Price", typeof(int)));
             table.Columns.Add(new DataColumn("Quantity", typeof(int)));
+            //Set data source for data grid view
             dataGridView1.DataSource = table;
+            //Format display format
             dataGridView1.Columns["Price"].DefaultCellStyle.Format = "c";
             total = 0;
             lblTotalPrice.Text = "Total: " + total;
         }
-
+        /// <summary>
+        /// Add item into bill
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiAdd_ItemClick(object sender, ItemClickEventArgs e)
         {
+            //Init and show select prodcut form
             rbbSelectProduct slp = new rbbSelectProduct();
             slp.ShowDialog(this);
+            //Refresh data grid view
             if (slp.status != -1)
             {
                 DataGridViewRow row = slp.grvProduct.Rows[slp.status];
@@ -87,6 +107,9 @@ namespace PetStore
             }
             slp.Dispose();
         }
+        /// <summary>
+        /// Enable or disable detele button
+        /// </summary>
         private void checkDelete()
         {
             bbiDelete.Enabled = false;
@@ -103,12 +126,20 @@ namespace PetStore
                 bbiDelete.Enabled = true;
             }
         }
-
+        /// <summary>
+        /// Enable or disable detele button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             checkDelete();
         }
-
+        /// <summary>
+        /// Get index, delete item, and return quantity
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
         {
             int index = -1;
@@ -161,11 +192,18 @@ namespace PetStore
                 lblTotalPrice.Text = "Total: " + total;
             }
         }
-
+        /// <summary>
+        /// Reset data grid view event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiReset_ItemClick(object sender, ItemClickEventArgs e)
         {
             resetDataGridView();
         }
+        /// <summary>
+        /// Reset data grid view and return quantity
+        /// </summary>
         private void resetDataGridView()
         {
             if (list.Count != 0)
@@ -204,12 +242,20 @@ namespace PetStore
                 checkDelete();
             }
         }
-
+        /// <summary>
+        /// Reset data grid view and return quantity after close sell form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbbSell_FormClosing(object sender, FormClosingEventArgs e)
         {
             resetDataGridView();
         }
-
+        /// <summary>
+        /// Print bill
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiPrint_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (txtGuest.Text.Equals(""))
@@ -293,12 +339,15 @@ namespace PetStore
                 resetTable();
             }
         }
-
+        /// <summary>
+        /// Load data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbbSell_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'petStoreDataSet1.Gift' table. You can move, or remove it, as needed.
             this.giftTableAdapter.Fill(this.petStoreDataSet1.Gift);
-
         }
     }
 }

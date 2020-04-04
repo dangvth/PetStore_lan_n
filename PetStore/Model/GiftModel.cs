@@ -11,16 +11,31 @@ namespace PetStore.Model
 {
     class GiftModel
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public GiftModel()
         {
 
         }
+        /// <summary>
+        /// Get gift by ID
+        /// </summary>
+        /// <param name="gId"></param>
+        /// <returns></returns>
         public Gift getGift(String gId)
         {
             var db = new PetStoreEntities();
             var Gift = db.Gifts.Find(gId);
             return Gift;
         }
+        /// <summary>
+        /// Resize image
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
         public Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);
@@ -44,6 +59,10 @@ namespace PetStore.Model
             }
             return destImage;
         }
+        /// <summary>
+        /// Gets last ID of gift list
+        /// </summary>
+        /// <returns></returns>
         public String getLastID()
         {
             String lastID = "";
@@ -59,6 +78,10 @@ namespace PetStore.Model
             if (lastID == "") { return "GIF0000"; }
             else { return lastID; }
         }
+        /// <summary>
+        /// Gets next ID of gift list
+        /// </summary>
+        /// <returns></returns>
         public String getNextID()
         {
             String dID = "";
@@ -81,6 +104,13 @@ namespace PetStore.Model
                 return "GIF" + id;
             }
         }
+        /// <summary>
+        /// Update gift
+        /// </summary>
+        /// <param name="gID"></param>
+        /// <param name="gName"></param>
+        /// <param name="gStatus"></param>
+        /// <param name="gImage"></param>
         public void UpdateGift(String gID, String gName, String gStatus, String gImage)
         {
             using (var db = new PetStoreEntities())
@@ -92,6 +122,10 @@ namespace PetStore.Model
                 db.SaveChanges();
             }
         }
+        /// <summary>
+        /// Delete gift
+        /// </summary>
+        /// <param name="g_id"></param>
         public void DeleteGift(String g_id)
         {
             using (var db = new PetStoreEntities())
@@ -101,6 +135,10 @@ namespace PetStore.Model
                 db.SaveChanges();
             }
         }
+        /// <summary>
+        /// Restore gift
+        /// </summary>
+        /// <param name="g_id"></param>
         public void RestoreGift(String g_id)
         {
             using (var db = new PetStoreEntities())

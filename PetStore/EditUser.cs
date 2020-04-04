@@ -14,11 +14,18 @@ namespace PetStore
 {
     public partial class EditUser : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public EditUser()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Save user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (txt_uName.Text != "" && txt_uMail.Text != "" && txt_uPhone.Text != "")
@@ -33,7 +40,11 @@ namespace PetStore
                 XtraMessageBox.Show("Please fill in full information !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        /// <summary>
+        /// Reset change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReset_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var db = new PetStoreEntities();
@@ -44,7 +55,11 @@ namespace PetStore
             txt_uPhone.Text = u.u_phone;
             txt_uAddress.Text = u.u_address;
         }
-
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCloseEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Dispose();

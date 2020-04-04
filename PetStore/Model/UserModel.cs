@@ -8,10 +8,22 @@ namespace PetStore.Model
 {
     class UserModel
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public UserModel()
         {
 
         }
+        /// <summary>
+        /// Update user
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <param name="uName"></param>
+        /// <param name="uGender"></param>
+        /// <param name="uMail"></param>
+        /// <param name="uPhone"></param>
+        /// <param name="uAddress"></param>
         public void UpdateUser(int uID, string uName, string uGender, string uMail, string uPhone, string uAddress)
         {
             using (var db = new PetStoreEntities())
@@ -25,6 +37,11 @@ namespace PetStore.Model
                 db.SaveChanges();
             }
         }
+        /// <summary>
+        /// Get username by ID
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <returns></returns>
         public string getUName(int? uID)
         {
             using (var db = new PetStoreEntities())

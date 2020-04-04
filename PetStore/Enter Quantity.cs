@@ -13,15 +13,25 @@ namespace PetStore
 {
     public partial class EnterQuantity : DevExpress.XtraEditors.XtraForm
     {
+        //Declare variables
         string id;
         int remain;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="remain"></param>
         public EnterQuantity(string id, int remain)
         {
             this.id = id;
             this.remain = remain;
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Check quantity and hide form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnContinue_Click(object sender, EventArgs e)
         {
             if (!id.StartsWith("PET"))
@@ -42,7 +52,11 @@ namespace PetStore
             
             
         }
-
+        /// <summary>
+        /// Cancel enter quantity form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             txtQuantity.Text = "0";
