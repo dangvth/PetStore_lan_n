@@ -5,7 +5,17 @@
     var relatedPettoy = (List<PetStoreWebClient.EF.PetToys>)ViewBag.relatedPettoy;
     var pettoyDetail = (PetStoreWebClient.EF.PetToys)ViewBag.petToyDetail;
 }
-
+@section menu{
+    <div class="menu">
+        <ul>
+            <li><a href="/home" style="text-decoration: none">Home</a></li>
+            <li><a href="/about" style="text-decoration: none">About</a></li>
+            <li><a href="/contact" style="text-decoration: none">Contact</a></li>
+            <li><a href="/manual" style="text-decoration: none">Guide</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+}
 <div class="content">
     <div class="section group">
         <div class="cont-desc span_1_of_2">

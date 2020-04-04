@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid;
 using DevExpress.XtraReports.UI;
+using PetStore.Model;
 
 namespace PetStore
 {
@@ -17,10 +18,39 @@ namespace PetStore
     {
         List<string> list;
         DataTable table;
+        //declare variables
+        string username = "";
+        //Initialize a delegate to get username 
+        public delegate void sendDataSell(string data);
+        public sendDataSell SenderSellUser;
+        User u;
         int total = 0;
-        public rbbSell()
+        public rbbSell(string user)
         {
             InitializeComponent();
+            username = user;
+            using (var db = new PetStoreEntities())
+            {
+                var list = db.Accounts;
+                Account ac = null;
+                foreach (var a in list)
+                {
+                    if (a.ac_userName == user)
+                    {
+                        ac = a;
+                        break;
+                    }
+                }
+                var uList = db.Users;
+                foreach (var uItem in uList)
+                {
+                    if (uItem.ac_id == ac.ac_id)
+                    {
+                        u = uItem;
+                        break;
+                    }
+                }
+            }
             foreach (var gift in this.petStoreDataSet1.Gift)
             {
                 cbbGift.SelectedText = gift.g_name;
@@ -29,7 +59,7 @@ namespace PetStore
             
             resetTable();
         }
-
+       
         private void resetTable()
         {
             table = new DataTable();
@@ -119,6 +149,10 @@ namespace PetStore
                         db.SaveChanges();
                         list.RemoveAt(index);
                     }
+                    else
+                    {
+                        list.RemoveAt(index);
+                    }
                     
                 }
                 total -= (int.Parse(table.Rows[index]["Price"].ToString()) * int.Parse(table.Rows[index]["Quantity"].ToString()));
@@ -202,7 +236,7 @@ namespace PetStore
                     bill.b_purchaseDate = System.DateTime.Now;
                     bill.b_address = txtAddress.Text;
                     bill.b_total = total;
-                    bill.u_id = 24;
+                    bill.u_id = u.u_id;
                     bill.g_id = cbbGift.SelectedValue.ToString();
                     bill.b_status = "Active";
                     db.Bills.Add(bill);

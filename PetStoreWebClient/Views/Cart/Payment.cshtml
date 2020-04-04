@@ -8,7 +8,17 @@
     var listCPT = (List<PetStoreWebClient.ModelClass.CartPetToyItem>)ViewBag.listCartPT;
     int totalBill = 0;
 }
-
+@section menu{
+    <div class="menu">
+        <ul>
+            <li><a href="/home" style="text-decoration: none">Home</a></li>
+            <li><a href="/about" style="text-decoration: none">About</a></li>
+            <li><a href="/contact" style="text-decoration: none">Contact</a></li>
+            <li><a href="/manual" style="text-decoration: none">Guide</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+}
 <div class="content">
     <div class="section group">
         @if (Model.Count > 0 | listCP != null | listCPM != null | listCPT != null)

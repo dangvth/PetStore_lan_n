@@ -98,15 +98,7 @@
                 <div class="clear"></div>
             </div>
             <div class="header_bottom">
-                <div class="menu">
-                    <ul>
-                        <li class="active"><a href="/home" style="text-decoration: none">Home</a></li>
-                        <li><a href="#" style="text-decoration: none">About</a></li>
-                        <li><a href="#" style="text-decoration: none">Contact</a></li>
-                        <li><a href="/manual" style="text-decoration: none">Guide</a></li>
-                        <div class="clear"></div>
-                    </ul>
-                </div>
+                @RenderSection("menu", required: false)
                 @RenderSection("search", required: false)
                 <div class="clear"></div>
             </div>

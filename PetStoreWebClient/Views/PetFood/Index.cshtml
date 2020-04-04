@@ -6,6 +6,18 @@
     var viewPFSaleOff = (List<PetStoreWebClient.EF.PetFood>)ViewBag.viewPetFoodSaleOff;
 }
 
+@section menu{
+    <div class="menu">
+        <ul>
+            <li><a href="/home" style="text-decoration: none">Home</a></li>
+            <li><a href="/about" style="text-decoration: none">About</a></li>
+            <li><a href="/contact" style="text-decoration: none">Contact</a></li>
+            <li><a href="/manual" style="text-decoration: none">Guide</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+}
+
 @section search{
     <div class="search_box">
     <form action="/Petfood/search" method="get">

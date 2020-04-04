@@ -70,7 +70,7 @@ namespace PetStore
         private void btnSellProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             resetFormChildren();
-            rbbSell sp = new rbbSell();
+            rbbSell sp = new rbbSell(username);
             sp.MdiParent = this;
             sp.Dock = DockStyle.Fill;
             sp.Show();
@@ -126,6 +126,15 @@ namespace PetStore
         private void Staff_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnOnlineOrder_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            resetFormChildren();
+            OnlineOrder oo = new OnlineOrder();
+            oo.MdiParent = this;
+            oo.Dock = DockStyle.Fill;
+            oo.Show();
         }
     }
 }

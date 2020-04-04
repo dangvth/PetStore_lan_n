@@ -51,6 +51,7 @@
             this.btnViewCmtd = new DevExpress.XtraBars.BarButtonItem();
             this.btnCmtList = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
+            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.rbpSales = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpgBillSale = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpProduct = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -87,17 +88,18 @@
             this.btnRestoreCmt,
             this.btnViewCmtd,
             this.btnCmtList,
-            this.ribbonGalleryBarItem1});
+            this.ribbonGalleryBarItem1,
+            this.skinRibbonGalleryBarItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 22;
+            this.ribbon.MaxItemId = 23;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpSales,
             this.rbpProduct,
             this.rbpComment,
             this.rbSystem});
-            this.ribbon.Size = new System.Drawing.Size(1125, 176);
+            this.ribbon.Size = new System.Drawing.Size(1125, 141);
             // 
             // barButtonItem1
             // 
@@ -114,6 +116,7 @@
             this.btnOnlineOrder.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnOnlineOrder.ImageOptions.LargeImage")));
             this.btnOnlineOrder.LargeWidth = 75;
             this.btnOnlineOrder.Name = "btnOnlineOrder";
+            this.btnOnlineOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOnlineOrder_ItemClick);
             // 
             // btnSellProduct
             // 
@@ -245,6 +248,12 @@
             this.ribbonGalleryBarItem1.Id = 21;
             this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
             // 
+            // skinRibbonGalleryBarItem1
+            // 
+            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
+            this.skinRibbonGalleryBarItem1.Id = 22;
+            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
             // rbpSales
             // 
             this.rbpSales.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -314,14 +323,14 @@
             // 
             // ribbonTheme
             // 
-            this.ribbonTheme.ItemLinks.Add(this.ribbonGalleryBarItem1);
+            this.ribbonTheme.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
             this.ribbonTheme.Name = "ribbonTheme";
             this.ribbonTheme.Text = "Theme";
             // 
             // Staff
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 756);
             this.Controls.Add(this.ribbon);
@@ -369,5 +378,6 @@
         private DevExpress.XtraBars.BarButtonItem btnCmtList;
         private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonTheme;
+        private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
     }
 }

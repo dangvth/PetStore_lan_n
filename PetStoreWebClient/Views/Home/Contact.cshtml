@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var hrefEmail = "mailto:@example.com";
+}
+
+@section menu{
+    <div class="menu">
+        <ul>
+            <li><a href="/home" style="text-decoration: none">Home</a></li>
+            <li><a href="/about" style="text-decoration: none">About</a></li>
+            <li class="active"><a href="/contact" style="text-decoration: none">Contact</a></li>
+            <li><a href="/manual" style="text-decoration: none">Guide</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+}
+
+<div class="content">
+    <div class="section group">
+        <div class="col span_2_of_3">
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <form>
+                    <div>
+                        <span><label>Name</label></span>
+                        <span><input type="text" class="textbox"></span>
+                    </div>
+                    <div>
+                        <span><label>E-mail</label></span>
+                        <span><input type="text" class="textbox"></span>
+                    </div>
+                    <div>
+                        <span><label>Company Name</label></span>
+                        <span><input type="text" class="textbox"></span>
+                    </div>
+                    <div>
+                        <span><label>Subject</label></span>
+                        <span><textarea> </textarea></span>
+                    </div>
+                    <div>
+                        <span><input type="submit" value="Submit" class="myButton"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col span_1_of_3">
+            <div class="contact_info">
+                <h3>Find Us Here</h3>
+                <div class="map">
+                    <!-- <iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0"
+                        marginwidth="0"
+                        src="https://goo.gl/maps/m7Qj1Z686VqAshpp8">
+                    </iframe><br> -->
+                    <iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0"
+                            marginwidth="0"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0581158048894!2d105.72942155033458!3d10.01205849280775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0882139720a77%3A0x3916a227d0b95a64!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgQ-G6p24gVGjGoQ!5e0!3m2!1svi!2s!4v1585885956034!5m2!1svi!2s" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe><br>
+                    <small>
+                        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0581158048894!2d105.72942155033458!3d10.01205849280775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0882139720a77%3A0x3916a227d0b95a64!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgQ-G6p24gVGjGoQ!5e0!3m2!1svi!2s!4v1585885956034!5m2!1svi!2s"
+                           style="color:#666;text-align:left;font-size:12px">
+                            View Larger Map
+                        </a>
+                    </small>
+                </div>
+
+            </div>
+            <div class="company_address">
+                <h3>Group Information :</h3>
+                <p>Cầu Rau Răm, đường Nguyễn Văn Cừ nối dài,</p>
+                <p>An Bình, Ninh Kiều, Cần Thơ,</p>
+                <p>Việt Nam</p>
+                <p>Phone:(+84) 222 666 444</p>
+                <p>Fax: (000) 000 00 00 0</p>
+                <p>Email: <span><a href="@hrefEmail">tieumacmac@gmail.com.com</a></span></p>
+                <p>Follow on: <span>Facebook</span>, <span>Twitter</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+

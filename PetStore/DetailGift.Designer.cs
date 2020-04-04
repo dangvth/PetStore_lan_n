@@ -36,6 +36,10 @@
             this.btnChangeImage = new DevExpress.XtraEditors.SimpleButton();
             this.lctBox = new DevExpress.XtraLayout.LayoutControl();
             this.txt_gStatus = new DevExpress.XtraEditors.TextEdit();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.btnClose = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbbPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.txt_gName = new DevExpress.XtraEditors.TextEdit();
             this.txt_pID = new DevExpress.XtraEditors.TextEdit();
@@ -46,13 +50,10 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDetail = new System.Windows.Forms.Label();
             this.ptbImage = new System.Windows.Forms.PictureBox();
-            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbbPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnClose = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             ((System.ComponentModel.ISupportInitialize)(this.lctBox)).BeginInit();
             this.lctBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_gStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_gName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -60,7 +61,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PFName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnChangeImage
@@ -104,6 +104,48 @@
             this.txt_gStatus.Size = new System.Drawing.Size(273, 26);
             this.txt_gStatus.StyleController = this.lctBox;
             this.txt_gStatus.TabIndex = 10;
+            // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
+            this.btnClose});
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.ribbonControl1.MaxItemId = 2;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage2});
+            this.ribbonControl1.Size = new System.Drawing.Size(740, 143);
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Caption = "Close";
+            this.btnClose.Id = 1;
+            this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
+            this.btnClose.LargeWidth = 70;
+            this.btnClose.Name = "btnClose";
+            toolTipItem2.Text = "Close view Pet\'s food detail";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.btnClose.SuperTip = superToolTip2;
+            this.btnClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnClose_ItemClick);
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbbPageGroup});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Tool";
+            // 
+            // rbbPageGroup
+            // 
+            this.rbbPageGroup.AllowTextClipping = false;
+            this.rbbPageGroup.ItemLinks.Add(this.btnClose);
+            this.rbbPageGroup.Name = "rbbPageGroup";
+            this.rbbPageGroup.Text = "Detail Pet Food";
             // 
             // ribbonStatusBar1
             // 
@@ -212,50 +254,9 @@
             this.ptbImage.Margin = new System.Windows.Forms.Padding(2);
             this.ptbImage.Name = "ptbImage";
             this.ptbImage.Size = new System.Drawing.Size(330, 358);
+            this.ptbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbImage.TabIndex = 16;
             this.ptbImage.TabStop = false;
-            // 
-            // ribbonPage2
-            // 
-            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbbPageGroup});
-            this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "Tool";
-            // 
-            // rbbPageGroup
-            // 
-            this.rbbPageGroup.AllowTextClipping = false;
-            this.rbbPageGroup.ItemLinks.Add(this.btnClose);
-            this.rbbPageGroup.Name = "rbbPageGroup";
-            this.rbbPageGroup.Text = "Detail Pet Food";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Caption = "Close";
-            this.btnClose.Id = 1;
-            this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.LargeWidth = 70;
-            this.btnClose.Name = "btnClose";
-            toolTipItem2.Text = "Close view Pet\'s food detail";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnClose.SuperTip = superToolTip2;
-            this.btnClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnClose_ItemClick);
-            // 
-            // ribbonControl1
-            // 
-            this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem,
-            this.ribbonControl1.SearchEditItem,
-            this.btnClose});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.ribbonControl1.MaxItemId = 2;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage2});
-            this.ribbonControl1.Size = new System.Drawing.Size(740, 143);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // DetailGift
             // 
@@ -276,6 +277,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lctBox)).EndInit();
             this.lctBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txt_gStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_gName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -283,7 +285,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PFName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PFStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
