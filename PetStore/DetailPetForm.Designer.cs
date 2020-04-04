@@ -81,11 +81,11 @@
             this.btnChangeImage.Appearance.Options.UseFont = true;
             this.btnChangeImage.AutoSize = true;
             this.btnChangeImage.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChangeImage.ImageOptions.Image")));
-            this.btnChangeImage.Location = new System.Drawing.Point(350, 483);
-            this.btnChangeImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangeImage.Location = new System.Drawing.Point(467, 594);
+            this.btnChangeImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChangeImage.Name = "btnChangeImage";
             this.btnChangeImage.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnChangeImage.Size = new System.Drawing.Size(40, 38);
+            this.btnChangeImage.Size = new System.Drawing.Size(53, 47);
             toolTipItem1.Text = "Change Image of Pet\'s food";
             superToolTip1.Items.Add(toolTipItem1);
             this.btnChangeImage.SuperTip = superToolTip1;
@@ -99,24 +99,24 @@
             this.lctBox.Controls.Add(this.txt_pOriginPrice);
             this.lctBox.Controls.Add(this.txt_pName);
             this.lctBox.Controls.Add(this.txt_pID);
-            this.lctBox.Location = new System.Drawing.Point(350, 230);
-            this.lctBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lctBox.Location = new System.Drawing.Point(467, 283);
+            this.lctBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lctBox.Name = "lctBox";
             this.lctBox.Root = this.Root;
-            this.lctBox.Size = new System.Drawing.Size(343, 220);
+            this.lctBox.Size = new System.Drawing.Size(457, 271);
             this.lctBox.TabIndex = 12;
             this.lctBox.Text = "layoutControl1";
             // 
             // txt_pStatus
             // 
-            this.txt_pStatus.Location = new System.Drawing.Point(93, 160);
-            this.txt_pStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_pStatus.Location = new System.Drawing.Point(122, 184);
+            this.txt_pStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_pStatus.MenuManager = this.ribbon;
             this.txt_pStatus.Name = "txt_pStatus";
             this.txt_pStatus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txt_pStatus.Properties.Appearance.Options.UseFont = true;
             this.txt_pStatus.Properties.ReadOnly = true;
-            this.txt_pStatus.Size = new System.Drawing.Size(242, 26);
+            this.txt_pStatus.Size = new System.Drawing.Size(319, 30);
             this.txt_pStatus.StyleController = this.lctBox;
             this.txt_pStatus.TabIndex = 10;
             // 
@@ -128,12 +128,12 @@
             this.ribbon.SearchEditItem,
             this.btnClose});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbon.MaxItemId = 2;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(734, 141);
+            this.ribbon.Size = new System.Drawing.Size(979, 176);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnClose
@@ -164,74 +164,74 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 528);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 649);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(734, 27);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(979, 34);
             // 
             // txt_Type
             // 
-            this.txt_Type.Location = new System.Drawing.Point(93, 130);
-            this.txt_Type.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Type.Location = new System.Drawing.Point(122, 150);
+            this.txt_Type.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Type.MenuManager = this.ribbon;
             this.txt_Type.Name = "txt_Type";
             this.txt_Type.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txt_Type.Properties.Appearance.Options.UseFont = true;
             this.txt_Type.Properties.ReadOnly = true;
-            this.txt_Type.Size = new System.Drawing.Size(242, 26);
+            this.txt_Type.Size = new System.Drawing.Size(319, 30);
             this.txt_Type.StyleController = this.lctBox;
             this.txt_Type.TabIndex = 9;
             // 
             // txt_pPriceSale
             // 
-            this.txt_pPriceSale.Location = new System.Drawing.Point(93, 100);
-            this.txt_pPriceSale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_pPriceSale.Location = new System.Drawing.Point(122, 116);
+            this.txt_pPriceSale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_pPriceSale.MenuManager = this.ribbon;
             this.txt_pPriceSale.Name = "txt_pPriceSale";
             this.txt_pPriceSale.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txt_pPriceSale.Properties.Appearance.Options.UseFont = true;
             this.txt_pPriceSale.Properties.ReadOnly = true;
-            this.txt_pPriceSale.Size = new System.Drawing.Size(242, 26);
+            this.txt_pPriceSale.Size = new System.Drawing.Size(319, 30);
             this.txt_pPriceSale.StyleController = this.lctBox;
             this.txt_pPriceSale.TabIndex = 7;
             // 
             // txt_pOriginPrice
             // 
-            this.txt_pOriginPrice.Location = new System.Drawing.Point(93, 70);
-            this.txt_pOriginPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_pOriginPrice.Location = new System.Drawing.Point(122, 82);
+            this.txt_pOriginPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_pOriginPrice.MenuManager = this.ribbon;
             this.txt_pOriginPrice.Name = "txt_pOriginPrice";
             this.txt_pOriginPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txt_pOriginPrice.Properties.Appearance.Options.UseFont = true;
             this.txt_pOriginPrice.Properties.ReadOnly = true;
-            this.txt_pOriginPrice.Size = new System.Drawing.Size(242, 26);
+            this.txt_pOriginPrice.Size = new System.Drawing.Size(319, 30);
             this.txt_pOriginPrice.StyleController = this.lctBox;
             this.txt_pOriginPrice.TabIndex = 6;
             // 
             // txt_pName
             // 
-            this.txt_pName.Location = new System.Drawing.Point(93, 40);
-            this.txt_pName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_pName.Location = new System.Drawing.Point(122, 48);
+            this.txt_pName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_pName.MenuManager = this.ribbon;
             this.txt_pName.Name = "txt_pName";
             this.txt_pName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txt_pName.Properties.Appearance.Options.UseFont = true;
             this.txt_pName.Properties.ReadOnly = true;
-            this.txt_pName.Size = new System.Drawing.Size(242, 26);
+            this.txt_pName.Size = new System.Drawing.Size(319, 30);
             this.txt_pName.StyleController = this.lctBox;
             this.txt_pName.TabIndex = 5;
             // 
             // txt_pID
             // 
-            this.txt_pID.Location = new System.Drawing.Point(93, 10);
-            this.txt_pID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_pID.Location = new System.Drawing.Point(122, 14);
+            this.txt_pID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_pID.MenuManager = this.ribbon;
             this.txt_pID.Name = "txt_pID";
             this.txt_pID.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.txt_pID.Properties.Appearance.Options.UseFont = true;
             this.txt_pID.Properties.ReadOnly = true;
-            this.txt_pID.Size = new System.Drawing.Size(242, 26);
+            this.txt_pID.Size = new System.Drawing.Size(319, 30);
             this.txt_pID.StyleController = this.lctBox;
             this.txt_pID.TabIndex = 4;
             // 
@@ -247,7 +247,7 @@
             this.PFType,
             this.PFStatus});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(343, 220);
+            this.Root.Size = new System.Drawing.Size(457, 271);
             this.Root.TextVisible = false;
             // 
             // PFID
@@ -257,82 +257,81 @@
             this.PFID.Control = this.txt_pID;
             this.PFID.Location = new System.Drawing.Point(0, 0);
             this.PFID.Name = "PFID";
-            this.PFID.Size = new System.Drawing.Size(329, 30);
+            this.PFID.Size = new System.Drawing.Size(431, 34);
             this.PFID.Text = "ID";
-            this.PFID.TextSize = new System.Drawing.Size(83, 19);
+            this.PFID.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFName
             // 
             this.PFName.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFName.AppearanceItemCaption.Options.UseFont = true;
             this.PFName.Control = this.txt_pName;
-            this.PFName.Location = new System.Drawing.Point(0, 30);
+            this.PFName.Location = new System.Drawing.Point(0, 34);
             this.PFName.Name = "PFName";
-            this.PFName.Size = new System.Drawing.Size(329, 30);
+            this.PFName.Size = new System.Drawing.Size(431, 34);
             this.PFName.Text = "Name";
-            this.PFName.TextSize = new System.Drawing.Size(83, 19);
+            this.PFName.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFPrice
             // 
             this.PFPrice.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFPrice.AppearanceItemCaption.Options.UseFont = true;
             this.PFPrice.Control = this.txt_pOriginPrice;
-            this.PFPrice.Location = new System.Drawing.Point(0, 60);
+            this.PFPrice.Location = new System.Drawing.Point(0, 68);
             this.PFPrice.Name = "PFPrice";
-            this.PFPrice.Size = new System.Drawing.Size(329, 30);
+            this.PFPrice.Size = new System.Drawing.Size(431, 34);
             this.PFPrice.Text = "Origin price";
-            this.PFPrice.TextSize = new System.Drawing.Size(83, 19);
+            this.PFPrice.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFPriceSale
             // 
             this.PFPriceSale.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFPriceSale.AppearanceItemCaption.Options.UseFont = true;
             this.PFPriceSale.Control = this.txt_pPriceSale;
-            this.PFPriceSale.Location = new System.Drawing.Point(0, 90);
+            this.PFPriceSale.Location = new System.Drawing.Point(0, 102);
             this.PFPriceSale.Name = "PFPriceSale";
-            this.PFPriceSale.Size = new System.Drawing.Size(329, 30);
+            this.PFPriceSale.Size = new System.Drawing.Size(431, 34);
             this.PFPriceSale.Text = "Sell price";
-            this.PFPriceSale.TextSize = new System.Drawing.Size(83, 19);
+            this.PFPriceSale.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFType
             // 
             this.PFType.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFType.AppearanceItemCaption.Options.UseFont = true;
             this.PFType.Control = this.txt_Type;
-            this.PFType.Location = new System.Drawing.Point(0, 120);
+            this.PFType.Location = new System.Drawing.Point(0, 136);
             this.PFType.Name = "PFType";
-            this.PFType.Size = new System.Drawing.Size(329, 30);
+            this.PFType.Size = new System.Drawing.Size(431, 34);
             this.PFType.Text = "Type";
-            this.PFType.TextSize = new System.Drawing.Size(83, 19);
+            this.PFType.TextSize = new System.Drawing.Size(102, 24);
             // 
             // PFStatus
             // 
             this.PFStatus.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.PFStatus.AppearanceItemCaption.Options.UseFont = true;
             this.PFStatus.Control = this.txt_pStatus;
-            this.PFStatus.Location = new System.Drawing.Point(0, 150);
+            this.PFStatus.Location = new System.Drawing.Point(0, 170);
             this.PFStatus.Name = "PFStatus";
-            this.PFStatus.Size = new System.Drawing.Size(329, 54);
+            this.PFStatus.Size = new System.Drawing.Size(431, 77);
             this.PFStatus.Text = "Status";
-            this.PFStatus.TextSize = new System.Drawing.Size(83, 19);
+            this.PFStatus.TextSize = new System.Drawing.Size(102, 24);
             // 
             // lblDetail
             // 
             this.lblDetail.AutoSize = true;
             this.lblDetail.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetail.Location = new System.Drawing.Point(352, 157);
-            this.lblDetail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDetail.Location = new System.Drawing.Point(469, 193);
             this.lblDetail.Name = "lblDetail";
-            this.lblDetail.Size = new System.Drawing.Size(112, 39);
+            this.lblDetail.Size = new System.Drawing.Size(139, 48);
             this.lblDetail.TabIndex = 11;
             this.lblDetail.Text = "Detail";
             // 
             // ptbImage
             // 
-            this.ptbImage.Location = new System.Drawing.Point(9, 157);
-            this.ptbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ptbImage.Location = new System.Drawing.Point(3, 180);
+            this.ptbImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbImage.Name = "ptbImage";
-            this.ptbImage.Size = new System.Drawing.Size(330, 358);
+            this.ptbImage.Size = new System.Drawing.Size(440, 440);
             this.ptbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbImage.TabIndex = 10;
             this.ptbImage.TabStop = false;
@@ -341,18 +340,17 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(355, 203);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Location = new System.Drawing.Point(473, 250);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(68, 24);
+            this.lblTitle.Size = new System.Drawing.Size(86, 30);
             this.lblTitle.TabIndex = 11;
             this.lblTitle.Text = "Name";
             // 
             // DetailPetForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 555);
+            this.ClientSize = new System.Drawing.Size(979, 683);
             this.Controls.Add(this.btnChangeImage);
             this.Controls.Add(this.lctBox);
             this.Controls.Add(this.lblTitle);
@@ -361,7 +359,7 @@
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DetailPetForm";
             this.Text = "Pet Detail";
             ((System.ComponentModel.ISupportInitialize)(this.lctBox)).EndInit();

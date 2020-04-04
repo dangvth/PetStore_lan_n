@@ -3,16 +3,88 @@
     ViewBag.Title = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@section menu{
+    <div class="menu">
+        <ul>
+            <li><a href="/home" style="text-decoration: none">Home</a></li>
+            <li class="active"><a href="/about" style="text-decoration: none">About</a></li>
+            <li><a href="/contact" style="text-decoration: none">Contact</a></li>
+            <li><a href="/manual" style="text-decoration: none">Guide</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+}
 <div class="content">
     <div class="section group">
-        <h3>Random Group</h3>
-        <img src="images/about_img.jpg" alt="">
-        <p>We are a group in FPT University. Our group have 4 member</p>
-        <p>Include:</p>
-        <p>Phạm Nhật Minh Tân</p>
-        <p>Võ Trương Hải Đăng</p>
-        <p>Nguyễn Minh Thảo</p>
-        <p>Mạc Trường Hải</p>
+        <div class="content_top bg-light">
+            <div class="col-lg-5">
+                <h2 class="display-3 font-weight-light">Our team</h2>
+                <p class="font-italic text-muted">We are a group in FPT University. Our group have 4 member.</p>
+            </div>
+        </div><br />
+
+        <div class="row text-center">
+            <!-- Team item-->
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4">
+                    <img src="/Assets/images/avatar-thaonguyen.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <h5 class="mb-0">Nguyen Minh Thao</h5>
+                    <span class="small text-uppercase text-muted">Group member</span>
+                    <ul class="social mb-0 list-inline mt-3">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End-->
+            <!-- Team item-->
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4">
+                    <img src="/Assets/images/haimac.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <h5 class="mb-0">Mac Truong Hai</h5>
+                    <span class="small text-uppercase text-muted">Group member</span>
+                    <ul class="social mb-0 list-inline mt-3">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End-->
+            <!-- Team item-->
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4">
+                    <img src="/Assets/images/avatar-kenpham.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <h5 class="mb-0">Pham Nhat Minh Tan</h5><span class="small text-uppercase text-muted">Group leader</span>
+                    <ul class="social mb-0 list-inline mt-3">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End-->
+            <!-- Team item-->
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4">
+                    <img src="/Assets/images/avatar-dangvo.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <h5 class="mb-0">Vo Truong Hai Dang</h5><span class="small text-uppercase text-muted">Group member</span>
+                    <ul class="social mb-0 list-inline mt-3">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End-->
+
+        </div>
     </div>
 </div>
 
