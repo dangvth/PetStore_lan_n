@@ -73,7 +73,7 @@ namespace PetStoreWebClient.Controllers
             return View(allPet);
         }
 
-        public ActionResult Detail(String pID, int page = 1, int pageSize = 2)
+        public ActionResult Detail(String pID, int page = 1, int pageSize = 3)
         {
             var cmt = new CommentModel();
             var cmtd = new CommentDetailModel();

@@ -89,6 +89,10 @@ namespace PetStoreWebClient.ModelClass
                 OrderByDescending(x => (x.pm_prices - x.pm_salePrice)).Take(3).ToList();
         }
 
+        /// <summary>
+        /// get Pet's toys sale off
+        /// </summary>
+        /// <returns></returns>
         public List<PetToys> getViewPeTToySaleOff()
         {
             return db.PetToys.Where(x => x.pt_status == "Active" && x.pt_prices > x.pt_salePrice).
