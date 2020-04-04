@@ -162,7 +162,7 @@ namespace PetStore.Model
             }
             return ptList;
         }
-
+        // resize image
         public Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);

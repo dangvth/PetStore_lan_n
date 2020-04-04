@@ -35,7 +35,7 @@ namespace PetStoreWebClient.ModelClass
         }
 
         /// <summary>
-        /// get Pet Toy by ID
+        /// get Pet Medicine by ID
         /// </summary>
         /// <param name="pmID"></param>
         /// <returns></returns>
@@ -59,7 +59,7 @@ namespace PetStoreWebClient.ModelClass
         /// </summary>
         /// <param name="pmID"></param>
         /// <returns></returns>
-        public List<PetToys> getPetMedicineRelated(String ptID)
+        public List<PetToys> getPetToyRelated(String ptID)
         {
             return db.PetToys.Where(x => x.pt_id != ptID).Take(4).ToList();
         }

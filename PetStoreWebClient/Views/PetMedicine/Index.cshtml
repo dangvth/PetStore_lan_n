@@ -25,7 +25,7 @@
         </form>
     </div>
 }
-
+<!--Menu-->
 @section slide{
     <div class="header_slide">
         <div class="header_bottom_left">
@@ -71,6 +71,7 @@
         <div class="clear"></div>
     </div>
 }
+<!--Show list data-->
 <div class="content">
     <div class="content_top">
         <div class="heading">
@@ -100,7 +101,7 @@
             </div>
         }
         <div class="clear"></div>
-        <!--Phân trang-->
+        <!--Pagging-->
         @if (ViewBag.totalPage > 1)
         {
             var pageDisplay = (int)ViewBag.maxPage;

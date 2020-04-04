@@ -45,6 +45,7 @@ namespace PetStore.Views.PetMedicineView{
 			bbiCustomize.ItemClick += (s, e) => { dataLayoutControl1.ShowCustomizationForm(); };
        }
         String solutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        //get path for image Text box, just accept image file
         private void pm_imageTextEdit_Properties_Click(object sender, EventArgs e)
         {
          
@@ -61,7 +62,7 @@ namespace PetStore.Views.PetMedicineView{
                 XtraMessageBox.Show("Please choose a image with (*.jpg)/(*.png) file !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        //save product and copy image to img,image folder 
         private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String oldPath = openDialog.FileName;
@@ -75,7 +76,7 @@ namespace PetStore.Views.PetMedicineView{
             File.Copy(oldPath, @"../../img/" + pm_imageTextEdit.Text);
             MessageBox.Show("Save medicine Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        //save product and copy image to img,image folder 
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String oldPath = openDialog.FileName;
@@ -89,7 +90,7 @@ namespace PetStore.Views.PetMedicineView{
             File.Copy(oldPath, @"../../img/" + pm_imageTextEdit.Text);
             MessageBox.Show("Save medicine Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        //save product and copy image to img,image folder 
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String oldPath = openDialog.FileName;
@@ -103,18 +104,19 @@ namespace PetStore.Views.PetMedicineView{
             File.Copy(oldPath, @"../../img/" + pm_imageTextEdit.Text);
             MessageBox.Show("Save medicine Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        //load data to grid view
         private void PetMedicineView_Load(object sender, EventArgs e)
         {
             PetMedicineModel pmm = new PetMedicineModel();
             pm_idTextEdit.Text = pmm.getNextID();
             pm_statusTextEdit.SelectedItem = "Active";
         }
-
-        private void pm_idTextEdit_Properties_Click(object sender, EventArgs e)
-        {
-            PetMedicineModel pmm = new PetMedicineModel();
-            pm_idTextEdit.Text = pmm.getNextID();
-        }
+        //set id for nee product
+        //private void pm_idTextEdit_Properties_Click(object sender, EventArgs e)
+        //{
+        //    PetMedicineModel pmm = new PetMedicineModel();
+        //    pm_idTextEdit.Text = pmm.getNextID();
+        //}
     }
     
 }

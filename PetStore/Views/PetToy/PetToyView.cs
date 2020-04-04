@@ -50,7 +50,7 @@ namespace PetStore.Views.PetToyView{
             PetToyModel ptm = new PetToyModel();
             pt_idTextEdit.Text = ptm.getNextID();
         }
-
+        //get path of image, just accept image file
         private void pt_imageTextEdit_Properties_Click(object sender, EventArgs e)
         {
             openDialog.Filter = "Image files (*.jpg)|*.jpg|Image files (*.png)|*.png|All files (*.*)|*.*";
@@ -66,7 +66,7 @@ namespace PetStore.Views.PetToyView{
                 XtraMessageBox.Show("Please choose a image with (*.jpg)/(*.png) file !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        //save and copy image to img, image folder
         private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String oldPath = openDialog.FileName;
@@ -80,7 +80,7 @@ namespace PetStore.Views.PetToyView{
             File.Copy(oldPath, @"../../img/" + pt_imageTextEdit.Text);
             MessageBox.Show("Save Toys Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        //save and copy image to img, image folder
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String oldPath = openDialog.FileName;
@@ -94,7 +94,7 @@ namespace PetStore.Views.PetToyView{
             File.Copy(oldPath, @"../../img/" + pt_imageTextEdit.Text);
             MessageBox.Show("Save Toys Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        //save and copy image to img, image folder
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String oldPath = openDialog.FileName;
@@ -108,7 +108,7 @@ namespace PetStore.Views.PetToyView{
             File.Copy(oldPath, @"../../img/" + pt_imageTextEdit.Text);
             MessageBox.Show("Save Toys Successful !", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        //set timer for time add product
         private void timer_Tick(object sender, EventArgs e)
         {
             pt_publishedDateEdit.Text = System.DateTime.Now.ToString();
